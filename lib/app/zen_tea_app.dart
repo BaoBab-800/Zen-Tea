@@ -6,6 +6,8 @@ import '/core/l10n/l10n.dart';
 import '/core/providers/providers.dart';
 import '/core/theme/app_theme.dart';
 
+import '../services/settings/settings_provider.dart';
+
 class ZenTeaApp extends StatelessWidget {
   const ZenTeaApp({super.key});
 
@@ -13,22 +15,30 @@ class ZenTeaApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: providers,
+      child: const AppView(),
+    );
+  }
+}
 
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
+class AppView extends StatelessWidget {
+  const AppView({super.key});
 
-        title: 'Zen Tea',
+  @override
+  Widget build(BuildContext context) {
+    final settings = context.watch<SettingsProvider>();
 
-        theme: AppTheme.light,
-        darkTheme: AppTheme.dark,
-        themeMode: ThemeMode.system,
+    return MaterialApp.router(
+      title: 'Zen Tea',
 
-        locale: L10n.defaultLocale,
-        supportedLocales: L10n.supportedLocales,
-        localizationsDelegates: L10n.localizationsDelegates,
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      themeMode: settings.themeMode,
 
-        routerConfig: AppRouter.router,
-      ),
+      locale: settings.locale,
+      supportedLocales: L10n.supportedLocales,
+      localizationsDelegates: L10n.localizationsDelegates,
+
+      routerConfig: AppRouter.router,
     );
   }
 }

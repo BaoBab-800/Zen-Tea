@@ -1,7 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
-import '../ui/home/home_page.dart';
+import '../ui/home/home_page_builder.dart';
+import '../ui/settings/settings_page_builder.dart';
 
 enum AppRoute {
   home,
@@ -30,6 +31,11 @@ class AppRouter {
         path: AppRoute.home.path,
         builder: (context, state) => const HomePage(),
       ),
+
+      GoRoute(
+        path: AppRoute.settings.path,
+        builder: (context, state) => const SettingsPageBuilder(),
+      ),
     ]
   );
 }
@@ -37,5 +43,9 @@ class AppRouter {
 extension Navigation on BuildContext {
   void goRoute(AppRoute route) {
     go(route.path);
+  }
+
+  void pushRoute(AppRoute route) {
+    push(route.path);
   }
 }
