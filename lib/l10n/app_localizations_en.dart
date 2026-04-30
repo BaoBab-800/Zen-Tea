@@ -43,4 +43,40 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get themeDark => 'Dark';
+
+  @override
+  String get todayTea => 'Today tea';
+
+  @override
+  String get newTea => 'New tea!';
+
+  @override
+  String get readTheStory => 'Read the story';
+
+  @override
+  String get goToWiki => 'Go to Wikipedia';
+
+  @override
+  String get teaQuiz => 'Tea quiz';
+
+  @override
+  String get locked => 'Locked';
+
+  @override
+  String get blackTea => 'Black tea';
+
+  @override
+  String get greenTea => 'Green tea';
+
+  @override
+  String get earlGreyTea => 'Earl grey tea';
+
+  @override
+  String get masalaTea => 'Masala tea';
+
+  @override
+  String get matchaTea => 'Matcha tea';
+
+  @override
+  String get jasmineTea => 'Jasmine tea';
 }

@@ -169,6 +169,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Dark'**
   String get themeDark;
+
+  /// No description provided for @todayTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Today tea'**
+  String get todayTea;
+
+  /// No description provided for @newTea.
+  ///
+  /// In en, this message translates to:
+  /// **'New tea!'**
+  String get newTea;
+
+  /// No description provided for @readTheStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Read the story'**
+  String get readTheStory;
+
+  /// No description provided for @goToWiki.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to Wikipedia'**
+  String get goToWiki;
+
+  /// No description provided for @teaQuiz.
+  ///
+  /// In en, this message translates to:
+  /// **'Tea quiz'**
+  String get teaQuiz;
+
+  /// No description provided for @locked.
+  ///
+  /// In en, this message translates to:
+  /// **'Locked'**
+  String get locked;
+
+  /// No description provided for @blackTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Black tea'**
+  String get blackTea;
+
+  /// No description provided for @greenTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Green tea'**
+  String get greenTea;
+
+  /// No description provided for @earlGreyTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Earl grey tea'**
+  String get earlGreyTea;
+
+  /// No description provided for @masalaTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Masala tea'**
+  String get masalaTea;
+
+  /// No description provided for @matchaTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Matcha tea'**
+  String get matchaTea;
+
+  /// No description provided for @jasmineTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Jasmine tea'**
+  String get jasmineTea;
 }
 
 class _AppLocalizationsDelegate

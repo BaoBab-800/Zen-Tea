@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:zentea/services/settings/settings_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:zentea/services/settings/settings_service.dart';
 import 'app_router.dart';
 import '/core/l10n/l10n.dart';
 import '/core/providers/providers.dart';
 import '/core/theme/app_theme.dart';
 
 class ZenTeaApp extends StatelessWidget {
-  const ZenTeaApp({super.key});
+  final SharedPreferences prefs;
+
+  const ZenTeaApp({super.key, required this.prefs});
 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: providers,
+      providers: buildProviders(prefs),
       child: const AppView(),
     );
   }

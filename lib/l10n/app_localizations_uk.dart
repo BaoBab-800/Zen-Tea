@@ -43,4 +43,40 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get themeDark => 'Темна';
+
+  @override
+  String get todayTea => 'Сьогоднішній чай';
+
+  @override
+  String get newTea => 'Новий чай!';
+
+  @override
+  String get readTheStory => 'Прочитати історію';
+
+  @override
+  String get goToWiki => 'Перейти до Вікіпедії';
+
+  @override
+  String get teaQuiz => 'Тест по чаю';
+
+  @override
+  String get locked => 'Заблоковано';
+
+  @override
+  String get blackTea => 'Чорний чай';
+
+  @override
+  String get greenTea => 'Зелений чай';
+
+  @override
+  String get earlGreyTea => 'Чай Ерл Грей';
+
+  @override
+  String get masalaTea => 'Чай масала';
+
+  @override
+  String get matchaTea => 'Чай матча';
+
+  @override
+  String get jasmineTea => 'Жасминовий чай';
 }

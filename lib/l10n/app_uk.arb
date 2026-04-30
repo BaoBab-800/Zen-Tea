@@ -14,5 +14,21 @@
 
   "themeSystem": "Системна",
   "themeLight": "Світла",
-  "themeDark": "Темна"
+  "themeDark": "Темна",
+
+  "todayTea": "Сьогоднішній чай",
+  "newTea": "Новий чай!",
+  "readTheStory": "Прочитати історію",
+  "goToWiki": "Перейти до Вікіпедії",
+
+  "teaQuiz": "Тест по чаю",
+
+  "locked": "Заблоковано",
+
+  "blackTea": "Чорний чай",
+  "greenTea": "Зелений чай",
+  "earlGreyTea": "Чай Ерл Грей",
+  "masalaTea": "Чай масала",
+  "matchaTea": "Чай матча",
+  "jasmineTea": "Жасминовий чай"
 }

@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 class HomeAppBarSection {
   static AppBar build(BuildContext context) {
     return AppBar(
-      title: const Text('Zen tea'),
+      title: const Text(
+        'Zen tea',
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
 
       leading: Builder(
         builder: (context) {

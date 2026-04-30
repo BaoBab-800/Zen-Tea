@@ -14,5 +14,21 @@
 
   "themeSystem": "System",
   "themeLight": "Light",
-  "themeDark": "Dark"
+  "themeDark": "Dark",
+
+  "todayTea": "Today tea",
+  "newTea": "New tea!",
+  "readTheStory": "Read the story",
+  "goToWiki": "Go to Wikipedia",
+
+  "teaQuiz": "Tea quiz",
+
+  "locked": "Locked",
+
+  "blackTea": "Black tea",
+  "greenTea": "Green tea",
+  "earlGreyTea": "Earl grey tea",
+  "masalaTea": "Masala tea",
+  "matchaTea": "Matcha tea",
+  "jasmineTea": "Jasmine tea"
 }
