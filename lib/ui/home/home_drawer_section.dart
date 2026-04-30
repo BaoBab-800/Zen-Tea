@@ -10,11 +10,15 @@ class HomeDrawerSection extends StatelessWidget {
     return Drawer(
       child: ListView(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-            child: Text(
-              context.l10n.menu,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          Material(
+            elevation: 2.0,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+              color: Theme.of(context).primaryColor,
+              child: Text(
+                context.l10n.menu,
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
             ),
           ),
 

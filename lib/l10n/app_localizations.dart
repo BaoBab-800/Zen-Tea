@@ -101,7 +101,7 @@ abstract class AppLocalizations {
   /// No description provided for @currentTeaSeries.
   ///
   /// In en, this message translates to:
-  /// **'Current Tea Series'**
+  /// **'Current Tea Series: '**
   String get currentTeaSeries;
 
   /// No description provided for @getTeaForToday.

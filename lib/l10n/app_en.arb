@@ -1,7 +1,7 @@
 {
   "@@locale": "en",
 
-  "currentTeaSeries": "Current Tea Series",
+  "currentTeaSeries": "Current Tea Series: ",
   "getTeaForToday": "Get tea for today",
   "teaCollection": "Tea Collection",
   "whatKindOfTeaAreYouQuiz": "What kind of tea are you? Quiz",

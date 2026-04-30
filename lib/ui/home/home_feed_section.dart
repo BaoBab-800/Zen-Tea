@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zentea/app/app_router.dart';
 import 'package:zentea/core/l10n/l10n.dart';
 
 class HomeFeedSection extends StatelessWidget {
@@ -27,18 +28,18 @@ class HomeFeedSection extends StatelessWidget {
           ),
         ),
 
-        _buildCard(context.l10n.getTeaForToday, context, () {}),
+        _buildCard(context.l10n.getTeaForToday, context, AppRoute.getTeaForToday),
 
-        _buildCard(context.l10n.teaCollection, context, () {}),
+        _buildCard(context.l10n.teaCollection, context, AppRoute.teaCollection),
 
-        _buildCard(context.l10n.whatKindOfTeaAreYouQuiz, context, () {}),
+        _buildCard(context.l10n.whatKindOfTeaAreYouQuiz, context, AppRoute.whatKindOfTeaAreYouQuiz),
 
-        _buildCard(context.l10n.achievements, context, () {}),
+        _buildCard(context.l10n.achievements, context, AppRoute.achievements),
       ],
     );
   }
 
-  Widget _buildCard(String content, BuildContext context, VoidCallback onTap) {
+  Widget _buildCard(String content, BuildContext context, AppRoute route) {
     return Card(
       margin: EdgeInsets.symmetric(horizontal: 6.0, vertical: 8.0),
       child: ListTile(
@@ -51,7 +52,9 @@ class HomeFeedSection extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
 
-        onTap: onTap,
+        onTap: () {
+          context.pushRoute(route);
+        },
       ),
     );
   }
