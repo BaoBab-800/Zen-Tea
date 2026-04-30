@@ -6,6 +6,7 @@ import 'package:zentea/core/theme/app_theme.dart';
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 
+import 'package:zentea/services/tea_collection/tea_collection_service.dart';
 import 'package:zentea/services/today_tea/today_tea_service.dart';
 
 class GetTeaBuilder extends StatelessWidget {
@@ -16,7 +17,8 @@ class GetTeaBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final service = context.read<TodayTeaService>();
-    final teas = context.read<List<TeaModel>>();
+    final teaCollectionService = context.read<TeaCollectionService>();
+    final teas = teaCollectionService.teas;
 
     return Scaffold(
       appBar: AppBar(
@@ -27,7 +29,7 @@ class GetTeaBuilder extends StatelessWidget {
       ),
 
       body: FutureBuilder<TeaModel>(
-        future: service.getTeaOfToday(teas),
+        future: _getAndUnlockTea(service, teaCollectionService, teas),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return const Center(
@@ -41,6 +43,15 @@ class GetTeaBuilder extends StatelessWidget {
         },
       ),
     );
+  }
+
+  Future<TeaModel> _getAndUnlockTea(
+      TodayTeaService todayTeaService,
+      TeaCollectionService teaCollectionService,
+      List<TeaModel> teas) async {
+    final tea = await todayTeaService.getTeaOfToday(teas);
+    await teaCollectionService.unlockTea(tea);
+    return teaCollectionService.teas.firstWhere((item) => item.type == tea.type);
   }
 
   Widget _buildContent(BuildContext context, TeaModel tea) {

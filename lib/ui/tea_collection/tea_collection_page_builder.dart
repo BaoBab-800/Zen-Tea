@@ -6,13 +6,14 @@ import 'package:zentea/core/theme/app_theme.dart';
 
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
+import 'package:zentea/services/tea_collection/tea_collection_service.dart';
 
 class TeaCollectionPageBuilder extends StatelessWidget {
   const TeaCollectionPageBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final teas = context.watch<List<TeaModel>>();
+    final teas = context.watch<TeaCollectionService>().teas;
 
     return Scaffold(
       appBar: AppBar(

@@ -10,4 +10,16 @@ class TeaModel {
     required this.imagePath,
     this.isUnlocked = false,
   });
+
+  TeaModel copyWith({
+    TeaType? type,
+    String? imagePath,
+    bool? isUnlocked,
+  }) {
+    return TeaModel(
+      type: type ?? this.type,
+      imagePath: imagePath ?? this.imagePath,
+      isUnlocked: isUnlocked ?? this.isUnlocked,
+    );
+  }
 }
