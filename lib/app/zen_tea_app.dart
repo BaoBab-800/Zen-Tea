@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:zentea/services/settings/settings_service.dart';
 
 import 'app_router.dart';
 import '/core/l10n/l10n.dart';
 import '/core/providers/providers.dart';
 import '/core/theme/app_theme.dart';
-
-import '../services/settings/settings_provider.dart';
 
 class ZenTeaApp extends StatelessWidget {
   const ZenTeaApp({super.key});
@@ -25,7 +24,7 @@ class AppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final settings = context.watch<SettingsProvider>();
+    final settings = context.watch<SettingsService>();
 
     return MaterialApp.router(
       title: 'Zen Tea',

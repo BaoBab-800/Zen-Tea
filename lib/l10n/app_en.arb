@@ -1,3 +1,18 @@
 {
-  "welcome": "Welcome"
+  "@@locale": "en",
+
+  "currentTeaSeries": "Current Tea Series",
+  "getTeaForToday": "Get tea for today",
+  "teaCollection": "Tea Collection",
+  "whatKindOfTeaAreYouQuiz": "What kind of tea are you? Quiz",
+  "achievements": "Achievements",
+
+  "menu": "Menu",
+  "settings": "Settings",
+  "theme": "Theme",
+  "language": "Language",
+
+  "themeSystem": "System",
+  "themeLight": "Light",
+  "themeDark": "Dark"
 }

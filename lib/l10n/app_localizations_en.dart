@@ -9,5 +9,38 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get welcome => 'Welcome';
+  String get currentTeaSeries => 'Current Tea Series';
+
+  @override
+  String get getTeaForToday => 'Get tea for today';
+
+  @override
+  String get teaCollection => 'Tea Collection';
+
+  @override
+  String get whatKindOfTeaAreYouQuiz => 'What kind of tea are you? Quiz';
+
+  @override
+  String get achievements => 'Achievements';
+
+  @override
+  String get menu => 'Menu';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get theme => 'Theme';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get themeSystem => 'System';
+
+  @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
 }

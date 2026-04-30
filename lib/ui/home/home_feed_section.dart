@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zentea/core/theme/app_colors.dart';
-import 'package:zentea/core/theme/app_theme.dart';
+import 'package:zentea/core/l10n/l10n.dart';
 
 class HomeFeedSection extends StatelessWidget {
   const HomeFeedSection({super.key});
@@ -21,20 +20,20 @@ class HomeFeedSection extends StatelessWidget {
             children: [
               Icon(Icons.local_fire_department),
               Text(
-                'Current tea series: 7',
+                context.l10n.currentTeaSeries,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ],
           ),
         ),
 
-        _buildCard('Get tea for today', context, () {}),
+        _buildCard(context.l10n.getTeaForToday, context, () {}),
 
-        _buildCard('Tea collection', context, () {}),
+        _buildCard(context.l10n.teaCollection, context, () {}),
 
-        _buildCard('What kind of tea are you? Quiz', context, () {}),
+        _buildCard(context.l10n.whatKindOfTeaAreYouQuiz, context, () {}),
 
-        _buildCard('Achievements', context, () {}),
+        _buildCard(context.l10n.achievements, context, () {}),
       ],
     );
   }

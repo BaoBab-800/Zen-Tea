@@ -8,7 +8,7 @@ class L10n {
 
   static const supportedLocales = [
     Locale('en'),
-    Locale('ru'),
+    Locale('uk'),
   ];
 
   static const localizationsDelegates = [
@@ -18,4 +18,8 @@ class L10n {
     GlobalWidgetsLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
   ];
+}
+
+extension L10nX on BuildContext {
+  AppLocalizations get l10n => AppLocalizations.of(this)!;
 }

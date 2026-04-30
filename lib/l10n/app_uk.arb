@@ -1,0 +1,18 @@
+{
+  "@@locale": "uk",
+
+  "currentTeaSeries": "Поточна серія чаю",
+  "getTeaForToday": "Отримати чай на сьогодні",
+  "teaCollection": "Колекція чаю",
+  "whatKindOfTeaAreYouQuiz": "Який ти чай? Тест",
+  "achievements": "Досягнення",
+
+  "menu": "Меню",
+  "settings": "Налаштування",
+  "theme": "Тема",
+  "language": "Мова",
+
+  "themeSystem": "Системна",
+  "themeLight": "Світла",
+  "themeDark": "Темна"
+}

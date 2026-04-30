@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zentea/app/app_router.dart';
+import 'package:zentea/core/l10n/l10n.dart';
 
 class HomeDrawerSection extends StatelessWidget {
   const HomeDrawerSection({super.key});
@@ -12,12 +13,12 @@ class HomeDrawerSection extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
             child: Text(
-              'Menu',
+              context.l10n.menu,
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
           ),
 
-          _buildDrawerItem('Settings', Icons.settings, context),
+          _buildDrawerItem(context.l10n.settings, Icons.settings, context),
         ],
       ),
     );
