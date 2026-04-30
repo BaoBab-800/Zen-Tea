@@ -30,7 +30,9 @@ class GetTeaBuilder extends StatelessWidget {
         future: service.getTeaOfToday(teas),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
-            return const CircularProgressIndicator();
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           }
 
           final tea = snapshot.data!;

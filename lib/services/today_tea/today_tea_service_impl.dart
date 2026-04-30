@@ -17,7 +17,7 @@ class TodayTeaServiceImpl implements TodayTeaService {
     final savedDate = prefs.getString('tea_date');
     final savedIndex = prefs.getInt('tea_index');
 
-    if (savedDate == today && savedIndex != null) {
+    if (savedDate == today && savedIndex != null && savedIndex >= 0 && savedIndex < teas.length) {
       return teas[savedIndex];
     }
 
@@ -31,6 +31,8 @@ class TodayTeaServiceImpl implements TodayTeaService {
 
   String _todayKey() {
     final now = DateTime.now();
-    return '${now.year}-${now.month}-${now.day}';
+    final month = now.month.toString().padLeft(2, '0');
+    final day = now.day.toString().padLeft(2, '0');
+    return '${now.year}-$month-$day';
   }
 }

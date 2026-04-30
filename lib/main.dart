@@ -7,7 +7,6 @@ import 'app/zen_tea_app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await SharedPreferences.getInstance();
   await Hive.initFlutter();
   await Hive.openBox('settings');
 

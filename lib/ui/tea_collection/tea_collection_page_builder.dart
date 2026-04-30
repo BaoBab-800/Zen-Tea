@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:zentea/core/l10n/l10n.dart';
 import 'package:zentea/core/theme/app_theme.dart';
 
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
-import 'package:zentea/data/teas/list_of_teas.dart';
 
 class TeaCollectionPageBuilder extends StatelessWidget {
   const TeaCollectionPageBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final teas = context.watch<List<TeaModel>>();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -24,7 +26,7 @@ class TeaCollectionPageBuilder extends StatelessWidget {
         padding: const EdgeInsets.only(left: 12, right: 12, top: 14),
         child: Expanded(
           child: GridView.builder(
-            itemCount: listOfTeas.length,
+            itemCount: teas.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
               crossAxisSpacing: 8.0,
@@ -33,7 +35,7 @@ class TeaCollectionPageBuilder extends StatelessWidget {
             ),
 
             itemBuilder: (context, index) {
-              return TeaCard(tea: listOfTeas[index]);
+              return TeaCard(tea: teas[index]);
             }
           ),
         ),
