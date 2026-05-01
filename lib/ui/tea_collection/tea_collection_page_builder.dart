@@ -25,20 +25,18 @@ class TeaCollectionPageBuilder extends StatelessWidget {
 
       body: Padding(
         padding: const EdgeInsets.only(left: 12, right: 12, top: 14),
-        child: Expanded(
-          child: GridView.builder(
-            itemCount: teas.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              crossAxisSpacing: 8.0,
-              mainAxisSpacing: 8.0,
-              childAspectRatio: 0.7,
-            ),
-
-            itemBuilder: (context, index) {
-              return TeaCard(tea: teas[index]);
-            }
+        child: GridView.builder(
+          itemCount: teas.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            crossAxisSpacing: 8.0,
+            mainAxisSpacing: 8.0,
+            childAspectRatio: 0.7,
           ),
+
+          itemBuilder: (context, index) {
+            return TeaCard(tea: teas[index]);
+          }
         ),
       ),
     );

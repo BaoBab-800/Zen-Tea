@@ -30,5 +30,12 @@
   "earlGreyTea": "Earl grey tea",
   "masalaTea": "Masala tea",
   "matchaTea": "Matcha tea",
-  "jasmineTea": "Jasmine tea"
+  "jasmineTea": "Jasmine tea",
+
+  "blackTeaStory": "Let's pretend this is an interesting story.",
+  "greenTeaStory": "Let's pretend this is an interesting story.",
+  "earlGreyTeaStory": "Let's pretend this is an interesting story.",
+  "masalaTeaStory": "Let's pretend this is an interesting story.",
+  "matchaTeaStory": "Let's pretend this is an interesting story.",
+  "jasmineTeaStory": "Let's pretend this is an interesting story."
 }

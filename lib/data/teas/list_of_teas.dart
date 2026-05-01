@@ -5,42 +5,48 @@ final List<TeaModel> listOfTeas = [
   TeaModel(
     type: TeaType.blackTea,
     imagePath: 'assets/teas/black_tea.jpg',
+    storyKey: 'blackTeaStory',
+    url: Uri.parse('https://en.wikipedia.org/wiki/Black_tea'),
     isUnlocked: false,
   ),
 
   TeaModel(
     type: TeaType.greenTea,
     imagePath: 'assets/teas/green_tea.jpg',
-    isUnlocked: true,
+    storyKey: 'greenTeaStory',
+    url: Uri.parse('https://en.wikipedia.org/wiki/Green_tea'),
+    isUnlocked: false,
   ),
 
   TeaModel(
     type: TeaType.earlGreyTea,
     imagePath: 'assets/teas/earl_grey_tea.jpg',
+    storyKey: 'earlGreyTeaStory',
+    url: Uri.parse('https://en.wikipedia.org/wiki/Earl_Grey_tea'),
     isUnlocked: false,
   ),
 
   TeaModel(
     type: TeaType.masalaTea,
     imagePath: 'assets/teas/masala_tea.jpg',
+    storyKey: 'masalaTeaStory',
+    url: Uri.parse('https://en.wikipedia.org/wiki/Masala_chai'),
     isUnlocked: false,
   ),
 
   TeaModel(
     type: TeaType.matchaTea,
-    imagePath: 'assets/teas/matcha_jpg.jpg',
+    imagePath: 'assets/teas/matcha_tea.jpg',
+    storyKey: 'matchaTeaStory',
+    url: Uri.parse('https://en.wikipedia.org/wiki/Matcha'),
     isUnlocked: false,
   ),
 
   TeaModel(
     type: TeaType.jasmineTea,
     imagePath: 'assets/teas/jasmine_tea.jpg',
-    isUnlocked: false,
-  ),
-
-  TeaModel(
-    type: TeaType.jasmineTea,
-    imagePath: 'assets/teas/jasmine_tea.jpg',
+    storyKey: 'jasmineTeaStory',
+    url: Uri.parse('https://en.wikipedia.org/wiki/Jasmine_tea'),
     isUnlocked: false,
   ),
 ];

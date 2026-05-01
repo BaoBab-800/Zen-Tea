@@ -79,4 +79,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get jasmineTea => 'Jasmine tea';
+
+  @override
+  String get blackTeaStory => 'Let\'s pretend this is an interesting story.';
+
+  @override
+  String get greenTeaStory => 'Let\'s pretend this is an interesting story.';
+
+  @override
+  String get earlGreyTeaStory => 'Let\'s pretend this is an interesting story.';
+
+  @override
+  String get masalaTeaStory => 'Let\'s pretend this is an interesting story.';
+
+  @override
+  String get matchaTeaStory => 'Let\'s pretend this is an interesting story.';
+
+  @override
+  String get jasmineTeaStory => 'Let\'s pretend this is an interesting story.';
 }

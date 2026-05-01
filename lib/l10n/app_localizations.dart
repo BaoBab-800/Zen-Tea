@@ -241,6 +241,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Jasmine tea'**
   String get jasmineTea;
+
+  /// No description provided for @blackTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s pretend this is an interesting story.'**
+  String get blackTeaStory;
+
+  /// No description provided for @greenTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s pretend this is an interesting story.'**
+  String get greenTeaStory;
+
+  /// No description provided for @earlGreyTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s pretend this is an interesting story.'**
+  String get earlGreyTeaStory;
+
+  /// No description provided for @masalaTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s pretend this is an interesting story.'**
+  String get masalaTeaStory;
+
+  /// No description provided for @matchaTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s pretend this is an interesting story.'**
+  String get matchaTeaStory;
+
+  /// No description provided for @jasmineTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s pretend this is an interesting story.'**
+  String get jasmineTeaStory;
 }
 
 class _AppLocalizationsDelegate

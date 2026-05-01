@@ -79,4 +79,22 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get jasmineTea => 'Жасминовий чай';
+
+  @override
+  String get blackTeaStory => 'Зробимо вигляд, що тут цікава розповідь.';
+
+  @override
+  String get greenTeaStory => 'Зробимо вигляд, що тут цікава розповідь.';
+
+  @override
+  String get earlGreyTeaStory => 'Зробимо вигляд, що тут цікава розповідь.';
+
+  @override
+  String get masalaTeaStory => 'Зробимо вигляд, що тут цікава розповідь.';
+
+  @override
+  String get matchaTeaStory => 'Зробимо вигляд, що тут цікава розповідь.';
+
+  @override
+  String get jasmineTeaStory => 'Зробимо вигляд, що тут цікава розповідь.';
 }

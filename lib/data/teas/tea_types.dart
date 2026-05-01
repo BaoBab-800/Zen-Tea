@@ -30,3 +30,24 @@ extension TeaTypeX on TeaType {
     }
   }
 }
+
+extension TeaStoryX on TeaType {
+  String story(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
+    switch (this) {
+      case TeaType.blackTea:
+        return l10n.blackTeaStory;
+      case TeaType.greenTea:
+        return l10n.greenTeaStory;
+      case TeaType.earlGreyTea:
+        return l10n.earlGreyTeaStory;
+      case TeaType.masalaTea:
+        return l10n.masalaTeaStory;
+      case TeaType.matchaTea:
+        return l10n.matchaTeaStory;
+      case TeaType.jasmineTea:
+        return l10n.jasmineTeaStory;
+    }
+  }
+}

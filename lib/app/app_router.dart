@@ -1,8 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
-import 'package:zentea/data/teas/list_of_teas.dart';
-import 'package:zentea/services/today_tea/today_tea_service_impl.dart';
+import 'package:zentea/services/url/url_service.dart';
 
 import '../ui/home/home_page_builder.dart';
 import '../ui/get_tea/get_tea_builder.dart';
@@ -53,7 +52,7 @@ class AppRouter {
 
       GoRoute(
         path: AppRoute.getTeaForToday.path,
-        builder: (context, state) => GetTeaBuilder(),
+        builder: (context, state) => GetTeaBuilder(urlService: UrlService()),
       ),
 
       GoRoute(
@@ -75,7 +74,7 @@ class AppRouter {
         path: AppRoute.settings.path,
         builder: (context, state) => const SettingsPageBuilder(),
       ),
-    ]
+    ],
   );
 }
 

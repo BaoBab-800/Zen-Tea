@@ -8,10 +8,15 @@ import 'package:zentea/data/teas/tea_types.dart';
 
 import 'package:zentea/services/tea_collection/tea_collection_service.dart';
 import 'package:zentea/services/today_tea/today_tea_service.dart';
+import 'package:zentea/services/url/url_service.dart';
+import 'package:zentea/ui/history_of_teas/history_builder.dart';
 
 class GetTeaBuilder extends StatelessWidget {
+  final UrlService urlService;
+
   const GetTeaBuilder({
     super.key,
+    required this.urlService,
   });
 
   @override
@@ -79,7 +84,14 @@ class GetTeaBuilder extends StatelessWidget {
             SizedBox(
               width: 200,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => HistoryBuilder(currentTea: tea),
+                    ),
+                  );
+                },
                 child: Text(context.l10n.readTheStory),
               ),
             ),
@@ -87,7 +99,9 @@ class GetTeaBuilder extends StatelessWidget {
             const SizedBox(height: 12),
 
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                urlService.open(tea.url);
+              },
               child: Text(context.l10n.goToWiki),
             ),
           ],
