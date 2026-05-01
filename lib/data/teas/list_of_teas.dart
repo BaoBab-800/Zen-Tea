@@ -28,7 +28,7 @@ final List<TeaModel> listOfTeas = [
 
   TeaModel(
     type: TeaType.matchaTea,
-    imagePath: 'assets/teas/matcha_tea.jpg',
+    imagePath: 'assets/teas/matcha_jpg.jpg',
     isUnlocked: false,
   ),
 

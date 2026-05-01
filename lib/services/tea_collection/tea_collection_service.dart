@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'package:zentea/data/teas/list_of_teas.dart';
 import 'package:zentea/data/teas/tea_model.dart';
@@ -7,11 +7,12 @@ import 'package:zentea/data/teas/tea_model.dart';
 class TeaCollectionService extends ChangeNotifier {
   static const _unlockedTeasKey = 'unlocked_tea_types';
 
-  final SharedPreferences _prefs;
+  final Box _box = Hive.box('tea_collection');
   late final List<TeaModel> _teas;
 
-  TeaCollectionService(this._prefs) {
-    final unlockedTeaTypes = _prefs.getStringList(_unlockedTeasKey) ??
+  TeaCollectionService() {
+    final unlockedTeaTypes = (_box.get(_unlockedTeasKey) as List?)
+        ?.cast<String>() ??
         listOfTeas
             .where((tea) => tea.isUnlocked)
             .map((tea) => tea.type.name)
@@ -46,6 +47,6 @@ class TeaCollectionService extends ChangeNotifier {
         .map((tea) => tea.type.name)
         .toList();
 
-    await _prefs.setStringList(_unlockedTeasKey, unlockedTeaTypes);
+    await _box.put(_unlockedTeasKey, unlockedTeaTypes);
   }
 }

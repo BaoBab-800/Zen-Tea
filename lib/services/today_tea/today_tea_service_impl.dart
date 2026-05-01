@@ -1,21 +1,19 @@
 import 'dart:math';
 
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'today_tea_service.dart';
 import 'package:zentea/data/teas/tea_model.dart';
 
 class TodayTeaServiceImpl implements TodayTeaService {
-  final SharedPreferences prefs;
-
-  TodayTeaServiceImpl(this.prefs);
+  final Box _box = Hive.box('today_tea');
 
   @override
   Future<TeaModel> getTeaOfToday(List<TeaModel> teas) async {
     final today = _todayKey();
 
-    final savedDate = prefs.getString('tea_date');
-    final savedIndex = prefs.getInt('tea_index');
+    final savedDate = _box.get('tea_date') as String?;
+    final savedIndex = _box.get('tea_index') as int?;
 
     if (savedDate == today && savedIndex != null && savedIndex >= 0 && savedIndex < teas.length) {
       return teas[savedIndex];
@@ -23,8 +21,8 @@ class TodayTeaServiceImpl implements TodayTeaService {
 
     final randomIndex = Random().nextInt(teas.length);
 
-    await prefs.setString('tea_date', today);
-    await prefs.setInt('tea_index', randomIndex);
+    await _box.put('tea_date', today);
+    await _box.put('tea_index', randomIndex);
 
     return teas[randomIndex];
   }

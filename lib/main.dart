@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app/zen_tea_app.dart';
 
@@ -9,8 +8,8 @@ void main() async {
 
   await Hive.initFlutter();
   await Hive.openBox('settings');
+  await Hive.openBox('tea_collection');
+  await Hive.openBox('today_tea');
 
-  final prefs = await SharedPreferences.getInstance();
-
-  runApp(ZenTeaApp(prefs: prefs));
+  runApp(const ZenTeaApp());
 }
