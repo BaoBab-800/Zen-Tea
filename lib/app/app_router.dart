@@ -9,6 +9,7 @@ import '../ui/tea_collection/tea_collection_page_builder.dart';
 import '../ui/tea_quiz/tea_quiz_builder.dart';
 import '../ui/achievements/achievements_builder.dart';
 import '../ui/settings/settings_page_builder.dart';
+import '../ui/developer/developer_room.dart';
 
 enum AppRoute {
   home,
@@ -18,6 +19,7 @@ enum AppRoute {
   achievements,
   settings,
   about,
+  developer,
 }
 
 extension AppRoutePath on AppRoute {
@@ -37,6 +39,8 @@ extension AppRoutePath on AppRoute {
         return '/settings';
       case AppRoute.about:
         return '/about';
+      case AppRoute.developer:
+        return '/developer';
     }
   }
 }
@@ -73,6 +77,11 @@ class AppRouter {
       GoRoute(
         path: AppRoute.settings.path,
         builder: (context, state) => const SettingsPageBuilder(),
+      ),
+
+      GoRoute(
+        path: AppRoute.developer.path,
+        builder: (context, state) => const DeveloperRoom(),
       ),
     ],
   );

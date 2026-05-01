@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zentea/core/l10n/l10n.dart';
 
+import 'package:zentea/app/app_router.dart';
 import 'settings_theme_section.dart';
 import 'settings_language_section.dart';
 
@@ -18,11 +19,21 @@ class SettingsPageBuilder extends StatelessWidget {
       ),
 
       body: ListView(
-        children: const [
+        children: [
           SettingsThemeSection(),
           SettingsLanguageSection(),
+          _toDeveloperRoom(context),
         ],
       ),
+    );
+  }
+
+  Widget _toDeveloperRoom(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        context.pushRoute(AppRoute.developer);
+      },
+      child: Text('To developer room'),
     );
   }
 }
