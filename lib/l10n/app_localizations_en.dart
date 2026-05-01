@@ -51,6 +51,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get newTea => 'New tea!';
 
   @override
+  String teaServedTimes(Object count) {
+    return 'Served $count times';
+  }
+
+  @override
   String get readTheStory => 'Read the story';
 
   @override

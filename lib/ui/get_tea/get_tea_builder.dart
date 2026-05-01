@@ -3,15 +3,18 @@ import 'package:provider/provider.dart';
 
 import 'package:zentea/core/l10n/l10n.dart';
 import 'package:zentea/core/theme/app_theme.dart';
+
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
+import 'package:zentea/data/teas/tea_result.dart';
 
 import 'package:zentea/services/tea_collection/tea_collection_service.dart';
 import 'package:zentea/services/today_tea/today_tea_service.dart';
 import 'package:zentea/services/url/url_service.dart';
+
 import 'package:zentea/ui/history_of_teas/history_builder.dart';
 
-class GetTeaBuilder extends StatelessWidget {
+class GetTeaBuilder extends StatefulWidget {
   final UrlService urlService;
 
   const GetTeaBuilder({
@@ -20,11 +23,28 @@ class GetTeaBuilder extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    final service = context.read<TodayTeaService>();
-    final teaCollectionService = context.read<TeaCollectionService>();
-    final teas = teaCollectionService.teas;
+  State<GetTeaBuilder> createState() => _GetTeaBuilderState();
+}
 
+class _GetTeaBuilderState extends State<GetTeaBuilder> {
+  final UrlService urlService = UrlService();
+  late final Future<TeaResult> _future;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _future = Future.microtask(() {
+      final service = context.read<TodayTeaService>();
+      final teaCollectionService = context.read<TeaCollectionService>();
+      final teas = teaCollectionService.teas;
+
+      return getTodayTea(service, teaCollectionService, teas);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -33,8 +53,8 @@ class GetTeaBuilder extends StatelessWidget {
         ),
       ),
 
-      body: FutureBuilder<TeaModel>(
-        future: _getAndUnlockTea(service, teaCollectionService, teas),
+      body: FutureBuilder<TeaResult>(
+        future: _future,
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return const Center(
@@ -42,24 +62,40 @@ class GetTeaBuilder extends StatelessWidget {
             );
           }
 
-          final tea = snapshot.data!;
-
-          return _buildContent(context, tea);
+          final result = snapshot.data!;
+          return _buildContent(context, result, urlService);
         },
       ),
     );
   }
 
-  Future<TeaModel> _getAndUnlockTea(
+  Future<TeaResult> getTodayTea(
       TodayTeaService todayTeaService,
       TeaCollectionService teaCollectionService,
-      List<TeaModel> teas) async {
+      List<TeaModel> teas,
+      ) async {
     final tea = await todayTeaService.getTeaOfToday(teas);
+
+    final existing = teaCollectionService.teas
+        .firstWhere((item) => item.type == tea.type);
+
+    final isNew = !existing.isUnlocked;
+
     await teaCollectionService.unlockTea(tea);
-    return teaCollectionService.teas.firstWhere((item) => item.type == tea.type);
+    await teaCollectionService.incrementServed(tea);
+
+    final updated = teaCollectionService.teas
+        .firstWhere((item) => item.type == tea.type);
+
+    return TeaResult(
+      tea: updated,
+      isNew: isNew,
+    );
   }
 
-  Widget _buildContent(BuildContext context, TeaModel tea) {
+  Widget _buildContent(BuildContext context, TeaResult result, UrlService urlService) {
+    final tea = result.tea;
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -71,7 +107,9 @@ class GetTeaBuilder extends StatelessWidget {
             const SizedBox(height: 24),
 
             Text(
-              context.l10n.newTea,
+              result.isNew
+                  ? context.l10n.newTea
+                  : context.l10n.teaServedTimes(result.tea.timesServed),
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,

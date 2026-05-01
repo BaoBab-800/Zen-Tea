@@ -18,6 +18,12 @@
 
   "todayTea": "Сьогоднішній чай",
   "newTea": "Новий чай!",
+  "teaServedTimes": "Випало {count} разів",
+  "@teaServedTimes": {
+    "placeholders": {
+      "count": {}
+    }
+  },
   "readTheStory": "Прочитати історію",
   "goToWiki": "Перейти до Вікіпедії",
 

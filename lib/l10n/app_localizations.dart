@@ -182,6 +182,12 @@ abstract class AppLocalizations {
   /// **'New tea!'**
   String get newTea;
 
+  /// No description provided for @teaServedTimes.
+  ///
+  /// In en, this message translates to:
+  /// **'Served {count} times'**
+  String teaServedTimes(Object count);
+
   /// No description provided for @readTheStory.
   ///
   /// In en, this message translates to:

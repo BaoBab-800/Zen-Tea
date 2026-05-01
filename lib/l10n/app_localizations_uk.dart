@@ -51,6 +51,11 @@ class AppLocalizationsUk extends AppLocalizations {
   String get newTea => 'Новий чай!';
 
   @override
+  String teaServedTimes(Object count) {
+    return 'Випало $count разів';
+  }
+
+  @override
   String get readTheStory => 'Прочитати історію';
 
   @override

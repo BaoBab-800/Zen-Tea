@@ -5,6 +5,7 @@ class TeaModel {
   final String imagePath;
   final String storyKey;
   final Uri url;
+  final int timesServed;
   final bool isUnlocked;
 
   TeaModel({
@@ -12,6 +13,7 @@ class TeaModel {
     required this.imagePath,
     required this.storyKey,
     required this.url,
+    required this.timesServed,
     this.isUnlocked = false,
   });
 
@@ -20,6 +22,7 @@ class TeaModel {
     String? imagePath,
     String? story,
     Uri? url,
+    int? timesServed,
     bool? isUnlocked,
   }) {
     return TeaModel(
@@ -27,6 +30,7 @@ class TeaModel {
       imagePath: imagePath ?? this.imagePath,
       storyKey: storyKey,
       url: url ?? this.url,
+      timesServed: timesServed ?? this.timesServed,
       isUnlocked: isUnlocked ?? this.isUnlocked,
     );
   }

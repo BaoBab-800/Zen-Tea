@@ -18,6 +18,12 @@
 
   "todayTea": "Today tea",
   "newTea": "New tea!",
+  "teaServedTimes": "Served {count} times",
+  "@teaServedTimes": {
+    "placeholders": {
+      "count": {}
+    }
+  },
   "readTheStory": "Read the story",
   "goToWiki": "Go to Wikipedia",
 
