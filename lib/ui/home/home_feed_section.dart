@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:zentea/app/app_router.dart';
 import 'package:zentea/core/l10n/l10n.dart';
+import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 
 class HomeFeedSection extends StatelessWidget {
   const HomeFeedSection({super.key});
@@ -21,7 +24,7 @@ class HomeFeedSection extends StatelessWidget {
             children: [
               Icon(Icons.local_fire_department),
               Text(
-                context.l10n.currentTeaSeries,
+                '${context.l10n.currentTeaSeries} ${context.watch<QuestProgressService>().streak}',
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ],

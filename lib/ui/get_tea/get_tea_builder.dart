@@ -11,6 +11,7 @@ import 'package:zentea/data/teas/tea_result.dart';
 import 'package:zentea/services/tea_collection/tea_collection_service.dart';
 import 'package:zentea/services/today_tea/today_tea_service.dart';
 import 'package:zentea/services/url/url_service.dart';
+import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 
 import 'package:zentea/ui/history_of_teas/history_builder.dart';
 
@@ -121,25 +122,33 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
               ),
             ),
 
-            const SizedBox(height: 16),
+            const SizedBox(height: 24),
 
-            SizedBox(
-              width: 200,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => HistoryBuilder(currentTea: tea),
-                    ),
-                  );
-                },
-                child: Text(context.l10n.readTheStory),
+            // ACTION BLOCK
+            ElevatedButton(
+              onPressed: () {
+                context.read<QuestProgressService>().completeQuest();
+              },
+
+              child: Text(
+                context.l10n.questCompleted,
               ),
             ),
 
-            const SizedBox(height: 12),
+            const SizedBox(height: 16),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => HistoryBuilder(currentTea: tea),
+                  ),
+                );
+              },
+              child: Text(context.l10n.readTheStory),
+            ),
 
+            const SizedBox(height: 10),
             TextButton(
               onPressed: () {
                 urlService.open(tea.url);

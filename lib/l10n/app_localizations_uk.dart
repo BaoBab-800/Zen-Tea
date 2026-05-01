@@ -51,6 +51,12 @@ class AppLocalizationsUk extends AppLocalizations {
   String get blockAll => 'Закрити все';
 
   @override
+  String get setRandomStreak => 'Встановити випадкове значення (0-99)';
+
+  @override
+  String get resetStreak => 'Скинути серію';
+
+  @override
   String get themeSystem => 'Системна';
 
   @override
@@ -69,6 +75,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String teaServedTimes(Object count) {
     return 'Випало $count разів';
   }
+
+  @override
+  String get questCompleted => 'Завдання виконано';
 
   @override
   String get readTheStory => 'Прочитати історію';

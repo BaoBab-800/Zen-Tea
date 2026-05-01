@@ -17,6 +17,8 @@
   "resetAllValues": "Reset all values",
   "unlockAll": "Unlock all",
   "blockAll": "Block all",
+  "setRandomStreak": "Set random streak (0-99)",
+  "resetStreak": "Reset streak",
 
   "themeSystem": "System",
   "themeLight": "Light",
@@ -30,6 +32,7 @@
       "count": {}
     }
   },
+  "questCompleted": "Quest completed",
   "readTheStory": "Read the story",
   "goToWiki": "Go to Wikipedia",
 

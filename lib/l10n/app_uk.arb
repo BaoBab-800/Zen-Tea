@@ -17,6 +17,8 @@
   "resetAllValues": "Обнулити всі значення",
   "unlockAll": "Відкрити все",
   "blockAll": "Закрити все",
+  "setRandomStreak": "Встановити випадкове значення (0-99)",
+  "resetStreak": "Скинути серію",
 
   "themeSystem": "Системна",
   "themeLight": "Світла",
@@ -30,6 +32,7 @@
       "count": {}
     }
   },
+  "questCompleted": "Завдання виконано",
   "readTheStory": "Прочитати історію",
   "goToWiki": "Перейти до Вікіпедії",
 

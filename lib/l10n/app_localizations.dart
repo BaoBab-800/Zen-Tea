@@ -182,6 +182,18 @@ abstract class AppLocalizations {
   /// **'Block all'**
   String get blockAll;
 
+  /// No description provided for @setRandomStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Set random streak (0-99)'**
+  String get setRandomStreak;
+
+  /// No description provided for @resetStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset streak'**
+  String get resetStreak;
+
   /// No description provided for @themeSystem.
   ///
   /// In en, this message translates to:
@@ -217,6 +229,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Served {count} times'**
   String teaServedTimes(Object count);
+
+  /// No description provided for @questCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Quest completed'**
+  String get questCompleted;
 
   /// No description provided for @readTheStory.
   ///

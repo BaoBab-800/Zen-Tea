@@ -51,6 +51,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get blockAll => 'Block all';
 
   @override
+  String get setRandomStreak => 'Set random streak (0-99)';
+
+  @override
+  String get resetStreak => 'Reset streak';
+
+  @override
   String get themeSystem => 'System';
 
   @override
@@ -69,6 +75,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String teaServedTimes(Object count) {
     return 'Served $count times';
   }
+
+  @override
+  String get questCompleted => 'Quest completed';
 
   @override
   String get readTheStory => 'Read the story';

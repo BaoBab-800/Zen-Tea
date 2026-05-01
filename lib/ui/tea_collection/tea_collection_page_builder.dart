@@ -137,46 +137,50 @@ class TeaCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        if (!tea.isUnlocked) return;
+    return Material(
+      borderRadius: BorderRadius.circular(8.0),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(8.0),
+        onTap: () {
+          if (!tea.isUnlocked) return;
 
-        showTeaDialog(
-          context,
-          tea,
-          urlService,
-        );
-      },
+          showTeaDialog(
+            context,
+            tea,
+            urlService,
+          );
+        },
 
-      child: Container(
-        decoration: BoxDecoration(
-          color: context.colors.onPrimary.withValues(alpha: 0.5),
-          borderRadius: BorderRadius.circular(8),
-        ),
+        child: Container(
+          decoration: BoxDecoration(
+            color: context.colors.onPrimary.withValues(alpha: 0.5),
+            borderRadius: BorderRadius.circular(8),
+          ),
 
-        child: Column(
-          children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(4),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: tea.isUnlocked
-                      ? Image.asset(
-                    tea.imagePath,
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                    height: double.infinity,
-                  ) : const Center(child: Icon(Icons.lock)),
+          child: Column(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(4),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: tea.isUnlocked
+                        ? Image.asset(
+                      tea.imagePath,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      height: double.infinity,
+                    ) : const Center(child: Icon(Icons.lock)),
+                  ),
                 ),
               ),
-            ),
 
-            Text(
-              tea.isUnlocked ? tea.type.title(context) : context.l10n.locked,
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ],
+              Text(
+                tea.isUnlocked ? tea.type.title(context) : context.l10n.locked,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
         ),
       ),
     );
