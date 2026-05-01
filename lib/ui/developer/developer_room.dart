@@ -8,15 +8,14 @@ class DeveloperRoom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final service = TeaCollectionService();
+    final content = service.dumpState();
 
     return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            debugPrint(service.dumpState());
-          },
+      appBar: AppBar(title: Text('Developer room'),),
 
-          child: Text('Print info'),
+      body: Center(
+        child: Text(
+          content,
         ),
       ),
     );
