@@ -12,6 +12,12 @@
   "theme": "Theme",
   "language": "Language",
 
+  "goToDeveloperRoom": "Go to developer room",
+  "developerRoom": "Developer room",
+  "resetAllValues": "Reset all values",
+  "unlockAll": "Unlock all",
+  "blockAll": "Block all",
+
   "themeSystem": "System",
   "themeLight": "Light",
   "themeDark": "Dark",

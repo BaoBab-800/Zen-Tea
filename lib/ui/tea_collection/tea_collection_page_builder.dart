@@ -78,6 +78,15 @@ class TeaCard extends StatelessWidget {
                       ),
                     ),
 
+                    const SizedBox(height: 6),
+                    Text(
+                      context.l10n.teaServedTimes(tea.timesServed),
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+
                     const SizedBox(height: 12),
                     TextButton(
                       onPressed: () {
@@ -92,7 +101,7 @@ class TeaCard extends StatelessWidget {
                       },
                       child: Text(
                         context.l10n.readTheStory,
-                        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                        style: TextStyle(fontWeight: FontWeight.w600),
                       ),
                     ),
 
@@ -104,7 +113,7 @@ class TeaCard extends StatelessWidget {
                       },
                       child: Text(
                         context.l10n.goToWiki,
-                        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                        style: TextStyle(fontWeight: FontWeight.w600),
                       ),
                     ),
                   ],

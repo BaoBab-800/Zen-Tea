@@ -22,18 +22,18 @@ class SettingsPageBuilder extends StatelessWidget {
         children: [
           SettingsThemeSection(),
           SettingsLanguageSection(),
-          _toDeveloperRoom(context),
+          _goToDeveloperRoom(context),
         ],
       ),
     );
   }
 
-  Widget _toDeveloperRoom(BuildContext context) {
+  Widget _goToDeveloperRoom(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
         context.pushRoute(AppRoute.developer);
       },
-      child: Text('To developer room'),
+      child: Text(context.l10n.goToDeveloperRoom),
     );
   }
 }

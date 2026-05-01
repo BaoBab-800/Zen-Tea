@@ -36,6 +36,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get language => 'Language';
 
   @override
+  String get goToDeveloperRoom => 'Go to developer room';
+
+  @override
+  String get developerRoom => 'Developer room';
+
+  @override
+  String get resetAllValues => 'Reset all values';
+
+  @override
+  String get unlockAll => 'Unlock all';
+
+  @override
+  String get blockAll => 'Block all';
+
+  @override
   String get themeSystem => 'System';
 
   @override

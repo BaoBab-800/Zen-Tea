@@ -63,6 +63,7 @@ class TeaCollectionService extends ChangeNotifier {
     await _box.put(_teasKey, data);
   }
 
+  // For developer
   String dumpState() {
     final buffer = StringBuffer();
 
@@ -90,5 +91,31 @@ class TeaCollectionService extends ChangeNotifier {
     buffer.writeln('\n=== END ===');
 
     return buffer.toString();
+  }
+
+  Future<void> _updateTea(
+      TeaModel tea,
+      TeaModel Function(TeaModel current) updater,
+      ) async {
+    final index = _teas.indexWhere((item) => item.type == tea.type);
+
+    if (index == -1) return;
+
+    _teas[index] = updater(_teas[index]);
+
+    await _persist();
+    notifyListeners();
+  }
+
+  Future<void> setUnlocked(TeaModel tea, bool value) {
+    return _updateTea(
+      tea, (current) => current.copyWith(isUnlocked: value),
+    );
+  }
+
+  Future<void> setServedCount(TeaModel tea, int value) {
+    return _updateTea(
+      tea, (current) => current.copyWith(timesServed: value),
+    );
   }
 }

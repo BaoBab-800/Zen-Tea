@@ -36,6 +36,21 @@ class AppLocalizationsUk extends AppLocalizations {
   String get language => 'Мова';
 
   @override
+  String get goToDeveloperRoom => 'Перейти до кімнати розробника';
+
+  @override
+  String get developerRoom => 'Кімната розробника';
+
+  @override
+  String get resetAllValues => 'Обнулити всі значення';
+
+  @override
+  String get unlockAll => 'Відкрити все';
+
+  @override
+  String get blockAll => 'Закрити все';
+
+  @override
   String get themeSystem => 'Системна';
 
   @override

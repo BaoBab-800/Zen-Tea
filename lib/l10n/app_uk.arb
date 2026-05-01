@@ -12,6 +12,12 @@
   "theme": "Тема",
   "language": "Мова",
 
+  "goToDeveloperRoom": "Перейти до кімнати розробника",
+  "developerRoom": "Кімната розробника",
+  "resetAllValues": "Обнулити всі значення",
+  "unlockAll": "Відкрити все",
+  "blockAll": "Закрити все",
+
   "themeSystem": "Системна",
   "themeLight": "Світла",
   "themeDark": "Темна",

@@ -152,6 +152,36 @@ abstract class AppLocalizations {
   /// **'Language'**
   String get language;
 
+  /// No description provided for @goToDeveloperRoom.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to developer room'**
+  String get goToDeveloperRoom;
+
+  /// No description provided for @developerRoom.
+  ///
+  /// In en, this message translates to:
+  /// **'Developer room'**
+  String get developerRoom;
+
+  /// No description provided for @resetAllValues.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset all values'**
+  String get resetAllValues;
+
+  /// No description provided for @unlockAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock all'**
+  String get unlockAll;
+
+  /// No description provided for @blockAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Block all'**
+  String get blockAll;
+
   /// No description provided for @themeSystem.
   ///
   /// In en, this message translates to:
