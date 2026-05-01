@@ -80,9 +80,13 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
         .firstWhere((item) => item.type == tea.type);
 
     final isNew = !existing.isUnlocked;
+    final shouldCountServing = await todayTeaService.shouldCountServingForToday();
 
     await teaCollectionService.unlockTea(tea);
-    await teaCollectionService.incrementServed(tea);
+
+    if (shouldCountServing) {
+      await teaCollectionService.incrementServed(tea);
+    }
 
     final updated = teaCollectionService.teas
         .firstWhere((item) => item.type == tea.type);

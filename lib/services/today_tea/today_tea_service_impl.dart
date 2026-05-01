@@ -27,6 +27,19 @@ class TodayTeaServiceImpl implements TodayTeaService {
     return teas[randomIndex];
   }
 
+  @override
+  Future<bool> shouldCountServingForToday() async {
+    final today = _todayKey();
+    final servedDate = _box.get('served_date') as String?;
+
+    if (servedDate == today) {
+      return false;
+    }
+
+    await _box.put('served_date', today);
+    return true;
+  }
+
   String _todayKey() {
     final now = DateTime.now();
     final month = now.month.toString().padLeft(2, '0');
