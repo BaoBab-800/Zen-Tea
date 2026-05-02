@@ -17,7 +17,7 @@ final List<AchievementModel> achievementsList = [
     titleKey: TitleKeys.justTenTimes,
     descriptionKey: DescriptionKeys.saveYourTenDayStreak,
     icon: Icons.emoji_events,
-    isUnlocked: true,
+    isUnlocked: false,
   ),
 
   AchievementModel(

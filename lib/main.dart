@@ -11,6 +11,7 @@ void main() async {
   await Hive.openBox('tea_collection');
   await Hive.openBox('today_tea');
   await Hive.openBox('quest_progress');
+  await Hive.openBox('achievements');
 
   runApp(const ZenTeaApp());
 }

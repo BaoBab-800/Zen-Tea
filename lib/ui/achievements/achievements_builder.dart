@@ -6,7 +6,7 @@ import 'package:zentea/core/l10n/achievement_localization.dart';
 import 'package:zentea/core/theme/app_theme.dart';
 
 import 'package:zentea/data/achievements/achievement_model.dart';
-import 'package:zentea/data/achievements/list_of_achievements.dart';
+import 'package:zentea/services/achievements/achievements_service.dart';
 
 class AchievementsBuilder extends StatelessWidget {
   const AchievementsBuilder({super.key});
@@ -22,9 +22,9 @@ class AchievementsBuilder extends StatelessWidget {
       ),
 
       body: ListView.builder(
-        itemCount: achievementsList.length,
+        itemCount: context.watch<AchievementsService>().achievements.length,
         itemBuilder: (context, index) {
-          final achievement = achievementsList[index];
+          final achievement = context.watch<AchievementsService>().achievements[index];
           return _achievementCard(context, achievement);
         },
       ),

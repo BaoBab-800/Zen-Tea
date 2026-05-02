@@ -14,4 +14,18 @@ class AchievementModel {
     required this.icon,
     this.isUnlocked = false,
   });
+
+  AchievementModel copyWith({
+    TitleKeys? titleKey,
+    DescriptionKeys? descriptionKey,
+    IconData? icon,
+    bool? isUnlocked,
+  }) {
+    return AchievementModel(
+      titleKey: titleKey ?? this.titleKey,
+      descriptionKey: descriptionKey ?? this.descriptionKey,
+      icon: icon ?? this.icon,
+      isUnlocked: isUnlocked ?? this.isUnlocked,
+    );
+  }
 }
