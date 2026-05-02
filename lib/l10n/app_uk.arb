@@ -6,6 +6,7 @@
   "teaCollection": "Колекція чаю",
   "whatKindOfTeaAreYouQuiz": "Який ти чай? Тест",
   "achievements": "Досягнення",
+  "ok": "Ок",
 
   "menu": "Меню",
   "settings": "Налаштування",
@@ -25,6 +26,8 @@
   "themeDark": "Темна",
 
   "todayTea": "Сьогоднішній чай",
+  "aboutQuiz": "Про завдання",
+  "getTeaWarning": "Щодня ви отримуватимете новий чай. Випивши чай, ви можете натиснути кнопку «Завдання виконано», і ваша серія чаю збільшиться. Ви не будете змагатися з іншими тут, і ніхто не перевірятиме ваш прогрес. Принаймні, будьте чесними з собою.",
   "newTea": "Новий чай!",
   "teaServedTimes": "Випало {count} разів",
   "@teaServedTimes": {
@@ -33,6 +36,7 @@
     }
   },
   "questCompleted": "Завдання виконано",
+  "series": "Серія: ",
   "readTheStory": "Прочитати історію",
   "goToWiki": "Перейти до Вікіпедії",
 
@@ -52,5 +56,11 @@
   "earlGreyTeaStory": "Зробимо вигляд, що тут цікава розповідь.",
   "masalaTeaStory": "Зробимо вигляд, що тут цікава розповідь.",
   "matchaTeaStory": "Зробимо вигляд, що тут цікава розповідь.",
-  "jasmineTeaStory": "Зробимо вигляд, що тут цікава розповідь."
+  "jasmineTeaStory": "Зробимо вигляд, що тут цікава розповідь.",
+
+  "achievementTitleJustTenTimes": "Лише 10 разів",
+  "achievementTitleAllOfThem": "Усі вони",
+
+  "achievementDescriptionSaveYourTenDayStreak": "Збережіть свою 10-денну серію",
+  "achievementDescriptionCollectAllTheTeas": "Зберіть усі чаї"
 }

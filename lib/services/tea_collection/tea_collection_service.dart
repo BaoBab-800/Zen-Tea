@@ -6,6 +6,7 @@ import 'package:zentea/data/teas/tea_model.dart';
 
 class TeaCollectionService extends ChangeNotifier {
   static const _teasKey = 'teas_data';
+  static const _hasSeenDialogKey = 'has_seen_dialog';
 
   final Box _box = Hive.box('tea_collection');
   late final List<TeaModel> _teas;
@@ -61,6 +62,15 @@ class TeaCollectionService extends ChangeNotifier {
     };
 
     await _box.put(_teasKey, data);
+  }
+
+  // For dialog
+  bool hasSeenDialog() {
+    return _box.get(_hasSeenDialogKey, defaultValue: false);
+  }
+
+  Future<void> setDialogSeen() async {
+    await _box.put(_hasSeenDialogKey, true);
   }
 
   // For developer

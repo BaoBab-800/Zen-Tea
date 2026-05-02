@@ -12,20 +12,48 @@ class HomeFeedSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
+        const SizedBox(height: 4),
+
         // A widget displaying the current series
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 4.0, vertical: 6.0),
-          padding: EdgeInsets.all(16.0),
+          margin: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 6.0),
+          padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8.0),
+            color: Theme.of(context).colorScheme.surfaceVariant,
+            borderRadius: BorderRadius.circular(16),
           ),
 
           child: Row(
             children: [
-              Icon(Icons.local_fire_department),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  Icons.local_fire_department,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
+
+              const SizedBox(width: 12),
+
               Text(
-                '${context.l10n.currentTeaSeries} ${context.watch<QuestProgressService>().streak}',
-                style: Theme.of(context).textTheme.titleMedium,
+                context.l10n.currentTeaSeries,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              const SizedBox(width: 2),
+              Text(
+                '${context.watch<QuestProgressService>().streak}',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           ),

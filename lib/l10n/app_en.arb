@@ -6,6 +6,7 @@
   "teaCollection": "Tea Collection",
   "whatKindOfTeaAreYouQuiz": "What kind of tea are you? Quiz",
   "achievements": "Achievements",
+  "ok": "Ok",
 
   "menu": "Menu",
   "settings": "Settings",
@@ -25,6 +26,8 @@
   "themeDark": "Dark",
 
   "todayTea": "Today tea",
+  "aboutQuiz": "About quiz",
+  "getTeaWarning": "Every day, you will receive a new tea. After drinking the tea, you can click the «Quest Completed» button and your streak will increase. You won't be competing with others here, and no one will check your progress. At least be honest with yourself.",
   "newTea": "New tea!",
   "teaServedTimes": "Served {count} times",
   "@teaServedTimes": {
@@ -33,6 +36,7 @@
     }
   },
   "questCompleted": "Quest completed",
+  "series": "Series: ",
   "readTheStory": "Read the story",
   "goToWiki": "Go to Wikipedia",
 
@@ -52,5 +56,11 @@
   "earlGreyTeaStory": "Let's pretend this is an interesting story.",
   "masalaTeaStory": "Let's pretend this is an interesting story.",
   "matchaTeaStory": "Let's pretend this is an interesting story.",
-  "jasmineTeaStory": "Let's pretend this is an interesting story."
+  "jasmineTeaStory": "Let's pretend this is an interesting story.",
+
+  "achievementTitleJustTenTimes": "Just 10 times",
+  "achievementTitleAllOfThem": "All of them",
+
+  "achievementDescriptionSaveYourTenDayStreak": "Save your 10 day streak",
+  "achievementDescriptionCollectAllTheTeas": "Collect all the teas"
 }

@@ -42,6 +42,38 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
 
       return getTodayTea(service, teaCollectionService, teas);
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final teaCollectionService = context.read<TeaCollectionService>();
+
+      if (!teaCollectionService.hasSeenDialog()) {
+        showDialog(
+          context: context,
+          builder: (_) => _showWelcomeDialog(context),
+        );
+
+        teaCollectionService.setDialogSeen();
+      }
+    });
+  }
+
+  Widget _showWelcomeDialog(BuildContext context) {
+    return AlertDialog(
+      title: Text(context.l10n.aboutQuiz),
+
+      content: Text(
+        context.l10n.getTeaWarning,
+      ),
+
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text(context.l10n.ok),
+        ),
+      ],
+    );
   }
 
   @override
@@ -52,6 +84,19 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
           context.l10n.todayTea,
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
+
+        actions: [
+          IconButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: _showWelcomeDialog,
+              );
+            },
+
+            icon: Icon(Icons.info_outline),
+          ),
+        ],
       ),
 
       body: FutureBuilder<TeaResult>(
@@ -127,12 +172,29 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
             // ACTION BLOCK
             ElevatedButton(
               onPressed: () {
-                context.read<QuestProgressService>().completeQuest();
-              },
+                final service = context.read<QuestProgressService>();
 
-              child: Text(
-                context.l10n.questCompleted,
-              ),
+                service.completeQuest();
+
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Row(
+                      children: [
+                        const Icon(Icons.local_fire_department, color: Colors.white),
+                        const SizedBox(width: 8),
+                        Text('${context.l10n.series}${service.streak}'),
+                      ],
+                    ),
+
+                    backgroundColor: context.colors.primary.withValues(alpha: 0.8),
+                    behavior: SnackBarBehavior.floating,
+                    margin: const EdgeInsets.all(16),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                    duration: const Duration(seconds: 2),
+                  ),
+                );
+              },
+              child: Text(context.l10n.questCompleted),
             ),
 
             const SizedBox(height: 16),

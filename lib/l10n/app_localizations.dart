@@ -128,6 +128,12 @@ abstract class AppLocalizations {
   /// **'Achievements'**
   String get achievements;
 
+  /// No description provided for @ok.
+  ///
+  /// In en, this message translates to:
+  /// **'Ok'**
+  String get ok;
+
   /// No description provided for @menu.
   ///
   /// In en, this message translates to:
@@ -218,6 +224,18 @@ abstract class AppLocalizations {
   /// **'Today tea'**
   String get todayTea;
 
+  /// No description provided for @aboutQuiz.
+  ///
+  /// In en, this message translates to:
+  /// **'About quiz'**
+  String get aboutQuiz;
+
+  /// No description provided for @getTeaWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Every day, you will receive a new tea. After drinking the tea, you can click the «Quest Completed» button and your streak will increase. You won\'t be competing with others here, and no one will check your progress. At least be honest with yourself.'**
+  String get getTeaWarning;
+
   /// No description provided for @newTea.
   ///
   /// In en, this message translates to:
@@ -235,6 +253,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Quest completed'**
   String get questCompleted;
+
+  /// No description provided for @series.
+  ///
+  /// In en, this message translates to:
+  /// **'Series: '**
+  String get series;
 
   /// No description provided for @readTheStory.
   ///
@@ -331,6 +355,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Let\'s pretend this is an interesting story.'**
   String get jasmineTeaStory;
+
+  /// No description provided for @achievementTitleJustTenTimes.
+  ///
+  /// In en, this message translates to:
+  /// **'Just 10 times'**
+  String get achievementTitleJustTenTimes;
+
+  /// No description provided for @achievementTitleAllOfThem.
+  ///
+  /// In en, this message translates to:
+  /// **'All of them'**
+  String get achievementTitleAllOfThem;
+
+  /// No description provided for @achievementDescriptionSaveYourTenDayStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Save your 10 day streak'**
+  String get achievementDescriptionSaveYourTenDayStreak;
+
+  /// No description provided for @achievementDescriptionCollectAllTheTeas.
+  ///
+  /// In en, this message translates to:
+  /// **'Collect all the teas'**
+  String get achievementDescriptionCollectAllTheTeas;
 }
 
 class _AppLocalizationsDelegate

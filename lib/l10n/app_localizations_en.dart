@@ -24,6 +24,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get achievements => 'Achievements';
 
   @override
+  String get ok => 'Ok';
+
+  @override
   String get menu => 'Menu';
 
   @override
@@ -69,6 +72,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get todayTea => 'Today tea';
 
   @override
+  String get aboutQuiz => 'About quiz';
+
+  @override
+  String get getTeaWarning =>
+      'Every day, you will receive a new tea. After drinking the tea, you can click the «Quest Completed» button and your streak will increase. You won\'t be competing with others here, and no one will check your progress. At least be honest with yourself.';
+
+  @override
   String get newTea => 'New tea!';
 
   @override
@@ -78,6 +88,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get questCompleted => 'Quest completed';
+
+  @override
+  String get series => 'Series: ';
 
   @override
   String get readTheStory => 'Read the story';
@@ -126,4 +139,17 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get jasmineTeaStory => 'Let\'s pretend this is an interesting story.';
+
+  @override
+  String get achievementTitleJustTenTimes => 'Just 10 times';
+
+  @override
+  String get achievementTitleAllOfThem => 'All of them';
+
+  @override
+  String get achievementDescriptionSaveYourTenDayStreak =>
+      'Save your 10 day streak';
+
+  @override
+  String get achievementDescriptionCollectAllTheTeas => 'Collect all the teas';
 }

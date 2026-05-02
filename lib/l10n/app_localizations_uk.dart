@@ -24,6 +24,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get achievements => 'Досягнення';
 
   @override
+  String get ok => 'Ок';
+
+  @override
   String get menu => 'Меню';
 
   @override
@@ -69,6 +72,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get todayTea => 'Сьогоднішній чай';
 
   @override
+  String get aboutQuiz => 'Про завдання';
+
+  @override
+  String get getTeaWarning =>
+      'Щодня ви отримуватимете новий чай. Випивши чай, ви можете натиснути кнопку «Завдання виконано», і ваша серія чаю збільшиться. Ви не будете змагатися з іншими тут, і ніхто не перевірятиме ваш прогрес. Принаймні, будьте чесними з собою.';
+
+  @override
   String get newTea => 'Новий чай!';
 
   @override
@@ -78,6 +88,9 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get questCompleted => 'Завдання виконано';
+
+  @override
+  String get series => 'Серія: ';
 
   @override
   String get readTheStory => 'Прочитати історію';
@@ -126,4 +139,17 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get jasmineTeaStory => 'Зробимо вигляд, що тут цікава розповідь.';
+
+  @override
+  String get achievementTitleJustTenTimes => 'Лише 10 разів';
+
+  @override
+  String get achievementTitleAllOfThem => 'Усі вони';
+
+  @override
+  String get achievementDescriptionSaveYourTenDayStreak =>
+      'Збережіть свою 10-денну серію';
+
+  @override
+  String get achievementDescriptionCollectAllTheTeas => 'Зберіть усі чаї';
 }
