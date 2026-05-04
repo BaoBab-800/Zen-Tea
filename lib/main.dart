@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'app/zen_tea_app.dart';
+import 'data/stats/stats.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,6 +13,7 @@ void main() async {
   await Hive.openBox('today_tea');
   await Hive.openBox('quest_progress');
   await Hive.openBox('achievements');
+  await Hive.openBox<Stats>('stats_box');
 
   runApp(const ZenTeaApp());
 }

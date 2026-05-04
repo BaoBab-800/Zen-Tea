@@ -1,29 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:zentea/data/achievements/abstract_achievement.dart';
 
-import 'achievement_model.dart';
+import 'achievements_list/serve_ten_teas_achievement.dart';
 
-enum TitleKeys {
-  justTenTimes,
-  allOfThem,
-}
-
-enum DescriptionKeys {
-  saveYourTenDayStreak,
-  collectAllTheTeas,
-}
-
-final List<AchievementModel> achievementsList = [
-  AchievementModel(
-    titleKey: TitleKeys.justTenTimes,
-    descriptionKey: DescriptionKeys.saveYourTenDayStreak,
-    icon: Icons.emoji_events,
-    isUnlocked: false,
-  ),
-
-  AchievementModel(
-    titleKey: TitleKeys.allOfThem,
-    descriptionKey: DescriptionKeys.collectAllTheTeas,
-    icon: Icons.emoji_events,
-    isUnlocked: false,
-  ),
+final List<Achievement> allAchievements = [
+  ServeTenTeasAchievement(),
 ];

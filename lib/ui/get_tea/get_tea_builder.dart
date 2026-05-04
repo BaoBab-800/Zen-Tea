@@ -7,13 +7,11 @@ import 'package:zentea/core/theme/app_theme.dart';
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 import 'package:zentea/data/teas/tea_result.dart';
-import 'package:zentea/data/achievements/list_of_achievements.dart';
 
 import 'package:zentea/services/tea_collection/tea_collection_service.dart';
 import 'package:zentea/services/today_tea/today_tea_service.dart';
 import 'package:zentea/services/url/url_service.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
-import 'package:zentea/services/achievements/achievements_service.dart';
 
 import 'package:zentea/ui/history_of_teas/history_builder.dart';
 
@@ -145,21 +143,6 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
     );
   }
 
-  Future<void> _updateAchievements(
-      QuestProgressService questService,
-      TeaCollectionService teaCollectionService,
-      AchievementsService achievementsService,
-      ) async {
-    if (questService.streak >= 10) {
-      await achievementsService.setUnlocked(TitleKeys.justTenTimes, true);
-    }
-
-    final allTeasUnlocked = teaCollectionService.teas.every((tea) => tea.isUnlocked);
-    if (allTeasUnlocked) {
-      await achievementsService.setUnlocked(TitleKeys.allOfThem, true);
-    }
-  }
-
   Widget _buildContent(BuildContext context, TeaResult result, UrlService urlService) {
     final tea = result.tea;
 
@@ -190,11 +173,8 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
             ElevatedButton(
               onPressed: () {
                 final service = context.read<QuestProgressService>();
-                final teaCollectionService = context.read<TeaCollectionService>();
-                final achievementsService = context.read<AchievementsService>();
 
                 service.completeQuest();
-                _updateAchievements(service, teaCollectionService, achievementsService);
 
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(

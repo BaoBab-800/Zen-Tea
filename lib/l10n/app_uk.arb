@@ -58,9 +58,6 @@
   "matchaTeaStory": "Зробимо вигляд, що тут цікава розповідь.",
   "jasmineTeaStory": "Зробимо вигляд, що тут цікава розповідь.",
 
-  "achievementTitleJustTenTimes": "Лише 10 разів",
-  "achievementTitleAllOfThem": "Усі вони",
-
-  "achievementDescriptionSaveYourTenDayStreak": "Збережіть свою 10-денну серію",
-  "achievementDescriptionCollectAllTheTeas": "Зберіть усі чаї"
+  "tServeTenTeasAchievement": "Всього 10 разів",
+  "dServeTenTeasAchievement": "Продовжуйте свою 10-денну серію"
 }

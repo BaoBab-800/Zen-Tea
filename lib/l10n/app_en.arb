@@ -58,9 +58,6 @@
   "matchaTeaStory": "Let's pretend this is an interesting story.",
   "jasmineTeaStory": "Let's pretend this is an interesting story.",
 
-  "achievementTitleJustTenTimes": "Just 10 times",
-  "achievementTitleAllOfThem": "All of them",
-
-  "achievementDescriptionSaveYourTenDayStreak": "Save your 10 day streak",
-  "achievementDescriptionCollectAllTheTeas": "Collect all the teas"
+  "tServeTenTeasAchievement": "Just 10 times",
+  "dServeTenTeasAchievement": "Hold on your 10-day streak"
 }

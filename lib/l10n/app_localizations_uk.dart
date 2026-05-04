@@ -141,15 +141,8 @@ class AppLocalizationsUk extends AppLocalizations {
   String get jasmineTeaStory => 'Зробимо вигляд, що тут цікава розповідь.';
 
   @override
-  String get achievementTitleJustTenTimes => 'Лише 10 разів';
+  String get tServeTenTeasAchievement => 'Всього 10 разів';
 
   @override
-  String get achievementTitleAllOfThem => 'Усі вони';
-
-  @override
-  String get achievementDescriptionSaveYourTenDayStreak =>
-      'Збережіть свою 10-денну серію';
-
-  @override
-  String get achievementDescriptionCollectAllTheTeas => 'Зберіть усі чаї';
+  String get dServeTenTeasAchievement => 'Продовжуйте свою 10-денну серію';
 }

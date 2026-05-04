@@ -356,29 +356,17 @@ abstract class AppLocalizations {
   /// **'Let\'s pretend this is an interesting story.'**
   String get jasmineTeaStory;
 
-  /// No description provided for @achievementTitleJustTenTimes.
+  /// No description provided for @tServeTenTeasAchievement.
   ///
   /// In en, this message translates to:
   /// **'Just 10 times'**
-  String get achievementTitleJustTenTimes;
+  String get tServeTenTeasAchievement;
 
-  /// No description provided for @achievementTitleAllOfThem.
+  /// No description provided for @dServeTenTeasAchievement.
   ///
   /// In en, this message translates to:
-  /// **'All of them'**
-  String get achievementTitleAllOfThem;
-
-  /// No description provided for @achievementDescriptionSaveYourTenDayStreak.
-  ///
-  /// In en, this message translates to:
-  /// **'Save your 10 day streak'**
-  String get achievementDescriptionSaveYourTenDayStreak;
-
-  /// No description provided for @achievementDescriptionCollectAllTheTeas.
-  ///
-  /// In en, this message translates to:
-  /// **'Collect all the teas'**
-  String get achievementDescriptionCollectAllTheTeas;
+  /// **'Hold on your 10-day streak'**
+  String get dServeTenTeasAchievement;
 }
 
 class _AppLocalizationsDelegate

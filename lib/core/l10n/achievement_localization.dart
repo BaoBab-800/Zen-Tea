@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'l10n.dart';
-import 'package:zentea/data/achievements/list_of_achievements.dart';
+import 'package:zentea/data/achievements/achievement_keys.dart';
 
 class AchievementLocalization {
   String achievementTitle(BuildContext context, TitleKeys key) {
     final l10n = context.l10n;
 
     switch (key) {
-      case TitleKeys.justTenTimes:
-        return l10n.achievementTitleJustTenTimes;
-
-      case TitleKeys.allOfThem:
-        return l10n.achievementTitleAllOfThem;
+      case TitleKeys.tServeTenTeasAchievement:
+        return l10n.tServeTenTeasAchievement;
     }
   }
 
@@ -20,11 +17,8 @@ class AchievementLocalization {
     final l10n = context.l10n;
 
     switch (key) {
-      case DescriptionKeys.saveYourTenDayStreak:
-        return l10n.achievementDescriptionSaveYourTenDayStreak;
-
-      case DescriptionKeys.collectAllTheTeas:
-        return l10n.achievementDescriptionCollectAllTheTeas;
+      case DescriptionKeys.dServeTenTeasAchievement:
+        return l10n.dServeTenTeasAchievement;
     }
   }
 }
