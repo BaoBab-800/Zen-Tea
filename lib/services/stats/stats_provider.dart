@@ -25,6 +25,9 @@ class StatsProvider extends ChangeNotifier {
 
   Future<void> init() async {
     _stats = _service.getStats();
+    _unlockedIds
+      ..clear()
+      ..addAll(achievementsService.loadUnlocked());
     notifyListeners();
   }
 
@@ -48,7 +51,7 @@ class StatsProvider extends ChangeNotifier {
     await achievementsService.saveUnlocked(_unlockedIds);
   }
 
-  Future<void> _save(Stats newStats) async {
+  Future<void> save(Stats newStats) async {
     _stats = newStats;
     await _service.saveStats(newStats);
     notifyListeners();

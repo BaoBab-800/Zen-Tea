@@ -34,14 +34,11 @@ class QuestProgressService extends ChangeNotifier {
     }
   }
 
-  Future<QuestResult> completeQuest({
-    required StatsProvider statsProvider,
-    required AchievementsService achievementsService,
-  }) async {
+  Future<QuestResult> completeQuest() async {
     final now = DateTime.now();
 
-    final stats = statsProvider.stats;
-    final currentUnlocked = statsProvider.unlockedIds;
+    final stats = this.statsProvider.stats;
+    final currentUnlocked = this.statsProvider.unlockedIds;
 
     if (_isSameDay(_lastCompletedAt, now)) {
       return QuestResult(
@@ -58,13 +55,13 @@ class QuestProgressService extends ChangeNotifier {
 
     await _save();
 
-    final newUnlocked = achievementsService.checkAchievements(
+    final newUnlocked = this.achievementsService.checkAchievements(
       stats: stats,
       currentUnlocked: currentUnlocked,
     );
 
     if (newUnlocked.isNotEmpty) {
-      statsProvider.addUnlocked(newUnlocked);
+      this.statsProvider.addUnlocked(newUnlocked);
     }
 
     notifyListeners();
@@ -94,16 +91,16 @@ class QuestProgressService extends ChangeNotifier {
   }
 
   // Developer
-  void resetStreak() {
+  Future<void> resetStreak() async {
     _streak = 0;
     _lastCompletedAt = null;
-    _save();
+    await _save();
     notifyListeners();
   }
 
-  void setStreak(int streak) {
+  Future<void> setStreak(int streak) async {
     _streak = streak;
-    _save();
+    await _save();
     notifyListeners();
   }
 }

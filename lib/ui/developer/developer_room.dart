@@ -65,8 +65,8 @@ class DeveloperRoom extends StatelessWidget {
 
           const SizedBox(height: 6),
           TextButton(
-            onPressed: () {
-              quest.setStreak(Random().nextInt(100));
+            onPressed: () async  {
+              await quest.setStreak(Random().nextInt(100));
             },
 
             child: Text(context.l10n.setRandomStreak),
@@ -74,8 +74,8 @@ class DeveloperRoom extends StatelessWidget {
 
           const SizedBox(height: 6),
           TextButton(
-            onPressed: () {
-              quest.resetStreak();
+            onPressed: () async  {
+              await quest.resetStreak();
             },
 
             child: Text(context.l10n.resetStreak),

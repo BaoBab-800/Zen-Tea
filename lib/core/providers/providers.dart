@@ -13,21 +13,34 @@ import 'package:zentea/services/stats/stats_service.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
 
 List<SingleChildWidget> buildProviders() => [
+  Provider(
+    create: (_) => AchievementsService(),
+  ),
+
+  Provider(
+    create: (_) => StatsService()..init(),
+  ),
+
+  Provider<TodayTeaService>(
+    create: (_) => TodayTeaServiceImpl(),
+  ),
+
   ChangeNotifierProvider(
-    create: (_) => QuestProgressService(
-      achievementsService: AchievementsService(),
-      statsProvider: StatsProvider(StatsService(),
-        AchievementsService(),
-      ),
+    create: (context) => StatsProvider(
+      context.read<StatsService>(),
+      context.read<AchievementsService>(),
+    )..init(),
+  ),
+
+  ChangeNotifierProvider(
+    create: (context) => QuestProgressService(
+      achievementsService: context.read<AchievementsService>(),
+      statsProvider: context.read<StatsProvider>(),
     ),
   ),
 
   Provider(
-    create: (context) => AchievementsService(),
-  ),
-
-  Provider(
-    create: (context) => AchievementLocalization(),
+    create: (_) => AchievementLocalization(),
   ),
 
   ChangeNotifierProvider(
@@ -36,20 +49,5 @@ List<SingleChildWidget> buildProviders() => [
 
   ChangeNotifierProvider(
     create: (_) => SettingsService(),
-  ),
-
-  Provider<TodayTeaService>(
-    create: (context) => TodayTeaServiceImpl(),
-  ),
-
-  Provider(
-    create: (_) => StatsService()..init(),
-  ),
-
-  ChangeNotifierProvider(
-    create: (context) => StatsProvider(
-      context.read<StatsService>(),
-      context.read<AchievementsService>(),
-    )..init(),
   ),
 ];

@@ -10,6 +10,10 @@ class TodayTeaServiceImpl implements TodayTeaService {
 
   @override
   Future<TeaModel> getTeaOfToday(List<TeaModel> teas) async {
+    if (teas.isEmpty) {
+      throw StateError('Tea list cannot be empty');
+    }
+
     final today = _todayKey();
 
     final savedDate = _box.get('tea_date') as String?;

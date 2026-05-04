@@ -31,7 +31,6 @@ class GetTeaBuilder extends StatefulWidget {
 }
 
 class _GetTeaBuilderState extends State<GetTeaBuilder> {
-  final UrlService urlService = UrlService();
   late final Future<TeaResult> _future;
 
   @override
@@ -139,7 +138,7 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
           }
 
           final result = snapshot.data!;
-          return _buildContent(context, result, urlService);
+          return _buildContent(context, result, widget.urlService);
         },
       ),
     );
@@ -204,10 +203,7 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
               onPressed: () async {
                 final service = context.read<QuestProgressService>();
 
-                final result = await service.completeQuest(
-                  achievementsService: context.read(),
-                  statsProvider: context.read(),
-                );
+                final result = await service.completeQuest();
 
                 if (!context.mounted) return;
                 if (result.status == QuestResultStatus.completed) {

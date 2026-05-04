@@ -8,7 +8,7 @@ class StatsService {
 
   late final Box<Stats> _box;
 
-  Future<void> init() async {
+  void init() {
     _box = Hive.box<Stats>(_boxName);
   }
 
