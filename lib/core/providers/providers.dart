@@ -13,7 +13,14 @@ import 'package:zentea/services/stats/stats_service.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
 
 List<SingleChildWidget> buildProviders() => [
-  ChangeNotifierProvider(create: (_) => QuestProgressService()),
+  ChangeNotifierProvider(
+    create: (_) => QuestProgressService(
+      achievementsService: AchievementsService(),
+      statsProvider: StatsProvider(StatsService(),
+        AchievementsService(),
+      ),
+    ),
+  ),
 
   Provider(
     create: (context) => AchievementsService(),
@@ -40,6 +47,9 @@ List<SingleChildWidget> buildProviders() => [
   ),
 
   ChangeNotifierProvider(
-    create: (context) => StatsProvider(context.read<StatsService>())..init(),
+    create: (context) => StatsProvider(
+      context.read<StatsService>(),
+      context.read<AchievementsService>(),
+    )..init(),
   ),
 ];

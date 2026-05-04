@@ -37,6 +37,7 @@
   },
   "questCompleted": "Завдання виконано",
   "series": "Серія: ",
+  "completedQuestSeries": "Ви вже виконали завдання. Ваша серія: ",
   "readTheStory": "Прочитати історію",
   "goToWiki": "Перейти до Вікіпедії",
 

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:zentea/l10n/app_localizations.dart';
+
 import 'package:zentea/core/l10n/l10n.dart';
 import 'package:zentea/core/theme/app_theme.dart';
 
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 import 'package:zentea/data/teas/tea_result.dart';
+import 'package:zentea/data/quest/quest_result.dart';
 
 import 'package:zentea/services/tea_collection/tea_collection_service.dart';
 import 'package:zentea/services/today_tea/today_tea_service.dart';
@@ -35,11 +38,11 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
   void initState() {
     super.initState();
 
-    _future = Future.microtask(() {
-      final service = context.read<TodayTeaService>();
-      final teaCollectionService = context.read<TeaCollectionService>();
-      final teas = teaCollectionService.teas;
+    final service = context.read<TodayTeaService>();
+    final teaCollectionService = context.read<TeaCollectionService>();
+    final teas = teaCollectionService.teas;
 
+    _future = Future.microtask(() {
       return getTodayTea(service, teaCollectionService, teas);
     });
 
@@ -73,6 +76,33 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
           child: Text(context.l10n.ok),
         ),
       ],
+    );
+  }
+
+  void showSeriesSnackBarMessage(
+      BuildContext context,
+      int result,
+      String Function(AppLocalizations l10n) messageBuilder,
+      ) {
+    final text = messageBuilder(context.l10n);
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Icons.local_fire_department, color: Colors.white),
+            const SizedBox(width: 8),
+            Text(text + result.toString()),
+          ],
+        ),
+
+        backgroundColor: context.colors.primary.withValues(alpha: 0.8),
+        behavior: SnackBarBehavior.floating,
+        margin: const EdgeInsets.all(16),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        duration: const Duration(seconds: 2),
+      ),
     );
   }
 
@@ -152,7 +182,7 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _TeaCard(tea: tea),
+           _TeaCard(tea: tea),
 
             const SizedBox(height: 24),
 
@@ -171,28 +201,20 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
 
             // ACTION BLOCK
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 final service = context.read<QuestProgressService>();
 
-                service.completeQuest();
-
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Row(
-                      children: [
-                        const Icon(Icons.local_fire_department, color: Colors.white),
-                        const SizedBox(width: 8),
-                        Text('${context.l10n.series}${service.streak}'),
-                      ],
-                    ),
-
-                    backgroundColor: context.colors.primary.withValues(alpha: 0.8),
-                    behavior: SnackBarBehavior.floating,
-                    margin: const EdgeInsets.all(16),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                    duration: const Duration(seconds: 2),
-                  ),
+                final result = await service.completeQuest(
+                  achievementsService: context.read(),
+                  statsProvider: context.read(),
                 );
+
+                if (!context.mounted) return;
+                if (result.status == QuestResultStatus.completed) {
+                  showSeriesSnackBarMessage(context, result.streak, (l10n) => l10n.series);
+                } else if (result.status == QuestResultStatus.alreadyDoneToday) {
+                  showSeriesSnackBarMessage(context, result.streak, (l10n) => l10n.completedQuestSeries);
+                }
               },
               child: Text(context.l10n.questCompleted),
             ),

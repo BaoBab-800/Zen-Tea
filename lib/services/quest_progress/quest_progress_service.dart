@@ -1,8 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 
+import 'package:zentea/data/quest/quest_result.dart';
+
+import '../achievements/achievements_service.dart';
+import '../stats/stats_provider.dart';
+
 class QuestProgressService extends ChangeNotifier {
   final Box _box = Hive.box('quest_progress');
+  final StatsProvider statsProvider;
+  final AchievementsService achievementsService;
 
   int _streak = 0;
   DateTime? _lastCompletedAt;
@@ -10,7 +17,11 @@ class QuestProgressService extends ChangeNotifier {
   int get streak => _streak;
   DateTime? get lastCompletedAt => _lastCompletedAt;
 
-  QuestProgressService() {
+
+  QuestProgressService({
+    required this.statsProvider,
+    required this.achievementsService,
+  }) {
     _load();
   }
 
@@ -23,24 +34,46 @@ class QuestProgressService extends ChangeNotifier {
     }
   }
 
-  Future<void> completeQuest() async {
+  Future<QuestResult> completeQuest({
+    required StatsProvider statsProvider,
+    required AchievementsService achievementsService,
+  }) async {
     final now = DateTime.now();
 
+    final stats = statsProvider.stats;
+    final currentUnlocked = statsProvider.unlockedIds;
+
     if (_isSameDay(_lastCompletedAt, now)) {
-      return;
+      return QuestResult(
+        streak: _streak,
+        isNewRecord: false,
+        status: QuestResultStatus.alreadyDoneToday,
+      );
     }
 
-    if (_isConsecutiveDay(_lastCompletedAt, now)) {
-      _streak++;
-    } else {
-      _streak = 1;
-    }
+    final isNewStreak = _isConsecutiveDay(_lastCompletedAt, now);
 
+    _streak = isNewStreak ? _streak + 1 : 1;
     _lastCompletedAt = now;
 
     await _save();
 
+    final newUnlocked = achievementsService.checkAchievements(
+      stats: stats,
+      currentUnlocked: currentUnlocked,
+    );
+
+    if (newUnlocked.isNotEmpty) {
+      statsProvider.addUnlocked(newUnlocked);
+    }
+
     notifyListeners();
+
+    return QuestResult(
+      streak: _streak,
+      isNewRecord: false,
+      status: QuestResultStatus.completed,
+    );
   }
 
   Future<void> _save() async {
