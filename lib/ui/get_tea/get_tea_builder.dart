@@ -92,7 +92,7 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
           children: [
             const Icon(Icons.local_fire_department, color: Colors.white),
             const SizedBox(width: 8),
-            Text(text + result.toString()),
+            Text(text + result.toString(), overflow: TextOverflow.ellipsis,),
           ],
         ),
 

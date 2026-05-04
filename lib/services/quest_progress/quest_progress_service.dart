@@ -37,8 +37,7 @@ class QuestProgressService extends ChangeNotifier {
   Future<QuestResult> completeQuest() async {
     final now = DateTime.now();
 
-    final stats = this.statsProvider.stats;
-    final currentUnlocked = this.statsProvider.unlockedIds;
+    _checkAndUnlockAchievements();
 
     if (_isSameDay(_lastCompletedAt, now)) {
       return QuestResult(
@@ -55,14 +54,7 @@ class QuestProgressService extends ChangeNotifier {
 
     await _save();
 
-    final newUnlocked = this.achievementsService.checkAchievements(
-      stats: stats,
-      currentUnlocked: currentUnlocked,
-    );
-
-    if (newUnlocked.isNotEmpty) {
-      this.statsProvider.addUnlocked(newUnlocked);
-    }
+    _checkAndUnlockAchievements();
 
     notifyListeners();
 
@@ -71,6 +63,20 @@ class QuestProgressService extends ChangeNotifier {
       isNewRecord: false,
       status: QuestResultStatus.completed,
     );
+  }
+
+  void _checkAndUnlockAchievements() {
+    final stats = statsProvider.stats;
+    final currentUnlocked = statsProvider.unlockedIds;
+
+    final newUnlocked = achievementsService.checkAchievements(
+      stats: stats,
+      currentUnlocked: currentUnlocked,
+    );
+
+    if (newUnlocked.isNotEmpty) {
+      statsProvider.addUnlocked(newUnlocked);
+    }
   }
 
   Future<void> _save() async {
