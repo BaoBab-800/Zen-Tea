@@ -8,6 +8,14 @@ enum TeaType {
   masalaTea,
   matchaTea,
   jasmineTea,
+  oolongTea,
+}
+
+enum TeaFeatures {
+  common,
+  rare,
+  legendary,
+  secret,
 }
 
 extension TeaTypeX on TeaType {
@@ -27,6 +35,8 @@ extension TeaTypeX on TeaType {
         return l10n.matchaTea;
       case TeaType.jasmineTea:
         return l10n.jasmineTea;
+      case TeaType.oolongTea:
+        return l10n.oolongTea;
     }
   }
 }
@@ -48,6 +58,8 @@ extension TeaStoryX on TeaType {
         return l10n.matchaTeaStory;
       case TeaType.jasmineTea:
         return l10n.jasmineTeaStory;
+      case TeaType.oolongTea:
+        return l10n.oolongTeaStory;
     }
   }
 }

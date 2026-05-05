@@ -19,6 +19,7 @@ class StatsService {
           uniqueTeas: 0,
           streakDays: 0,
           currentTeaServed: 0,
+          rareTeasObtained: 0,
         );
   }
 

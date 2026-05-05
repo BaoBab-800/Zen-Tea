@@ -127,6 +127,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get jasmineTea => 'Jasmine tea';
 
   @override
+  String get oolongTea => 'Oolong tea';
+
+  @override
   String get blackTeaStory => 'Let\'s pretend this is an interesting story.';
 
   @override
@@ -145,8 +148,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get jasmineTeaStory => 'Let\'s pretend this is an interesting story.';
 
   @override
+  String get oolongTeaStory => 'Let\'s pretend this is an interesting story.';
+
+  @override
   String get tServeTenTeasAchievement => 'Just 10 times';
 
   @override
   String get dServeTenTeasAchievement => 'Hold on your 10-day streak';
+
+  @override
+  String get tGetRareTeaAchievement => 'A rare find';
+
+  @override
+  String get dGetRareTeaAchievement => 'Get a rare tea';
 }

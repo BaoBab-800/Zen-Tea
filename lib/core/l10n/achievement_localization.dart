@@ -10,6 +10,8 @@ class AchievementLocalization {
     switch (key) {
       case TitleKeys.tServeTenTeasAchievement:
         return l10n.tServeTenTeasAchievement;
+      case TitleKeys.tGetRareTeaAchievement:
+        return l10n.tGetRareTeaAchievement;
     }
   }
 
@@ -19,6 +21,8 @@ class AchievementLocalization {
     switch (key) {
       case DescriptionKeys.dServeTenTeasAchievement:
         return l10n.dServeTenTeasAchievement;
+      case DescriptionKeys.dGetRareTeaAchievement:
+        return l10n.dGetRareTeaAchievement;
     }
   }
 }

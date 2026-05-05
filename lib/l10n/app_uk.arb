@@ -51,6 +51,7 @@
   "masalaTea": "Чай масала",
   "matchaTea": "Чай матча",
   "jasmineTea": "Жасминовий чай",
+  "oolongTea": "Чай улун",
 
   "blackTeaStory": "Зробимо вигляд, що тут цікава розповідь.",
   "greenTeaStory": "Зробимо вигляд, що тут цікава розповідь.",
@@ -58,7 +59,11 @@
   "masalaTeaStory": "Зробимо вигляд, що тут цікава розповідь.",
   "matchaTeaStory": "Зробимо вигляд, що тут цікава розповідь.",
   "jasmineTeaStory": "Зробимо вигляд, що тут цікава розповідь.",
+  "oolongTeaStory": "Зробимо вигляд, що тут цікава розповідь.",
 
   "tServeTenTeasAchievement": "Всього 10 разів",
-  "dServeTenTeasAchievement": "Продовжуйте свою 10-денну серію"
+  "dServeTenTeasAchievement": "Продовжуйте свою 10-денну серію",
+
+  "tGetRareTeaAchievement": "Рідкісна знахідка",
+  "dGetRareTeaAchievement": "Отримайте рідкісний чай"
 }

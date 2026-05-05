@@ -51,6 +51,7 @@
   "masalaTea": "Masala tea",
   "matchaTea": "Matcha tea",
   "jasmineTea": "Jasmine tea",
+  "oolongTea": "Oolong tea",
 
   "blackTeaStory": "Let's pretend this is an interesting story.",
   "greenTeaStory": "Let's pretend this is an interesting story.",
@@ -58,7 +59,11 @@
   "masalaTeaStory": "Let's pretend this is an interesting story.",
   "matchaTeaStory": "Let's pretend this is an interesting story.",
   "jasmineTeaStory": "Let's pretend this is an interesting story.",
+  "oolongTeaStory": "Let's pretend this is an interesting story.",
 
   "tServeTenTeasAchievement": "Just 10 times",
-  "dServeTenTeasAchievement": "Hold on your 10-day streak"
+  "dServeTenTeasAchievement": "Hold on your 10-day streak",
+
+  "tGetRareTeaAchievement": "A rare find",
+  "dGetRareTeaAchievement": "Get a rare tea"
 }

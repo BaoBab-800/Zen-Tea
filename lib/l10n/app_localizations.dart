@@ -326,6 +326,12 @@ abstract class AppLocalizations {
   /// **'Jasmine tea'**
   String get jasmineTea;
 
+  /// No description provided for @oolongTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Oolong tea'**
+  String get oolongTea;
+
   /// No description provided for @blackTeaStory.
   ///
   /// In en, this message translates to:
@@ -362,6 +368,12 @@ abstract class AppLocalizations {
   /// **'Let\'s pretend this is an interesting story.'**
   String get jasmineTeaStory;
 
+  /// No description provided for @oolongTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s pretend this is an interesting story.'**
+  String get oolongTeaStory;
+
   /// No description provided for @tServeTenTeasAchievement.
   ///
   /// In en, this message translates to:
@@ -373,6 +385,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hold on your 10-day streak'**
   String get dServeTenTeasAchievement;
+
+  /// No description provided for @tGetRareTeaAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'A rare find'**
+  String get tGetRareTeaAchievement;
+
+  /// No description provided for @dGetRareTeaAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'Get a rare tea'**
+  String get dGetRareTeaAchievement;
 }
 
 class _AppLocalizationsDelegate

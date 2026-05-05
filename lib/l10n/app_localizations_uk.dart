@@ -126,6 +126,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get jasmineTea => 'Жасминовий чай';
 
   @override
+  String get oolongTea => 'Чай улун';
+
+  @override
   String get blackTeaStory => 'Зробимо вигляд, що тут цікава розповідь.';
 
   @override
@@ -144,8 +147,17 @@ class AppLocalizationsUk extends AppLocalizations {
   String get jasmineTeaStory => 'Зробимо вигляд, що тут цікава розповідь.';
 
   @override
+  String get oolongTeaStory => 'Зробимо вигляд, що тут цікава розповідь.';
+
+  @override
   String get tServeTenTeasAchievement => 'Всього 10 разів';
 
   @override
   String get dServeTenTeasAchievement => 'Продовжуйте свою 10-денну серію';
+
+  @override
+  String get tGetRareTeaAchievement => 'Рідкісна знахідка';
+
+  @override
+  String get dGetRareTeaAchievement => 'Отримайте рідкісний чай';
 }

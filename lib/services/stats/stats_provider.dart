@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:zentea/data/achievements/achievement_keys.dart';
 
 import 'package:zentea/data/stats/stats.dart';
+import 'package:zentea/data/teas/tea_model.dart';
+import 'package:zentea/data/teas/tea_types.dart';
 
 import 'stats_service.dart';
 import '../achievements/achievements_service.dart';
@@ -16,6 +18,7 @@ class StatsProvider extends ChangeNotifier {
     uniqueTeas: 0,
     streakDays: 0,
     currentTeaServed: 0,
+    rareTeasObtained: 0,
   );
 
   Stats get stats => _stats;
@@ -35,16 +38,31 @@ class StatsProvider extends ChangeNotifier {
     return _unlockedIds.contains(id);
   }
 
-  void addUnlocked(Set<IdKeys> newUnlocked) {
+  void addUnlocked(Set<IdKeys> newUnlocked) async {
     final added = newUnlocked.difference(_unlockedIds);
 
     if (added.isEmpty) return;
 
     _unlockedIds.addAll(added);
 
-    _saveUnlocked();
+    await _saveUnlocked();
 
     notifyListeners();
+  }
+
+  void onTeaOpened(TeaModel tea) {
+    if (tea.features == TeaFeatures.rare) {
+      _stats = _stats.copyWith(
+        rareTeasObtained: _stats.rareTeasObtained + 1,
+      );
+    }
+
+    final newUnlocked = achievementsService.checkAchievements(
+      currentUnlocked: _unlockedIds,
+      stats: _stats,
+    );
+
+    addUnlocked(newUnlocked);
   }
 
   Future<void> _saveUnlocked() async {

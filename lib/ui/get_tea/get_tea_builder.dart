@@ -10,6 +10,7 @@ import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 import 'package:zentea/data/teas/tea_result.dart';
 import 'package:zentea/data/quest/quest_result.dart';
+import 'package:zentea/services/stats/stats_provider.dart';
 
 import 'package:zentea/services/tea_collection/tea_collection_service.dart';
 import 'package:zentea/services/today_tea/today_tea_service.dart';
@@ -202,8 +203,10 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
             ElevatedButton(
               onPressed: () async {
                 final service = context.read<QuestProgressService>();
+                final statsProvider = context.read<StatsProvider>();
 
                 final result = await service.completeQuest();
+                statsProvider.onTeaOpened(tea);
 
                 if (!context.mounted) return;
                 if (result.status == QuestResultStatus.completed) {
