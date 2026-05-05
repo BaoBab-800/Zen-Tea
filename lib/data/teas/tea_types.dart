@@ -15,7 +15,17 @@ enum TeaFeatures {
   common,
   rare,
   legendary,
-  secret,
+}
+
+int getWeight(TeaFeatures feature) {
+  switch (feature) {
+    case TeaFeatures.common:
+      return 70;
+    case TeaFeatures.rare:
+      return 20;
+    case TeaFeatures.legendary:
+      return 10;
+  }
 }
 
 extension TeaTypeX on TeaType {

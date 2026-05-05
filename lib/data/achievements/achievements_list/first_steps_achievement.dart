@@ -10,7 +10,7 @@ class FirstStepsAchievement extends Achievement {
     id: IdKeys.idFirstStepsAchievement,
     titleKey: TitleKeys.tFirstStepsAchievement,
     descriptionKey: DescriptionKeys.dFirstStepsAchievement,
-    icon: Icons.emoji_events,
+    icon: Icons.directions_walk,
   );
 
   @override

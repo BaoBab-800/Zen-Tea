@@ -5,7 +5,7 @@ import 'achievements_list/get_rare_tea.dart';
 import 'achievements_list/first_steps_achievement.dart';
 
 final List<Achievement> allAchievements = [
+  FirstStepsAchievement(),
   ServeTenTeasAchievement(),
   GetRareTeaAchievement(),
-  FirstStepsAchievement(),
 ];

@@ -2,8 +2,10 @@ import 'dart:math';
 
 import 'package:hive_flutter/hive_flutter.dart';
 
-import 'today_tea_service.dart';
 import 'package:zentea/data/teas/tea_model.dart';
+import 'package:zentea/data/teas/tea_types.dart';
+
+import 'today_tea_service.dart';
 
 class TodayTeaServiceImpl implements TodayTeaService {
   final Box _box = Hive.box('today_tea');
@@ -42,6 +44,27 @@ class TodayTeaServiceImpl implements TodayTeaService {
 
     await _box.put('served_date', today);
     return true;
+  }
+
+  @override
+  TeaModel getWeightedRandomTea(List<TeaModel> teas) {
+    final totalWeight = teas.fold<int>(
+      0, (sum, tea) => sum + getWeight(tea.features),
+    );
+
+    final random = Random().nextInt(totalWeight);
+
+    int current = 0;
+
+    for (final tea in teas) {
+      current += getWeight(tea.features);
+
+      if (random < current) {
+        return tea;
+      }
+    }
+
+    return teas.last;
   }
 
   String _todayKey() {
