@@ -205,14 +205,17 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
                 final service = context.read<QuestProgressService>();
                 final statsProvider = context.read<StatsProvider>();
 
-                final result = await service.completeQuest();
-                statsProvider.onTeaOpened(tea);
+                final questResult = await service.completeQuest();
+
+                if (questResult.status == QuestResultStatus.completed) {
+                  await statsProvider.onTeaOpened(tea, isNew: result.isNew);
+                }
 
                 if (!context.mounted) return;
-                if (result.status == QuestResultStatus.completed) {
-                  showSeriesSnackBarMessage(context, result.streak, (l10n) => l10n.series);
-                } else if (result.status == QuestResultStatus.alreadyDoneToday) {
-                  showSeriesSnackBarMessage(context, result.streak, (l10n) => l10n.completedQuestSeries);
+                if (questResult.status == QuestResultStatus.completed) {
+                  showSeriesSnackBarMessage(context, questResult.streak, (l10n) => l10n.series);
+                } else if (questResult.status == QuestResultStatus.alreadyDoneToday) {
+                  showSeriesSnackBarMessage(context, questResult.streak, (l10n) => l10n.completedQuestSeries);
                 }
               },
               child: Text(context.l10n.questCompleted),

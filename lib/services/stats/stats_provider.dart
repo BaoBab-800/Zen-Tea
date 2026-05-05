@@ -50,12 +50,15 @@ class StatsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void onTeaOpened(TeaModel tea) {
-    if (tea.features == TeaFeatures.rare) {
-      _stats = _stats.copyWith(
-        rareTeasObtained: _stats.rareTeasObtained + 1,
-      );
-    }
+  Future<void> onTeaOpened(TeaModel tea, {required bool isNew}) async {
+    _stats = _stats.copyWith(
+      totalServed: _stats.totalServed + 1,
+      rareTeasObtained: tea.features == TeaFeatures.rare && isNew
+          ? _stats.rareTeasObtained + 1
+          : _stats.rareTeasObtained,
+    );
+
+    await _service.saveStats(_stats);
 
     final newUnlocked = achievementsService.checkAchievements(
       currentUnlocked: _unlockedIds,
@@ -63,6 +66,7 @@ class StatsProvider extends ChangeNotifier {
     );
 
     addUnlocked(newUnlocked);
+    notifyListeners();
   }
 
   Future<void> _saveUnlocked() async {

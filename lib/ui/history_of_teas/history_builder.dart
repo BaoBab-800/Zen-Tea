@@ -22,56 +22,64 @@ class HistoryBuilder extends StatelessWidget {
         ),
       ),
 
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(height: 20),
-              Material(
-                elevation: 6,
-                borderRadius: BorderRadius.circular(16),
-                child: Container(
-                  width: 220,
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
+      body: SingleChildScrollView(
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 600),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  Material(
+                    elevation: 6,
                     borderRadius: BorderRadius.circular(16),
-                    color: context.colors.surface,
-                  ),
+                    child: Container(
+                      width: double.infinity,
+                      margin: const EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        color: context.colors.surface,
+                      ),
 
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: SizedBox(
-                          width: double.infinity,
-                          height: 260,
-                          child: Image.asset(
-                            currentTea.imagePath,
-                            fit: BoxFit.cover,
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: SizedBox(
+                              width: double.infinity,
+                              height: 260,
+                              child: Image.asset(
+                                currentTea.imagePath,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
-                        ),
+
+                          const SizedBox(height: 12),
+
+                          Text(
+                            currentTea.type.titleStory(context),
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          const SizedBox(height: 6),
+                          Text(currentTea.type.story(context)),
+                        ],
                       ),
-
-                      const SizedBox(height: 12),
-
-                      Text(
-                        currentTea.type.title(context),
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-
-                      const SizedBox(height: 6),
-                      Text(currentTea.type.story(context)),
-                    ],
+                    ),
                   ),
-                ),
-              ),
 
-              const SizedBox(height: 200),
-              Text('Пасхалка'),
-            ],
+                  const SizedBox(height: 200),
+                  Text('Пасхалка'),
+                ],
+              ),
+            ),
           ),
         ),
       ),

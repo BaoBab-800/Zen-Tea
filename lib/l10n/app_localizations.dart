@@ -332,46 +332,88 @@ abstract class AppLocalizations {
   /// **'Oolong tea'**
   String get oolongTea;
 
+  /// No description provided for @blackTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Black Tea - «The Tea That Accidentally Became a Legend»'**
+  String get blackTeaStoryTitle;
+
   /// No description provided for @blackTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Let\'s pretend this is an interesting story.'**
+  /// **'They say black tea didn\'t appear because someone intended it that way, but because green tea was forgotten one day.\n\nIn China, tea leaves were typically processed quickly to preserve their freshness and green color. But one day, a batch of leaves was left over and began to oxidize. The leaves darkened, the aroma changed, and instead of the usual herbal flavor, a rich, deep aroma emerged.\n\nAnd instead of throwing it away, people tried it. And they liked it.\n\nThus, a new type of tea was born, which later became known as black tea.'**
   String get blackTeaStory;
+
+  /// No description provided for @greenTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Green tea - «the tea that didn\'t let itself change»'**
+  String get greenTeaStoryTitle;
 
   /// No description provided for @greenTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Let\'s pretend this is an interesting story.'**
+  /// **'Green tea is a tea that has almost \'escaped\' transformation.\n\nIts history is believed to have begun in China over 4,000 years ago, and for a long time, it was the \'purest\' way to drink tea: the leaves were simply heated briefly to halt any changes.\n\nUnlike black tea, green tea allows the leaves to barely age. It seems to preserve the moment—the freshness, the herbal aroma, the slight bitterness, and the vibrant energy of the plant.'**
   String get greenTeaStory;
+
+  /// No description provided for @earlGreyTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Earl Grey - «tea with the aroma of chance and aristocracy»'**
+  String get earlGreyTeaStoryTitle;
 
   /// No description provided for @earlGreyTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Let\'s pretend this is an interesting story.'**
+  /// **'Earl Grey is a black tea that once encountered bergamot, it was never the same again.\n\nAccording to one of the most famous stories, this tea was named after the British Earl Charles Grey. Legend has it that he was given tea flavored with bergamot oil to soften the taste of water while traveling. The Earl liked it so much that it began to be served at court.\n\nWhether this is true or a beautiful invention, no one knows for sure. But the name has remained.'**
   String get earlGreyTeaStory;
+
+  /// No description provided for @masalaTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Masala chai - «tea that can\'t be quiet»'**
+  String get masalaTeaStoryTitle;
 
   /// No description provided for @masalaTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Let\'s pretend this is an interesting story.'**
+  /// **'Masala chai was born not as a sophisticated drink, but as a street energy.\n\nTea arrived in India relatively late – it was brought by the British in the 19th century. But locals found it too boring. So, they did what they do best: they started experimenting.\n\nSo, they added milk, sugar, and a whole spice blend called \'masala\' to ordinary black tea. And tea ceased to be just a drink. It became an event.'**
   String get masalaTeaStory;
+
+  /// No description provided for @matchaTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Matcha is «tea that is not brewed, but lived.»'**
+  String get matchaTeaStoryTitle;
 
   /// No description provided for @matchaTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Let\'s pretend this is an interesting story.'**
+  /// **'Matcha isn\'t just tea. It\'s tea you drink whole.\n\nIts history begins in China, but it took its true form in Japan, where it became part of the tea ceremony, almost like the art of slowing down time.\n\nSeveral weeks before harvesting, the tea bushes are deliberately shaded from the sun. The plant \'thinks\' it\'s the forest\'s shade and begins to produce more chlorophyll and amino acids. This is why matcha is so bright green and rich in flavor.'**
   String get matchaTeaStory;
+
+  /// No description provided for @jasmineTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Jasmine tea is «a tea that is remembered not for its taste, but for its aroma.»'**
+  String get jasmineTeaStoryTitle;
 
   /// No description provided for @jasmineTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Let\'s pretend this is an interesting story.'**
+  /// **'Jasmine tea is not just about tea, but also about flowers.\n\nIts base is almost always green tea, but the real action happens not in the leaves, but around them. Fresh jasmine flowers open at night and release their aroma. The tea leaves absorb this scent, as if \'inhaling\' it.\n\nThen the flowers are harvested, but the aroma remains.'**
   String get jasmineTeaStory;
+
+  /// No description provided for @oolongTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Oolong - «the tea that didn\'t choose a side»'**
+  String get oolongTeaStoryTitle;
 
   /// No description provided for @oolongTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Let\'s pretend this is an interesting story.'**
+  /// **'Oolong is a tea that exists between worlds.\n\nIts leaves are partially oxidized: not as much as black tea, and not as lightly as green tea. Therefore, it is neither one nor the other, and simultaneously both.\n\nThis is not a technological failure, but an art of balance.'**
   String get oolongTeaStory;
 
   /// No description provided for @tServeTenTeasAchievement.

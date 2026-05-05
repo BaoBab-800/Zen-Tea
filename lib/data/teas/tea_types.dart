@@ -63,3 +63,26 @@ extension TeaStoryX on TeaType {
     }
   }
 }
+
+extension TeaTitleStoryX on TeaType {
+  String titleStory(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
+    switch(this) {
+      case TeaType.blackTea:
+        return l10n.blackTeaStoryTitle;
+      case TeaType.greenTea:
+        return l10n.greenTeaStoryTitle;
+      case TeaType.earlGreyTea:
+        return l10n.earlGreyTeaStoryTitle;
+      case TeaType.masalaTea:
+        return l10n.masalaTeaStoryTitle;
+      case TeaType.matchaTea:
+        return l10n.matchaTeaStoryTitle;
+      case TeaType.jasmineTea:
+        return l10n.jasmineTeaStoryTitle;
+      case TeaType.oolongTea:
+        return l10n.oolongTeaStoryTitle;
+    }
+  }
+}
