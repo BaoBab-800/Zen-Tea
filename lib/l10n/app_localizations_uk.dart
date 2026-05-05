@@ -194,4 +194,10 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get dGetRareTeaAchievement => 'Отримайте рідкісний чай';
+
+  @override
+  String get tFirstStepsAchievement => 'Перші кроки';
+
+  @override
+  String get dFirstStepsAchievement => 'Відкрийте 3 різні чаї';
 }

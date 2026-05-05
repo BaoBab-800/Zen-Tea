@@ -79,5 +79,8 @@
   "dServeTenTeasAchievement": "Продовжуйте свою 10-денну серію",
 
   "tGetRareTeaAchievement": "Рідкісна знахідка",
-  "dGetRareTeaAchievement": "Отримайте рідкісний чай"
+  "dGetRareTeaAchievement": "Отримайте рідкісний чай",
+
+  "tFirstStepsAchievement": "Перші кроки",
+  "dFirstStepsAchievement": "Відкрийте 3 різні чаї"
 }

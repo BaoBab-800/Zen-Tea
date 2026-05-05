@@ -80,5 +80,8 @@
   "dServeTenTeasAchievement": "Hold on your 10-day streak",
 
   "tGetRareTeaAchievement": "A rare find",
-  "dGetRareTeaAchievement": "Get a rare tea"
+  "dGetRareTeaAchievement": "Get a rare tea",
+
+  "tFirstStepsAchievement": "First Steps",
+  "dFirstStepsAchievement": "Open 3 different teas"
 }

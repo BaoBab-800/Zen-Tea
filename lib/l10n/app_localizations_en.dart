@@ -195,4 +195,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get dGetRareTeaAchievement => 'Get a rare tea';
+
+  @override
+  String get tFirstStepsAchievement => 'First Steps';
+
+  @override
+  String get dFirstStepsAchievement => 'Open 3 different teas';
 }

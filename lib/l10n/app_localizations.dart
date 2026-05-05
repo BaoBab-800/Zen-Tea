@@ -439,6 +439,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Get a rare tea'**
   String get dGetRareTeaAchievement;
+
+  /// No description provided for @tFirstStepsAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'First Steps'**
+  String get tFirstStepsAchievement;
+
+  /// No description provided for @dFirstStepsAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'Open 3 different teas'**
+  String get dFirstStepsAchievement;
 }
 
 class _AppLocalizationsDelegate

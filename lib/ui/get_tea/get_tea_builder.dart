@@ -175,6 +175,8 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
 
   Widget _buildContent(BuildContext context, TeaResult result, UrlService urlService) {
     final tea = result.tea;
+    final statsProvider = context.read<StatsProvider>();
+    statsProvider.onTeaReceived(tea, isNew: result.isNew);
 
     return Center(
       child: Padding(
@@ -208,7 +210,7 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
                 final questResult = await service.completeQuest();
 
                 if (questResult.status == QuestResultStatus.completed) {
-                  await statsProvider.onTeaOpened(tea, isNew: result.isNew);
+                  await statsProvider.onTeaReceived(tea, isNew: result.isNew);
                 }
 
                 if (!context.mounted) return;

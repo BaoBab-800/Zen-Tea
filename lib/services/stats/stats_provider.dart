@@ -53,6 +53,17 @@ class StatsProvider extends ChangeNotifier {
   Future<void> onTeaOpened(TeaModel tea, {required bool isNew}) async {
     _stats = _stats.copyWith(
       totalServed: _stats.totalServed + 1,
+      uniqueTeas: isNew ? _stats.uniqueTeas + 1 : _stats.uniqueTeas,
+    );
+
+    await _service.saveStats(_stats);
+
+    _checkAchievements();
+    notifyListeners();
+  }
+
+  Future<void> onTeaReceived(TeaModel tea, {required bool isNew}) async {
+    _stats = _stats.copyWith(
       rareTeasObtained: tea.features == TeaFeatures.rare && isNew
           ? _stats.rareTeasObtained + 1
           : _stats.rareTeasObtained,
@@ -60,13 +71,17 @@ class StatsProvider extends ChangeNotifier {
 
     await _service.saveStats(_stats);
 
+    _checkAchievements();
+    notifyListeners();
+  }
+
+  void _checkAchievements() {
     final newUnlocked = achievementsService.checkAchievements(
       currentUnlocked: _unlockedIds,
       stats: _stats,
     );
 
     addUnlocked(newUnlocked);
-    notifyListeners();
   }
 
   Future<void> _saveUnlocked() async {

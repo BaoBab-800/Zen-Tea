@@ -12,6 +12,8 @@ class AchievementLocalization {
         return l10n.tServeTenTeasAchievement;
       case TitleKeys.tGetRareTeaAchievement:
         return l10n.tGetRareTeaAchievement;
+      case TitleKeys.tFirstStepsAchievement:
+        return l10n.tFirstStepsAchievement;
     }
   }
 
@@ -23,6 +25,8 @@ class AchievementLocalization {
         return l10n.dServeTenTeasAchievement;
       case DescriptionKeys.dGetRareTeaAchievement:
         return l10n.dGetRareTeaAchievement;
+      case DescriptionKeys.dFirstStepsAchievement:
+        return l10n.dFirstStepsAchievement;
     }
   }
 }
