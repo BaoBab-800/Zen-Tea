@@ -150,7 +150,7 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
       TeaCollectionService teaCollectionService,
       List<TeaModel> teas,
       ) async {
-    final tea = todayTeaService.getWeightedRandomTea(teas);
+    final tea = await todayTeaService.getTeaOfToday(teas);
 
     final existing = teaCollectionService.teas
         .firstWhere((item) => item.type == tea.type);

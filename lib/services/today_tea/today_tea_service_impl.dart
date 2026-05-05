@@ -19,18 +19,21 @@ class TodayTeaServiceImpl implements TodayTeaService {
     final today = _todayKey();
 
     final savedDate = _box.get('tea_date') as String?;
-    final savedIndex = _box.get('tea_index') as int?;
+    final savedTeaTypeName = _box.get('tea_type') as String?;
 
-    if (savedDate == today && savedIndex != null && savedIndex >= 0 && savedIndex < teas.length) {
-      return teas[savedIndex];
+    if (savedDate == today && savedTeaTypeName != null) {
+      final savedTea = teas.where((tea) => tea.type.name == savedTeaTypeName).firstOrNull;
+      if (savedTea != null) {
+        return savedTea;
+      }
     }
 
-    final randomIndex = Random().nextInt(teas.length);
+    final tea = getWeightedRandomTea(teas);
 
     await _box.put('tea_date', today);
-    await _box.put('tea_index', randomIndex);
+    await _box.put('tea_type', tea.type.name);
 
-    return teas[randomIndex];
+    return tea;
   }
 
   @override
