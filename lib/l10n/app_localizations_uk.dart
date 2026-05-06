@@ -24,7 +24,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get achievements => 'Досягнення';
 
   @override
-  String get teaCollected => 'Зібрано чаїв:';
+  String get totalTeasOpened => 'Загальна кількість відкритих чаїв';
+
+  @override
+  String get totalTeasDrunk => 'Загальна кількість випитих чаїв';
+
+  @override
+  String get maximumSeries => 'Максимальна кількість серій';
 
   @override
   String get ok => 'Ок';

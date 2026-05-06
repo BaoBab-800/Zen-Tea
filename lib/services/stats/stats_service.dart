@@ -20,6 +20,8 @@ class StatsService {
           streakDays: 0,
           currentTeaServed: 0,
           rareTeasObtained: 0,
+          totalQuestCompleted: 0,
+          maxStreak: 0,
         );
   }
 

@@ -42,6 +42,7 @@ class QuestProgressService extends ChangeNotifier {
     _lastCompletedAt = now;
 
     await _save();
+    await statsProvider.onQuestCompleted(streak: _streak);
     await _unlockNewAchievements();
     notifyListeners();
 

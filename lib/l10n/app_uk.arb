@@ -6,7 +6,9 @@
   "teaCollection": "Колекція чаю",
   "whatKindOfTeaAreYouQuiz": "Який ти чай? Тест",
   "achievements": "Досягнення",
-  "teaCollected": "Зібрано чаїв:",
+  "totalTeasOpened": "Загальна кількість відкритих чаїв",
+  "totalTeasDrunk": "Загальна кількість випитих чаїв",
+  "maximumSeries": "Максимальна кількість серій",
   "ok": "Ок",
   "newAchievement": "Нове досягнення",
 

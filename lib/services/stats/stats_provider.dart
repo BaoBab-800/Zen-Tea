@@ -19,6 +19,8 @@ class StatsProvider extends ChangeNotifier {
     streakDays: 0,
     currentTeaServed: 0,
     rareTeasObtained: 0,
+    totalQuestCompleted: 0,
+    maxStreak: 0,
   );
 
   Stats get stats => _stats;
@@ -86,6 +88,18 @@ class StatsProvider extends ChangeNotifier {
 
   Future<void> _saveUnlocked() async {
     await achievementsService.saveUnlocked(_unlockedIds);
+  }
+
+  Future<void> onQuestCompleted({required int streak}) async {
+    _stats = _stats.copyWith(
+      totalQuestCompleted: _stats.totalQuestCompleted + 1,
+      maxStreak: streak > _stats.maxStreak ? streak : _stats.maxStreak,
+    );
+
+    await _service.saveStats(_stats);
+
+    _checkAchievements();
+    notifyListeners();
   }
 
   Future<void> save(Stats newStats) async {

@@ -6,7 +6,9 @@
   "teaCollection": "Tea Collection",
   "whatKindOfTeaAreYouQuiz": "What kind of tea are you? Quiz",
   "achievements": "Achievements",
-  "teaCollected": "Tea collected:",
+  "totalTeasOpened": "Total teas opened",
+  "totalTeasDrunk": "Total teas drunk",
+  "maximumSeries": "Maximum series",
   "ok": "Ok",
   "newAchievement": "New achievement",
 

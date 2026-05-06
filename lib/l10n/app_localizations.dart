@@ -128,11 +128,23 @@ abstract class AppLocalizations {
   /// **'Achievements'**
   String get achievements;
 
-  /// No description provided for @teaCollected.
+  /// No description provided for @totalTeasOpened.
   ///
   /// In en, this message translates to:
-  /// **'Tea collected:'**
-  String get teaCollected;
+  /// **'Total teas opened'**
+  String get totalTeasOpened;
+
+  /// No description provided for @totalTeasDrunk.
+  ///
+  /// In en, this message translates to:
+  /// **'Total teas drunk'**
+  String get totalTeasDrunk;
+
+  /// No description provided for @maximumSeries.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum series'**
+  String get maximumSeries;
 
   /// No description provided for @ok.
   ///
