@@ -7,8 +7,6 @@ import 'package:zentea/core/l10n/l10n.dart';
 import 'package:zentea/core/l10n/achievement_localization.dart';
 import 'package:zentea/core/theme/app_theme.dart';
 
-import 'package:zentea/data/achievements/list_of_achievements.dart';
-import 'package:zentea/data/achievements/achievement_keys.dart';
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 import 'package:zentea/data/teas/tea_result.dart';
@@ -20,6 +18,7 @@ import 'package:zentea/services/today_tea/today_tea_service.dart';
 import 'package:zentea/services/url/url_service.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 
+import 'package:zentea/ui/get_tea/get_tea_flow_controller.dart';
 import 'package:zentea/ui/history_of_teas/history_builder.dart';
 
 class GetTeaBuilder extends StatefulWidget {
@@ -36,41 +35,41 @@ class GetTeaBuilder extends StatefulWidget {
 
 class _GetTeaBuilderState extends State<GetTeaBuilder> {
   late final Future<TeaResult> _future;
+  final GetTeaFlowController _controller = const GetTeaFlowController();
   bool _isTeaReceivedProcessed = false;
 
   @override
   void initState() {
     super.initState();
 
-    final service = context.read<TodayTeaService>();
+    final todayTeaService = context.read<TodayTeaService>();
     final teaCollectionService = context.read<TeaCollectionService>();
-    final teas = teaCollectionService.teas;
 
-    _future = Future.microtask(() {
-      return getTodayTea(service, teaCollectionService, teas);
-    });
+    _future = _controller.getTodayTea(
+      todayTeaService: todayTeaService,
+      teaCollectionService: teaCollectionService,
+    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final teaCollectionService = context.read<TeaCollectionService>();
-
-      if (!teaCollectionService.hasSeenDialog()) {
-        showDialog(
-          context: context,
-          builder: (_) => _showWelcomeDialog(context),
-        );
-
-        teaCollectionService.setDialogSeen();
-      }
+      _showWelcomeDialogIfNeeded();
     });
   }
 
-  Widget _showWelcomeDialog(BuildContext context) {
+  void _showWelcomeDialogIfNeeded() {
+    final teaCollectionService = context.read<TeaCollectionService>();
+    showDialog(
+      context: context,
+      builder: (_) => _buildWelcomeDialog(context),
+    );
+
+    teaCollectionService.setDialogSeen();
+  }
+
+  Widget _buildWelcomeDialog(BuildContext context) {
     return AlertDialog(
       title: Text(context.l10n.aboutQuiz),
 
-      content: Text(
-        context.l10n.getTeaWarning,
-      ),
+      content: Text(context.l10n.getTeaWarning),
 
       actions: [
         TextButton(
@@ -83,11 +82,9 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
     );
   }
 
-  void showSeriesSnackBarMessage(
-      BuildContext context,
+  void _showSeriesSnackBar(BuildContext context,
       int result,
-      String Function(AppLocalizations l10n) messageBuilder,
-      ) {
+      String Function(AppLocalizations l10n) messageBuilder,) {
     final text = messageBuilder(context.l10n);
 
     ScaffoldMessenger.of(context).showSnackBar(
@@ -97,7 +94,7 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
           children: [
             const Icon(Icons.local_fire_department, color: Colors.white),
             const SizedBox(width: 8),
-            Text(text + result.toString(), overflow: TextOverflow.ellipsis,),
+            Text('$text$result', overflow: TextOverflow.ellipsis),
           ],
         ),
 
@@ -110,30 +107,27 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
     );
   }
 
-  Future<void> _processTeaReceived(TeaModel tea, bool isNew) async {
+  Future<void> _processTeaReceived(TeaResult result) async {
     if (_isTeaReceivedProcessed) return;
     _isTeaReceivedProcessed = true;
 
     final statsProvider = context.read<StatsProvider>();
-    final previousUnlocked = Set<IdKeys>.from(statsProvider.unlockedIds);
+    final newUnlocked = await _controller.processTeaReceived(
+      statsProvider: statsProvider,
+      tea: result.tea,
+      isNew: result.isNew,
+    );
 
-    await statsProvider.onTeaReceived(tea, isNew: isNew);
-    if (!mounted) return;
-
-    final newUnlocked = statsProvider.unlockedIds
-        .difference(previousUnlocked);
-    if (newUnlocked.isEmpty) return;
+    if (!mounted || newUnlocked.isEmpty) return;
 
     final localization = AchievementLocalization();
-    final unlockedAchievement = allAchievements.firstWhere(
-          (achievement) => achievement.id == newUnlocked.first,
-    );
+    final achievement = _controller.getAchievementById(newUnlocked.first);
 
     ScaffoldMessenger.of(context).showMaterialBanner(
       MaterialBanner(
         content: Text(
           '${context.l10n.newAchievement}: '
-              '${localization.achievementTitle(context, unlockedAchievement.titleKey)}',
+              '${localization.achievementTitle(context, achievement.titleKey)}',
         ),
         leading: const Icon(Icons.emoji_events),
         backgroundColor: context.colors.primary.withValues(alpha: 0.12),
@@ -163,11 +157,11 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
             onPressed: () {
               showDialog(
                 context: context,
-                builder: _showWelcomeDialog,
+                builder: _buildWelcomeDialog,
               );
             },
 
-            icon: Icon(Icons.info_outline),
+            icon: const Icon(Icons.info_outline),
           ),
         ],
       ),
@@ -176,50 +170,38 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
         future: _future,
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const Center(child: CircularProgressIndicator());
           }
 
           final result = snapshot.data!;
-          return _buildContent(context, result, widget.urlService);
+          _processTeaReceived(result);
+          return _TeaContent(result: result,
+              urlService: widget.urlService,
+              showSeriesSnackBar: _showSeriesSnackBar);
         },
       ),
     );
   }
+}
 
-  Future<TeaResult> getTodayTea(
-      TodayTeaService todayTeaService,
-      TeaCollectionService teaCollectionService,
-      List<TeaModel> teas,
-      ) async {
-    final tea = await todayTeaService.getTeaOfToday(teas);
+class _TeaContent extends StatelessWidget {
+  final TeaResult result;
+  final UrlService urlService;
+  final void Function(
+      BuildContext context,
+      int result,
+      String Function(AppLocalizations l10n) messageBuilder,
+      ) showSeriesSnackBar;
 
-    final existing = teaCollectionService.teas
-        .firstWhere((item) => item.type == tea.type);
+  const _TeaContent({
+    required this.result,
+    required this.urlService,
+    required this.showSeriesSnackBar,
+  });
 
-    final isNew = !existing.isUnlocked;
-    final shouldCountServing = await todayTeaService.shouldCountServingForToday();
-
-    await teaCollectionService.unlockTea(tea);
-
-    if (shouldCountServing) {
-      await teaCollectionService.incrementServed(tea);
-    }
-
-    final updated = teaCollectionService.teas
-        .firstWhere((item) => item.type == tea.type);
-
-    return TeaResult(
-      tea: updated,
-      isNew: isNew,
-    );
-  }
-
-  Widget _buildContent(BuildContext context, TeaResult result, UrlService urlService) {
+  @override
+  Widget build(BuildContext context) {
     final tea = result.tea;
-    final statsProvider = context.read<StatsProvider>();
-    statsProvider.onTeaReceived(tea, isNew: result.isNew);
 
     return Center(
       child: Padding(
@@ -227,7 +209,7 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-           _TeaCard(tea: tea),
+            _TeaCard(tea: tea),
 
             const SizedBox(height: 24),
 
@@ -257,10 +239,11 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
                 }
 
                 if (!context.mounted) return;
+
                 if (questResult.status == QuestResultStatus.completed) {
-                  showSeriesSnackBarMessage(context, questResult.streak, (l10n) => l10n.series);
+                  showSeriesSnackBar(context, questResult.streak, (l10n) => l10n.series);
                 } else if (questResult.status == QuestResultStatus.alreadyDoneToday) {
-                  showSeriesSnackBarMessage(context, questResult.streak, (l10n) => l10n.completedQuestSeries);
+                  showSeriesSnackBar(context, questResult.streak, (l10n) => l10n.completedQuestSeries);
                 }
               },
               child: Text(context.l10n.questCompleted),

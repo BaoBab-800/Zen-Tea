@@ -133,7 +133,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get blackTeaStoryTitle =>
-      'Чорний чай - <Чай, який випадково став легендою>';
+      'Чорний чай - «чай, який випадково став легендою»';
 
   @override
   String get blackTeaStory =>
