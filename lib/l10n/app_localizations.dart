@@ -338,6 +338,12 @@ abstract class AppLocalizations {
   /// **'Oolong tea'**
   String get oolongTea;
 
+  /// No description provided for @rooibosTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Rooibos tea'**
+  String get rooibosTea;
+
   /// No description provided for @blackTeaStoryTitle.
   ///
   /// In en, this message translates to:
@@ -421,6 +427,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Oolong is a tea that exists between worlds.\n\nIts leaves are partially oxidized: not as much as black tea, and not as lightly as green tea. Therefore, it is neither one nor the other, and simultaneously both.\n\nThis is not a technological failure, but an art of balance.'**
   String get oolongTeaStory;
+
+  /// No description provided for @rooibosTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rooibos - «tea that wasn\'t tea»'**
+  String get rooibosTeaStoryTitle;
+
+  /// No description provided for @rooibosTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Rooibos originated far from the traditional tea regions, in South Africa.\n\nIt\'s not the leaves of the tea bush, but the needle-like branches of a plant that grew wild. Locals brewed it long before the rest of the world discovered it.\n\nWhen Europeans tried rooibos, they realized it wasn\'t tea, but it behaved like it. So they decided—let it be.'**
+  String get rooibosTeaStory;
 
   /// No description provided for @tServeTenTeasAchievement.
   ///

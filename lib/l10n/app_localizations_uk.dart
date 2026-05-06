@@ -132,6 +132,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get oolongTea => 'Чай улун';
 
   @override
+  String get rooibosTea => 'Чай ройбуш';
+
+  @override
   String get blackTeaStoryTitle =>
       'Чорний чай - «чай, який випадково став легендою»';
 
@@ -185,6 +188,13 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get oolongTeaStory =>
       'Улун - це чай, що існує між світами.\n\nЙого листя частково окислюється: не так сильно, як чорний чай, і не так легко, як зелений чай. Тому він не є ні тим, ні іншим, а одночасно і тим, і іншим.\n\nЦе не технологічна невдача, а мистецтво балансу.';
+
+  @override
+  String get rooibosTeaStoryTitle => 'Ройбуш – «чай, який не був чаєм»';
+
+  @override
+  String get rooibosTeaStory =>
+      'Ройбуш виник далеко від традиційних чайних регіонів, у Південній Африці.\n\nЦе не листя чайного куща, а голкоподібні гілки рослини, що росла дико. Місцеві жителі заварювали його задовго до того, як решта світу відкрила для нього.\n\nКоли європейці спробували ройбуш, вони зрозуміли, що це не чай, але він поводився як чай. Тож вони вирішили – нехай буде так.';
 
   @override
   String get tServeTenTeasAchievement => 'Всього 10 разів';

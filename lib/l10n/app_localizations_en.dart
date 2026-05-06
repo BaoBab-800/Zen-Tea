@@ -133,6 +133,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get oolongTea => 'Oolong tea';
 
   @override
+  String get rooibosTea => 'Rooibos tea';
+
+  @override
   String get blackTeaStoryTitle =>
       'Black Tea - «The Tea That Accidentally Became a Legend»';
 
@@ -186,6 +189,13 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get oolongTeaStory =>
       'Oolong is a tea that exists between worlds.\n\nIts leaves are partially oxidized: not as much as black tea, and not as lightly as green tea. Therefore, it is neither one nor the other, and simultaneously both.\n\nThis is not a technological failure, but an art of balance.';
+
+  @override
+  String get rooibosTeaStoryTitle => 'Rooibos - «tea that wasn\'t tea»';
+
+  @override
+  String get rooibosTeaStory =>
+      'Rooibos originated far from the traditional tea regions, in South Africa.\n\nIt\'s not the leaves of the tea bush, but the needle-like branches of a plant that grew wild. Locals brewed it long before the rest of the world discovered it.\n\nWhen Europeans tried rooibos, they realized it wasn\'t tea, but it behaved like it. So they decided—let it be.';
 
   @override
   String get tServeTenTeasAchievement => 'Just 10 times';
