@@ -5,6 +5,8 @@ import 'package:zentea/app/app_router.dart';
 import 'package:zentea/core/l10n/l10n.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 
+import 'home_statistics_section.dart';
+
 class HomeFeedSection extends StatelessWidget {
   const HomeFeedSection({super.key});
 
@@ -66,6 +68,8 @@ class HomeFeedSection extends StatelessWidget {
         _buildCard(context.l10n.whatKindOfTeaAreYouQuiz, context, AppRoute.whatKindOfTeaAreYouQuiz),
 
         _buildCard(context.l10n.achievements, context, AppRoute.achievements),
+
+        HomeStatisticsSection(),
       ],
     );
   }

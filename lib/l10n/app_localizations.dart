@@ -128,6 +128,12 @@ abstract class AppLocalizations {
   /// **'Achievements'**
   String get achievements;
 
+  /// No description provided for @teaCollected.
+  ///
+  /// In en, this message translates to:
+  /// **'Tea collected:'**
+  String get teaCollected;
+
   /// No description provided for @ok.
   ///
   /// In en, this message translates to:

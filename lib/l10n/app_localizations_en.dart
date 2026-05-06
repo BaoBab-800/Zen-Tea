@@ -24,6 +24,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get achievements => 'Achievements';
 
   @override
+  String get teaCollected => 'Tea collected:';
+
+  @override
   String get ok => 'Ok';
 
   @override

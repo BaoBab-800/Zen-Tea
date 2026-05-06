@@ -7,6 +7,9 @@ import '../achievements/achievements_service.dart';
 import '../stats/stats_provider.dart';
 
 class QuestProgressService extends ChangeNotifier {
+  static const _streakKey = 'streak';
+  static const _lastCompletedAtKey = 'lastCompletedAt';
+
   final Box _box = Hive.box('quest_progress');
   final StatsProvider statsProvider;
   final AchievementsService achievementsService;
@@ -17,7 +20,6 @@ class QuestProgressService extends ChangeNotifier {
   int get streak => _streak;
   DateTime? get lastCompletedAt => _lastCompletedAt;
 
-
   QuestProgressService({
     required this.statsProvider,
     required this.achievementsService,
@@ -25,19 +27,8 @@ class QuestProgressService extends ChangeNotifier {
     _load();
   }
 
-  void _load() {
-    _streak = _box.get('streak', defaultValue: 0);
-    final last = _box.get('lastCompletedAt');
-
-    if (last != null) {
-      _lastCompletedAt = DateTime.parse(last);
-    }
-  }
-
   Future<QuestResult> completeQuest() async {
     final now = DateTime.now();
-
-    _checkAndUnlockAchievements();
 
     if (_isSameDay(_lastCompletedAt, now)) {
       return QuestResult(
@@ -47,15 +38,11 @@ class QuestProgressService extends ChangeNotifier {
       );
     }
 
-    final isNewStreak = _isConsecutiveDay(_lastCompletedAt, now);
-
-    _streak = isNewStreak ? _streak + 1 : 1;
+    _streak = _isConsecutiveDay(_lastCompletedAt, now) ? _streak + 1 : 1;
     _lastCompletedAt = now;
 
     await _save();
-
-    _checkAndUnlockAchievements();
-
+    await _unlockNewAchievements();
     notifyListeners();
 
     return QuestResult(
@@ -65,38 +52,6 @@ class QuestProgressService extends ChangeNotifier {
     );
   }
 
-  void _checkAndUnlockAchievements() {
-    final stats = statsProvider.stats;
-    final currentUnlocked = statsProvider.unlockedIds;
-
-    final newUnlocked = achievementsService.checkAchievements(
-      stats: stats,
-      currentUnlocked: currentUnlocked,
-    );
-
-    if (newUnlocked.isNotEmpty) {
-      statsProvider.addUnlocked(newUnlocked);
-    }
-  }
-
-  Future<void> _save() async {
-    await _box.put('streak', _streak);
-    await _box.put('lastCompletedAt', _lastCompletedAt?.toIso8601String());
-  }
-
-  bool _isSameDay(DateTime? a, DateTime b) {
-    if (a == null) return false;
-    return a.year == b.year &&
-        a.month == b.month &&
-        a.day == b.day;
-  }
-
-  bool _isConsecutiveDay(DateTime? last, DateTime now) {
-    if (last == null) return false;
-    return now.difference(last).inDays == 1;
-  }
-
-  // Developer
   Future<void> resetStreak() async {
     _streak = 0;
     _lastCompletedAt = null;
@@ -105,8 +60,43 @@ class QuestProgressService extends ChangeNotifier {
   }
 
   Future<void> setStreak(int streak) async {
-    _streak = streak;
+    _streak = streak.clamp(0, 1 << 30);
     await _save();
     notifyListeners();
+  }
+
+  void _load() {
+    _streak = _box.get(_streakKey, defaultValue: 0);
+    final last = _box.get(_lastCompletedAtKey);
+
+    if (last != null) {
+      _lastCompletedAt = DateTime.parse(last);
+    }
+  }
+
+  Future<void> _unlockNewAchievements() async {
+    final newUnlocked = achievementsService.checkAchievements(
+      stats: statsProvider.stats,
+      currentUnlocked: statsProvider.unlockedIds,
+    );
+
+    if (newUnlocked.isNotEmpty) {
+      await statsProvider.addUnlocked(newUnlocked);
+    }
+  }
+
+  Future<void> _save() async {
+    await _box.put(_streakKey, _streak);
+    await _box.put(_lastCompletedAtKey, _lastCompletedAt?.toIso8601String());
+  }
+
+  bool _isSameDay(DateTime? a, DateTime b) {
+    if (a == null) return false;
+    return a.year == b.year && a.month == b.month && a.day == b.day;
+  }
+
+  bool _isConsecutiveDay(DateTime? last, DateTime now) {
+    if (last == null) return false;
+    return now.difference(last).inDays == 1;
   }
 }

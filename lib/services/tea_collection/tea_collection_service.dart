@@ -3,6 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import 'package:zentea/data/teas/list_of_teas.dart';
 import 'package:zentea/data/teas/tea_model.dart';
+import 'package:zentea/data/teas/tea_types.dart';
 
 class TeaCollectionService extends ChangeNotifier {
   static const _teasKey = 'teas_data';
@@ -12,68 +13,50 @@ class TeaCollectionService extends ChangeNotifier {
   late final List<TeaModel> _teas;
 
   TeaCollectionService() {
-    final storedData = _box.get(_teasKey) as Map?;
-
-    _teas = listOfTeas.map((tea) {
-      final data = storedData?[tea.type.name];
-
-      return tea.copyWith(
-        isUnlocked: data?['isUnlocked'] ?? tea.isUnlocked,
-        timesServed: data?['timesServed'] ?? 0,
-      );
-    }).toList();
+    _teas = _buildCollection();
   }
 
   List<TeaModel> get teas => List.unmodifiable(_teas);
 
+  TeaModel? teaByType(TeaType type) {
+    final index = _indexOfType(type);
+    return index == -1 ? null : _teas[index];
+  }
+
+  bool isUnlocked(TeaType type) => teaByType(type)?.isUnlocked ?? false;
+
+  int servedCount(TeaType type) => teaByType(type)?.timesServed ?? 0;
+
   Future<void> unlockTea(TeaModel tea) async {
-    final index = _teas.indexWhere((item) => item.type == tea.type);
+    if (isUnlocked(tea.type)) return;
 
-    if (index == -1 || _teas[index].isUnlocked) return;
-
-    _teas[index] = _teas[index].copyWith(isUnlocked: true);
-
-    await _persist();
-    notifyListeners();
-  }
-
-  Future<void> incrementServed(TeaModel tea) async {
-    final index = _teas.indexWhere((item) => item.type == tea.type);
-
-    if (index == -1) return;
-
-    final current = _teas[index];
-
-    _teas[index] = current.copyWith(
-      timesServed: current.timesServed + 1,
+    await _updateTeaByType(
+      tea.type, (current) => current.copyWith(isUnlocked: true),
     );
-
-    await _persist();
-    notifyListeners();
   }
 
-  Future<void> _persist() async {
-    final data = {
-      for (final tea in _teas)
-        tea.type.name: {
-          'isUnlocked': tea.isUnlocked,
-          'timesServed': tea.timesServed,
-        }
-    };
-
-    await _box.put(_teasKey, data);
+  Future<void> incrementServed(TeaModel tea) {
+    return _updateTeaByType(
+      tea.type, (current) => current.copyWith(timesServed: current.timesServed + 1),
+    );
   }
 
-  // For dialog
-  bool hasSeenDialog() {
-    return _box.get(_hasSeenDialogKey, defaultValue: false);
+  Future<void> setUnlocked(TeaModel tea, bool value) {
+    return _updateTeaByType(
+      tea.type, (current) => current.copyWith(isUnlocked: value),
+    );
   }
 
-  Future<void> setDialogSeen() async {
-    await _box.put(_hasSeenDialogKey, true);
+  Future<void> setServedCount(TeaModel tea, int value) {
+    return _updateTeaByType(
+      tea.type, (current) => current.copyWith(timesServed: value.clamp(0, 1 << 30)),
+    );
   }
 
-  // For developer
+  bool hasSeenDialog() => _box.get(_hasSeenDialogKey, defaultValue: false);
+
+  Future<void> setDialogSeen() => _box.put(_hasSeenDialogKey, true);
+
   String dumpState() {
     final buffer = StringBuffer();
 
@@ -93,9 +76,7 @@ class TeaCollectionService extends ChangeNotifier {
     if (raw == null) {
       buffer.writeln('No data in Hive');
     } else {
-      raw.forEach((key, value) {
-        buffer.writeln('$key => $value');
-      });
+      raw.forEach((key, value) => buffer.writeln('$key => $value'));
     }
 
     buffer.writeln('\n=== END ===');
@@ -103,12 +84,24 @@ class TeaCollectionService extends ChangeNotifier {
     return buffer.toString();
   }
 
-  Future<void> _updateTea(
-      TeaModel tea,
+  List<TeaModel> _buildCollection() {
+    final storedData = _box.get(_teasKey) as Map?;
+
+    return listOfTeas.map((tea) {
+      final teaData = storedData?[tea.type.name] as Map?;
+
+      return tea.copyWith(
+        isUnlocked: teaData?['isUnlocked'] ?? tea.isUnlocked,
+        timesServed: teaData?['timesServed'] ?? 0,
+      );
+    }).toList();
+  }
+
+  Future<void> _updateTeaByType(
+      TeaType type,
       TeaModel Function(TeaModel current) updater,
       ) async {
-    final index = _teas.indexWhere((item) => item.type == tea.type);
-
+    final index = _indexOfType(type);
     if (index == -1) return;
 
     _teas[index] = updater(_teas[index]);
@@ -117,15 +110,17 @@ class TeaCollectionService extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> setUnlocked(TeaModel tea, bool value) {
-    return _updateTea(
-      tea, (current) => current.copyWith(isUnlocked: value),
-    );
-  }
+  int _indexOfType(TeaType type) => _teas.indexWhere((item) => item.type == type);
 
-  Future<void> setServedCount(TeaModel tea, int value) {
-    return _updateTea(
-      tea, (current) => current.copyWith(timesServed: value),
-    );
+  Future<void> _persist() async {
+    final data = {
+      for (final tea in _teas)
+        tea.type.name: {
+          'isUnlocked': tea.isUnlocked,
+          'timesServed': tea.timesServed,
+        },
+    };
+
+    await _box.put(_teasKey, data);
   }
 }

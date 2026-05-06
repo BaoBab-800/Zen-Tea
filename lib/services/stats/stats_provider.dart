@@ -38,7 +38,7 @@ class StatsProvider extends ChangeNotifier {
     return _unlockedIds.contains(id);
   }
 
-  void addUnlocked(Set<IdKeys> newUnlocked) async {
+  Future<void> addUnlocked(Set<IdKeys> newUnlocked) async {
     final added = newUnlocked.difference(_unlockedIds);
 
     if (added.isEmpty) return;
