@@ -134,6 +134,12 @@ abstract class AppLocalizations {
   /// **'Ok'**
   String get ok;
 
+  /// No description provided for @newAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'New achievement'**
+  String get newAchievement;
+
   /// No description provided for @menu.
   ///
   /// In en, this message translates to:

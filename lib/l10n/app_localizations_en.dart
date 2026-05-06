@@ -27,6 +27,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ok => 'Ok';
 
   @override
+  String get newAchievement => 'New achievement';
+
+  @override
   String get menu => 'Menu';
 
   @override

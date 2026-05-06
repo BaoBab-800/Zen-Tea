@@ -4,8 +4,11 @@ import 'package:provider/provider.dart';
 import 'package:zentea/l10n/app_localizations.dart';
 
 import 'package:zentea/core/l10n/l10n.dart';
+import 'package:zentea/core/l10n/achievement_localization.dart';
 import 'package:zentea/core/theme/app_theme.dart';
 
+import 'package:zentea/data/achievements/list_of_achievements.dart';
+import 'package:zentea/data/achievements/achievement_keys.dart';
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 import 'package:zentea/data/teas/tea_result.dart';
@@ -33,6 +36,7 @@ class GetTeaBuilder extends StatefulWidget {
 
 class _GetTeaBuilderState extends State<GetTeaBuilder> {
   late final Future<TeaResult> _future;
+  bool _isTeaReceivedProcessed = false;
 
   @override
   void initState() {
@@ -102,6 +106,45 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
         margin: const EdgeInsets.all(16),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         duration: const Duration(seconds: 2),
+      ),
+    );
+  }
+
+  Future<void> _processTeaReceived(TeaModel tea, bool isNew) async {
+    if (_isTeaReceivedProcessed) return;
+    _isTeaReceivedProcessed = true;
+
+    final statsProvider = context.read<StatsProvider>();
+    final previousUnlocked = Set<IdKeys>.from(statsProvider.unlockedIds);
+
+    await statsProvider.onTeaReceived(tea, isNew: isNew);
+    if (!mounted) return;
+
+    final newUnlocked = statsProvider.unlockedIds
+        .difference(previousUnlocked);
+    if (newUnlocked.isEmpty) return;
+
+    final localization = AchievementLocalization();
+    final unlockedAchievement = allAchievements.firstWhere(
+          (achievement) => achievement.id == newUnlocked.first,
+    );
+
+    ScaffoldMessenger.of(context).showMaterialBanner(
+      MaterialBanner(
+        content: Text(
+          '${context.l10n.newAchievement}: '
+              '${localization.achievementTitle(context, unlockedAchievement.titleKey)}',
+        ),
+        leading: const Icon(Icons.emoji_events),
+        backgroundColor: context.colors.primary.withValues(alpha: 0.12),
+        actions: [
+          TextButton(
+            onPressed: () {
+              ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
+            },
+            child: Text(context.l10n.ok),
+          ),
+        ],
       ),
     );
   }

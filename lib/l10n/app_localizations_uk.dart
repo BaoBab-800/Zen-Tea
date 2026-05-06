@@ -27,6 +27,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get ok => 'Ок';
 
   @override
+  String get newAchievement => 'Нове досягнення';
+
+  @override
   String get menu => 'Меню';
 
   @override
