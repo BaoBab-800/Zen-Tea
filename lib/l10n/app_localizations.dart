@@ -344,6 +344,12 @@ abstract class AppLocalizations {
   /// **'Rooibos tea'**
   String get rooibosTea;
 
+  /// No description provided for @hibiscusTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Hibiscus tea'**
+  String get hibiscusTea;
+
   /// No description provided for @blackTeaStoryTitle.
   ///
   /// In en, this message translates to:
@@ -439,6 +445,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rooibos originated far from the traditional tea regions, in South Africa.\n\nIt\'s not the leaves of the tea bush, but the needle-like branches of a plant that grew wild. Locals brewed it long before the rest of the world discovered it.\n\nWhen Europeans tried rooibos, they realized it wasn\'t tea, but it behaved like it. So they decided—let it be.'**
   String get rooibosTeaStory;
+
+  /// No description provided for @hibiscusTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hibiscus tea - «tea that doesn\'t pretend to be mild»'**
+  String get hibiscusTeaStoryTitle;
+
+  /// No description provided for @hibiscusTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Hibiscus is not a leaf or a tea bush. These are dried flower petals.\n\nEgo was brewed in different parts of the world: in Africa, in the Middle East, in Latin America. And everywhere it was about the same - bright, sour and refreshing.\n\nHe is not trying to be \'cozy\'. He immediately declares himself.'**
+  String get hibiscusTeaStory;
 
   /// No description provided for @tServeTenTeasAchievement.
   ///

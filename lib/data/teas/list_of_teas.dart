@@ -57,6 +57,15 @@ final List<TeaModel> listOfTeas = [
   ),
 
   TeaModel(
+    type: TeaType.hibiscusTea,
+    imagePath: 'assets/teas/hibiscus_tea.jpg',
+    features: TeaFeatures.common,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Hibiscus'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  TeaModel(
     type: TeaType.oolongTea,
     imagePath: 'assets/teas/oolong_tea.jpg',
     features: TeaFeatures.rare,

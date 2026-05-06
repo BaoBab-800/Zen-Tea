@@ -57,6 +57,9 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
 
   void _showWelcomeDialogIfNeeded() {
     final teaCollectionService = context.read<TeaCollectionService>();
+
+    if (teaCollectionService.hasSeenDialog()) return;
+
     showDialog(
       context: context,
       builder: (_) => _buildWelcomeDialog(context),

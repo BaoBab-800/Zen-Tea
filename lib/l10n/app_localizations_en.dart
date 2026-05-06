@@ -136,6 +136,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get rooibosTea => 'Rooibos tea';
 
   @override
+  String get hibiscusTea => 'Hibiscus tea';
+
+  @override
   String get blackTeaStoryTitle =>
       'Black Tea - «The Tea That Accidentally Became a Legend»';
 
@@ -196,6 +199,14 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get rooibosTeaStory =>
       'Rooibos originated far from the traditional tea regions, in South Africa.\n\nIt\'s not the leaves of the tea bush, but the needle-like branches of a plant that grew wild. Locals brewed it long before the rest of the world discovered it.\n\nWhen Europeans tried rooibos, they realized it wasn\'t tea, but it behaved like it. So they decided—let it be.';
+
+  @override
+  String get hibiscusTeaStoryTitle =>
+      'Hibiscus tea - «tea that doesn\'t pretend to be mild»';
+
+  @override
+  String get hibiscusTeaStory =>
+      'Hibiscus is not a leaf or a tea bush. These are dried flower petals.\n\nEgo was brewed in different parts of the world: in Africa, in the Middle East, in Latin America. And everywhere it was about the same - bright, sour and refreshing.\n\nHe is not trying to be \'cozy\'. He immediately declares himself.';
 
   @override
   String get tServeTenTeasAchievement => 'Just 10 times';
