@@ -8,9 +8,10 @@ enum TeaType {
   masalaTea,
   matchaTea,
   jasmineTea,
+  hibiscusTea,
+  whiteTea,
   oolongTea,
   rooibosTea,
-  hibiscusTea,
 }
 
 enum TeaFeatures {
@@ -47,12 +48,14 @@ extension TeaTypeX on TeaType {
         return l10n.matchaTea;
       case TeaType.jasmineTea:
         return l10n.jasmineTea;
+      case TeaType.hibiscusTea:
+        return l10n.hibiscusTea;
+      case TeaType.whiteTea:
+        return l10n.whiteTea;
       case TeaType.oolongTea:
         return l10n.oolongTea;
       case TeaType.rooibosTea:
         return l10n.rooibosTea;
-      case TeaType.hibiscusTea:
-        return l10n.hibiscusTea;
     }
   }
 }
@@ -74,12 +77,14 @@ extension TeaStoryX on TeaType {
         return l10n.matchaTeaStory;
       case TeaType.jasmineTea:
         return l10n.jasmineTeaStory;
+      case TeaType.hibiscusTea:
+        return l10n.hibiscusTeaStory;
+      case TeaType.whiteTea:
+        return l10n.whiteTeaStory;
       case TeaType.oolongTea:
         return l10n.oolongTeaStory;
       case TeaType.rooibosTea:
         return l10n.rooibosTeaStory;
-      case TeaType.hibiscusTea:
-        return l10n.hibiscusTeaStory;
     }
   }
 }
@@ -101,12 +106,14 @@ extension TeaTitleStoryX on TeaType {
         return l10n.matchaTeaStoryTitle;
       case TeaType.jasmineTea:
         return l10n.jasmineTeaStoryTitle;
+      case TeaType.hibiscusTea:
+        return l10n.hibiscusTeaStoryTitle;
+      case TeaType.whiteTea:
+        return l10n.whiteTeaStoryTitle;
       case TeaType.oolongTea:
         return l10n.oolongTeaStoryTitle;
       case TeaType.rooibosTea:
         return l10n.rooibosTeaStoryTitle;
-      case TeaType.hibiscusTea:
-        return l10n.hibiscusTeaStoryTitle;
     }
   }
 }

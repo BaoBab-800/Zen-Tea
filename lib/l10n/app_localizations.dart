@@ -332,6 +332,18 @@ abstract class AppLocalizations {
   /// **'Jasmine tea'**
   String get jasmineTea;
 
+  /// No description provided for @hibiscusTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Hibiscus tea'**
+  String get hibiscusTea;
+
+  /// No description provided for @whiteTea.
+  ///
+  /// In en, this message translates to:
+  /// **'White tea'**
+  String get whiteTea;
+
   /// No description provided for @oolongTea.
   ///
   /// In en, this message translates to:
@@ -343,12 +355,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rooibos tea'**
   String get rooibosTea;
-
-  /// No description provided for @hibiscusTea.
-  ///
-  /// In en, this message translates to:
-  /// **'Hibiscus tea'**
-  String get hibiscusTea;
 
   /// No description provided for @blackTeaStoryTitle.
   ///
@@ -422,6 +428,30 @@ abstract class AppLocalizations {
   /// **'Jasmine tea is not just about tea, but also about flowers.\n\nIts base is almost always green tea, but the real action happens not in the leaves, but around them. Fresh jasmine flowers open at night and release their aroma. The tea leaves absorb this scent, as if \'inhaling\' it.\n\nThen the flowers are harvested, but the aroma remains.'**
   String get jasmineTeaStory;
 
+  /// No description provided for @hibiscusTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hibiscus tea - «tea that doesn\'t pretend to be mild»'**
+  String get hibiscusTeaStoryTitle;
+
+  /// No description provided for @hibiscusTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Hibiscus is not a leaf or a tea bush. These are dried flower petals.\n\nEgo was brewed in different parts of the world: in Africa, in the Middle East, in Latin America. And everywhere it was about the same - bright, sour and refreshing.\n\nHe is not trying to be \'cozy\'. He immediately declares himself.'**
+  String get hibiscusTeaStory;
+
+  /// No description provided for @whiteTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'White tea — «tea that has hardly been touched»'**
+  String get whiteTeaStoryTitle;
+
+  /// No description provided for @whiteTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'White tea is the most \'pristine\' of all teas.\n\nEgo is made from young buds and leaves that are hardly processed: they are simply collected and carefully dried. Without strong heating, without twisting, without trying to change something.\n\nAs if the main idea is not to interfere.'**
+  String get whiteTeaStory;
+
   /// No description provided for @oolongTeaStoryTitle.
   ///
   /// In en, this message translates to:
@@ -445,18 +475,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rooibos originated far from the traditional tea regions, in South Africa.\n\nIt\'s not the leaves of the tea bush, but the needle-like branches of a plant that grew wild. Locals brewed it long before the rest of the world discovered it.\n\nWhen Europeans tried rooibos, they realized it wasn\'t tea, but it behaved like it. So they decided—let it be.'**
   String get rooibosTeaStory;
-
-  /// No description provided for @hibiscusTeaStoryTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Hibiscus tea - «tea that doesn\'t pretend to be mild»'**
-  String get hibiscusTeaStoryTitle;
-
-  /// No description provided for @hibiscusTeaStory.
-  ///
-  /// In en, this message translates to:
-  /// **'Hibiscus is not a leaf or a tea bush. These are dried flower petals.\n\nEgo was brewed in different parts of the world: in Africa, in the Middle East, in Latin America. And everywhere it was about the same - bright, sour and refreshing.\n\nHe is not trying to be \'cozy\'. He immediately declares himself.'**
-  String get hibiscusTeaStory;
 
   /// No description provided for @tServeTenTeasAchievement.
   ///

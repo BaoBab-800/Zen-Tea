@@ -130,13 +130,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get jasmineTea => 'Jasmine tea';
 
   @override
+  String get hibiscusTea => 'Hibiscus tea';
+
+  @override
+  String get whiteTea => 'White tea';
+
+  @override
   String get oolongTea => 'Oolong tea';
 
   @override
   String get rooibosTea => 'Rooibos tea';
-
-  @override
-  String get hibiscusTea => 'Hibiscus tea';
 
   @override
   String get blackTeaStoryTitle =>
@@ -186,6 +189,22 @@ class AppLocalizationsEn extends AppLocalizations {
       'Jasmine tea is not just about tea, but also about flowers.\n\nIts base is almost always green tea, but the real action happens not in the leaves, but around them. Fresh jasmine flowers open at night and release their aroma. The tea leaves absorb this scent, as if \'inhaling\' it.\n\nThen the flowers are harvested, but the aroma remains.';
 
   @override
+  String get hibiscusTeaStoryTitle =>
+      'Hibiscus tea - «tea that doesn\'t pretend to be mild»';
+
+  @override
+  String get hibiscusTeaStory =>
+      'Hibiscus is not a leaf or a tea bush. These are dried flower petals.\n\nEgo was brewed in different parts of the world: in Africa, in the Middle East, in Latin America. And everywhere it was about the same - bright, sour and refreshing.\n\nHe is not trying to be \'cozy\'. He immediately declares himself.';
+
+  @override
+  String get whiteTeaStoryTitle =>
+      'White tea — «tea that has hardly been touched»';
+
+  @override
+  String get whiteTeaStory =>
+      'White tea is the most \'pristine\' of all teas.\n\nEgo is made from young buds and leaves that are hardly processed: they are simply collected and carefully dried. Without strong heating, without twisting, without trying to change something.\n\nAs if the main idea is not to interfere.';
+
+  @override
   String get oolongTeaStoryTitle =>
       'Oolong - «the tea that didn\'t choose a side»';
 
@@ -199,14 +218,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get rooibosTeaStory =>
       'Rooibos originated far from the traditional tea regions, in South Africa.\n\nIt\'s not the leaves of the tea bush, but the needle-like branches of a plant that grew wild. Locals brewed it long before the rest of the world discovered it.\n\nWhen Europeans tried rooibos, they realized it wasn\'t tea, but it behaved like it. So they decided—let it be.';
-
-  @override
-  String get hibiscusTeaStoryTitle =>
-      'Hibiscus tea - «tea that doesn\'t pretend to be mild»';
-
-  @override
-  String get hibiscusTeaStory =>
-      'Hibiscus is not a leaf or a tea bush. These are dried flower petals.\n\nEgo was brewed in different parts of the world: in Africa, in the Middle East, in Latin America. And everywhere it was about the same - bright, sour and refreshing.\n\nHe is not trying to be \'cozy\'. He immediately declares himself.';
 
   @override
   String get tServeTenTeasAchievement => 'Just 10 times';

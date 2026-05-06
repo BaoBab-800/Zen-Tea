@@ -48,9 +48,8 @@ class HistoryBuilder extends StatelessWidget {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(12),
-                            child: SizedBox(
-                              width: double.infinity,
-                              height: 260,
+                            child: AspectRatio(
+                              aspectRatio: 1 / 1,
                               child: Image.asset(
                                 currentTea.imagePath,
                                 fit: BoxFit.cover,

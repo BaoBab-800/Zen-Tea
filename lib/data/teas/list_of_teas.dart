@@ -66,6 +66,15 @@ final List<TeaModel> listOfTeas = [
   ),
 
   TeaModel(
+    type: TeaType.whiteTea,
+    imagePath: 'assets/teas/white_tea.jpg',
+    features: TeaFeatures.common,
+    url: Uri.parse('https://en.wikipedia.org/wiki/White_tea'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  TeaModel(
     type: TeaType.oolongTea,
     imagePath: 'assets/teas/oolong_tea.jpg',
     features: TeaFeatures.rare,

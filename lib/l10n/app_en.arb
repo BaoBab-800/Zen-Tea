@@ -53,6 +53,7 @@
   "matchaTea": "Matcha tea",
   "jasmineTea": "Jasmine tea",
   "hibiscusTea": "Hibiscus tea",
+  "whiteTea": "White tea",
   "oolongTea": "Oolong tea",
   "rooibosTea": "Rooibos tea",
 
@@ -76,6 +77,9 @@
 
   "hibiscusTeaStoryTitle": "Hibiscus tea - «tea that doesn't pretend to be mild»",
   "hibiscusTeaStory": "Hibiscus is not a leaf or a tea bush. These are dried flower petals.\n\nEgo was brewed in different parts of the world: in Africa, in the Middle East, in Latin America. And everywhere it was about the same - bright, sour and refreshing.\n\nHe is not trying to be 'cozy'. He immediately declares himself.",
+
+  "whiteTeaStoryTitle": "White tea — «tea that has hardly been touched»",
+  "whiteTeaStory": "White tea is the most 'pristine' of all teas.\n\nEgo is made from young buds and leaves that are hardly processed: they are simply collected and carefully dried. Without strong heating, without twisting, without trying to change something.\n\nAs if the main idea is not to interfere.",
 
   "oolongTeaStoryTitle": "Oolong - «the tea that didn't choose a side»",
   "oolongTeaStory": "Oolong is a tea that exists between worlds.\n\nIts leaves are partially oxidized: not as much as black tea, and not as lightly as green tea. Therefore, it is neither one nor the other, and simultaneously both.\n\nThis is not a technological failure, but an art of balance.",
