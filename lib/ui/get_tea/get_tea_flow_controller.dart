@@ -35,15 +35,23 @@ class GetTeaFlowController {
           (item) => item.type == tea.type,
     );
 
-    return TeaResult(tea: updated, isNew: isNew);
+    return TeaResult(
+      tea: updated,
+      isNew: isNew,
+      shouldCountServing: shouldCountServing,
+    );
   }
 
   Future<Set<IdKeys>> processTeaReceived({
     required StatsProvider statsProvider,
     required TeaModel tea,
     required bool isNew,
+    required bool shouldCountServing,
   }) async {
     final previousUnlocked = Set<IdKeys>.from(statsProvider.unlockedIds);
+    if (shouldCountServing) {
+      await statsProvider.onTeaOpened(tea, isNew: isNew);
+    }
     await statsProvider.onTeaReceived(tea, isNew: isNew);
     return statsProvider.unlockedIds.difference(previousUnlocked);
   }

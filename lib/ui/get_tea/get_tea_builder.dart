@@ -119,6 +119,7 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
       statsProvider: statsProvider,
       tea: result.tea,
       isNew: result.isNew,
+      shouldCountServing: result.shouldCountServing,
     );
 
     if (!mounted || newUnlocked.isEmpty) return;
@@ -178,9 +179,11 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
 
           final result = snapshot.data!;
           _processTeaReceived(result);
-          return _TeaContent(result: result,
-              urlService: widget.urlService,
-              showSeriesSnackBar: _showSeriesSnackBar);
+          return _TeaContent(
+            result: result,
+            urlService: widget.urlService,
+            showSeriesSnackBar: _showSeriesSnackBar,
+          );
         },
       ),
     );
