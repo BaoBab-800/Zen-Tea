@@ -1,31 +1,29 @@
-import 'package:hive/hive.dart';
-
 import 'package:zentea/data/stats/stats.dart';
+import 'package:zentea/services/hive/hive_service.dart';
 
 class StatsService {
   static const _boxName = 'stats_box';
   static const _statsKey = 'stats';
 
-  late final Box<Stats> _box;
+  final HiveService _hive;
 
-  void init() {
-    _box = Hive.box<Stats>(_boxName);
-  }
+  StatsService(this._hive);
 
   Stats getStats() {
-    return _box.get(_statsKey) ??
-        const Stats(
-          totalServed: 0,
-          uniqueTeas: 0,
-          streakDays: 0,
-          currentTeaServed: 0,
-          rareTeasObtained: 0,
-          totalQuestCompleted: 0,
-          maxStreak: 0,
-        );
+    return _hive.getOptional<Stats>(boxName: _boxName, key: _statsKey) ?? _emptyStats();
   }
 
-  Future<void> saveStats(Stats stats) async {
-    await _box.put(_statsKey, stats);
+  Future<void> saveStats(Stats stats) {
+    return _hive.putValue(boxName: _boxName, key: _statsKey, value: stats);
   }
+
+  Stats _emptyStats() => const Stats(
+    totalServed: 0,
+    uniqueTeas: 0,
+    streakDays: 0,
+    currentTeaServed: 0,
+    rareTeasObtained: 0,
+    totalQuestCompleted: 0,
+    maxStreak: 0,
+  );
 }

@@ -1,16 +1,18 @@
 import 'package:flutter/foundation.dart';
-import 'package:hive/hive.dart';
 
 import 'package:zentea/data/quest/quest_result.dart';
 
 import '../achievements/achievements_service.dart';
 import '../stats/stats_provider.dart';
+import 'package:zentea/services/hive/hive_service.dart';
 
 class QuestProgressService extends ChangeNotifier {
   static const _streakKey = 'streak';
   static const _lastCompletedAtKey = 'lastCompletedAt';
 
-  final Box _box = Hive.box('quest_progress');
+  static const _boxName = 'quest_progress';
+
+  final HiveService _hive;
   final StatsProvider statsProvider;
   final AchievementsService achievementsService;
 
@@ -23,7 +25,8 @@ class QuestProgressService extends ChangeNotifier {
   QuestProgressService({
     required this.statsProvider,
     required this.achievementsService,
-  }) {
+    required HiveService hiveService,
+  }) : _hive = hiveService {
     _load();
   }
 
@@ -67,8 +70,8 @@ class QuestProgressService extends ChangeNotifier {
   }
 
   void _load() {
-    _streak = _box.get(_streakKey, defaultValue: 0);
-    final last = _box.get(_lastCompletedAtKey);
+    _streak = _hive.getValue<int>(boxName: _boxName, key: _streakKey, defaultValue: 0);
+    final last = _hive.getOptional<String>(boxName: _boxName, key: _lastCompletedAtKey);
 
     if (last != null) {
       _lastCompletedAt = DateTime.parse(last);
@@ -87,8 +90,8 @@ class QuestProgressService extends ChangeNotifier {
   }
 
   Future<void> _save() async {
-    await _box.put(_streakKey, _streak);
-    await _box.put(_lastCompletedAtKey, _lastCompletedAt?.toIso8601String());
+    await _hive.putValue(boxName: _boxName, key: _streakKey, value: _streak);
+    await _hive.putValue(boxName: _boxName, key: _lastCompletedAtKey, value: _lastCompletedAt?.toIso8601String());
   }
 
   bool _isSameDay(DateTime? a, DateTime b) {
