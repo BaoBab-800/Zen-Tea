@@ -4,16 +4,14 @@ import 'package:provider/provider.dart';
 import 'package:zentea/core/theme/app_theme.dart';
 import 'package:zentea/core/l10n/l10n.dart';
 
-import 'package:zentea/services/stats/stats_service.dart';
+import 'package:zentea/services/stats/stats_provider.dart';
 
 class HomeStatisticsSection extends StatelessWidget {
   const HomeStatisticsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final statsService = context.read<StatsService>();
-
-    final stats = statsService.getStats();
+    final stats = context.watch<StatsProvider>().stats;
 
     return Container(
       decoration: BoxDecoration(),

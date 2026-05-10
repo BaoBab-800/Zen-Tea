@@ -236,13 +236,7 @@ class _TeaContent extends StatelessWidget {
             ElevatedButton(
               onPressed: () async {
                 final service = context.read<QuestProgressService>();
-                final statsProvider = context.read<StatsProvider>();
-
                 final questResult = await service.completeQuest();
-
-                if (questResult.status == QuestResultStatus.completed) {
-                  await statsProvider.onTeaReceived(tea, isNew: result.isNew);
-                }
 
                 if (!context.mounted) return;
 

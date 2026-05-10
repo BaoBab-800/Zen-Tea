@@ -98,6 +98,10 @@ class QuestProgressService extends ChangeNotifier {
 
   bool _isConsecutiveDay(DateTime? last, DateTime now) {
     if (last == null) return false;
-    return now.difference(last).inDays == 1;
+
+    final lastDate = DateTime(last.year, last.month, last.day);
+    final nowDate = DateTime(now.year, now.month, now.day);
+
+    return nowDate.difference(lastDate).inDays == 1;
   }
 }
