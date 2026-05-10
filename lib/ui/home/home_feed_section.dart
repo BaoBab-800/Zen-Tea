@@ -15,27 +15,28 @@ class HomeFeedSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
       children: [
-        const SizedBox(height: 4),
+        const SizedBox(height: 6),
         _currentSeries(context),
 
-        const SizedBox(height: 4),
+        const SizedBox(height: 8),
         HomeStatisticsSection(),
 
-        const SizedBox(height: 8),
-        _buildCard(context.l10n.getTeaForToday, context, AppRoute.getTeaForToday),
+        const Spacer(),
+        _buildCard(context.l10n.getTeaForToday, context, Icons.emoji_food_beverage, AppRoute.getTeaForToday),
 
-        _buildCard(context.l10n.teaCollection, context, AppRoute.teaCollection),
+        _buildCard(context.l10n.teaCollection, context, Icons.menu_book, AppRoute.teaCollection),
 
-        _buildCard(context.l10n.achievements, context, AppRoute.achievements),
+        _buildCard(context.l10n.achievements, context, Icons.workspace_premium, AppRoute.achievements),
+        const SizedBox(height: 12),
       ],
     );
   }
 
   Widget _currentSeries(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 6.0),
+      margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surfaceContainerHighest,
@@ -87,13 +88,18 @@ class HomeFeedSection extends StatelessWidget {
     );
   }
 
-  Widget _buildCard(String content, BuildContext context, AppRoute route) {
+  Widget _buildCard(String content, BuildContext context, IconData icon, AppRoute route) {
     return Card(
-      margin: EdgeInsets.symmetric(horizontal: 6.0, vertical: 8.0),
+      margin: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
       child: ListTile(
         title: Text(
           content,
           style: Theme.of(context).textTheme.titleMedium,
+        ),
+
+        leading: Icon(
+          icon,
+          size: 22,
         ),
 
         shape: RoundedRectangleBorder(
