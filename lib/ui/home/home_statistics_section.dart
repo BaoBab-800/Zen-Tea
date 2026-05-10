@@ -24,12 +24,14 @@ class HomeStatisticsSection extends StatelessWidget {
             value: stats.totalServed,
             icon: Icons.emoji_food_beverage_rounded,
           ),
+
           const SizedBox(width: 12),
           _StatCard(
             label: context.l10n.totalTeasOpened,
             value: stats.totalQuestCompleted,
             icon: Icons.local_florist_rounded,
           ),
+
           const SizedBox(width: 12),
           _StatCard(
             label: context.l10n.maximumSeries,
@@ -65,8 +67,8 @@ class _StatCard extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
+              context.colors.primary.withValues(alpha: 0.65),
               context.colors.primary,
-              context.colors.primary.withValues(alpha: 0.82),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -91,19 +93,10 @@ class _StatCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: 32,
-                height: 32,
-                decoration: BoxDecoration(
-                  color: context.colors.primary.withValues(alpha: 0.12),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-
-                child: Icon(
-                  icon,
-                  size: 18,
-                  color: context.colors.onPrimary,
-                ),
+              Icon(
+                icon,
+                size: 18,
+                color: context.colors.onPrimary,
               ),
 
               const Spacer(),
