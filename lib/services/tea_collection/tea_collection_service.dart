@@ -58,6 +58,34 @@ class TeaCollectionService extends ChangeNotifier {
     );
   }
 
+  String dumpState() {
+    final buffer = StringBuffer();
+
+    buffer.writeln('=== TeaCollectionService STATE ===\n');
+
+    buffer.writeln('--- IN MEMORY ---');
+
+    for (final tea in _teas) {
+      buffer.writeln(
+        '${tea.type.name}: unlocked=${tea.isUnlocked}, served=${tea.timesServed}',
+      );
+    }
+
+    buffer.writeln('\n--- RAW HIVE DATA ---');
+
+    final raw = _hive.getOptional<Map>(boxName: _boxName, key: _teasKey);
+
+    if (raw == null) {
+      buffer.writeln('No data in Hive');
+    } else {
+      raw.forEach((key, value) => buffer.writeln('$key => $value'));
+    }
+
+    buffer.writeln('\n=== END ===');
+
+    return buffer.toString();
+  }
+
   Future<void> setDialogSeen() {
     return _hive.putValue(boxName: _boxName, key: _hasSeenDialogKey, value: true);
   }
