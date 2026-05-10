@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:zentea/core/theme/app_theme.dart';
 import 'package:zentea/core/l10n/l10n.dart';
+import 'package:zentea/core/theme/app_theme.dart';
 
 import 'package:zentea/services/stats/stats_provider.dart';
 
@@ -13,32 +13,30 @@ class HomeStatisticsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final stats = context.watch<StatsProvider>().stats;
 
-    return Container(
-      decoration: BoxDecoration(),
-
-      child: SingleChildScrollView(
+    return SizedBox(
+      height: 136,
+      child: ListView(
         scrollDirection: Axis.horizontal,
-        child: Row(
-          children: [
-            const SizedBox(width: 16),
-            _StatCard(
-              label: context.l10n.totalTeasDrunk,
-              value: stats.totalServed,
-            ),
-
-            const SizedBox(width: 8),
-            _StatCard(
-              label: context.l10n.totalTeasOpened,
-              value: stats.totalQuestCompleted,
-            ),
-
-            const SizedBox(width: 8),
-            _StatCard(
-              label: context.l10n.maximumSeries,
-              value: stats.maxStreak,
-            ),
-          ],
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        children: [
+          _StatCard(
+            label: context.l10n.totalTeasDrunk,
+            value: stats.totalServed,
+            icon: Icons.emoji_food_beverage_rounded,
+          ),
+          const SizedBox(width: 12),
+          _StatCard(
+            label: context.l10n.totalTeasOpened,
+            value: stats.totalQuestCompleted,
+            icon: Icons.local_florist_rounded,
+          ),
+          const SizedBox(width: 12),
+          _StatCard(
+            label: context.l10n.maximumSeries,
+            value: stats.maxStreak,
+            icon: Icons.local_fire_department_rounded,
+          ),
+        ],
       ),
     );
   }
@@ -47,21 +45,93 @@ class HomeStatisticsSection extends StatelessWidget {
 class _StatCard extends StatelessWidget {
   final String label;
   final int value;
+  final IconData icon;
 
   const _StatCard({
     required this.label,
     required this.value,
+    required this.icon,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      decoration: BoxDecoration(
-        color: context.colors.primary,
-        borderRadius: BorderRadius.circular(16),
+    return ConstrainedBox(
+      constraints: const BoxConstraints(
+        minWidth: 132,
+        minHeight: 120,
       ),
-      child: Text('$label: $value'),
+
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              context.colors.primary,
+              context.colors.primary.withValues(alpha: 0.82),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+            color: context.colors.primary.withValues(alpha: 0.18),
+          ),
+
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.08),
+              blurRadius: 14,
+              offset: const Offset(0, 6),
+            ),
+          ],
+        ),
+
+        child: Padding(
+          padding: const EdgeInsets.all(14),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 32,
+                height: 32,
+                decoration: BoxDecoration(
+                  color: context.colors.primary.withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+
+                child: Icon(
+                  icon,
+                  size: 18,
+                  color: context.colors.onPrimary,
+                ),
+              ),
+
+              const Spacer(),
+
+              Text(
+                '$value',
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: context.colors.onPrimary,
+                ),
+              ),
+
+              const SizedBox(height: 2),
+              Text(
+                label,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: context.colors.onPrimary.withValues(
+                    alpha: 0.88,
+                  ),
+                  height: 1.25,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

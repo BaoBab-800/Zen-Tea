@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:zentea/app/app_router.dart';
+
 import 'package:zentea/core/l10n/l10n.dart';
+import 'package:zentea/core/theme/app_theme.dart';
+
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 
 import 'home_statistics_section.dart';
@@ -21,7 +24,7 @@ class HomeFeedSection extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 6.0),
           padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surfaceVariant,
+            color: Theme.of(context).colorScheme.surfaceContainerHighest,
             borderRadius: BorderRadius.circular(16),
           ),
 
@@ -30,7 +33,7 @@ class HomeFeedSection extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
+                  color: context.colors.primary.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
@@ -69,6 +72,7 @@ class HomeFeedSection extends StatelessWidget {
 
         _buildCard(context.l10n.achievements, context, AppRoute.achievements),
 
+        const SizedBox(height: 8),
         HomeStatisticsSection(),
       ],
     );

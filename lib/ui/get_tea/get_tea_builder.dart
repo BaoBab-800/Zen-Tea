@@ -93,11 +93,16 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Row(
-          mainAxisSize: MainAxisSize.min,
           children: [
             const Icon(Icons.local_fire_department, color: Colors.white),
             const SizedBox(width: 8),
-            Text('$text$result', overflow: TextOverflow.ellipsis),
+            Expanded(
+              child: Text(
+                '$text$result',
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+              ),
+            ),
           ],
         ),
 
