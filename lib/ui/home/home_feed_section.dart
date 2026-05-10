@@ -68,8 +68,6 @@ class HomeFeedSection extends StatelessWidget {
 
         _buildCard(context.l10n.teaCollection, context, AppRoute.teaCollection),
 
-        _buildCard(context.l10n.whatKindOfTeaAreYouQuiz, context, AppRoute.whatKindOfTeaAreYouQuiz),
-
         _buildCard(context.l10n.achievements, context, AppRoute.achievements),
 
         const SizedBox(height: 8),

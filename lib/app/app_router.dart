@@ -6,43 +6,26 @@ import 'package:zentea/services/url/url_service.dart';
 import '../ui/home/home_page_builder.dart';
 import '../ui/get_tea/get_tea_builder.dart';
 import '../ui/tea_collection/tea_collection_page_builder.dart';
-import '../ui/tea_quiz/tea_quiz_builder.dart';
 import '../ui/achievements/achievements_builder.dart';
 import '../ui/settings/settings_page_builder.dart';
 import '../ui/developer/developer_room.dart';
 
 enum AppRoute {
-  home,
-  getTeaForToday,
-  teaCollection,
-  whatKindOfTeaAreYouQuiz,
-  achievements,
-  settings,
-  about,
-  developer,
-}
+  home(name: 'home', path: '/'),
+  getTeaForToday(name: 'getTeaForToday', path: '/get-tea-for-today'),
+  teaCollection(name: 'teaCollection', path: '/tea-collection'),
+  achievements(name: 'achievements', path: '/achievements'),
+  settings(name: 'settings', path: '/settings'),
+  about(name: 'about', path: '/about'),
+  developer(name: 'developer', path: '/developer');
 
-extension AppRoutePath on AppRoute {
-  String get path {
-    switch (this) {
-      case AppRoute.home:
-        return '/';
-      case AppRoute.getTeaForToday:
-        return '/get-tea-for-today';
-      case AppRoute.whatKindOfTeaAreYouQuiz:
-        return '/what-kind-of-tea-are-you-quiz';
-      case AppRoute.achievements:
-        return '/achievements';
-      case AppRoute.teaCollection:
-        return '/tea-collection';
-      case AppRoute.settings:
-        return '/settings';
-      case AppRoute.about:
-        return '/about';
-      case AppRoute.developer:
-        return '/developer';
-    }
-  }
+  final String name;
+  final String path;
+
+  const AppRoute({
+    required this.name,
+    required this.path,
+  });
 }
 
 class AppRouter {
@@ -50,36 +33,37 @@ class AppRouter {
     initialLocation: AppRoute.home.path,
     routes: [
       GoRoute(
+        name: AppRoute.home.name,
         path: AppRoute.home.path,
         builder: (context, state) => const HomePage(),
       ),
 
       GoRoute(
+        name: AppRoute.getTeaForToday.name,
         path: AppRoute.getTeaForToday.path,
         builder: (context, state) => GetTeaBuilder(urlService: UrlService()),
       ),
 
       GoRoute(
+        name: AppRoute.teaCollection.name,
         path: AppRoute.teaCollection.path,
         builder: (context, state) => const TeaCollectionPageBuilder(),
       ),
 
       GoRoute(
-        path: AppRoute.whatKindOfTeaAreYouQuiz.path,
-        builder: (context, state) => const TeaQuizBuilder(),
-      ),
-
-      GoRoute(
+        name: AppRoute.achievements.name,
         path: AppRoute.achievements.path,
         builder: (context, state) => const AchievementsBuilder(),
       ),
 
       GoRoute(
+        name: AppRoute.settings.name,
         path: AppRoute.settings.path,
         builder: (context, state) => const SettingsPageBuilder(),
       ),
 
       GoRoute(
+        name: AppRoute.about.name,
         path: AppRoute.developer.path,
         builder: (context, state) => const DeveloperRoom(),
       ),
@@ -88,11 +72,7 @@ class AppRouter {
 }
 
 extension Navigation on BuildContext {
-  void goRoute(AppRoute route) {
-    go(route.path);
-  }
+  void goRoute(AppRoute route) => go(route.path);
 
-  void pushRoute(AppRoute route) {
-    push(route.path);
-  }
+  void pushRoute(AppRoute route) => push(route.path);
 }
