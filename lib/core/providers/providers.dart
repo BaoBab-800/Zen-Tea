@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'package:zentea/core/l10n/achievement_localization.dart';
 
+import 'package:zentea/services/hive/hive_service.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 import 'package:zentea/services/achievements/achievements_service.dart';
 import 'package:zentea/services/settings/settings_service.dart';
@@ -14,15 +15,19 @@ import 'package:zentea/services/stats/stats_provider.dart';
 
 List<SingleChildWidget> buildProviders() => [
   Provider(
-    create: (_) => AchievementsService(),
+    create: (_) => HiveService(),
   ),
 
   Provider(
-    create: (_) => StatsService()..init(),
+    create: (context) => AchievementsService(context.read<HiveService>()),
+  ),
+
+  Provider(
+    create: (context) => StatsService(context.read<HiveService>()),
   ),
 
   Provider<TodayTeaService>(
-    create: (_) => TodayTeaServiceImpl(),
+    create: (context) => TodayTeaServiceImpl(context.read<HiveService>()),
   ),
 
   ChangeNotifierProvider(
@@ -36,6 +41,7 @@ List<SingleChildWidget> buildProviders() => [
     create: (context) => QuestProgressService(
       achievementsService: context.read<AchievementsService>(),
       statsProvider: context.read<StatsProvider>(),
+      hiveService: context.read<HiveService>(),
     ),
   ),
 
@@ -44,10 +50,10 @@ List<SingleChildWidget> buildProviders() => [
   ),
 
   ChangeNotifierProvider(
-    create: (context) => TeaCollectionService(),
+    create: (context) => TeaCollectionService(context.read<HiveService>()),
   ),
 
   ChangeNotifierProvider(
-    create: (_) => SettingsService(),
+    create: (context) => SettingsService(context.read<HiveService>()),
   ),
 ];
