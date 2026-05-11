@@ -10,6 +10,7 @@ enum TeaType {
   jasmineTea,
   hibiscusTea,
   whiteTea,
+  mintTea,
   oolongTea,
   rooibosTea,
 }
@@ -52,6 +53,8 @@ extension TeaTypeX on TeaType {
         return l10n.hibiscusTea;
       case TeaType.whiteTea:
         return l10n.whiteTea;
+      case TeaType.mintTea:
+        return l10n.mintTea;
       case TeaType.oolongTea:
         return l10n.oolongTea;
       case TeaType.rooibosTea:
@@ -81,6 +84,8 @@ extension TeaStoryX on TeaType {
         return l10n.hibiscusTeaStory;
       case TeaType.whiteTea:
         return l10n.whiteTeaStory;
+      case TeaType.mintTea:
+        return l10n.mintTeaStory;
       case TeaType.oolongTea:
         return l10n.oolongTeaStory;
       case TeaType.rooibosTea:
@@ -110,6 +115,8 @@ extension TeaTitleStoryX on TeaType {
         return l10n.hibiscusTeaStoryTitle;
       case TeaType.whiteTea:
         return l10n.whiteTeaStoryTitle;
+      case TeaType.mintTea:
+        return l10n.mintTeaStoryTitle;
       case TeaType.oolongTea:
         return l10n.oolongTeaStoryTitle;
       case TeaType.rooibosTea:

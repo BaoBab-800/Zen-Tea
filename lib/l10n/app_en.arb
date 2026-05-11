@@ -57,6 +57,7 @@
   "jasmineTea": "Jasmine tea",
   "hibiscusTea": "Hibiscus tea",
   "whiteTea": "White tea",
+  "mintTea": "Mint tea",
   "oolongTea": "Oolong tea",
   "rooibosTea": "Rooibos tea",
 
@@ -81,8 +82,11 @@
   "hibiscusTeaStoryTitle": "Hibiscus tea - «tea that doesn't pretend to be mild»",
   "hibiscusTeaStory": "Hibiscus is not a leaf or a tea bush. These are dried flower petals.\n\nEgo was brewed in different parts of the world: in Africa, in the Middle East, in Latin America. And everywhere it was about the same - bright, sour and refreshing.\n\nHe is not trying to be 'cozy'. He immediately declares himself.",
 
-  "whiteTeaStoryTitle": "White tea — «tea that has hardly been touched»",
+  "whiteTeaStoryTitle": "White tea - «tea that has hardly been touched»",
   "whiteTeaStory": "White tea is the most 'pristine' of all teas.\n\nEgo is made from young buds and leaves that are hardly processed: they are simply collected and carefully dried. Without strong heating, without twisting, without trying to change something.\n\nAs if the main idea is not to interfere.",
+
+  "mintTeaStoryTitle": "Mint tea - «The Tea That Can Stop Noise»",
+  "mintTeaStory": "Mint tea doesn't try to invigorate like coffee, nor does it attempt to impress with a complex flavor.\n\nIt does something different – \u200B\u200Bit seems to purify the space around you.\n\nMint was brewed in ancient cultures: in Egypt, Greece, and the Middle East. It was prized not only for its flavor but also for the feeling of freshness it provided, even in the heat.\n\nOver time, mint tea became a drink for a break – something you drink not on the run, but to take a breather.",
 
   "oolongTeaStoryTitle": "Oolong - «the tea that didn't choose a side»",
   "oolongTeaStory": "Oolong is a tea that exists between worlds.\n\nIts leaves are partially oxidized: not as much as black tea, and not as lightly as green tea. Therefore, it is neither one nor the other, and simultaneously both.\n\nThis is not a technological failure, but an art of balance.",

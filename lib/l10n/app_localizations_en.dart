@@ -145,6 +145,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get whiteTea => 'White tea';
 
   @override
+  String get mintTea => 'Mint tea';
+
+  @override
   String get oolongTea => 'Oolong tea';
 
   @override
@@ -207,11 +210,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get whiteTeaStoryTitle =>
-      'White tea — «tea that has hardly been touched»';
+      'White tea - «tea that has hardly been touched»';
 
   @override
   String get whiteTeaStory =>
       'White tea is the most \'pristine\' of all teas.\n\nEgo is made from young buds and leaves that are hardly processed: they are simply collected and carefully dried. Without strong heating, without twisting, without trying to change something.\n\nAs if the main idea is not to interfere.';
+
+  @override
+  String get mintTeaStoryTitle => 'Mint tea - «The Tea That Can Stop Noise»';
+
+  @override
+  String get mintTeaStory =>
+      'Mint tea doesn\'t try to invigorate like coffee, nor does it attempt to impress with a complex flavor.\n\nIt does something different – ​​it seems to purify the space around you.\n\nMint was brewed in ancient cultures: in Egypt, Greece, and the Middle East. It was prized not only for its flavor but also for the feeling of freshness it provided, even in the heat.\n\nOver time, mint tea became a drink for a break – something you drink not on the run, but to take a breather.';
 
   @override
   String get oolongTeaStoryTitle =>

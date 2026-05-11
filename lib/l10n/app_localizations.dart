@@ -362,6 +362,12 @@ abstract class AppLocalizations {
   /// **'White tea'**
   String get whiteTea;
 
+  /// No description provided for @mintTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Mint tea'**
+  String get mintTea;
+
   /// No description provided for @oolongTea.
   ///
   /// In en, this message translates to:
@@ -461,7 +467,7 @@ abstract class AppLocalizations {
   /// No description provided for @whiteTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'White tea — «tea that has hardly been touched»'**
+  /// **'White tea - «tea that has hardly been touched»'**
   String get whiteTeaStoryTitle;
 
   /// No description provided for @whiteTeaStory.
@@ -469,6 +475,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'White tea is the most \'pristine\' of all teas.\n\nEgo is made from young buds and leaves that are hardly processed: they are simply collected and carefully dried. Without strong heating, without twisting, without trying to change something.\n\nAs if the main idea is not to interfere.'**
   String get whiteTeaStory;
+
+  /// No description provided for @mintTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Mint tea - «The Tea That Can Stop Noise»'**
+  String get mintTeaStoryTitle;
+
+  /// No description provided for @mintTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Mint tea doesn\'t try to invigorate like coffee, nor does it attempt to impress with a complex flavor.\n\nIt does something different – ​​it seems to purify the space around you.\n\nMint was brewed in ancient cultures: in Egypt, Greece, and the Middle East. It was prized not only for its flavor but also for the feeling of freshness it provided, even in the heat.\n\nOver time, mint tea became a drink for a break – something you drink not on the run, but to take a breather.'**
+  String get mintTeaStory;
 
   /// No description provided for @oolongTeaStoryTitle.
   ///
