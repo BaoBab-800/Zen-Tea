@@ -5,6 +5,7 @@ import 'package:zentea/services/url/url_service.dart';
 
 import '../ui/home/home_page_builder.dart';
 import '../ui/get_tea/get_tea_builder.dart';
+import '../ui/tea_map/tea_map.dart';
 import '../ui/tea_collection/tea_collection_page_builder.dart';
 import '../ui/achievements/achievements_builder.dart';
 import '../ui/settings/settings_page_builder.dart';
@@ -13,6 +14,7 @@ import '../ui/developer/developer_room.dart';
 enum AppRoute {
   home(name: 'home', path: '/'),
   getTeaForToday(name: 'getTeaForToday', path: '/get-tea-for-today'),
+  teaMap(name: 'teaMap', path: '/tea-map'),
   teaCollection(name: 'teaCollection', path: '/tea-collection'),
   achievements(name: 'achievements', path: '/achievements'),
   settings(name: 'settings', path: '/settings'),
@@ -42,6 +44,12 @@ class AppRouter {
         name: AppRoute.getTeaForToday.name,
         path: AppRoute.getTeaForToday.path,
         builder: (context, state) => GetTeaBuilder(urlService: UrlService()),
+      ),
+
+      GoRoute(
+        name: AppRoute.teaMap.name,
+        path: AppRoute.teaMap.path,
+        builder: (context, state) => TeaMap(),
       ),
 
       GoRoute(

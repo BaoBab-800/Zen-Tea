@@ -3,6 +3,7 @@
 
   "currentTeaSeries": "Поточна серія чаю: ",
   "getTeaForToday": "Отримати чай на сьогодні",
+  "teaMap": "Карта чаїв",
   "teaCollection": "Колекція чаю",
   "whatKindOfTeaAreYouQuiz": "Який ти чай? Тест",
   "achievements": "Досягнення",
@@ -45,7 +46,13 @@
   "readTheStory": "Прочитати історію",
   "goToWiki": "Перейти до Вікіпедії",
 
-  "teaQuiz": "Тест по чаю",
+  "china": "Китай",
+  "united Kingdom": "Сполучене Королівство",
+  "india": "Індія",
+  "japan": "Японія",
+  "egypt": "Єгипет",
+  "morocco": "Марокко",
+  "southAfrica": "Південна Африка",
 
   "locked": "Заблоковано",
 

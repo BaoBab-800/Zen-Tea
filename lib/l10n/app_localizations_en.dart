@@ -15,10 +15,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get getTeaForToday => 'Get tea for today';
 
   @override
-  String get teaCollection => 'Tea Collection';
+  String get teaMap => 'Tea map';
 
   @override
-  String get whatKindOfTeaAreYouQuiz => 'What kind of tea are you? Quiz';
+  String get teaCollection => 'Tea Collection';
 
   @override
   String get achievements => 'Achievements';
@@ -115,7 +115,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get goToWiki => 'Go to Wikipedia';
 
   @override
-  String get teaQuiz => 'Tea quiz';
+  String get china => 'China';
+
+  @override
+  String get unitedKingdom => 'United Kingdom';
+
+  @override
+  String get india => 'India';
+
+  @override
+  String get japan => 'Japan';
+
+  @override
+  String get egypt => 'Egypt';
+
+  @override
+  String get morocco => 'Morocco';
+
+  @override
+  String get southAfrica => 'South Africa';
 
   @override
   String get locked => 'Locked';

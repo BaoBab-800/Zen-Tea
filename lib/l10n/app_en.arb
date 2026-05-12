@@ -3,8 +3,8 @@
 
   "currentTeaSeries": "Current Tea Series: ",
   "getTeaForToday": "Get tea for today",
+  "teaMap": "Tea map",
   "teaCollection": "Tea Collection",
-  "whatKindOfTeaAreYouQuiz": "What kind of tea are you? Quiz",
   "achievements": "Achievements",
   "totalTeasOpened": "Total teas opened",
   "totalTeasDrunk": "Total teas drunk",
@@ -45,7 +45,13 @@
   "readTheStory": "Read the story",
   "goToWiki": "Go to Wikipedia",
 
-  "teaQuiz": "Tea quiz",
+  "china": "China",
+  "unitedKingdom": "United Kingdom",
+  "india": "India",
+  "japan": "Japan",
+  "egypt": "Egypt",
+  "morocco": "Morocco",
+  "southAfrica": "South Africa",
 
   "locked": "Locked",
 

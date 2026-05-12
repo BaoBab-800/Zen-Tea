@@ -110,17 +110,17 @@ abstract class AppLocalizations {
   /// **'Get tea for today'**
   String get getTeaForToday;
 
+  /// No description provided for @teaMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Tea map'**
+  String get teaMap;
+
   /// No description provided for @teaCollection.
   ///
   /// In en, this message translates to:
   /// **'Tea Collection'**
   String get teaCollection;
-
-  /// No description provided for @whatKindOfTeaAreYouQuiz.
-  ///
-  /// In en, this message translates to:
-  /// **'What kind of tea are you? Quiz'**
-  String get whatKindOfTeaAreYouQuiz;
 
   /// No description provided for @achievements.
   ///
@@ -302,11 +302,47 @@ abstract class AppLocalizations {
   /// **'Go to Wikipedia'**
   String get goToWiki;
 
-  /// No description provided for @teaQuiz.
+  /// No description provided for @china.
   ///
   /// In en, this message translates to:
-  /// **'Tea quiz'**
-  String get teaQuiz;
+  /// **'China'**
+  String get china;
+
+  /// No description provided for @unitedKingdom.
+  ///
+  /// In en, this message translates to:
+  /// **'United Kingdom'**
+  String get unitedKingdom;
+
+  /// No description provided for @india.
+  ///
+  /// In en, this message translates to:
+  /// **'India'**
+  String get india;
+
+  /// No description provided for @japan.
+  ///
+  /// In en, this message translates to:
+  /// **'Japan'**
+  String get japan;
+
+  /// No description provided for @egypt.
+  ///
+  /// In en, this message translates to:
+  /// **'Egypt'**
+  String get egypt;
+
+  /// No description provided for @morocco.
+  ///
+  /// In en, this message translates to:
+  /// **'Morocco'**
+  String get morocco;
+
+  /// No description provided for @southAfrica.
+  ///
+  /// In en, this message translates to:
+  /// **'South Africa'**
+  String get southAfrica;
 
   /// No description provided for @locked.
   ///

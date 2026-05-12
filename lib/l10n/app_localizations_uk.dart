@@ -15,10 +15,10 @@ class AppLocalizationsUk extends AppLocalizations {
   String get getTeaForToday => 'Отримати чай на сьогодні';
 
   @override
-  String get teaCollection => 'Колекція чаю';
+  String get teaMap => 'Карта чаїв';
 
   @override
-  String get whatKindOfTeaAreYouQuiz => 'Який ти чай? Тест';
+  String get teaCollection => 'Колекція чаю';
 
   @override
   String get achievements => 'Досягнення';
@@ -114,7 +114,25 @@ class AppLocalizationsUk extends AppLocalizations {
   String get goToWiki => 'Перейти до Вікіпедії';
 
   @override
-  String get teaQuiz => 'Тест по чаю';
+  String get china => 'Китай';
+
+  @override
+  String get unitedKingdom => 'United Kingdom';
+
+  @override
+  String get india => 'Індія';
+
+  @override
+  String get japan => 'Японія';
+
+  @override
+  String get egypt => 'Єгипет';
+
+  @override
+  String get morocco => 'Марокко';
+
+  @override
+  String get southAfrica => 'Південна Африка';
 
   @override
   String get locked => 'Заблоковано';

@@ -26,6 +26,8 @@ class HomeFeedSection extends StatelessWidget {
         const Spacer(),
         _buildCard(context.l10n.getTeaForToday, context, Icons.emoji_food_beverage, AppRoute.getTeaForToday),
 
+        _buildCard(context.l10n.teaMap, context, Icons.map, AppRoute.teaMap),
+
         _buildCard(context.l10n.teaCollection, context, Icons.menu_book, AppRoute.teaCollection),
 
         _buildCard(context.l10n.achievements, context, Icons.workspace_premium, AppRoute.achievements),

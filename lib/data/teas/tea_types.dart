@@ -21,6 +21,16 @@ enum TeaFeatures {
   legendary,
 }
 
+enum TeaCountries {
+  china,
+  unitedKingdom,
+  india,
+  japan,
+  egypt,
+  morocco,
+  southAfrica,
+}
+
 int getWeight(TeaFeatures feature) {
   switch (feature) {
     case TeaFeatures.common:
@@ -121,6 +131,29 @@ extension TeaTitleStoryX on TeaType {
         return l10n.oolongTeaStoryTitle;
       case TeaType.rooibosTea:
         return l10n.rooibosTeaStoryTitle;
+    }
+  }
+}
+
+extension TeaCountriesX on TeaCountries {
+  String title(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
+    switch (this) {
+      case TeaCountries.china:
+        return l10n.china;
+      case TeaCountries.unitedKingdom:
+        return l10n.unitedKingdom;
+      case TeaCountries.india:
+        return l10n.india;
+      case TeaCountries.japan:
+        return l10n.japan;
+      case TeaCountries.egypt:
+        return l10n.egypt;
+      case TeaCountries.morocco:
+        return l10n.morocco;
+      case TeaCountries.southAfrica:
+        return l10n.southAfrica;
     }
   }
 }
