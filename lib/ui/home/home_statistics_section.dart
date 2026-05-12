@@ -95,7 +95,7 @@ class _StatCard extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                size: 18,
+                size: 22,
                 color: context.colors.onPrimary,
               ),
 

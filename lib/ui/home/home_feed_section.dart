@@ -46,7 +46,7 @@ class HomeFeedSection extends StatelessWidget {
 
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.08),
+            color: Colors.black.withValues(alpha: 0.1),
             blurRadius: 8,
             offset: Offset(4, 4),
           ),
@@ -92,6 +92,7 @@ class HomeFeedSection extends StatelessWidget {
 
   Widget _buildCard(String content, BuildContext context, IconData icon, AppRoute route) {
     return Card(
+      elevation: 3,
       margin: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
       child: ListTile(
         title: Text(
