@@ -112,6 +112,17 @@ class TeaCollectionService extends ChangeNotifier {
 
   int _indexOfType(TeaType type) => _teas.indexWhere((item) => item.type == type);
 
+  int countryCounter(TeaCountries country) {
+    int counter = 0;
+    for(int i = 0; i < _teas.length; i++) {
+      if (_teas[i].isUnlocked && _teas[i].country == country) {
+        counter++;
+      }
+    }
+
+    return counter;
+  }
+
   Future<void> _persist() {
     final data = {
       for (final tea in _teas)
