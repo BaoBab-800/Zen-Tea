@@ -13,6 +13,7 @@ enum TeaType {
   mintTea,
   oolongTea,
   rooibosTea,
+  puerhTea,
 }
 
 enum TeaFeatures {
@@ -69,6 +70,8 @@ extension TeaTypeX on TeaType {
         return l10n.oolongTea;
       case TeaType.rooibosTea:
         return l10n.rooibosTea;
+      case TeaType.puerhTea:
+        return l10n.puerhTea;
     }
   }
 }
@@ -100,6 +103,8 @@ extension TeaStoryX on TeaType {
         return l10n.oolongTeaStory;
       case TeaType.rooibosTea:
         return l10n.rooibosTeaStory;
+      case TeaType.puerhTea:
+        return l10n.puerhTeaStory;
     }
   }
 }
@@ -131,6 +136,8 @@ extension TeaTitleStoryX on TeaType {
         return l10n.oolongTeaStoryTitle;
       case TeaType.rooibosTea:
         return l10n.rooibosTeaStoryTitle;
+      case TeaType.puerhTea:
+        return l10n.puerhTeaStoryTitle;
     }
   }
 }

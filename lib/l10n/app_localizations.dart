@@ -416,6 +416,12 @@ abstract class AppLocalizations {
   /// **'Rooibos tea'**
   String get rooibosTea;
 
+  /// No description provided for @puerhTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Pu-erh tea'**
+  String get puerhTea;
+
   /// No description provided for @blackTeaStoryTitle.
   ///
   /// In en, this message translates to:
@@ -547,6 +553,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rooibos originated far from the traditional tea regions, in South Africa.\n\nIt\'s not the leaves of the tea bush, but the needle-like branches of a plant that grew wild. Locals brewed it long before the rest of the world discovered it.\n\nWhen Europeans tried rooibos, they realized it wasn\'t tea, but it behaved like it. So they decided—let it be.'**
   String get rooibosTeaStory;
+
+  /// No description provided for @puerhTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pu-erh – «tea that can wait»'**
+  String get puerhTeaStoryTitle;
+
+  /// No description provided for @puerhTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Pu-erh is a tea that stands the test of time.\n\nWhile other teas strive to preserve their freshness, pu-erh is the opposite: it\'s allowed to evolve. After processing, the tea continues to \'live,\' gradually changing its flavor, aroma, and character.\n\nSome pu-erhs are aged for years. Sometimes, for decades.'**
+  String get puerhTeaStory;
 
   /// No description provided for @tServeTenTeasAchievement.
   ///

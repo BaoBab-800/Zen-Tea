@@ -66,6 +66,7 @@
   "mintTea": "Mint tea",
   "oolongTea": "Oolong tea",
   "rooibosTea": "Rooibos tea",
+  "puerhTea": "Pu-erh tea",
 
   "blackTeaStoryTitle": "Black Tea - «The Tea That Accidentally Became a Legend»",
   "blackTeaStory": "They say black tea didn't appear because someone intended it that way, but because green tea was forgotten one day.\n\nIn China, tea leaves were typically processed quickly to preserve their freshness and green color. But one day, a batch of leaves was left over and began to oxidize. The leaves darkened, the aroma changed, and instead of the usual herbal flavor, a rich, deep aroma emerged.\n\nAnd instead of throwing it away, people tried it. And they liked it.\n\nThus, a new type of tea was born, which later became known as black tea.",
@@ -99,6 +100,9 @@
 
   "rooibosTeaStoryTitle": "Rooibos - «tea that wasn't tea»",
   "rooibosTeaStory": "Rooibos originated far from the traditional tea regions, in South Africa.\n\nIt's not the leaves of the tea bush, but the needle-like branches of a plant that grew wild. Locals brewed it long before the rest of the world discovered it.\n\nWhen Europeans tried rooibos, they realized it wasn't tea, but it behaved like it. So they decided—let it be.",
+
+  "puerhTeaStoryTitle": "Pu-erh – «tea that can wait»",
+  "puerhTeaStory": "Pu-erh is a tea that stands the test of time.\n\nWhile other teas strive to preserve their freshness, pu-erh is the opposite: it's allowed to evolve. After processing, the tea continues to 'live,' gradually changing its flavor, aroma, and character.\n\nSome pu-erhs are aged for years. Sometimes, for decades.",
 
 
 

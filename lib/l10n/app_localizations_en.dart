@@ -172,6 +172,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get rooibosTea => 'Rooibos tea';
 
   @override
+  String get puerhTea => 'Pu-erh tea';
+
+  @override
   String get blackTeaStoryTitle =>
       'Black Tea - «The Tea That Accidentally Became a Legend»';
 
@@ -255,6 +258,13 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get rooibosTeaStory =>
       'Rooibos originated far from the traditional tea regions, in South Africa.\n\nIt\'s not the leaves of the tea bush, but the needle-like branches of a plant that grew wild. Locals brewed it long before the rest of the world discovered it.\n\nWhen Europeans tried rooibos, they realized it wasn\'t tea, but it behaved like it. So they decided—let it be.';
+
+  @override
+  String get puerhTeaStoryTitle => 'Pu-erh – «tea that can wait»';
+
+  @override
+  String get puerhTeaStory =>
+      'Pu-erh is a tea that stands the test of time.\n\nWhile other teas strive to preserve their freshness, pu-erh is the opposite: it\'s allowed to evolve. After processing, the tea continues to \'live,\' gradually changing its flavor, aroma, and character.\n\nSome pu-erhs are aged for years. Sometimes, for decades.';
 
   @override
   String get tServeTenTeasAchievement => 'Just 10 times';

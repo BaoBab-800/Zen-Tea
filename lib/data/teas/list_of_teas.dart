@@ -111,4 +111,14 @@ final List<TeaModel> listOfTeas = [
     timesServed: 0,
     isUnlocked: false,
   ),
+
+  TeaModel(
+    type: TeaType.puerhTea,
+    imagePath: 'assets/teas/puerh_tea.jpg',
+    features: TeaFeatures.rare,
+    country: TeaCountries.china,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Pu%27er_tea'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
 ];
