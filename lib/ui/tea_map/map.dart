@@ -6,38 +6,57 @@ import 'package:zentea/data/paths/paths_of_countries.dart';
 
 class Map extends StatelessWidget {
   final List<CountryPathModel> countries;
+  final ValueChanged<CountryPathModel>? onCountryTap;
 
   const Map({
     super.key,
     required this.countries,
+    this.onCountryTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: _CountriesPainter(countries),
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          final size = Size(
-            constraints.maxWidth,
-            constraints.maxHeight,
-          );
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final size = Size(
+          constraints.maxWidth,
+          constraints.maxHeight,
+        );
 
-          return SizedBox(
+        return GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTapDown: onCountryTap == null
+              ? null
+              : (details) {
+            final country = _findCountryByPosition(
+              details.localPosition,
+              size,
+              countries,
+            );
+
+            if (country != null) {
+              onCountryTap!(country);
+            }
+          },
+          child: SizedBox(
             width: size.width,
             height: size.height,
-            child: _MapContent(size: size),
-          );
-        },
-      ),
+            child: _MapContent(size: size, countries: countries),
+          ),
+        );
+      },
     );
   }
 }
 
 class _MapContent extends StatelessWidget {
   final Size size;
+  final List<CountryPathModel> countries;
 
-  const _MapContent({required this.size});
+  const _MapContent({
+    required this.size,
+    required this.countries,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -53,13 +72,34 @@ class _MapContent extends StatelessWidget {
         Positioned.fill(
           child: CustomPaint(
             painter: _CountriesPainter(
-              pathsOfCountries,
+              countries,
             ),
           ),
         ),
       ],
     );
   }
+}
+
+CountryPathModel? _findCountryByPosition(
+    Offset localPosition,
+    Size renderedSize,
+    List<CountryPathModel> countries,
+    ) {
+  const svgW = 1009.67;
+  const svgH = 665.96;
+
+  final mapX = localPosition.dx * svgW / renderedSize.width;
+  final mapY = localPosition.dy * svgH / renderedSize.height;
+  final mapPosition = Offset(mapX, mapY);
+
+  for (final country in countries) {
+    if (country.path.contains(mapPosition)) {
+      return country;
+    }
+  }
+
+  return null;
 }
 
 class _CountriesPainter extends CustomPainter {

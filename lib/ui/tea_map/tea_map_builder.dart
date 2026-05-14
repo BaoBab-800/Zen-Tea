@@ -19,13 +19,64 @@ class TeaMapBuilder extends StatefulWidget {
 }
 
 class _TeaMapBuilderState extends State<TeaMapBuilder> {
-  void _onTap(Offset position) {
-    for (final country in pathsOfCountries) {
-      if (country.path.contains(position)) {
-        print(country.code);
-        return;
-      }
+  TeaCountries? _countryByCode(String code) {
+    switch (code) {
+      case 'CN':
+        return TeaCountries.china;
+      case 'GB':
+        return TeaCountries.unitedKingdom;
+      case 'IN':
+        return TeaCountries.india;
+      case 'JP':
+        return TeaCountries.japan;
+      case 'EG':
+        return TeaCountries.egypt;
+      case 'MA':
+        return TeaCountries.morocco;
+      case 'ZA':
+        return TeaCountries.southAfrica;
+      default:
+        return null;
     }
+  }
+
+  void _showCountryTeasSheet(
+      BuildContext context,
+      TeaCollectionService service,
+      TeaCountries country,
+      ) {
+    final teas = service.teas.where((tea) => tea.country == country).toList();
+
+    showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      builder: (context) {
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  country.title(context),
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 12),
+                ...teas.map(
+                      (tea) => ListTile(
+                    dense: true,
+                    contentPadding: EdgeInsets.zero,
+                    leading: Icon(tea.isUnlocked ? Icons.emoji_food_beverage : Icons.lock),
+                    title: Text(tea.type.title(context)),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -75,14 +126,18 @@ class _TeaMapBuilderState extends State<TeaMapBuilder> {
                   padding: const EdgeInsets.all(16.0),
                   child: AspectRatio(
                     aspectRatio: 1009.67 / 665.96,
-                    child: GestureDetector(
-                      onTapDown: (details) {
-                        _onTap(details.localPosition);
-                      },
+                    child: Map(
+                      countries: pathsOfCountries,
+                      onCountryTap: (country) {
+                        final teaCountry = _countryByCode(country.code);
 
-                      child: Map(
-                        countries: pathsOfCountries,
-                      ),
+                        if (teaCountry == null) {
+                          debugPrint('No country mapping for code: ${country.code}');
+                          return;
+                        }
+
+                        _showCountryTeasSheet(context, service, teaCountry);
+                      },
                     ),
                   ),
                 ),
