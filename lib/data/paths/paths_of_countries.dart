@@ -37,12 +37,12 @@ final List<CountryPathModel> pathsOfCountries = [
   ),
 
   CountryPathModel(
-    code: 'UK',
+    code: 'GB',
     path: unitedKingdomPath,
   ),
 
   CountryPathModel(
-    code: 'IND',
+    code: 'IN',
     path: indiaPath,
   ),
 
@@ -57,12 +57,12 @@ final List<CountryPathModel> pathsOfCountries = [
   ),
 
   CountryPathModel(
-    code: 'MOR',
+    code: 'MA',
     path: moroccoPath,
   ),
 
   CountryPathModel(
-    code: 'SA',
+    code: 'ZA',
     path: southAfricaPath,
   ),
 ];

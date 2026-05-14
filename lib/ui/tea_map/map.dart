@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:zentea/data/paths/country_path_model.dart';
-import 'package:zentea/data/paths/paths_of_countries.dart';
 
 class Map extends StatelessWidget {
   final List<CountryPathModel> countries;
@@ -119,7 +118,7 @@ class _CountriesPainter extends CustomPainter {
       ..scale(scaleX, scaleY);
 
     final paint = Paint()
-      ..color = Colors.red.withValues(alpha: 0.4)
+      ..color = Colors.green.withValues(alpha: 0.55)
       ..style = PaintingStyle.fill;
 
     for (final country in countries) {

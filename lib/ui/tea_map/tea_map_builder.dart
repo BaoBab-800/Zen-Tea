@@ -55,7 +55,6 @@ class _TeaMapBuilderState extends State<TeaMapBuilder> {
           child: Padding(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
@@ -63,12 +62,29 @@ class _TeaMapBuilderState extends State<TeaMapBuilder> {
                   style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 12),
-                ...teas.map(
-                      (tea) => ListTile(
-                    dense: true,
-                    contentPadding: EdgeInsets.zero,
-                    leading: Icon(tea.isUnlocked ? Icons.emoji_food_beverage : Icons.lock),
-                    title: Text(tea.type.title(context)),
+
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: teas.length,
+                    itemBuilder: (context, index) {
+                      final tea = teas[index];
+                      return ListTile(
+                        dense: true,
+                        contentPadding: EdgeInsets.zero,
+
+                        leading: Icon(
+                          tea.isUnlocked
+                              ? Icons.emoji_food_beverage
+                              : Icons.lock,
+                        ),
+
+                        title: Text(
+                          tea.isUnlocked
+                              ? tea.type.title(context)
+                              : context.l10n.locked,
+                        ),
+                      );
+                    },
                   ),
                 ),
               ],
@@ -148,6 +164,7 @@ class _TeaMapBuilderState extends State<TeaMapBuilder> {
                       context,
                       country.$1,
                       service.countryCounter(country.$2),
+                      onTap: () => _showCountryTeasSheet(context, service, country.$2),
                     );
                   }).toList(),
                 )
@@ -159,45 +176,59 @@ class _TeaMapBuilderState extends State<TeaMapBuilder> {
     );
   }
 
-  Widget _countryTile(BuildContext context, String country, int count) {
+  Widget _countryTile(
+      BuildContext context,
+      String country,
+      int count, {
+        required VoidCallback onTap,
+      }) {
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 16,
         vertical: 8,
       ),
 
-      child: Row(
-        children: [
-          Expanded(
-            child: Text(
-              country,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12),
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    country,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
+                  decoration: BoxDecoration(
+                    color: context.colors.primary,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+
+                  child: Text(
+                    '$count',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-
-          Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 12,
-              vertical: 6,
-            ),
-
-            decoration: BoxDecoration(
-              color: context.colors.primary,
-              borderRadius: BorderRadius.circular(12),
-            ),
-
-            child: Text(
-              '$count',
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
