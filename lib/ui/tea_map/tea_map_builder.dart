@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:zentea/core/l10n/l10n.dart';
 
+import 'package:zentea/core/l10n/l10n.dart';
 import 'package:zentea/core/theme/app_theme.dart';
 
 import 'package:zentea/data/teas/tea_types.dart';
 
 import 'package:zentea/services/tea_collection/tea_collection_service.dart';
+
+import 'map.dart';
 
 class TeaMap extends StatelessWidget {
   const TeaMap({super.key});
@@ -54,11 +56,11 @@ class TeaMap extends StatelessWidget {
 
             child: Column(
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Image.asset(
-                    'assets/tea_map.jpg',
-                    fit: BoxFit.cover,
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: AspectRatio(
+                    aspectRatio: 1009.67 / 665.96,
+                    child: Map(),
                   ),
                 ),
 

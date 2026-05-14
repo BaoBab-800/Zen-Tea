@@ -5,7 +5,7 @@ import 'package:zentea/services/url/url_service.dart';
 
 import '../ui/home/home_page_builder.dart';
 import '../ui/get_tea/get_tea_builder.dart';
-import '../ui/tea_map/tea_map.dart';
+import '../ui/tea_map/tea_map_builder.dart';
 import '../ui/tea_collection/tea_collection_page_builder.dart';
 import '../ui/achievements/achievements_builder.dart';
 import '../ui/settings/settings_page_builder.dart';

@@ -117,7 +117,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get china => 'Китай';
 
   @override
-  String get unitedKingdom => 'United Kingdom';
+  String get unitedKingdom => 'Сполучене Королівство';
 
   @override
   String get india => 'Індія';
