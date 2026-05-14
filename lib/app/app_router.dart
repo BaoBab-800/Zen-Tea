@@ -49,7 +49,7 @@ class AppRouter {
       GoRoute(
         name: AppRoute.teaMap.name,
         path: AppRoute.teaMap.path,
-        builder: (context, state) => TeaMap(),
+        builder: (context, state) => TeaMapBuilder(),
       ),
 
       GoRoute(

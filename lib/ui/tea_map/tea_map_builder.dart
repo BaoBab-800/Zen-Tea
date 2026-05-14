@@ -5,13 +5,28 @@ import 'package:zentea/core/l10n/l10n.dart';
 import 'package:zentea/core/theme/app_theme.dart';
 
 import 'package:zentea/data/teas/tea_types.dart';
+import 'package:zentea/data/paths/paths_of_countries.dart';
 
 import 'package:zentea/services/tea_collection/tea_collection_service.dart';
 
 import 'map.dart';
 
-class TeaMap extends StatelessWidget {
-  const TeaMap({super.key});
+class TeaMapBuilder extends StatefulWidget {
+  const TeaMapBuilder({super.key});
+
+  @override
+  State<TeaMapBuilder> createState() => _TeaMapBuilderState();
+}
+
+class _TeaMapBuilderState extends State<TeaMapBuilder> {
+  void _onTap(Offset position) {
+    for (final country in pathsOfCountries) {
+      if (country.path.contains(position)) {
+        print(country.code);
+        return;
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +44,8 @@ class TeaMap extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Tea Map',
+        title: Text(
+          context.l10n.teaMap,
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
@@ -60,7 +75,15 @@ class TeaMap extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: AspectRatio(
                     aspectRatio: 1009.67 / 665.96,
-                    child: Map(),
+                    child: GestureDetector(
+                      onTapDown: (details) {
+                        _onTap(details.localPosition);
+                      },
+
+                      child: Map(
+                        countries: pathsOfCountries,
+                      ),
+                    ),
                   ),
                 ),
 
