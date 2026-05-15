@@ -58,10 +58,11 @@ class StatsProvider extends ChangeNotifier {
       uniqueTeas: isNew ? _stats.uniqueTeas + 1 : _stats.uniqueTeas,
     );
 
+    notifyListeners();
+
     await _service.saveStats(_stats);
 
     _checkAchievements();
-    notifyListeners();
   }
 
   Future<void> onTeaReceived(TeaModel tea, {required bool isNew}) async {
@@ -71,10 +72,11 @@ class StatsProvider extends ChangeNotifier {
           : _stats.rareTeasObtained,
     );
 
+    notifyListeners();
+
     await _service.saveStats(_stats);
 
     _checkAchievements();
-    notifyListeners();
   }
 
   void _checkAchievements() {
@@ -96,15 +98,47 @@ class StatsProvider extends ChangeNotifier {
       maxStreak: streak > _stats.maxStreak ? streak : _stats.maxStreak,
     );
 
+    notifyListeners();
+
     await _service.saveStats(_stats);
 
     _checkAchievements();
+  }
+
+  Future<void> setStreak(int streak) async {
+    _stats = _stats.copyWith(
+      streakDays: streak,
+      maxStreak: streak > _stats.maxStreak ? streak : _stats.maxStreak,
+    );
+
     notifyListeners();
+
+    await _service.saveStats(_stats);
+
+    _checkAchievements();
+  }
+
+  Future<void> resetStats() async {
+    _stats = const Stats(
+      totalServed: 0,
+      uniqueTeas: 0,
+      streakDays: 0,
+      currentTeaServed: 0,
+      rareTeasObtained: 0,
+      totalQuestCompleted: 0,
+      maxStreak: 0,
+    );
+
+    notifyListeners();
+
+    await _service.saveStats(_stats);
+
+    _checkAchievements();
   }
 
   Future<void> save(Stats newStats) async {
     _stats = newStats;
-    await _service.saveStats(newStats);
     notifyListeners();
+    await _service.saveStats(newStats);
   }
 }

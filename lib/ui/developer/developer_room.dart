@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:zentea/core/l10n/l10n.dart';
+
 import 'package:zentea/data/teas/list_of_teas.dart';
+
 import 'package:zentea/services/tea_collection/tea_collection_service.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
+import 'package:zentea/services/stats/stats_provider.dart';
 
 class DeveloperRoom extends StatelessWidget {
   const DeveloperRoom({super.key});
@@ -14,8 +17,10 @@ class DeveloperRoom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final quest = context.watch<QuestProgressService>();
+    final statsProvider = context.watch<StatsProvider>();
     final service = context.watch<TeaCollectionService>();
     final content = service.dumpState();
+    final stats = context.watch<StatsProvider>().stats;
 
     return Scaffold(
       appBar: AppBar(
@@ -29,6 +34,12 @@ class DeveloperRoom extends StatelessWidget {
         children: [
           const SizedBox(height: 12),
           Center(child: Text(content)),
+          const SizedBox(height: 6),
+          Center(child: Text(
+              'Stats: served=${stats.totalServed},'
+                  ' unique=${stats.uniqueTeas}, rare=${stats.rareTeasObtained},'
+                  ' quests=${stats.totalQuestCompleted},'
+                  ' streak=${stats.streakDays}, max=${stats.maxStreak}')),
 
           const SizedBox(height: 6),
           TextButton(
@@ -79,7 +90,15 @@ class DeveloperRoom extends StatelessWidget {
             },
 
             child: Text(context.l10n.resetStreak),
-          )
+          ),
+
+          const SizedBox(height: 6),
+          TextButton(
+            onPressed: () async {
+              await statsProvider.resetStats();
+            },
+            child: const Text('Reset all stats'),
+          ),
         ],
       ),
     );

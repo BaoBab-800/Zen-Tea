@@ -200,6 +200,12 @@ abstract class AppLocalizations {
   /// **'Reset all values'**
   String get resetAllValues;
 
+  /// No description provided for @resetAllStats.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset all stats'**
+  String get resetAllStats;
+
   /// No description provided for @unlockAll.
   ///
   /// In en, this message translates to:

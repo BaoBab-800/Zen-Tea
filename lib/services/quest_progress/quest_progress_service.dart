@@ -7,7 +7,6 @@ import '../stats/stats_provider.dart';
 import 'package:zentea/services/hive/hive_service.dart';
 
 class QuestProgressService extends ChangeNotifier {
-  static const _streakKey = 'streak';
   static const _lastCompletedAtKey = 'lastCompletedAt';
 
   static const _boxName = 'quest_progress';
@@ -44,6 +43,7 @@ class QuestProgressService extends ChangeNotifier {
     _streak = _isConsecutiveDay(_lastCompletedAt, now) ? _streak + 1 : 1;
     _lastCompletedAt = now;
 
+    await statsProvider.setStreak(_streak);
     await _save();
     await statsProvider.onQuestCompleted(streak: _streak);
     await _unlockNewAchievements();
@@ -59,18 +59,20 @@ class QuestProgressService extends ChangeNotifier {
   Future<void> resetStreak() async {
     _streak = 0;
     _lastCompletedAt = null;
+    await statsProvider.setStreak(0);
     await _save();
     notifyListeners();
   }
 
   Future<void> setStreak(int streak) async {
     _streak = streak.clamp(0, 1 << 30);
+    await statsProvider.setStreak(_streak);
     await _save();
     notifyListeners();
   }
 
   void _load() {
-    _streak = _hive.getValue<int>(boxName: _boxName, key: _streakKey, defaultValue: 0);
+    _streak = statsProvider.stats.streakDays;
     final last = _hive.getOptional<String>(boxName: _boxName, key: _lastCompletedAtKey);
 
     if (last != null) {
@@ -90,7 +92,6 @@ class QuestProgressService extends ChangeNotifier {
   }
 
   Future<void> _save() async {
-    await _hive.putValue(boxName: _boxName, key: _streakKey, value: _streak);
     await _hive.putValue(boxName: _boxName, key: _lastCompletedAtKey, value: _lastCompletedAt?.toIso8601String());
   }
 

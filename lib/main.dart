@@ -8,6 +8,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Hive.initFlutter();
+  if (!Hive.isAdapterRegistered(0)) {
+    Hive.registerAdapter(StatsAdapter());
+  }
+
   await Hive.openBox('settings');
   await Hive.openBox('tea_collection');
   await Hive.openBox('today_tea');

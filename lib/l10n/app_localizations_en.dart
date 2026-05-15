@@ -60,6 +60,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get resetAllValues => 'Reset all values';
 
   @override
+  String get resetAllStats => 'Reset all stats';
+
+  @override
   String get unlockAll => 'Unlock all';
 
   @override

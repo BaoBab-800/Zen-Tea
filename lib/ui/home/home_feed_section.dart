@@ -6,7 +6,7 @@ import 'package:zentea/app/app_router.dart';
 import 'package:zentea/core/l10n/l10n.dart';
 import 'package:zentea/core/theme/app_theme.dart';
 
-import 'package:zentea/services/quest_progress/quest_progress_service.dart';
+import 'package:zentea/services/stats/stats_provider.dart';
 
 import 'home_statistics_section.dart';
 
@@ -79,7 +79,7 @@ class HomeFeedSection extends StatelessWidget {
 
           const SizedBox(width: 2),
           Text(
-            '${context.watch<QuestProgressService>().streak}',
+            '${context.watch<StatsProvider>().stats.streakDays}',
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,

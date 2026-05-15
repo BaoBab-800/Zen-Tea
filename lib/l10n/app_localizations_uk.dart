@@ -60,6 +60,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get resetAllValues => 'Обнулити всі значення';
 
   @override
+  String get resetAllStats => 'Скинути всю статистику';
+
+  @override
   String get unlockAll => 'Відкрити все';
 
   @override
