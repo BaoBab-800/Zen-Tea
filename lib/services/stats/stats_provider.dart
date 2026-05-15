@@ -129,11 +129,13 @@ class StatsProvider extends ChangeNotifier {
       maxStreak: 0,
     );
 
+    _unlockedIds.clear();
+
     notifyListeners();
 
     await _service.saveStats(_stats);
 
-    _checkAchievements();
+    await _saveUnlocked();
   }
 
   Future<void> save(Stats newStats) async {

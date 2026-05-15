@@ -28,7 +28,7 @@ class HomeStatisticsSection extends StatelessWidget {
           const SizedBox(width: 12),
           _StatCard(
             label: context.l10n.totalTeasOpened,
-            value: stats.totalQuestCompleted,
+            value: stats.uniqueTeas,
             icon: Icons.local_florist_rounded,
           ),
 

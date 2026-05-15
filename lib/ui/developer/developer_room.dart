@@ -43,10 +43,18 @@ class DeveloperRoom extends StatelessWidget {
 
           const SizedBox(height: 6),
           TextButton(
-            onPressed: () {
-              for(var tea in listOfTeas) {
+            onPressed: () async {
+              for (var tea in listOfTeas) {
                 service.setServedCount(tea, 0);
               }
+
+              await statsProvider.save(
+                stats.copyWith(
+                  totalServed: 0,
+                  uniqueTeas: 0,
+                  rareTeasObtained: 0,
+                ),
+              );
             },
 
             child: Text(context.l10n.resetAllValues),
@@ -54,10 +62,14 @@ class DeveloperRoom extends StatelessWidget {
 
           const SizedBox(height: 6),
           TextButton(
-            onPressed: () {
-              for(var tea in listOfTeas) {
+            onPressed: () async {
+              for (var tea in listOfTeas) {
                 service.setUnlocked(tea, true);
               }
+
+              await statsProvider.save(
+                stats.copyWith(uniqueTeas: listOfTeas.length),
+              );
             },
 
             child: Text(context.l10n.unlockAll),
@@ -65,10 +77,14 @@ class DeveloperRoom extends StatelessWidget {
 
           const SizedBox(height: 6),
           TextButton(
-            onPressed: () {
-              for(var tea in listOfTeas) {
+            onPressed: () async {
+              for (var tea in listOfTeas) {
                 service.setUnlocked(tea, false);
               }
+
+              await statsProvider.save(
+                stats.copyWith(uniqueTeas: 0),
+              );
             },
 
             child: Text(context.l10n.blockAll),
@@ -97,7 +113,7 @@ class DeveloperRoom extends StatelessWidget {
             onPressed: () async {
               await statsProvider.resetStats();
             },
-            child: const Text('Reset all stats'),
+            child: Text(context.l10n.resetAllStats),
           ),
         ],
       ),
