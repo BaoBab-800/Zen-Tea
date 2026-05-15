@@ -17,7 +17,12 @@ class SettingsLanguageSection extends StatelessWidget {
         const Divider(indent: 6, endIndent: 6),
 
         ListTile(
-          title: Text(context.l10n.language),
+          title: Text(
+            context.l10n.language,
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+            ),
+          ),
         ),
 
         for(final language in L10n.supportedLocales)

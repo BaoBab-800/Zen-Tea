@@ -18,7 +18,12 @@ class SettingsThemeSection extends StatelessWidget {
         const Divider(indent: 6, endIndent: 6),
 
         ListTile(
-          title: Text(context.l10n.theme),
+          title: Text(
+            context.l10n.theme,
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+            ),
+          ),
         ),
 
         for(final theme in ThemeMode.values)

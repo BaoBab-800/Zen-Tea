@@ -14,7 +14,10 @@ class SettingsPageBuilder extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           context.l10n.settings,
-          style: Theme.of(context).textTheme.titleMedium,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
 
