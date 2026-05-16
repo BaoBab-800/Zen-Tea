@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:zentea/data/achievements/achievement_keys.dart';
 
@@ -12,6 +14,8 @@ class StatsProvider extends ChangeNotifier {
   final StatsService _service;
   final Set<IdKeys> _unlockedIds = {};
   final AchievementsService achievementsService;
+  StreamSubscription? _statsSubscription;
+  bool _isInitialized = false;
 
   Stats _stats = const Stats(
     totalServed: 0,
@@ -25,14 +29,27 @@ class StatsProvider extends ChangeNotifier {
 
   Stats get stats => _stats;
   Set<IdKeys> get unlockedIds => Set.unmodifiable(_unlockedIds);
+  bool get isInitialized => _isInitialized;
 
   StatsProvider(this._service, this.achievementsService);
 
   Future<void> init() async {
+    if (_isInitialized) return;
+
     _stats = _service.getStats();
+    _statsSubscription?.cancel();
+    _statsSubscription = _service.watchStats().listen((event) {
+      final value = event.value;
+      if (value is Stats) {
+        _stats = value;
+        notifyListeners();
+      }
+    });
     _unlockedIds
       ..clear()
       ..addAll(achievementsService.loadUnlocked());
+
+    _isInitialized = true;
     notifyListeners();
   }
 
@@ -142,5 +159,11 @@ class StatsProvider extends ChangeNotifier {
     _stats = newStats;
     notifyListeners();
     await _service.saveStats(newStats);
+  }
+
+  @override
+  void dispose() {
+    _statsSubscription?.cancel();
+    super.dispose();
   }
 }

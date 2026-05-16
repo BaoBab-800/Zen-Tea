@@ -1,3 +1,4 @@
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:zentea/data/stats/stats.dart';
 import 'package:zentea/services/hive/hive_service.dart';
 
@@ -15,6 +16,10 @@ class StatsService {
 
   Future<void> saveStats(Stats stats) {
     return _hive.putValue(boxName: _boxName, key: _statsKey, value: stats);
+  }
+
+  Stream<BoxEvent> watchStats() {
+    return _hive.box<dynamic>(_boxName).watch(key: _statsKey);
   }
 
   Stats _emptyStats() => const Stats(

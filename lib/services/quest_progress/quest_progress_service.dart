@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 
 import 'package:zentea/data/quest/quest_result.dart';
@@ -26,7 +28,7 @@ class QuestProgressService extends ChangeNotifier {
     required this.achievementsService,
     required HiveService hiveService,
   }) : _hive = hiveService {
-    _load();
+    unawaited(_load());
   }
 
   Future<QuestResult> completeQuest() async {
@@ -71,13 +73,19 @@ class QuestProgressService extends ChangeNotifier {
     notifyListeners();
   }
 
-  void _load() {
+  Future<void> _load() async {
+    if (!statsProvider.isInitialized) {
+      await statsProvider.init();
+    }
+
     _streak = statsProvider.stats.streakDays;
     final last = _hive.getOptional<String>(boxName: _boxName, key: _lastCompletedAtKey);
 
     if (last != null) {
       _lastCompletedAt = DateTime.parse(last);
     }
+
+    notifyListeners();
   }
 
   Future<void> _unlockNewAchievements() async {
