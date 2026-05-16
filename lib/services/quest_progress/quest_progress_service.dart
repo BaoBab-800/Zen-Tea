@@ -74,10 +74,6 @@ class QuestProgressService extends ChangeNotifier {
   }
 
   Future<void> _load() async {
-    if (!statsProvider.isInitialized) {
-      await statsProvider.init();
-    }
-
     _streak = statsProvider.stats.streakDays;
     final last = _hive.getOptional<String>(boxName: _boxName, key: _lastCompletedAtKey);
 

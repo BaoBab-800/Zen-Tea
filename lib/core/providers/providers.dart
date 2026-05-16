@@ -31,9 +31,14 @@ List<SingleChildWidget> buildProviders() => [
   ),
 
   ChangeNotifierProvider(
+    create: (context) => TeaCollectionService(context.read<HiveService>()),
+  ),
+
+  ChangeNotifierProvider(
     create: (context) => StatsProvider(
       context.read<StatsService>(),
       context.read<AchievementsService>(),
+      context.read<TeaCollectionService>(),
     )..init(),
   ),
 
@@ -47,10 +52,6 @@ List<SingleChildWidget> buildProviders() => [
 
   Provider(
     create: (_) => AchievementLocalization(),
-  ),
-
-  ChangeNotifierProvider(
-    create: (context) => TeaCollectionService(context.read<HiveService>()),
   ),
 
   ChangeNotifierProvider(

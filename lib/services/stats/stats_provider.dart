@@ -7,6 +7,8 @@ import 'package:zentea/data/stats/stats.dart';
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 
+import 'package:zentea/services/tea_collection/tea_collection_service.dart';
+
 import 'stats_service.dart';
 import '../achievements/achievements_service.dart';
 
@@ -14,8 +16,8 @@ class StatsProvider extends ChangeNotifier {
   final StatsService _service;
   final Set<IdKeys> _unlockedIds = {};
   final AchievementsService achievementsService;
+  final TeaCollectionService teaCollectionService;
   StreamSubscription? _statsSubscription;
-  bool _isInitialized = false;
 
   Stats _stats = const Stats(
     totalServed: 0,
@@ -29,13 +31,10 @@ class StatsProvider extends ChangeNotifier {
 
   Stats get stats => _stats;
   Set<IdKeys> get unlockedIds => Set.unmodifiable(_unlockedIds);
-  bool get isInitialized => _isInitialized;
 
-  StatsProvider(this._service, this.achievementsService);
+  StatsProvider(this._service, this.achievementsService, this.teaCollectionService);
 
   Future<void> init() async {
-    if (_isInitialized) return;
-
     _stats = _service.getStats();
     _statsSubscription?.cancel();
     _statsSubscription = _service.watchStats().listen((event) {
@@ -45,17 +44,16 @@ class StatsProvider extends ChangeNotifier {
         notifyListeners();
       }
     });
+    teaCollectionService.addListener(_syncServedAndUniqueFromCollection);
+    _syncServedAndUniqueFromCollection();
     _unlockedIds
       ..clear()
       ..addAll(achievementsService.loadUnlocked());
 
-    _isInitialized = true;
     notifyListeners();
   }
 
-  bool isUnlocked(IdKeys id) {
-    return _unlockedIds.contains(id);
-  }
+  bool isUnlocked(IdKeys id) => _unlockedIds.contains(id);
 
   Future<void> addUnlocked(Set<IdKeys> newUnlocked) async {
     final added = newUnlocked.difference(_unlockedIds);
@@ -72,7 +70,6 @@ class StatsProvider extends ChangeNotifier {
   Future<void> onTeaOpened(TeaModel tea, {required bool isNew}) async {
     _stats = _stats.copyWith(
       totalServed: _stats.totalServed + 1,
-      uniqueTeas: isNew ? _stats.uniqueTeas + 1 : _stats.uniqueTeas,
     );
 
     notifyListeners();
@@ -84,6 +81,7 @@ class StatsProvider extends ChangeNotifier {
 
   Future<void> onTeaReceived(TeaModel tea, {required bool isNew}) async {
     _stats = _stats.copyWith(
+      uniqueTeas: isNew ? _stats.uniqueTeas + 1 : _stats.uniqueTeas,
       rareTeasObtained: tea.features == TeaFeatures.rare && isNew
           ? _stats.rareTeasObtained + 1
           : _stats.rareTeasObtained,
@@ -96,6 +94,24 @@ class StatsProvider extends ChangeNotifier {
     await _checkAchievements();
   }
 
+  void _syncServedAndUniqueFromCollection() {
+    final teas = teaCollectionService.teas;
+    final totalServed = teas.fold<int>(0, (sum, tea) => sum + tea.timesServed);
+    final uniqueTeas = teas.where((tea) => tea.isUnlocked).length;
+
+    if (_stats.totalServed == totalServed && _stats.uniqueTeas == uniqueTeas) {
+      return;
+    }
+
+    _stats = _stats.copyWith(
+      totalServed: totalServed,
+      uniqueTeas: uniqueTeas,
+    );
+
+    notifyListeners();
+    _service.saveStats(_stats);
+  }
+
   Future<void> _checkAchievements() async {
     final newUnlocked = achievementsService.checkAchievements(
       currentUnlocked: _unlockedIds,
@@ -105,9 +121,7 @@ class StatsProvider extends ChangeNotifier {
     await addUnlocked(newUnlocked);
   }
 
-  Future<void> _saveUnlocked() async {
-    await achievementsService.saveUnlocked(_unlockedIds);
-  }
+  Future<void> _saveUnlocked() async => await achievementsService.saveUnlocked(_unlockedIds);
 
   Future<void> onQuestCompleted({required int streak}) async {
     _stats = _stats.copyWith(
@@ -164,6 +178,7 @@ class StatsProvider extends ChangeNotifier {
   @override
   void dispose() {
     _statsSubscription?.cancel();
+    teaCollectionService.removeListener(_syncServedAndUniqueFromCollection);
     super.dispose();
   }
 }

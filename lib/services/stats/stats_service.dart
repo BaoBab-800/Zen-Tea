@@ -1,5 +1,7 @@
 import 'package:hive_flutter/hive_flutter.dart';
+
 import 'package:zentea/data/stats/stats.dart';
+
 import 'package:zentea/services/hive/hive_service.dart';
 
 class StatsService {
