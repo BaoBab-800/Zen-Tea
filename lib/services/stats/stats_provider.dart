@@ -62,7 +62,7 @@ class StatsProvider extends ChangeNotifier {
 
     await _service.saveStats(_stats);
 
-    _checkAchievements();
+    await _checkAchievements();
   }
 
   Future<void> onTeaReceived(TeaModel tea, {required bool isNew}) async {
@@ -76,16 +76,16 @@ class StatsProvider extends ChangeNotifier {
 
     await _service.saveStats(_stats);
 
-    _checkAchievements();
+    await _checkAchievements();
   }
 
-  void _checkAchievements() {
+  Future<void> _checkAchievements() async {
     final newUnlocked = achievementsService.checkAchievements(
       currentUnlocked: _unlockedIds,
       stats: _stats,
     );
 
-    addUnlocked(newUnlocked);
+    await addUnlocked(newUnlocked);
   }
 
   Future<void> _saveUnlocked() async {
@@ -102,7 +102,7 @@ class StatsProvider extends ChangeNotifier {
 
     await _service.saveStats(_stats);
 
-    _checkAchievements();
+    await _checkAchievements();
   }
 
   Future<void> setStreak(int streak) async {
@@ -115,7 +115,7 @@ class StatsProvider extends ChangeNotifier {
 
     await _service.saveStats(_stats);
 
-    _checkAchievements();
+    await _checkAchievements();
   }
 
   Future<void> resetStats() async {
