@@ -410,6 +410,12 @@ abstract class AppLocalizations {
   /// **'Mint tea'**
   String get mintTea;
 
+  /// No description provided for @chamomileTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Chamomile tea'**
+  String get chamomileTea;
+
   /// No description provided for @oolongTea.
   ///
   /// In en, this message translates to:
@@ -427,6 +433,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pu-erh tea'**
   String get puerhTea;
+
+  /// No description provided for @senchaTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Sencha tea'**
+  String get senchaTea;
 
   /// No description provided for @blackTeaStoryTitle.
   ///
@@ -571,6 +583,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pu-erh is a tea that stands the test of time.\n\nWhile other teas strive to preserve their freshness, pu-erh is the opposite: it\'s allowed to evolve. After processing, the tea continues to \'live,\' gradually changing its flavor, aroma, and character.\n\nSome pu-erhs are aged for years. Sometimes, for decades.'**
   String get puerhTeaStory;
+
+  /// No description provided for @chamomileTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Chamomile Tea - «The Flower That Turned Into Calm»'**
+  String get chamomileTeaStoryTitle;
+
+  /// No description provided for @chamomileTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Chamomile tea comes from Ancient Egypt, where the small white flowers were valued as a sacred and healing plant.\n\nIt was often associated with the sun and used in traditional remedies to calm the body and restore balance. People did not treat it as a luxury drink, but as something natural that helps when life feels heavy.\n\nOver time, chamomile spread across the world and became known as the tea of rest, the one you drink when everything slows down and the day finally lets you breathe.'**
+  String get chamomileTeaStory;
+
+  /// No description provided for @senchaTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sencha - «The Everyday Tea of Calm Precision»'**
+  String get senchaTeaStoryTitle;
+
+  /// No description provided for @senchaTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Sencha comes from Japan, where tea is not just a drink but part of daily life and balance.\n\nIt is made by steaming fresh tea leaves right after harvest, which helps preserve their bright green color and clean, grassy taste. Unlike ceremonial matcha, sencha is the tea of everyday moments - simple, honest, and deeply rooted in routine.\n\nFor many people in Japan, sencha is the first cup in the morning and a quiet pause during the day, bringing clarity without overwhelming energy.'**
+  String get senchaTeaStory;
 
   /// No description provided for @tServeTenTeasAchievement.
   ///

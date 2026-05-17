@@ -169,6 +169,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get mintTea => 'Mint tea';
 
   @override
+  String get chamomileTea => 'Chamomile tea';
+
+  @override
   String get oolongTea => 'Oolong tea';
 
   @override
@@ -176,6 +179,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get puerhTea => 'Pu-erh tea';
+
+  @override
+  String get senchaTea => 'Sencha tea';
 
   @override
   String get blackTeaStoryTitle =>
@@ -268,6 +274,22 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get puerhTeaStory =>
       'Pu-erh is a tea that stands the test of time.\n\nWhile other teas strive to preserve their freshness, pu-erh is the opposite: it\'s allowed to evolve. After processing, the tea continues to \'live,\' gradually changing its flavor, aroma, and character.\n\nSome pu-erhs are aged for years. Sometimes, for decades.';
+
+  @override
+  String get chamomileTeaStoryTitle =>
+      'Chamomile Tea - «The Flower That Turned Into Calm»';
+
+  @override
+  String get chamomileTeaStory =>
+      'Chamomile tea comes from Ancient Egypt, where the small white flowers were valued as a sacred and healing plant.\n\nIt was often associated with the sun and used in traditional remedies to calm the body and restore balance. People did not treat it as a luxury drink, but as something natural that helps when life feels heavy.\n\nOver time, chamomile spread across the world and became known as the tea of rest, the one you drink when everything slows down and the day finally lets you breathe.';
+
+  @override
+  String get senchaTeaStoryTitle =>
+      'Sencha - «The Everyday Tea of Calm Precision»';
+
+  @override
+  String get senchaTeaStory =>
+      'Sencha comes from Japan, where tea is not just a drink but part of daily life and balance.\n\nIt is made by steaming fresh tea leaves right after harvest, which helps preserve their bright green color and clean, grassy taste. Unlike ceremonial matcha, sencha is the tea of everyday moments - simple, honest, and deeply rooted in routine.\n\nFor many people in Japan, sencha is the first cup in the morning and a quiet pause during the day, bringing clarity without overwhelming energy.';
 
   @override
   String get tServeTenTeasAchievement => 'Just 10 times';

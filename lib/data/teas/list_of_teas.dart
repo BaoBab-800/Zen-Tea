@@ -93,6 +93,16 @@ final List<TeaModel> listOfTeas = [
   ),
 
   TeaModel(
+    type: TeaType.chamomileTea,
+    imagePath: 'assets/teas/chamomile_tea.jpg',
+    features: TeaFeatures.common,
+    country: TeaCountries.egypt,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Chamomile'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  TeaModel(
     type: TeaType.oolongTea,
     imagePath: 'assets/teas/oolong_tea.jpg',
     features: TeaFeatures.rare,
@@ -118,6 +128,16 @@ final List<TeaModel> listOfTeas = [
     features: TeaFeatures.rare,
     country: TeaCountries.china,
     url: Uri.parse('https://en.wikipedia.org/wiki/Pu%27er_tea'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  TeaModel(
+    type: TeaType.senchaTea,
+    imagePath: 'assets/teas/sencha_tea.jpg',
+    features: TeaFeatures.rare,
+    country: TeaCountries.japan,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Sencha'),
     timesServed: 0,
     isUnlocked: false,
   ),
