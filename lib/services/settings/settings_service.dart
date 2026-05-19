@@ -1,36 +1,44 @@
 import 'package:flutter/material.dart';
-
-import 'package:zentea/services/hive/hive_service.dart';
+import 'package:zentea/services/storage/i_key_value_storage.dart';
 
 class SettingsService extends ChangeNotifier {
-  static const _boxName = 'settings';
+  static const _themeKey = 'themeMode';
+  static const _localeKey = 'locale';
 
-  final HiveService _hive;
+  final IKeyValueStorage storage;
 
   late ThemeMode themeMode;
   late Locale locale;
 
-  SettingsService(this._hive) {
+  SettingsService(this.storage) {
     _loadSettings();
   }
 
-  void _loadSettings() {
-    final themeIndex = _hive.getValue<int>(boxName: _boxName, key: 'themeMode', defaultValue: 0);
+  Future<void> _loadSettings() async {
+    final themeIndex = await storage.get<int>(_themeKey) ?? 0;
+
     themeMode = ThemeMode.values[themeIndex];
 
-    final localeCode = _hive.getValue<String>(boxName: _boxName, key: 'locale', defaultValue: 'en');
+    final localeCode = await storage.get<String>(_localeKey) ?? 'en';
+
     locale = Locale(localeCode);
+
+    notifyListeners();
   }
 
   Future<void> changeTheme(ThemeMode mode) async {
     themeMode = mode;
-    await _hive.putValue(boxName: _boxName, key: 'themeMode', value: mode.index);
+
+    await storage.put<int>(_themeKey, mode.index);
+
     notifyListeners();
   }
 
   Future<void> changeLocale(String code) async {
     locale = Locale(code);
-    await _hive.putValue(boxName: _boxName, key: 'locale', value: code);
+
+    await storage.put<String>(_localeKey, code);
+
     notifyListeners();
   }
 }
