@@ -2,9 +2,9 @@ import 'package:hive/hive.dart';
 
 import 'package:zentea/data/stats/stats.dart';
 
-import 'stats_service.dart';
+import 'i_stats_service.dart';
 
-class HiveStatsService extends StatsService {
+class HiveStatsService extends IStatsService {
   static const String _boxName = 'statsBox';
   static const String _key = 'stats';
 
@@ -34,5 +34,30 @@ class HiveStatsService extends StatsService {
   @override
   Future<void> updateStats(Stats stats) async {
     await _box.put(_key, stats);
+  }
+
+  // --- STREAK ---
+
+  @override
+  Future<void> updateStreak(int streak) async {
+    await _box.put(
+      _key,
+      _box.get(_key)!.copyWith(streakDays: streak),
+    );
+  }
+
+  @override
+  Future<void> onQuestCompleted({required int streak}) async {
+    final stats = await getStats();
+
+    final updated = stats.copyWith(
+      totalQuestCompleted: stats.totalQuestCompleted + 1,
+      streakDays: streak,
+      maxStreak: streak > stats.maxStreak
+          ? streak
+          : stats.maxStreak,
+    );
+
+    await updateStats(updated);
   }
 }

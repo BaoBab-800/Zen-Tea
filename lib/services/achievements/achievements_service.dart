@@ -1,36 +1,32 @@
 import 'package:zentea/core/extensions/id_keys_x.dart';
+
 import 'package:zentea/data/achievements/achievement_keys.dart';
 import 'package:zentea/data/achievements/list_of_achievements.dart';
 import 'package:zentea/data/stats/stats.dart';
-import 'package:zentea/services/hive/hive_service.dart';
 
-class AchievementsService {
-  static const _boxName = 'achievements';
+import '../storage/i_key_value_storage.dart';
+import 'i_achievements_service.dart';
+
+class AchievementsService implements IAchievementsService {
   static const _key = 'unlocked_achievements';
 
-  final HiveService _hive;
+  final IKeyValueStorage storage;
 
-  AchievementsService(this._hive);
+  AchievementsService(this.storage);
 
-  Set<IdKeys> loadUnlocked() {
-    final stored = _hive.getValue<List>(
-      boxName: _boxName,
-      key: _key,
-      defaultValue: <String>[],
-    );
+  @override
+  Future<Set<IdKeys>> loadUnlocked() async {
+    final stored = await storage.get<List<String>>(_key);
+
+    if (stored == null || stored.isEmpty) return <IdKeys>{};
 
     return stored
-        .whereType<String>()
         .map(IdKeysX.fromKey)
         .whereType<IdKeys>()
         .toSet();
   }
 
-  Future<void> saveUnlocked(Set<IdKeys> ids) {
-    final data = ids.map((e) => e.key).toList();
-    return _hive.putValue(boxName: _boxName, key: _key, value: data);
-  }
-
+  @override
   Set<IdKeys> checkAchievements({
     required Set<IdKeys> currentUnlocked,
     required Stats stats,
@@ -40,11 +36,20 @@ class AchievementsService {
     for (final achievement in allAchievements) {
       final id = achievement.id;
 
-      if (!currentUnlocked.contains(id) && achievement.isUnlocked(stats)) {
+      final alreadyUnlocked = currentUnlocked.contains(id);
+      final shouldUnlock = achievement.isUnlocked(stats);
+
+      if (!alreadyUnlocked && shouldUnlock) {
         newUnlocked.add(id);
       }
     }
 
     return newUnlocked;
+  }
+
+  @override
+  Future<void> saveUnlocked(Set<IdKeys> ids) async {
+    final data = ids.map((e) => e.key).toList();
+    await storage.put<List<String>>(_key, data);
   }
 }

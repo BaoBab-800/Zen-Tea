@@ -16,7 +16,7 @@ import 'package:zentea/services/stats/stats_provider.dart';
 import 'package:zentea/services/tea_collection/tea_collection_service.dart';
 import 'package:zentea/services/today_tea/today_tea_service.dart';
 import 'package:zentea/services/url/url_service.dart';
-import 'package:zentea/services/quest_progress/quest_progress_service.dart';
+import 'package:zentea/services/quest_progress/i_quest_progress_service.dart';
 
 import 'package:zentea/ui/get_tea/get_tea_flow_controller.dart';
 import 'package:zentea/ui/history_of_teas/history_builder.dart';

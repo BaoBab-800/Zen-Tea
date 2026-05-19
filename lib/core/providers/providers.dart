@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:zentea/core/l10n/achievement_localization.dart';
 
 import 'package:zentea/services/hive/hive_service.dart';
-import 'package:zentea/services/quest_progress/quest_progress_service.dart';
+import 'package:zentea/services/quest_progress/i_quest_progress_service.dart';
 import 'package:zentea/services/achievements/achievements_service.dart';
 import 'package:zentea/services/settings/settings_service.dart';
 import 'package:zentea/services/tea_collection/tea_collection_service.dart';
@@ -35,11 +35,7 @@ List<SingleChildWidget> buildProviders() => [
   ),
 
   ChangeNotifierProvider(
-    create: (context) => QuestProgressService(
-      achievementsService: context.read<AchievementsService>(),
-      statsProvider: context.read<StatsProvider>(),
-      hiveService: context.read<HiveService>(),
-    ),
+    create: (context) => QuestProgressService(),
   ),
 
   Provider(

@@ -2,10 +2,10 @@ import 'package:flutter/foundation.dart';
 
 import 'package:zentea/data/stats/stats.dart';
 
-import 'stats_service.dart';
+import 'i_stats_service.dart';
 
 class StatsProvider extends ChangeNotifier {
-  final StatsService _statsService;
+  final IStatsService _statsService;
 
   StatsProvider(this._statsService);
 

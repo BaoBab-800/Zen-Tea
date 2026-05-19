@@ -1,16 +1,12 @@
 class QuestResult {
-  final int streak;
-  final bool isNewRecord;
-  final QuestResultStatus status;
+  final QuestCompletionStatus status;
 
   QuestResult({
-    required this.streak,
-    required this.isNewRecord,
     required this.status,
   });
 }
 
-enum QuestResultStatus {
+enum QuestCompletionStatus {
   completed,
   alreadyDoneToday,
 }

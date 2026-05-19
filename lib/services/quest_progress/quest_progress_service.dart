@@ -1,104 +1,89 @@
-import 'dart:async';
-
 import 'package:flutter/foundation.dart';
 
 import 'package:zentea/data/quest/quest_result.dart';
 
-import '../achievements/achievements_service.dart';
-import '../stats/stats_provider.dart';
-import 'package:zentea/services/hive/hive_service.dart';
+import '../storage/i_key_value_storage.dart';
+import '../stats/i_stats_service.dart';
+import '../achievements/i_achievements_service.dart';
+import 'i_quest_progress_service.dart';
 
-class QuestProgressService extends ChangeNotifier {
+class QuestProgressService extends ChangeNotifier implements IQuestProgressService {
+  final IStatsService statsService;
+  final IKeyValueStorage storage;
+  final IAchievementsService achievementsService;
+
   static const _lastCompletedAtKey = 'lastCompletedAt';
 
-  static const _boxName = 'quest_progress';
-
-  final HiveService _hive;
-  final StatsProvider statsProvider;
-  final AchievementsService achievementsService;
-
-  int _streak = 0;
   DateTime? _lastCompletedAt;
 
-  int get streak => _streak;
+  @override
   DateTime? get lastCompletedAt => _lastCompletedAt;
 
   QuestProgressService({
-    required this.statsProvider,
+    required this.statsService,
+    required this.storage,
     required this.achievementsService,
-    required HiveService hiveService,
-  }) : _hive = hiveService {
-    unawaited(_load());
+  });
+
+  @override
+  Future<void> init() async {
+    final last = await storage.get(_lastCompletedAtKey);
+
+    _lastCompletedAt = last != null ? DateTime.parse(last) : null;
   }
 
+  @override
   Future<QuestResult> completeQuest() async {
     final now = DateTime.now();
 
+    // already completed today
     if (_isSameDay(_lastCompletedAt, now)) {
       return QuestResult(
-        streak: _streak,
-        isNewRecord: false,
-        status: QuestResultStatus.alreadyDoneToday,
+        status: QuestCompletionStatus.alreadyDoneToday,
       );
     }
 
-    _streak = _isConsecutiveDay(_lastCompletedAt, now) ? _streak + 1 : 1;
+    // get the current stats
+    final stats = await statsService.getStats();
+    final currentStreak = stats.streakDays;
+    final unlocked = await achievementsService.loadUnlocked();
+
+    // calculate the new streak
+    final newStreak = _isConsecutiveDay(_lastCompletedAt, now)
+        ? currentStreak + 1
+        : 1;
+
+    // update stats
+    await statsService.updateStreak(newStreak);
+    await statsService.onQuestCompleted(streak: newStreak);
+
+    // save data
     _lastCompletedAt = now;
-
-    await statsProvider.setStreak(_streak);
-    await _save();
-    await statsProvider.onQuestCompleted(streak: _streak);
-    await _unlockNewAchievements();
-    notifyListeners();
-
-    return QuestResult(
-      streak: _streak,
-      isNewRecord: false,
-      status: QuestResultStatus.completed,
+    await storage.put(
+      _lastCompletedAtKey,
+      now.toIso8601String(),
     );
-  }
 
-  Future<void> resetStreak() async {
-    _streak = 0;
-    _lastCompletedAt = null;
-    await statsProvider.setStreak(0);
-    await _save();
-    notifyListeners();
-  }
-
-  Future<void> setStreak(int streak) async {
-    _streak = streak.clamp(0, 1 << 30);
-    await statsProvider.setStreak(_streak);
-    await _save();
-    notifyListeners();
-  }
-
-  Future<void> _load() async {
-    _streak = statsProvider.stats.streakDays;
-    final last = _hive.getOptional<String>(boxName: _boxName, key: _lastCompletedAtKey);
-
-    if (last != null) {
-      _lastCompletedAt = DateTime.parse(last);
-    }
-
-    notifyListeners();
-  }
-
-  Future<void> _unlockNewAchievements() async {
+    // achievements
     final newUnlocked = achievementsService.checkAchievements(
-      stats: statsProvider.stats,
-      currentUnlocked: statsProvider.unlockedIds,
+      stats: stats,
+      currentUnlocked: unlocked,
     );
 
     if (newUnlocked.isNotEmpty) {
-      await statsProvider.addUnlocked(newUnlocked);
+      await achievementsService.saveUnlocked(
+        {...unlocked, ...newUnlocked},
+      );
     }
+
+    notifyListeners();
+
+    return QuestResult(
+      status: QuestCompletionStatus.completed,
+    );
   }
 
-  Future<void> _save() async {
-    await _hive.putValue(boxName: _boxName, key: _lastCompletedAtKey, value: _lastCompletedAt?.toIso8601String());
-  }
-
+  // Auxiliary
   bool _isSameDay(DateTime? a, DateTime b) {
     if (a == null) return false;
     return a.year == b.year && a.month == b.month && a.day == b.day;

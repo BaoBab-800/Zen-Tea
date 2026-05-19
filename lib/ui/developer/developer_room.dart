@@ -8,7 +8,7 @@ import 'package:zentea/core/l10n/l10n.dart';
 import 'package:zentea/data/teas/list_of_teas.dart';
 
 import 'package:zentea/services/tea_collection/tea_collection_service.dart';
-import 'package:zentea/services/quest_progress/quest_progress_service.dart';
+import 'package:zentea/services/quest_progress/i_quest_progress_service.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
 
 class DeveloperRoom extends StatelessWidget {
