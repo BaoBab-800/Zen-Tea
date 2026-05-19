@@ -1,12 +1,12 @@
+import 'package:hive/hive.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:provider/provider.dart';
 
 import 'package:zentea/core/l10n/achievement_localization.dart';
 
-import 'package:zentea/services/hive/hive_service.dart';
-import 'package:zentea/services/quest_progress/i_quest_progress_service.dart';
 import 'package:zentea/services/achievements/achievements_service.dart';
 import 'package:zentea/services/settings/settings_service.dart';
+import 'package:zentea/services/storage/hive_key_value_storage.dart';
 import 'package:zentea/services/tea_collection/tea_collection_service.dart';
 import 'package:zentea/services/today_tea/today_tea_service.dart';
 import 'package:zentea/services/today_tea/today_tea_service_impl.dart';
@@ -15,11 +15,15 @@ import 'package:zentea/services/stats/hive_stats_service.dart';
 
 List<SingleChildWidget> buildProviders() => [
   Provider(
-    create: (_) => HiveService(),
+    create: (_) => AchievementsService(
+      HiveKeyValueStorage(Hive.box<List>('achievements')),
+    ),
   ),
 
-  Provider (
-    create: (context) => AchievementsService(context.read<HiveService>()),
+  Provider(
+    create: (_) => AchievementsService(
+      HiveKeyValueStorage(Hive.box<List>('achievements')),
+    ),
   ),
 
   Provider(
@@ -27,15 +31,15 @@ List<SingleChildWidget> buildProviders() => [
   ),
 
   Provider<TodayTeaService>(
-    create: (context) => TodayTeaServiceImpl(context.read<HiveService>()),
+    create: (_) => TodayTeaServiceImpl(
+      HiveKeyValueStorage(Hive.box('today_tea')),
+    ),
   ),
 
   ChangeNotifierProvider(
-    create: (context) => TeaCollectionService(context.read<HiveService>()),
-  ),
-
-  ChangeNotifierProvider(
-    create: (context) => QuestProgressService(),
+    create: (_) => TeaCollectionService(
+      HiveKeyValueStorage(Hive.box('tea_collection')),
+    ),
   ),
 
   Provider(
@@ -43,6 +47,8 @@ List<SingleChildWidget> buildProviders() => [
   ),
 
   ChangeNotifierProvider(
-    create: (context) => SettingsService(context.read<HiveService>()),
+    create: (_) => SettingsService(
+      HiveKeyValueStorage(Hive.box('settings')),
+    ),
   ),
 ];

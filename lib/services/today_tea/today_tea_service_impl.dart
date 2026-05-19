@@ -2,22 +2,25 @@ import 'dart:math';
 
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
-import 'package:zentea/services/hive/hive_service.dart';
+
+import 'package:zentea/services/storage/i_key_value_storage.dart';
 
 import 'today_tea_service.dart';
 
 class TodayTeaServiceImpl implements TodayTeaService {
-  static const _boxName = 'today_tea';
+  static const _servedDateKey = 'served_date';
+  static const _teaDateKey = 'tea_date';
+  static const _teaTypeKey = 'tea_type';
 
-  final HiveService _hive;
+  final IKeyValueStorage _storage;
 
-  TodayTeaServiceImpl(this._hive);
+  TodayTeaServiceImpl(this._storage);
 
   @override
   Future<TeaModel> getTeaOfToday(List<TeaModel> teas) async {
     if (teas.isEmpty) throw StateError('Tea list cannot be empty');
 
-    final savedTea = _loadSavedTea(teas);
+    final savedTea = await _loadSavedTea(teas);
     if (savedTea != null) return savedTea;
 
     final tea = getWeightedRandomTea(teas);
@@ -28,9 +31,9 @@ class TodayTeaServiceImpl implements TodayTeaService {
   @override
   Future<bool> shouldCountServingForToday() async {
     final today = _todayKey();
-    final servedDate = _hive.getOptional<String>(boxName: _boxName, key: 'served_date');
+    final servedDate = await _storage.get<String>(_servedDateKey);
     if (servedDate == today) return false;
-    await _hive.putValue(boxName: _boxName, key: 'served_date', value: today);
+    await _storage.put(_servedDateKey, today);
     return true;
   }
 
@@ -48,18 +51,18 @@ class TodayTeaServiceImpl implements TodayTeaService {
     return teas.last;
   }
 
-  TeaModel? _loadSavedTea(List<TeaModel> teas) {
+  Future<TeaModel?> _loadSavedTea(List<TeaModel> teas) async {
     final today = _todayKey();
-    final savedDate = _hive.getOptional<String>(boxName: _boxName, key: 'tea_date');
-    final savedTeaType = _hive.getOptional<String>(boxName: _boxName, key: 'tea_type');
+    final savedDate = await _storage.get<String>(_teaDateKey);
+    final savedTeaType = await _storage.get<String>(_teaTypeKey);
     if (savedDate != today || savedTeaType == null) return null;
     return teas.where((tea) => tea.type.name == savedTeaType).firstOrNull;
   }
 
   Future<void> _saveTeaOfToday(String teaTypeName) async {
     final today = _todayKey();
-    await _hive.putValue(boxName: _boxName, key: 'tea_date', value: today);
-    await _hive.putValue(boxName: _boxName, key: 'tea_type', value: teaTypeName);
+    await _storage.put(_teaDateKey, today);
+    await _storage.put(_teaTypeKey, teaTypeName);
   }
 
   String _todayKey() {
