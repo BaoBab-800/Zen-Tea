@@ -3,18 +3,20 @@ import 'package:flutter/foundation.dart';
 import 'package:zentea/data/teas/list_of_teas.dart';
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
-import 'package:zentea/services/hive/hive_service.dart';
+
+import '../storage/i_key_value_storage.dart';
 
 class TeaCollectionService extends ChangeNotifier {
-  static const _boxName = 'tea_collection';
   static const _teasKey = 'teas_data';
   static const _hasSeenDialogKey = 'has_seen_dialog';
 
-  final HiveService _hive;
+  final IKeyValueStorage _storage;
   late final List<TeaModel> _teas;
+  bool _hasSeenDialog = false;
 
-  TeaCollectionService(this._hive) {
-    _teas = _buildCollection();
+  TeaCollectionService(this._storage) {
+    _teas = _buildDefaultCollection();
+    _loadFromStorage();
   }
 
   List<TeaModel> get teas => List.unmodifiable(_teas);
@@ -50,13 +52,7 @@ class TeaCollectionService extends ChangeNotifier {
     );
   }
 
-  bool hasSeenDialog() {
-    return _hive.getValue<bool>(
-      boxName: _boxName,
-      key: _hasSeenDialogKey,
-      defaultValue: false,
-    );
-  }
+  bool hasSeenDialog() => _hasSeenDialog;
 
   String dumpState() {
     final buffer = StringBuffer();
@@ -71,35 +67,40 @@ class TeaCollectionService extends ChangeNotifier {
       );
     }
 
-    buffer.writeln('\n--- RAW HIVE DATA ---');
-
-    final raw = _hive.getOptional<Map>(boxName: _boxName, key: _teasKey);
-
-    if (raw == null) {
-      buffer.writeln('No data in Hive');
-    } else {
-      raw.forEach((key, value) => buffer.writeln('$key => $value'));
-    }
-
+    buffer.writeln('\n--- STORAGE ---');
+    buffer.writeln('hasSeenDialog=$_hasSeenDialog');
     buffer.writeln('\n=== END ===');
 
     return buffer.toString();
   }
 
-  Future<void> setDialogSeen() {
-    return _hive.putValue(boxName: _boxName, key: _hasSeenDialogKey, value: true);
+  Future<void> setDialogSeen() async {
+    _hasSeenDialog = true;
+    await _storage.put(_hasSeenDialogKey, true);
+    notifyListeners();
   }
 
-  List<TeaModel> _buildCollection() {
-    final storedData = _hive.getOptional<Map>(boxName: _boxName, key: _teasKey);
+  List<TeaModel> _buildDefaultCollection() => List<TeaModel>.from(listOfTeas);
 
-    return listOfTeas.map((tea) {
-      final teaData = storedData?[tea.type.name] as Map?;
-      return tea.copyWith(
+  Future<void> _loadFromStorage() async {
+    final storedData = await _storage.get<Map>(_teasKey);
+    _hasSeenDialog = await _storage.get<bool>(_hasSeenDialogKey) ?? false;
+
+    if (storedData == null) {
+      notifyListeners();
+      return;
+    }
+
+    for (var i = 0; i < _teas.length; i++) {
+      final tea = _teas[i];
+      final teaData = storedData[tea.type.name] as Map?;
+      _teas[i] = tea.copyWith(
         isUnlocked: teaData?['isUnlocked'] ?? tea.isUnlocked,
         timesServed: teaData?['timesServed'] ?? 0,
       );
-    }).toList();
+    }
+
+    notifyListeners();
   }
 
   Future<void> _updateTeaByType(TeaType type, TeaModel Function(TeaModel current) updater) async {
@@ -128,6 +129,6 @@ class TeaCollectionService extends ChangeNotifier {
       for (final tea in _teas)
         tea.type.name: {'isUnlocked': tea.isUnlocked, 'timesServed': tea.timesServed},
     };
-    return _hive.putValue(boxName: _boxName, key: _teasKey, value: data);
+    return _storage.put(_teasKey, data);
   }
 }
