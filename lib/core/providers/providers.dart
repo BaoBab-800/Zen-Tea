@@ -10,20 +10,20 @@ import 'package:zentea/services/settings/settings_service.dart';
 import 'package:zentea/services/tea_collection/tea_collection_service.dart';
 import 'package:zentea/services/today_tea/today_tea_service.dart';
 import 'package:zentea/services/today_tea/today_tea_service_impl.dart';
-import 'package:zentea/services/stats/stats_service.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
+import 'package:zentea/services/stats/hive_stats_service.dart';
 
 List<SingleChildWidget> buildProviders() => [
   Provider(
     create: (_) => HiveService(),
   ),
 
-  Provider(
+  Provider (
     create: (context) => AchievementsService(context.read<HiveService>()),
   ),
 
   Provider(
-    create: (context) => StatsService(context.read<HiveService>()),
+    create: (context) => StatsProvider(HiveStatsService()),
   ),
 
   Provider<TodayTeaService>(
@@ -32,14 +32,6 @@ List<SingleChildWidget> buildProviders() => [
 
   ChangeNotifierProvider(
     create: (context) => TeaCollectionService(context.read<HiveService>()),
-  ),
-
-  ChangeNotifierProvider(
-    create: (context) => StatsProvider(
-      context.read<StatsService>(),
-      context.read<AchievementsService>(),
-      context.read<TeaCollectionService>(),
-    )..init(),
   ),
 
   ChangeNotifierProvider(
