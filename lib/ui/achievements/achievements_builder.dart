@@ -6,8 +6,10 @@ import 'package:zentea/core/l10n/achievement_localization.dart';
 import 'package:zentea/core/theme/app_theme.dart';
 
 import 'package:zentea/data/achievements/abstract_achievement.dart';
+import 'package:zentea/data/achievements/achievement_keys.dart';
 import 'package:zentea/data/achievements/list_of_achievements.dart';
 
+import 'package:zentea/services/achievements/achievements_service.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
 
 class AchievementsBuilder extends StatelessWidget {
@@ -45,17 +47,23 @@ class AchievementsBuilder extends StatelessWidget {
 
   Widget _achievementCard(BuildContext context, Achievement achievement) {
     final localization = context.watch<AchievementLocalization>();
-    final isUnlocked = context.watch<StatsProvider>().isUnlocked(achievement.id);
+    context.watch<StatsProvider>();
 
-    return Card(
-      color: isUnlocked ? context.colors.primary : null,
-      child: ListTile(
-        leading: Icon(achievement.icon),
+    return FutureBuilder<Set<IdKeys>>(
+      future: context.read<AchievementsService>().loadUnlocked(),
+      builder: (context, snapshot) {
+        final unlocked = snapshot.data ?? <IdKeys>{};
+        final isUnlocked = unlocked.contains(achievement.id);
 
-        title: Text(localization.achievementTitle(context, achievement.titleKey)),
-
-        subtitle: Text(localization.achievementDescription(context, achievement.descriptionKey)),
-      ),
+        return Card(
+          color: isUnlocked ? context.colors.primary : null,
+          child: ListTile(
+            leading: Icon(achievement.icon),
+            title: Text(localization.achievementTitle(context, achievement.titleKey)),
+            subtitle: Text(localization.achievementDescription(context, achievement.descriptionKey)),
+          ),
+        );
+      },
     );
   }
 }
