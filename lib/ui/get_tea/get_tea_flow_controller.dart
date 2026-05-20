@@ -17,11 +17,11 @@ class GetTeaFlowController {
   }) async {
     final tea = await todayTeaService.getTeaOfToday(teaCollectionService.teas);
 
-    final existing = teaCollectionService.teas.firstWhere(
+    final existingIndex = teaCollectionService.teas.indexWhere(
           (item) => item.type == tea.type,
     );
 
-    final isNew = !existing.isUnlocked;
+    final isNew = existingIndex == -1 ? true : !teaCollectionService.teas[existingIndex].isUnlocked;
     final shouldCountServing =
     await todayTeaService.shouldCountServingForToday();
 
