@@ -40,6 +40,10 @@ List<SingleChildWidget> buildProviders() => [
     create: (context) => StatsProvider(HiveStatsService()),
   ),
 
+  Provider(
+    create: (context) => HiveStatsService(),
+  ),
+
   Provider<TodayTeaService>(
     create: (_) => TodayTeaServiceImpl(
       HiveKeyValueStorage(Hive.box('today_tea')),
