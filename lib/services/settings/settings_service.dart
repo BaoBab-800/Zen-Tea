@@ -7,8 +7,8 @@ class SettingsService extends ChangeNotifier {
 
   final IKeyValueStorage storage;
 
-  late ThemeMode themeMode;
-  late Locale locale;
+  ThemeMode themeMode = ThemeMode.system;
+  Locale locale = const Locale('en');
 
   SettingsService(this.storage) {
     _loadSettings();
