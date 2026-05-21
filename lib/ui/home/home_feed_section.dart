@@ -8,7 +8,7 @@ import 'package:zentea/core/theme/app_theme.dart';
 
 import 'package:zentea/data/stats/stats.dart';
 
-import 'package:zentea/services/stats/hive_stats_service.dart';
+import 'package:zentea/services/stats/i_stats_service.dart';
 
 import 'home_statistics_section.dart';
 
@@ -40,7 +40,7 @@ class HomeFeedSection extends StatelessWidget {
 
   Widget _currentSeries(BuildContext context) {
     return FutureBuilder<Stats>(
-      future: context.read<HiveStatsService>().getStats(),
+      future: context.read<IStatsService>().getStats(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(

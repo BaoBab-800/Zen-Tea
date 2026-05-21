@@ -6,7 +6,7 @@ import 'package:zentea/core/theme/app_theme.dart';
 
 import 'package:zentea/data/stats/stats.dart';
 
-import 'package:zentea/services/stats/hive_stats_service.dart';
+import 'package:zentea/services/stats/i_stats_service.dart';
 
 class HomeStatisticsSection extends StatelessWidget {
   const HomeStatisticsSection({super.key});
@@ -14,7 +14,7 @@ class HomeStatisticsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<Stats>(
-      future: context.read<HiveStatsService>().getStats(),
+      future: context.read<IStatsService>().getStats(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(

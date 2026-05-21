@@ -5,12 +5,11 @@ import 'package:zentea/data/stats/stats.dart';
 import 'i_stats_service.dart';
 
 class HiveStatsService extends IStatsService {
-  static const String _boxName = 'statsBox';
-  static const String _key = 'stats';
+  final Box<Stats> _box;
 
-  late final Box<Stats> _box;
+  HiveStatsService(this._box);
 
-  Future<void> init() async => _box = await Hive.openBox<Stats>(_boxName);
+  static const _key = 'stats';
 
   @override
   Future<Stats> getStats() async {
