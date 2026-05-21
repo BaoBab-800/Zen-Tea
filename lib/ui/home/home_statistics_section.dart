@@ -16,9 +16,22 @@ class HomeStatisticsSection extends StatelessWidget {
     return FutureBuilder<Stats>(
       future: context.read<HiveStatsService>().getStats(),
       builder: (context, snapshot) {
-        if (!snapshot.hasData) return const CircularProgressIndicator();
-        final stats = snapshot.data!;
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
 
+        if (snapshot.hasError) {
+          debugPrint('Error loading stats: ${snapshot.error}');
+          return Text(snapshot.error.toString());
+        }
+
+        if (!snapshot.hasData) {
+          return const SizedBox.shrink();
+        }
+
+        final stats = snapshot.data!;
         return SizedBox(
           height: 136,
           child: ListView(

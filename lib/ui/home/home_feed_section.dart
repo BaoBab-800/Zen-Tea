@@ -42,9 +42,22 @@ class HomeFeedSection extends StatelessWidget {
     return FutureBuilder<Stats>(
       future: context.read<HiveStatsService>().getStats(),
       builder: (context, snapshot) {
-        if (!snapshot.hasData) return const CircularProgressIndicator();
-        final series = snapshot.data!.currentTeaServed;
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
 
+        if (snapshot.hasError) {
+          debugPrint('Error fetching stats: ${snapshot.error}');
+          return Text(snapshot.error.toString());
+        }
+
+        if (!snapshot.hasData) {
+          return const SizedBox.shrink();
+        }
+
+        final series = snapshot.data!.currentTeaServed;
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
           padding: const EdgeInsets.all(16.0),
