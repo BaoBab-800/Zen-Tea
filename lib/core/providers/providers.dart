@@ -19,6 +19,7 @@ import 'package:zentea/services/stats/hive_stats_service.dart';
 import 'package:zentea/services/storage/i_key_value_storage.dart';
 import 'package:zentea/services/storage/hive_key_value_storage.dart';
 
+import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
 import 'package:zentea/services/tea_collection/tea_collection_service.dart';
 
 List<SingleChildWidget> buildProviders() => [
@@ -48,7 +49,7 @@ List<SingleChildWidget> buildProviders() => [
     ),
   ),
 
-  ChangeNotifierProvider(
+  ChangeNotifierProvider<ITeaCollectionService>(
     create: (ctx) => TeaCollectionService(
       ctx.read<IKeyValueStorage>(),
     ),

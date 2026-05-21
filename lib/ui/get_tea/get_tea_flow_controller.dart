@@ -5,7 +5,7 @@ import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_result.dart';
 
 import 'package:zentea/services/stats/stats_provider.dart';
-import 'package:zentea/services/tea_collection/tea_collection_service.dart';
+import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
 import 'package:zentea/services/today_tea/today_tea_service.dart';
 
 class GetTeaFlowController {
@@ -13,7 +13,7 @@ class GetTeaFlowController {
 
   Future<TeaResult> getTodayTea({
     required TodayTeaService todayTeaService,
-    required TeaCollectionService teaCollectionService,
+    required ITeaCollectionService teaCollectionService,
   }) async {
     final tea = await todayTeaService.getTeaOfToday(teaCollectionService.teas);
 

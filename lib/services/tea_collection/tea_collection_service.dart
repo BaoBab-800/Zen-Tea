@@ -1,12 +1,12 @@
-import 'package:flutter/foundation.dart';
-
 import 'package:zentea/data/teas/list_of_teas.dart';
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 
+import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
+
 import '../storage/i_key_value_storage.dart';
 
-class TeaCollectionService extends ChangeNotifier {
+class TeaCollectionService extends ITeaCollectionService {
   static const _teasKey = 'teas_data';
   static const _hasSeenDialogKey = 'has_seen_dialog';
 
@@ -19,21 +19,28 @@ class TeaCollectionService extends ChangeNotifier {
     _loadFromStorage();
   }
 
+  @override
   List<TeaModel> get teas => List.unmodifiable(_teas);
 
+  @override
   TeaModel? teaByType(TeaType type) {
     final index = _indexOfType(type);
     return index == -1 ? null : _teas[index];
   }
 
+  @override
   bool isUnlocked(TeaType type) => teaByType(type)?.isUnlocked ?? false;
+
+  @override
   int servedCount(TeaType type) => teaByType(type)?.timesServed ?? 0;
 
+  @override
   Future<void> unlockTea(TeaModel tea) async {
     if (isUnlocked(tea.type)) return;
     await _updateTeaByType(tea.type, (current) => current.copyWith(isUnlocked: true));
   }
 
+  @override
   Future<void> incrementServed(TeaModel tea) {
     return _updateTeaByType(
       tea.type,
@@ -41,10 +48,12 @@ class TeaCollectionService extends ChangeNotifier {
     );
   }
 
+  @override
   Future<void> setUnlocked(TeaModel tea, bool value) {
     return _updateTeaByType(tea.type, (current) => current.copyWith(isUnlocked: value));
   }
 
+  @override
   Future<void> setServedCount(TeaModel tea, int value) {
     return _updateTeaByType(
       tea.type,
@@ -52,8 +61,10 @@ class TeaCollectionService extends ChangeNotifier {
     );
   }
 
+  @override
   bool hasSeenDialog() => _hasSeenDialog;
 
+  @override
   String dumpState() {
     final buffer = StringBuffer();
 
@@ -74,6 +85,7 @@ class TeaCollectionService extends ChangeNotifier {
     return buffer.toString();
   }
 
+  @override
   Future<void> setDialogSeen() async {
     _hasSeenDialog = true;
     await _storage.put(_hasSeenDialogKey, true);
@@ -113,6 +125,7 @@ class TeaCollectionService extends ChangeNotifier {
 
   int _indexOfType(TeaType type) => _teas.indexWhere((item) => item.type == type);
 
+  @override
   int countryCounter(TeaCountries country) {
     int counter = 0;
     for(int i = 0; i < _teas.length; i++) {

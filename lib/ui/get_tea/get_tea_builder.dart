@@ -11,7 +11,7 @@ import 'package:zentea/data/teas/tea_result.dart';
 import 'package:zentea/data/quest/quest_result.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
 
-import 'package:zentea/services/tea_collection/tea_collection_service.dart';
+import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
 import 'package:zentea/services/today_tea/today_tea_service.dart';
 import 'package:zentea/services/url/url_service.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
@@ -41,7 +41,7 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
     super.initState();
 
     final todayTeaService = context.read<TodayTeaService>();
-    final teaCollectionService = context.read<TeaCollectionService>();
+    final teaCollectionService = context.read<ITeaCollectionService>();
 
     _future = _controller.getTodayTea(
       todayTeaService: todayTeaService,
@@ -54,7 +54,7 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
   }
 
   void _showWelcomeDialogIfNeeded() {
-    final teaCollectionService = context.read<TeaCollectionService>();
+    final teaCollectionService = context.read<ITeaCollectionService>();
 
     if (teaCollectionService.hasSeenDialog()) return;
 
