@@ -142,7 +142,7 @@ class _TeaMapBuilderState extends State<TeaMapBuilder> {
                   padding: const EdgeInsets.all(16.0),
                   child: AspectRatio(
                     aspectRatio: 1009.67 / 665.96,
-                    child: Map(
+                    child: WorldMap(
                       countries: pathsOfCountries,
                       onCountryTap: (country) {
                         final teaCountry = _countryByCode(country.code);

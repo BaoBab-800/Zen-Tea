@@ -8,11 +8,11 @@ import 'package:zentea/data/teas/tea_types.dart';
 
 import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
 
-class Map extends StatelessWidget {
+class WorldMap extends StatelessWidget {
   final List<CountryPathModel> countries;
   final ValueChanged<CountryPathModel>? onCountryTap;
 
-  const Map({
+  const WorldMap({
     super.key,
     required this.countries,
     this.onCountryTap,
