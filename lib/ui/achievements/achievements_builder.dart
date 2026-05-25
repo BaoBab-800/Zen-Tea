@@ -9,8 +9,7 @@ import 'package:zentea/data/achievements/abstract_achievement.dart';
 import 'package:zentea/data/achievements/achievement_keys.dart';
 import 'package:zentea/data/achievements/list_of_achievements.dart';
 
-import 'package:zentea/services/achievements/achievements_service.dart';
-import 'package:zentea/services/stats/stats_provider.dart';
+import 'package:zentea/services/achievements/i_achievements_service.dart';
 
 class AchievementsBuilder extends StatelessWidget {
   const AchievementsBuilder({super.key});
@@ -47,10 +46,9 @@ class AchievementsBuilder extends StatelessWidget {
 
   Widget _achievementCard(BuildContext context, Achievement achievement) {
     final localization = context.watch<AchievementLocalization>();
-    context.watch<StatsProvider>();
 
     return FutureBuilder<Set<IdKeys>>(
-      future: context.read<AchievementsService>().loadUnlocked(),
+      future: context.read<IAchievementsService>().loadUnlocked(),
       builder: (context, snapshot) {
         final unlocked = snapshot.data ?? <IdKeys>{};
         final isUnlocked = unlocked.contains(achievement.id);

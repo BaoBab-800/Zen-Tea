@@ -12,7 +12,7 @@ import 'package:zentea/data/teas/list_of_teas.dart';
 import 'package:zentea/services/achievements/i_achievements_service.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 import 'package:zentea/services/stats/i_stats_service.dart';
-import 'package:zentea/services/tea_collection/tea_collection_service.dart';
+import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
 
 class DeveloperRoom extends StatefulWidget {
   const DeveloperRoom({super.key});
@@ -41,10 +41,10 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
     }
   }
 
-  Future<(_DevSnapshot, TeaCollectionService)> _snapshot() async {
+  Future<(_DevSnapshot, ITeaCollectionService)> _snapshot() async {
     final statsService = context.read<IStatsService>();
     final achievementsService = context.read<IAchievementsService>();
-    final teaService = context.read<TeaCollectionService>();
+    final teaService = context.read<ITeaCollectionService>();
 
     final stats = await statsService.getStats();
     final unlockedAchievements = await achievementsService.loadUnlocked();
@@ -60,7 +60,7 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<TeaCollectionService>();
+    context.watch<ITeaCollectionService>();
     context.watch<QuestProgressService>();
 
     return Scaffold(
@@ -71,7 +71,7 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
         ),
       ),
 
-      body: FutureBuilder<(_DevSnapshot, TeaCollectionService)>(
+      body: FutureBuilder<(_DevSnapshot, ITeaCollectionService)>(
         future: _snapshot(),
         builder: (context, snapshot) {
           final data = snapshot.data;
@@ -138,7 +138,7 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
   }
 
   Future<void> _resetAllValues() async {
-    final teaService = context.read<TeaCollectionService>();
+    final teaService = context.read<ITeaCollectionService>();
     final statsService = context.read<IStatsService>();
 
     for (final tea in listOfTeas) {
@@ -150,7 +150,7 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
   }
 
   Future<void> _unlockAll() async {
-    final teaService = context.read<TeaCollectionService>();
+    final teaService = context.read<ITeaCollectionService>();
     final statsService = context.read<IStatsService>();
 
     for (final tea in listOfTeas) {
@@ -162,7 +162,7 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
   }
 
   Future<void> _blockAll() async {
-    final teaService = context.read<TeaCollectionService>();
+    final teaService = context.read<ITeaCollectionService>();
     final statsService = context.read<IStatsService>();
 
     for (final tea in listOfTeas) {

@@ -7,7 +7,7 @@ import 'package:zentea/core/theme/app_theme.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 import 'package:zentea/data/paths/paths_of_countries.dart';
 
-import 'package:zentea/services/tea_collection/tea_collection_service.dart';
+import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
 
 import 'map.dart';
 
@@ -42,7 +42,7 @@ class _TeaMapBuilderState extends State<TeaMapBuilder> {
 
   void _showCountryTeasSheet(
       BuildContext context,
-      TeaCollectionService service,
+      ITeaCollectionService service,
       TeaCountries country,
       ) {
     final teas = service.teas.where((tea) => tea.country == country).toList();
@@ -97,7 +97,7 @@ class _TeaMapBuilderState extends State<TeaMapBuilder> {
 
   @override
   Widget build(BuildContext context) {
-    final service = context.read<TeaCollectionService>();
+    final service = context.read<ITeaCollectionService>();
 
     final countries = [
       (context.l10n.china, TeaCountries.china),
