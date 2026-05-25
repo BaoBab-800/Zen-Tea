@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:zentea/core/extensions/map_colors_x.dart';
 
 import 'package:zentea/data/paths/country_path_model.dart';
+
+import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
 
 class Map extends StatelessWidget {
   final List<CountryPathModel> countries;
@@ -15,6 +19,9 @@ class Map extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final service = context.watch<ITeaCollectionService>();
+    final teas = service.teas.where((tea) => tea.isUnlocked == true).toList();
+
     return LayoutBuilder(
       builder: (context, constraints) {
         final size = Size(
@@ -37,10 +44,16 @@ class Map extends StatelessWidget {
               onCountryTap!(country);
             }
           },
+
           child: SizedBox(
             width: size.width,
             height: size.height,
-            child: _MapContent(size: size, countries: countries),
+            child: _MapContent(
+              size: size,
+              countries: countries,
+              totalTeas: service.teas.length,
+              openedTeas: teas.length,
+            ),
           ),
         );
       },
@@ -51,10 +64,14 @@ class Map extends StatelessWidget {
 class _MapContent extends StatelessWidget {
   final Size size;
   final List<CountryPathModel> countries;
+  final int totalTeas;
+  final int openedTeas;
 
   const _MapContent({
     required this.size,
     required this.countries,
+    required this.totalTeas,
+    required this.openedTeas,
   });
 
   @override
@@ -71,7 +88,11 @@ class _MapContent extends StatelessWidget {
         Positioned.fill(
           child: CustomPaint(
             painter: _CountriesPainter(
+              totalTeas,
+              openedTeas,
               countries,
+              context.mapColors.countryBase,
+              context.mapColors.countryActive
             ),
           ),
         ),
@@ -102,14 +123,34 @@ CountryPathModel? _findCountryByPosition(
 }
 
 class _CountriesPainter extends CustomPainter {
+  final int totalTeas;
+  final int openedTeas;
   final List<CountryPathModel> countries;
+  final Color baseColor;
+  final Color targetColor;
 
-  const _CountriesPainter(this.countries);
+  const _CountriesPainter(
+    this.totalTeas,
+    this.openedTeas,
+    this.countries,
+    this.baseColor,
+    this.targetColor,
+  );
+
+  Color determineTheColor(double progress) {
+    return Color.lerp(
+      baseColor,
+      targetColor,
+      progress.clamp(0.0, 1.0),
+    )!;
+  }
 
   @override
   void paint(Canvas canvas, Size size) {
     const svgW = 1009.67;
     const svgH = 665.96;
+
+    final progress = openedTeas / totalTeas;
 
     final scaleX = size.width / svgW;
     final scaleY = size.height / svgH;
@@ -118,7 +159,7 @@ class _CountriesPainter extends CustomPainter {
       ..scale(scaleX, scaleY);
 
     final paint = Paint()
-      ..color = Colors.green.withValues(alpha: 0.55)
+      ..color = determineTheColor(progress)
       ..style = PaintingStyle.fill;
 
     for (final country in countries) {
@@ -128,7 +169,5 @@ class _CountriesPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant _CountriesPainter oldDelegate) {
-    return oldDelegate.countries != countries;
-  }
+  bool shouldRepaint(covariant _CountriesPainter oldDelegate) => oldDelegate.countries != countries;
 }

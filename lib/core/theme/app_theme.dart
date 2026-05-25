@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../extensions/map_colors_x.dart';
 import 'app_colors.dart';
 
 class AppTheme {
@@ -16,6 +18,13 @@ class AppTheme {
       backgroundColor: AppColors.primary,
       foregroundColor: Colors.white,
     ),
+
+    extensions: [
+      MapColorsX(
+        countryBase: Color(0xFF000000),
+        countryActive: Colors.green[700]!,
+      ),
+    ],
   );
 
   static ThemeData get dark => ThemeData(
@@ -32,6 +41,13 @@ class AppTheme {
       backgroundColor: AppColors.surfaceDark,
       foregroundColor: Colors.white,
     ),
+
+    extensions: [
+      MapColorsX(
+        countryBase: Color(0xFF000000),
+        countryActive: Colors.green[900]!,
+      ),
+    ],
   );
 }
 
