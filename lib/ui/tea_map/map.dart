@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:zentea/core/extensions/map_colors_x.dart';
 
 import 'package:zentea/data/paths/country_path_model.dart';
+import 'package:zentea/data/teas/tea_types.dart';
 
 import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
 
@@ -20,7 +21,17 @@ class Map extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final service = context.watch<ITeaCollectionService>();
-    final teas = service.teas.where((tea) => tea.isUnlocked == true).toList();
+    final totalTeasByCountry = <String, int>{};
+    final openedTeasByCountry = <String, int>{};
+
+    for (final tea in service.teas) {
+      final countryCode = _teaCountryCode(tea.country);
+      totalTeasByCountry[countryCode] = (totalTeasByCountry[countryCode] ?? 0) + 1;
+
+      if (tea.isUnlocked) {
+        openedTeasByCountry[countryCode] = (openedTeasByCountry[countryCode] ?? 0) + 1;
+      }
+    }
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -51,8 +62,8 @@ class Map extends StatelessWidget {
             child: _MapContent(
               size: size,
               countries: countries,
-              totalTeas: service.teas.length,
-              openedTeas: teas.length,
+              totalTeasByCountry: totalTeasByCountry,
+              openedTeasByCountry: openedTeasByCountry,
             ),
           ),
         );
@@ -64,14 +75,14 @@ class Map extends StatelessWidget {
 class _MapContent extends StatelessWidget {
   final Size size;
   final List<CountryPathModel> countries;
-  final int totalTeas;
-  final int openedTeas;
+  final Map<String, int> totalTeasByCountry;
+  final Map<String, int> openedTeasByCountry;
 
   const _MapContent({
     required this.size,
     required this.countries,
-    required this.totalTeas,
-    required this.openedTeas,
+    required this.totalTeasByCountry,
+    required this.openedTeasByCountry,
   });
 
   @override
@@ -88,11 +99,11 @@ class _MapContent extends StatelessWidget {
         Positioned.fill(
           child: CustomPaint(
             painter: _CountriesPainter(
-              totalTeas,
-              openedTeas,
               countries,
+              totalTeasByCountry,
+              openedTeasByCountry,
               context.mapColors.countryBase,
-              context.mapColors.countryActive
+              context.mapColors.countryActive,
             ),
           ),
         ),
@@ -123,16 +134,16 @@ CountryPathModel? _findCountryByPosition(
 }
 
 class _CountriesPainter extends CustomPainter {
-  final int totalTeas;
-  final int openedTeas;
   final List<CountryPathModel> countries;
+  final Map<String, int> totalTeasByCountry;
+  final Map<String, int> openedTeasByCountry;
   final Color baseColor;
   final Color targetColor;
 
   const _CountriesPainter(
-    this.totalTeas,
-    this.openedTeas,
     this.countries,
+    this.totalTeasByCountry,
+    this.openedTeasByCountry,
     this.baseColor,
     this.targetColor,
   );
@@ -150,24 +161,50 @@ class _CountriesPainter extends CustomPainter {
     const svgW = 1009.67;
     const svgH = 665.96;
 
-    final progress = openedTeas / totalTeas;
-
     final scaleX = size.width / svgW;
     final scaleY = size.height / svgH;
 
     final matrix = Matrix4.identity()
       ..scale(scaleX, scaleY);
 
-    final paint = Paint()
-      ..color = determineTheColor(progress)
-      ..style = PaintingStyle.fill;
-
     for (final country in countries) {
+      final totalTeas = totalTeasByCountry[country.code] ?? 0;
+      final openedTeas = openedTeasByCountry[country.code] ?? 0;
+      final progress = totalTeas == 0 ? 0.0 : openedTeas / totalTeas;
+
+      final paint = Paint()
+        ..color = determineTheColor(progress)
+        ..style = PaintingStyle.fill;
+
       final transformed = country.path.transform(matrix.storage);
       canvas.drawPath(transformed, paint);
     }
   }
 
   @override
-  bool shouldRepaint(covariant _CountriesPainter oldDelegate) => oldDelegate.countries != countries;
+  bool shouldRepaint(covariant _CountriesPainter oldDelegate) =>
+      oldDelegate.countries != countries ||
+      oldDelegate.totalTeasByCountry != totalTeasByCountry ||
+      oldDelegate.openedTeasByCountry != openedTeasByCountry ||
+      oldDelegate.baseColor != baseColor ||
+      oldDelegate.targetColor != targetColor;
+}
+
+String _teaCountryCode(TeaCountries country) {
+  switch (country) {
+    case TeaCountries.china:
+      return 'CN';
+    case TeaCountries.unitedKingdom:
+      return 'GB';
+    case TeaCountries.india:
+      return 'IN';
+    case TeaCountries.japan:
+      return 'JP';
+    case TeaCountries.egypt:
+      return 'EG';
+    case TeaCountries.morocco:
+      return 'MA';
+    case TeaCountries.southAfrica:
+      return 'ZA';
+  }
 }
