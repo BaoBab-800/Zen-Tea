@@ -12,7 +12,7 @@ import 'package:zentea/data/quest/quest_result.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
 
 import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
-import 'package:zentea/services/today_tea/today_tea_service.dart';
+import 'package:zentea/services/today_tea/i_today_tea_service.dart';
 import 'package:zentea/services/url/url_service.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 
@@ -40,7 +40,7 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
   void initState() {
     super.initState();
 
-    final todayTeaService = context.read<TodayTeaService>();
+    final todayTeaService = context.read<ITodayTeaService>();
     final teaCollectionService = context.read<ITeaCollectionService>();
 
     _future = _controller.getTodayTea(

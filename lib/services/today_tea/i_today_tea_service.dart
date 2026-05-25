@@ -1,6 +1,6 @@
 import 'package:zentea/data/teas/tea_model.dart';
 
-abstract class TodayTeaService {
+abstract class ITodayTeaService {
   Future<TeaModel> getTeaOfToday(List<TeaModel> teas);
 
   Future<bool> shouldCountServingForToday();

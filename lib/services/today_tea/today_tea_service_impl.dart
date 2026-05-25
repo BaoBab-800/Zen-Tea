@@ -5,9 +5,9 @@ import 'package:zentea/data/teas/tea_types.dart';
 
 import 'package:zentea/services/storage/i_key_value_storage.dart';
 
-import 'today_tea_service.dart';
+import 'i_today_tea_service.dart';
 
-class TodayTeaServiceImpl implements TodayTeaService {
+class TodayTeaServiceImpl implements ITodayTeaService {
   static const _servedDateKey = 'served_date';
   static const _teaDateKey = 'tea_date';
   static const _teaTypeKey = 'tea_type';
