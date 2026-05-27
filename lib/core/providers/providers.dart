@@ -13,6 +13,7 @@ import 'package:zentea/services/settings/settings_service.dart';
 
 import 'package:zentea/services/stats/i_stats_service.dart';
 import 'package:zentea/services/stats/hive_stats_service.dart';
+import 'package:zentea/services/stats/stats_provider.dart';
 
 import 'package:zentea/services/storage/i_key_value_storage.dart';
 import 'package:zentea/services/storage/hive_key_value_storage.dart';
@@ -32,6 +33,10 @@ List<SingleChildWidget> buildProviders() => [
     create: (_) => HiveStatsService(
       Hive.box('stats_box'),
     ),
+  ),
+
+  ChangeNotifierProvider<StatsProvider>(
+    create: (context) => StatsProvider(context.read<IStatsService>()),
   ),
 
   Provider<IAchievementsService>(
