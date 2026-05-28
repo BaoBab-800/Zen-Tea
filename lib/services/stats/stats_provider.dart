@@ -5,18 +5,27 @@ import 'package:zentea/data/stats/stats.dart';
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 
-import 'i_stats_service.dart';
+import 'i_stats_repository.dart';
 
 class StatsProvider extends ChangeNotifier {
-  final IStatsService _statsService;
+  final IStatsRepository _statsRepository;
   final Set<IdKeys> _unlockedIds = <IdKeys>{};
 
-  StatsProvider(this._statsService);
+  Stats _stats;
 
+  StatsProvider(this._statsRepository, {required Stats initialStats})
+      : _stats = initialStats;
+
+  Stats get stats => _stats;
   Set<IdKeys> get unlockedIds => _unlockedIds;
 
+  Future<void> load() async {
+    _stats = await _statsRepository.getStats();
+    notifyListeners();
+  }
+
   Future<void> onTeaOpened(TeaModel tea, {required bool isNew}) async {
-    final stats = await _statsService.getStats();
+    final stats = await _statsRepository.getStats();
     final isRareTea = tea.features != TeaFeatures.common;
 
     final updated = stats.copyWith(
@@ -32,7 +41,7 @@ class StatsProvider extends ChangeNotifier {
   }
 
   Future<void> onTeaReceived(TeaModel tea, {required bool isNew}) async {
-    final stats = await _statsService.getStats();
+    final stats = await _statsRepository.getStats();
     final achieved = <IdKeys>{};
 
     if (stats.totalServed >= 10) {
@@ -55,7 +64,7 @@ class StatsProvider extends ChangeNotifier {
   }
 
   Future<void> updateStats(Stats stats) async {
-    await _statsService.updateStats(stats);
+    await _statsRepository.saveStats(stats);
     notifyListeners();
   }
 }

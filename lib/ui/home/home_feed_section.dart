@@ -6,9 +6,7 @@ import 'package:zentea/app/app_router.dart';
 import 'package:zentea/core/l10n/l10n.dart';
 import 'package:zentea/core/theme/app_theme.dart';
 
-import 'package:zentea/data/stats/stats.dart';
-
-import 'package:zentea/services/stats/i_stats_service.dart';
+import 'package:zentea/services/stats/stats_provider.dart';
 
 import 'home_statistics_section.dart';
 
@@ -39,77 +37,57 @@ class HomeFeedSection extends StatelessWidget {
   }
 
   Widget _currentSeries(BuildContext context) {
-    return FutureBuilder<Stats>(
-      future: context.read<IStatsService>().getStats(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
+    final stats = context.watch<StatsProvider>().stats;
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(16),
 
-        if (snapshot.hasError) {
-          debugPrint('Error fetching stats: ${snapshot.error}');
-          return Text(snapshot.error.toString());
-        }
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.1),
+            blurRadius: 8,
+            offset: Offset(4, 4),
+          ),
+        ],
+      ),
 
-        if (!snapshot.hasData) {
-          return const SizedBox.shrink();
-        }
-
-        final series = snapshot.data!.currentTeaServed;
-        return Container(
-          margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-          padding: const EdgeInsets.all(16.0),
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surfaceContainerHighest,
-            borderRadius: BorderRadius.circular(16),
-
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.1),
-                blurRadius: 8,
-                offset: Offset(4, 4),
-              ),
-            ],
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: context.colors.primary.withValues(alpha: 0.1),
+              shape: BoxShape.circle,
+            ),
+            child: Icon(
+              Icons.local_fire_department,
+              color: Theme.of(context).colorScheme.primary,
+            ),
           ),
 
-          child: Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: context.colors.primary.withValues(alpha: 0.1),
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  Icons.local_fire_department,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-              ),
+          const SizedBox(width: 12),
 
-              const SizedBox(width: 12),
-
-              Text(
-                context.l10n.currentTeaSeries,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-
-              const SizedBox(width: 2),
-              Text(
-                series.toString(),
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
+          Text(
+            context.l10n.currentTeaSeries,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        );
-      },
+
+          const SizedBox(width: 2),
+          Text(
+            stats.streakDays.toString(),
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
     );
   }
 

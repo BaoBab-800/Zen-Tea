@@ -1,9 +1,7 @@
 import 'package:zentea/data/stats/stats.dart';
 
-abstract class IStatsService {
+abstract class IStatsRepository {
   Future<Stats> getStats();
-  Future<void> updateStats(Stats stats);
-
-  Future<void> updateStreak(int newStreak);
+  Future<void> saveStats(Stats stats);
   Future<void> onQuestCompleted({required int streak});
 }

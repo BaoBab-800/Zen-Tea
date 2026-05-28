@@ -3,12 +3,12 @@ import 'package:flutter/foundation.dart';
 import 'package:zentea/data/quest/quest_result.dart';
 
 import '../storage/i_key_value_storage.dart';
-import '../stats/i_stats_service.dart';
+import '../stats/i_stats_repository.dart';
 import '../achievements/i_achievements_service.dart';
 import 'i_quest_progress_service.dart';
 
 class QuestProgressService extends ChangeNotifier implements IQuestProgressService {
-  final IStatsService statsService;
+  final IStatsRepository statsService;
   final IKeyValueStorage storage;
   final IAchievementsService achievementsService;
 
@@ -54,7 +54,7 @@ class QuestProgressService extends ChangeNotifier implements IQuestProgressServi
         : 1;
 
     // update stats
-    await statsService.updateStreak(newStreak);
+    await statsService.saveStats(stats.copyWith(streakDays: newStreak));
     await statsService.onQuestCompleted(streak: newStreak);
 
     // save data

@@ -11,7 +11,7 @@ import 'package:zentea/data/teas/list_of_teas.dart';
 
 import 'package:zentea/services/achievements/i_achievements_service.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
-import 'package:zentea/services/stats/i_stats_service.dart';
+import 'package:zentea/services/stats/i_stats_repository.dart';
 import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
 
 class DeveloperRoom extends StatefulWidget {
@@ -31,9 +31,6 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
     try {
       await action();
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Done')),
-      );
     } finally {
       if (mounted) {
         setState(() => _busy = false);
@@ -42,7 +39,7 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
   }
 
   Future<(_DevSnapshot, ITeaCollectionService)> _snapshot() async {
-    final statsService = context.read<IStatsService>();
+    final statsService = context.read<IStatsRepository>();
     final achievementsService = context.read<IAchievementsService>();
     final teaService = context.read<ITeaCollectionService>();
 
@@ -139,55 +136,62 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
 
   Future<void> _resetAllValues() async {
     final teaService = context.read<ITeaCollectionService>();
-    final statsService = context.read<IStatsService>();
+    final statsService = context.read<IStatsRepository>();
 
     for (final tea in listOfTeas) {
       await teaService.setServedCount(tea, 0);
       await teaService.setUnlocked(tea, false);
     }
 
-    await statsService.updateStats(_zeroStats());
+    await statsService.saveStats(_zeroStats());
   }
 
   Future<void> _unlockAll() async {
     final teaService = context.read<ITeaCollectionService>();
-    final statsService = context.read<IStatsService>();
+    final statsService = context.read<IStatsRepository>();
 
     for (final tea in listOfTeas) {
       await teaService.setUnlocked(tea, true);
     }
 
     final current = await statsService.getStats();
-    await statsService.updateStats(current.copyWith(uniqueTeas: listOfTeas.length));
+    await statsService.saveStats(current.copyWith(uniqueTeas: listOfTeas.length));
   }
 
   Future<void> _blockAll() async {
     final teaService = context.read<ITeaCollectionService>();
-    final statsService = context.read<IStatsService>();
+    final statsService = context.read<IStatsRepository>();
 
     for (final tea in listOfTeas) {
       await teaService.setUnlocked(tea, false);
     }
 
     final current = await statsService.getStats();
-    await statsService.updateStats(current.copyWith(uniqueTeas: 0));
+    await statsService.saveStats(current.copyWith(uniqueTeas: 0));
   }
 
   Future<void> _setRandomStreak() async {
-    final statsService = context.read<IStatsService>();
-    await statsService.updateStreak(Random().nextInt(100));
+    final statsService = context.read<IStatsRepository>();
+    await statsService.saveStats(
+      (await statsService.getStats()).copyWith(
+        streakDays: Random().nextInt(30),
+        maxStreak: Random().nextInt(30),
+      ),
+    );
   }
 
   Future<void> _resetStreak() async {
-    final statsService = context.read<IStatsService>();
-    await statsService.updateStreak(0);
+    final statsService = context.read<IStatsRepository>();
+    await statsService.saveStats(
+      (await statsService.getStats()).copyWith(streakDays: 0, maxStreak: 0),
+    );
   }
 
   Future<void> _resetAllStats() async {
-    final statsService = context.read<IStatsService>();
+    final statsService = context.read<IStatsRepository>();
     final achievementsService = context.read<IAchievementsService>();
 
-    await statsService.updateStats(_zeroStats());
+    await statsService.saveStats(_zeroStats());
     await achievementsService.saveUnlocked({});
   }
 
