@@ -36,44 +36,45 @@ class QuestProgressService extends ChangeNotifier implements IQuestProgressServi
   Future<QuestResult> completeQuest() async {
     final now = DateTime.now();
 
-    // already completed today
     if (_isSameDay(_lastCompletedAt, now)) {
       return QuestResult(
         status: QuestCompletionStatus.alreadyDoneToday,
       );
     }
 
-    // get the current stats
     final stats = await statsService.getStats();
-    final currentStreak = stats.streakDays;
     final unlocked = await achievementsService.loadUnlocked();
 
-    // calculate the new streak
     final newStreak = _isConsecutiveDay(_lastCompletedAt, now)
-        ? currentStreak + 1
+        ? stats.streakDays + 1
         : 1;
 
-    // update stats
-    await statsService.saveStats(stats.copyWith(streakDays: newStreak));
-    await statsService.onQuestCompleted(streak: newStreak);
+    final updatedStats = stats.copyWith(
+      streakDays: newStreak,
+      totalQuestCompleted: stats.totalQuestCompleted + 1,
+      maxStreak: newStreak > stats.maxStreak
+          ? newStreak
+          : stats.maxStreak,
+    );
 
-    // save data
+    await statsService.saveStats(updatedStats);
+
     _lastCompletedAt = now;
     await storage.put(
       _lastCompletedAtKey,
       now.toIso8601String(),
     );
 
-    // achievements
     final newUnlocked = achievementsService.checkAchievements(
-      stats: stats,
+      stats: updatedStats,
       currentUnlocked: unlocked,
     );
 
     if (newUnlocked.isNotEmpty) {
-      await achievementsService.saveUnlocked(
-        {...unlocked, ...newUnlocked},
-      );
+      await achievementsService.saveUnlocked({
+        ...unlocked,
+        ...newUnlocked,
+      });
     }
 
     notifyListeners();
