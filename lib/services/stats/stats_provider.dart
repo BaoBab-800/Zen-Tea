@@ -65,6 +65,7 @@ class StatsProvider extends ChangeNotifier {
 
   Future<void> updateStats(Stats stats) async {
     await _statsRepository.saveStats(stats);
+    _stats = stats;
     notifyListeners();
   }
 }

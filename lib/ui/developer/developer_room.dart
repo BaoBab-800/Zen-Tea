@@ -11,6 +11,7 @@ import 'package:zentea/data/teas/list_of_teas.dart';
 
 import 'package:zentea/services/achievements/i_achievements_service.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
+import 'package:zentea/services/stats/i_stats_repository.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
 import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
 
@@ -58,6 +59,7 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
   Widget build(BuildContext context) {
     context.watch<ITeaCollectionService>();
     context.watch<QuestProgressService>();
+    context.watch<StatsProvider>();
 
     return Scaffold(
       appBar: AppBar(
@@ -135,14 +137,13 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
 
   Future<void> _resetAllValues() async {
     final teaService = context.read<ITeaCollectionService>();
-    final statsProvider = context.read<StatsProvider>();
 
     for (final tea in listOfTeas) {
       await teaService.setServedCount(tea, 0);
       await teaService.setUnlocked(tea, false);
     }
 
-    await statsProvider.updateStats(_zeroStats());
+    await _updateStats(_zeroStats());
   }
 
   Future<void> _unlockAll() async {
@@ -154,7 +155,7 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
     }
 
     final current = statsProvider.stats;
-    await statsProvider.updateStats(current.copyWith(uniqueTeas: listOfTeas.length));
+    await _updateStats(current.copyWith(uniqueTeas: listOfTeas.length));
   }
 
   Future<void> _blockAll() async {
@@ -166,13 +167,13 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
     }
 
     final current = statsProvider.stats;
-    await statsProvider.updateStats(current.copyWith(uniqueTeas: 0));
+    await _updateStats(current.copyWith(uniqueTeas: 0));
   }
 
   Future<void> _setRandomStreak() async {
     final provider = context.read<StatsProvider>();
 
-    await provider.updateStats(
+    await _updateStats(
       provider.stats.copyWith(
         streakDays: Random().nextInt(30),
         maxStreak: Random().nextInt(30),
@@ -182,17 +183,24 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
 
   Future<void> _resetStreak() async {
     final statsProvider = context.read<StatsProvider>();
-    await statsProvider.updateStats(
+    await _updateStats(
       statsProvider.stats.copyWith(streakDays: 0, maxStreak: 0),
     );
   }
 
   Future<void> _resetAllStats() async {
-    final statsProvider = context.read<StatsProvider>();
     final achievementsService = context.read<IAchievementsService>();
 
-    await statsProvider.updateStats(_zeroStats());
+    await _updateStats(_zeroStats());
     await achievementsService.saveUnlocked({});
+  }
+
+  Future<void> _updateStats(Stats stats) async {
+    final statsRepository = context.read<IStatsRepository>();
+    final statsProvider = context.read<StatsProvider>();
+
+    await statsRepository.saveStats(stats);
+    await statsProvider.load();
   }
 
   Stats _zeroStats() => Stats(
