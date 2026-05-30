@@ -4,63 +4,42 @@ import 'package:provider/provider.dart';
 import 'package:zentea/core/l10n/l10n.dart';
 import 'package:zentea/core/theme/app_theme.dart';
 
-import 'package:zentea/data/stats/stats.dart';
-
-import 'package:zentea/services/stats/i_stats_repository.dart';
+import 'package:zentea/services/stats/stats_provider.dart';
 
 class HomeStatisticsSection extends StatelessWidget {
   const HomeStatisticsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<Stats>(
-      future: context.watch<IStatsRepository>().getStats(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
+    final stats = context.watch<StatsProvider>().stats;
 
-        if (snapshot.hasError) {
-          debugPrint('Error loading stats: ${snapshot.error}');
-          return Text(snapshot.error.toString());
-        }
-
-        if (!snapshot.hasData) {
-          return const SizedBox.shrink();
-        }
-
-        final stats = snapshot.data!;
-        return SizedBox(
-          height: 136,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            children: [
-              _StatCard(
-                label: context.l10n.totalTeasDrunk,
-                value: stats.totalServed,
-                icon: Icons.emoji_food_beverage_rounded,
-              ),
-
-              const SizedBox(width: 12),
-              _StatCard(
-                label: context.l10n.totalTeasOpened,
-                value: stats.uniqueTeas,
-                icon: Icons.local_florist_rounded,
-              ),
-
-              const SizedBox(width: 12),
-              _StatCard(
-                label: context.l10n.maximumSeries,
-                value: stats.maxStreak,
-                icon: Icons.local_fire_department_rounded,
-              ),
-            ],
+    return SizedBox(
+      height: 136,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        children: [
+          _StatCard(
+            label: context.l10n.totalTeasDrunk,
+            value: stats.totalServed,
+            icon: Icons.emoji_food_beverage_rounded,
           ),
-        );
-      },
+
+          const SizedBox(width: 12),
+          _StatCard(
+            label: context.l10n.totalTeasOpened,
+            value: stats.uniqueTeas,
+            icon: Icons.local_florist_rounded,
+          ),
+
+          const SizedBox(width: 12),
+          _StatCard(
+            label: context.l10n.maximumSeries,
+            value: stats.maxStreak,
+            icon: Icons.local_fire_department_rounded,
+          ),
+        ],
+      ),
     );
   }
 }

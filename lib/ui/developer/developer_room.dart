@@ -11,7 +11,7 @@ import 'package:zentea/data/teas/list_of_teas.dart';
 
 import 'package:zentea/services/achievements/i_achievements_service.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
-import 'package:zentea/services/stats/i_stats_repository.dart';
+import 'package:zentea/services/stats/stats_provider.dart';
 import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
 
 class DeveloperRoom extends StatefulWidget {
@@ -39,16 +39,15 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
   }
 
   Future<(_DevSnapshot, ITeaCollectionService)> _snapshot() async {
-    final statsService = context.read<IStatsRepository>();
+    final statsProvider = context.read<StatsProvider>();
     final achievementsService = context.read<IAchievementsService>();
     final teaService = context.read<ITeaCollectionService>();
 
-    final stats = await statsService.getStats();
     final unlockedAchievements = await achievementsService.loadUnlocked();
 
     return (
     _DevSnapshot(
-      stats: stats,
+      stats: statsProvider.stats,
       unlockedAchievements: unlockedAchievements.length,
     ),
     teaService,
@@ -136,44 +135,45 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
 
   Future<void> _resetAllValues() async {
     final teaService = context.read<ITeaCollectionService>();
-    final statsService = context.read<IStatsRepository>();
+    final statsProvider = context.read<StatsProvider>();
 
     for (final tea in listOfTeas) {
       await teaService.setServedCount(tea, 0);
       await teaService.setUnlocked(tea, false);
     }
 
-    await statsService.saveStats(_zeroStats());
+    await statsProvider.updateStats(_zeroStats());
   }
 
   Future<void> _unlockAll() async {
     final teaService = context.read<ITeaCollectionService>();
-    final statsService = context.read<IStatsRepository>();
+    final statsProvider = context.read<StatsProvider>();
 
     for (final tea in listOfTeas) {
       await teaService.setUnlocked(tea, true);
     }
 
-    final current = await statsService.getStats();
-    await statsService.saveStats(current.copyWith(uniqueTeas: listOfTeas.length));
+    final current = statsProvider.stats;
+    await statsProvider.updateStats(current.copyWith(uniqueTeas: listOfTeas.length));
   }
 
   Future<void> _blockAll() async {
     final teaService = context.read<ITeaCollectionService>();
-    final statsService = context.read<IStatsRepository>();
+    final statsProvider = context.read<StatsProvider>();
 
     for (final tea in listOfTeas) {
       await teaService.setUnlocked(tea, false);
     }
 
-    final current = await statsService.getStats();
-    await statsService.saveStats(current.copyWith(uniqueTeas: 0));
+    final current = statsProvider.stats;
+    await statsProvider.updateStats(current.copyWith(uniqueTeas: 0));
   }
 
   Future<void> _setRandomStreak() async {
-    final statsService = context.read<IStatsRepository>();
-    await statsService.saveStats(
-      (await statsService.getStats()).copyWith(
+    final provider = context.read<StatsProvider>();
+
+    await provider.updateStats(
+      provider.stats.copyWith(
         streakDays: Random().nextInt(30),
         maxStreak: Random().nextInt(30),
       ),
@@ -181,17 +181,17 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
   }
 
   Future<void> _resetStreak() async {
-    final statsService = context.read<IStatsRepository>();
-    await statsService.saveStats(
-      (await statsService.getStats()).copyWith(streakDays: 0, maxStreak: 0),
+    final statsProvider = context.read<StatsProvider>();
+    await statsProvider.updateStats(
+      statsProvider.stats.copyWith(streakDays: 0, maxStreak: 0),
     );
   }
 
   Future<void> _resetAllStats() async {
-    final statsService = context.read<IStatsRepository>();
+    final statsProvider = context.read<StatsProvider>();
     final achievementsService = context.read<IAchievementsService>();
 
-    await statsService.saveStats(_zeroStats());
+    await statsProvider.updateStats(_zeroStats());
     await achievementsService.saveUnlocked({});
   }
 

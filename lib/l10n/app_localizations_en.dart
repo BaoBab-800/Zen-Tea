@@ -108,8 +108,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get series => 'Series: ';
 
   @override
-  String get completedQuestSeries =>
-      'You\'ve already completed the quest. Your series: ';
+  String get completedQuestSeries => 'You\'ve already completed the quest.';
 
   @override
   String get readTheStory => 'Read the story';

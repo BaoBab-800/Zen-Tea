@@ -108,7 +108,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get series => 'Серія: ';
 
   @override
-  String get completedQuestSeries => 'Ви вже виконали завдання. Ваша серія: ';
+  String get completedQuestSeries => 'Ви вже виконали завдання.';
 
   @override
   String get readTheStory => 'Прочитати історію';

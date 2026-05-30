@@ -293,7 +293,7 @@ abstract class AppLocalizations {
   /// No description provided for @completedQuestSeries.
   ///
   /// In en, this message translates to:
-  /// **'You\'ve already completed the quest. Your series: '**
+  /// **'You\'ve already completed the quest.'**
   String get completedQuestSeries;
 
   /// No description provided for @readTheStory.

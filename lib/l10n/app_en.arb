@@ -42,7 +42,7 @@
   },
   "questCompleted": "Quest completed",
   "series": "Series: ",
-  "completedQuestSeries": "You've already completed the quest. Your series: ",
+  "completedQuestSeries": "You've already completed the quest.",
   "readTheStory": "Read the story",
   "goToWiki": "Go to Wikipedia",
 
