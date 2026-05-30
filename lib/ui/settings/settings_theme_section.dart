@@ -26,17 +26,23 @@ class SettingsThemeSection extends StatelessWidget {
           ),
         ),
 
-        for(final theme in ThemeMode.values)
-          RadioListTile<ThemeMode>(
-            title: Text(theme.label(context.l10n)),
-            value: theme,
-            groupValue: settings.themeMode,
-            onChanged: (value) {
-              if (value == null) return;
+        RadioGroup<ThemeMode>(
+          groupValue: settings.themeMode,
+          onChanged: (value) {
+            if (value == null) return;
 
-              settings.changeTheme(value);
-            },
+            settings.changeTheme(value);
+          },
+          child: Column(
+            children: [
+              for (final theme in ThemeMode.values)
+                RadioListTile<ThemeMode>(
+                  title: Text(theme.label(context.l10n)),
+                  value: theme,
+                ),
+            ],
           ),
+        ),
       ],
     );
   }

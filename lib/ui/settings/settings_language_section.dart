@@ -25,17 +25,23 @@ class SettingsLanguageSection extends StatelessWidget {
           ),
         ),
 
-        for(final language in L10n.supportedLocales)
-          RadioListTile(
-            title: Text(language.languageCode.toUpperCase()),
-            value: language,
-            groupValue: settings.locale,
-            onChanged: (value) {
-              if(value != null) {
-                settings.changeLocale(value.languageCode);
-              }
-            },
+        RadioGroup<Locale>(
+          groupValue: settings.locale,
+          onChanged: (value) {
+            if (value == null) return;
+            settings.changeLocale(value.languageCode);
+          },
+
+          child: Column(
+            children: [
+              for (final language in L10n.supportedLocales)
+                RadioListTile<Locale>(
+                  title: Text(language.languageCode.toUpperCase()),
+                  value: language,
+                ),
+            ],
           ),
+        )
       ],
     );
   }

@@ -165,7 +165,7 @@ class _CountriesPainter extends CustomPainter {
     final scaleY = size.height / svgH;
 
     final matrix = Matrix4.identity()
-      ..scale(scaleX, scaleY);
+      ..scaleByDouble(scaleX, scaleY, 1.0, 1.0);
 
     for (final country in countries) {
       final totalTeas = totalTeasByCountry[country.code] ?? 0;
