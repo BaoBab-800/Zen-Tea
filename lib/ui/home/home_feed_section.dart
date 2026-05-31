@@ -38,6 +38,7 @@ class HomeFeedSection extends StatelessWidget {
 
   Widget _currentSeries(BuildContext context) {
     final stats = context.watch<StatsProvider>().stats;
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
       padding: const EdgeInsets.all(16.0),

@@ -34,19 +34,4 @@ class HiveStatsRepository extends IStatsRepository {
   Future<void> saveStats(Stats stats) async {
     await _box.put(_key, stats);
   }
-
-  @override
-  Future<void> onQuestCompleted({required int streak}) async {
-    final stats = await getStats();
-
-    final updated = stats.copyWith(
-      totalQuestCompleted: stats.totalQuestCompleted + 1,
-      streakDays: streak,
-      maxStreak: streak > stats.maxStreak
-          ? streak
-          : stats.maxStreak,
-    );
-
-    await saveStats(updated);
-  }
 }

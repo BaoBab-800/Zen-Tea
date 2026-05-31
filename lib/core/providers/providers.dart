@@ -58,7 +58,7 @@ List<SingleChildWidget> buildProviders(IStatsRepository statsRepository, Stats i
 
   ChangeNotifierProvider<QuestProgressService>(
     create: (context) => QuestProgressService(
-      statsService: context.read<IStatsRepository>(),
+      statsProvider: context.read<StatsProvider>(),
       storage: context.read<IKeyValueStorage>(),
       achievementsService: context.read<IAchievementsService>(),
     ),

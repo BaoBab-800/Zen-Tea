@@ -3,12 +3,12 @@ import 'package:flutter/foundation.dart';
 import 'package:zentea/data/quest/quest_result.dart';
 
 import '../storage/i_key_value_storage.dart';
-import '../stats/i_stats_repository.dart';
+import '../stats/stats_provider.dart';
 import '../achievements/i_achievements_service.dart';
 import 'i_quest_progress_service.dart';
 
 class QuestProgressService extends ChangeNotifier implements IQuestProgressService {
-  final IStatsRepository statsService;
+  final StatsProvider statsProvider;
   final IKeyValueStorage storage;
   final IAchievementsService achievementsService;
 
@@ -20,7 +20,7 @@ class QuestProgressService extends ChangeNotifier implements IQuestProgressServi
   DateTime? get lastCompletedAt => _lastCompletedAt;
 
   QuestProgressService({
-    required this.statsService,
+    required this.statsProvider,
     required this.storage,
     required this.achievementsService,
   });
@@ -42,7 +42,7 @@ class QuestProgressService extends ChangeNotifier implements IQuestProgressServi
       );
     }
 
-    final stats = await statsService.getStats();
+    final stats = statsProvider.stats;
     final unlocked = await achievementsService.loadUnlocked();
 
     final newStreak = _isConsecutiveDay(_lastCompletedAt, now)
@@ -57,7 +57,7 @@ class QuestProgressService extends ChangeNotifier implements IQuestProgressServi
           : stats.maxStreak,
     );
 
-    await statsService.saveStats(updatedStats);
+    await statsProvider.updateStats(updatedStats);
 
     _lastCompletedAt = now;
     await storage.put(
