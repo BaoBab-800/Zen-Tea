@@ -8,6 +8,7 @@ import 'package:zentea/core/l10n/l10n.dart';
 import 'package:zentea/data/achievements/list_of_achievements.dart';
 import 'package:zentea/data/stats/stats.dart';
 import 'package:zentea/data/teas/list_of_teas.dart';
+import 'package:zentea/data/teas/tea_types.dart';
 
 import 'package:zentea/services/achievements/i_achievements_service.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
@@ -154,8 +155,17 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
       await teaService.setUnlocked(tea, true);
     }
 
+    final rareTeasCount = listOfTeas
+        .where((tea) => tea.features != TeaFeatures.common)
+        .length;
     final current = statsProvider.stats;
     await _updateStats(current.copyWith(uniqueTeas: listOfTeas.length));
+    await _updateStats(
+      current.copyWith(
+        uniqueTeas: listOfTeas.length,
+        rareTeasObtained: rareTeasCount,
+      ),
+    );
   }
 
   Future<void> _blockAll() async {

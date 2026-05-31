@@ -4,6 +4,7 @@ import 'package:zentea/data/achievements/list_of_achievements.dart';
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_result.dart';
 
+import 'package:zentea/services/achievements/i_achievements_service.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
 import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
 import 'package:zentea/services/today_tea/i_today_tea_service.dart';
@@ -21,7 +22,9 @@ class GetTeaFlowController {
           (item) => item.type == tea.type,
     );
 
-    final isNew = existingIndex == -1 ? true : !teaCollectionService.teas[existingIndex].isUnlocked;
+    final isNew = existingIndex == -1
+        ? true
+        : !teaCollectionService.teas[existingIndex].isUnlocked;
     final shouldCountServing =
     await todayTeaService.shouldCountServingForToday();
 
@@ -44,16 +47,30 @@ class GetTeaFlowController {
 
   Future<Set<IdKeys>> processTeaReceived({
     required StatsProvider statsProvider,
+    required IAchievementsService achievementsService,
     required TeaModel tea,
     required bool isNew,
     required bool shouldCountServing,
   }) async {
-    final previousUnlocked = Set<IdKeys>.from(statsProvider.unlockedIds);
+    final previousUnlocked = await achievementsService.loadUnlocked();
+
     if (shouldCountServing) {
       await statsProvider.onTeaOpened(tea, isNew: isNew);
     }
-    await statsProvider.onTeaReceived(tea, isNew: isNew);
-    return statsProvider.unlockedIds.difference(previousUnlocked);
+
+    final newUnlocked = achievementsService.checkAchievements(
+      stats: statsProvider.stats,
+      currentUnlocked: previousUnlocked,
+    );
+
+    if (newUnlocked.isNotEmpty) {
+      await achievementsService.saveUnlocked({
+        ...previousUnlocked,
+        ...newUnlocked,
+      });
+    }
+
+    return newUnlocked;
   }
 
   Achievement getAchievementById(IdKeys id) {

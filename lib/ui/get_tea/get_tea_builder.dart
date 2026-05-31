@@ -9,8 +9,9 @@ import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 import 'package:zentea/data/teas/tea_result.dart';
 import 'package:zentea/data/quest/quest_result.dart';
-import 'package:zentea/services/stats/stats_provider.dart';
 
+import 'package:zentea/services/achievements/i_achievements_service.dart';
+import 'package:zentea/services/stats/stats_provider.dart';
 import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
 import 'package:zentea/services/today_tea/i_today_tea_service.dart';
 import 'package:zentea/services/url/url_service.dart';
@@ -46,7 +47,13 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
     _future = _controller.getTodayTea(
       todayTeaService: todayTeaService,
       teaCollectionService: teaCollectionService,
-    );
+    )
+        .then((result) async {
+      if (!mounted) return result;
+
+      await _processTeaReceived(result);
+      return result;
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _showWelcomeDialogIfNeeded();
@@ -88,8 +95,10 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
     _isTeaReceivedProcessed = true;
 
     final statsProvider = context.read<StatsProvider>();
+    final achievementsService = context.read<IAchievementsService>();
     final newUnlocked = await _controller.processTeaReceived(
       statsProvider: statsProvider,
+      achievementsService: achievementsService,
       tea: result.tea,
       isNew: result.isNew,
       shouldCountServing: result.shouldCountServing,
@@ -151,7 +160,6 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
           }
 
           final result = snapshot.data!;
-          _processTeaReceived(result);
           return _TeaContent(
             result: result,
             urlService: widget.urlService,
