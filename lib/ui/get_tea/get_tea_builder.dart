@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -70,7 +72,7 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
       builder: (_) => _buildWelcomeDialog(context),
     );
 
-    teaCollectionService.setDialogSeen();
+    unawaited(teaCollectionService.setDialogSeen());
   }
 
   Widget _buildWelcomeDialog(BuildContext context) {

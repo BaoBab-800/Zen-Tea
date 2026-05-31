@@ -87,8 +87,8 @@ class TeaCollectionService extends ITeaCollectionService {
 
   @override
   Future<void> setDialogSeen() async {
-    _hasSeenDialog = true;
     await _storage.put(_hasSeenDialogKey, true);
+    _hasSeenDialog = true;
     notifyListeners();
   }
 
