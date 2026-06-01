@@ -3,10 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:zentea/core/extensions/id_keys_x.dart';
 import 'package:zentea/core/l10n/l10n.dart';
 import 'package:zentea/core/l10n/achievement_localization.dart';
 import 'package:zentea/core/theme/app_theme.dart';
 
+import 'package:zentea/data/achievements/achievement_keys.dart';
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 import 'package:zentea/data/teas/tea_result.dart';
@@ -15,6 +17,7 @@ import 'package:zentea/data/quest/quest_result.dart';
 import 'package:zentea/services/achievements/i_achievements_service.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
 import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
+import 'package:zentea/services/storage/i_key_value_storage.dart';
 import 'package:zentea/services/today_tea/i_today_tea_service.dart';
 import 'package:zentea/services/url/url_service.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
@@ -35,6 +38,9 @@ class GetTeaBuilder extends StatefulWidget {
 }
 
 class _GetTeaBuilderState extends State<GetTeaBuilder> {
+  static const _shownAchievementNotificationsKey =
+      'shown_achievement_notifications';
+
   late final Future<TeaResult> _future;
   final GetTeaFlowController _controller = const GetTeaFlowController();
   bool _isTeaReceivedProcessed = false;
@@ -58,14 +64,20 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _showWelcomeDialogIfNeeded();
+      unawaited(_showWelcomeDialogIfNeeded());
     });
   }
 
-  void _showWelcomeDialogIfNeeded() {
+  Future<void> _showWelcomeDialogIfNeeded() async {
     final teaCollectionService = context.read<ITeaCollectionService>();
 
-    if (teaCollectionService.hasSeenDialog()) return;
+    await teaCollectionService.ensureLoaded();
+
+    if (!mounted || teaCollectionService.hasSeenDialog()) return;
+
+    await teaCollectionService.setDialogSeen();
+
+    if (!mounted) return;
 
     showDialog(
       context: context,
@@ -98,6 +110,10 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
 
     final statsProvider = context.read<StatsProvider>();
     final achievementsService = context.read<IAchievementsService>();
+    final storage = context.read<IKeyValueStorage>();
+    final previouslyUnlocked = await achievementsService.loadUnlocked();
+    final shownNotifications =
+    await _loadShownAchievementNotifications(storage);
     final newUnlocked = await _controller.processTeaReceived(
       statsProvider: statsProvider,
       achievementsService: achievementsService,
@@ -106,10 +122,30 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
       shouldCountServing: result.shouldCountServing,
     );
 
-    if (!mounted || newUnlocked.isEmpty) return;
+    if (newUnlocked.isEmpty) return;
+
+    IdKeys? achievementToShow;
+    for (final id in newUnlocked) {
+      if (!previouslyUnlocked.contains(id) &&
+          !shownNotifications.contains(id)) {
+        achievementToShow = id;
+        break;
+      }
+    }
+
+    await _saveShownAchievementNotifications(
+      storage,
+      {
+        ...shownNotifications,
+        ...previouslyUnlocked,
+        ...newUnlocked,
+      },
+    );
+
+    if (!mounted || achievementToShow == null) return;
 
     final localization = AchievementLocalization();
-    final achievement = _controller.getAchievementById(newUnlocked.first);
+    final achievement = _controller.getAchievementById(achievementToShow);
 
     ScaffoldMessenger.of(context).showMaterialBanner(
       MaterialBanner(
@@ -128,6 +164,30 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
           ),
         ],
       ),
+    );
+  }
+
+  Future<Set<IdKeys>> _loadShownAchievementNotifications(
+      IKeyValueStorage storage,
+      ) async {
+    final stored = await storage.get(_shownAchievementNotificationsKey);
+
+    if (stored is! Iterable) return <IdKeys>{};
+
+    return stored
+        .whereType<String>()
+        .map(IdKeysX.fromKey)
+        .whereType<IdKeys>()
+        .toSet();
+  }
+
+  Future<void> _saveShownAchievementNotifications(
+      IKeyValueStorage storage,
+      Set<IdKeys> ids,
+      ) async {
+    await storage.put<List<String>>(
+      _shownAchievementNotificationsKey,
+      ids.map((id) => id.key).toList(),
     );
   }
 

@@ -15,6 +15,7 @@ abstract class ITeaCollectionService extends ChangeNotifier {
   Future<void> setUnlocked(TeaModel tea, bool value);
   Future<void> setServedCount(TeaModel tea, int value);
 
+  Future<void> ensureLoaded();
   bool hasSeenDialog();
   Future<void> setDialogSeen();
 

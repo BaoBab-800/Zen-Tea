@@ -12,11 +12,12 @@ class TeaCollectionService extends ITeaCollectionService {
 
   final IKeyValueStorage _storage;
   late final List<TeaModel> _teas;
+  late final Future<void> _loadFuture;
   bool _hasSeenDialog = false;
 
   TeaCollectionService(this._storage) {
     _teas = _buildDefaultCollection();
-    _loadFromStorage();
+    _loadFuture = _loadFromStorage();
   }
 
   @override
@@ -62,6 +63,9 @@ class TeaCollectionService extends ITeaCollectionService {
   }
 
   @override
+  Future<void> ensureLoaded() => _loadFuture;
+
+  @override
   bool hasSeenDialog() => _hasSeenDialog;
 
   @override
@@ -87,9 +91,11 @@ class TeaCollectionService extends ITeaCollectionService {
 
   @override
   Future<void> setDialogSeen() async {
-    await _storage.put(_hasSeenDialogKey, true);
+    if (_hasSeenDialog) return;
+
     _hasSeenDialog = true;
     notifyListeners();
+    await _storage.put(_hasSeenDialogKey, true);
   }
 
   List<TeaModel> _buildDefaultCollection() => List<TeaModel>.from(listOfTeas);

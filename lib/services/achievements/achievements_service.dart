@@ -1,5 +1,3 @@
-import 'package:zentea/core/extensions/id_keys_x.dart';
-
 import 'package:zentea/data/achievements/achievement_keys.dart';
 import 'package:zentea/data/achievements/list_of_achievements.dart';
 import 'package:zentea/data/stats/stats.dart';
@@ -16,12 +14,12 @@ class AchievementsService implements IAchievementsService {
 
   @override
   Future<Set<IdKeys>> loadUnlocked() async {
-    final stored = await storage.get<List<String>>(_key);
+    final stored = await storage.get(_key);
 
-    if (stored == null || stored.isEmpty) return <IdKeys>{};
+    if (stored is! Iterable) return <IdKeys>{};
 
     return stored
-        .map(IdKeysX.fromKey)
+        .whereType<String>()
         .whereType<IdKeys>()
         .toSet();
   }
