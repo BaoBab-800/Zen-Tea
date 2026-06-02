@@ -1,10 +1,12 @@
 import 'package:zentea/data/achievements/abstract_achievement.dart';
 import 'package:zentea/data/achievements/achievement_keys.dart';
+import 'package:zentea/data/achievements/achievement_unlock_result.dart';
 import 'package:zentea/data/achievements/list_of_achievements.dart';
+import 'package:zentea/data/quest/quest_result.dart';
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_result.dart';
-
 import 'package:zentea/services/achievements/i_achievements_service.dart';
+import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
 import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
 import 'package:zentea/services/today_tea/i_today_tea_service.dart';
@@ -19,14 +21,14 @@ class GetTeaFlowController {
     final tea = await todayTeaService.getTeaOfToday(teaCollectionService.teas);
 
     final existingIndex = teaCollectionService.teas.indexWhere(
-          (item) => item.type == tea.type,
+      (item) => item.type == tea.type,
     );
 
     final isNew = existingIndex == -1
         ? true
         : !teaCollectionService.teas[existingIndex].isUnlocked;
     final shouldCountServing =
-    await todayTeaService.shouldCountServingForToday();
+        await todayTeaService.shouldCountServingForToday();
 
     await teaCollectionService.unlockTea(tea);
 
@@ -35,7 +37,7 @@ class GetTeaFlowController {
     }
 
     final updated = teaCollectionService.teas.firstWhere(
-          (item) => item.type == tea.type,
+      (item) => item.type == tea.type,
     );
 
     return TeaResult(
@@ -45,7 +47,7 @@ class GetTeaFlowController {
     );
   }
 
-  Future<Set<IdKeys>> processTeaReceived({
+  Future<AchievementUnlockResult> processTeaReceived({
     required StatsProvider statsProvider,
     required IAchievementsService achievementsService,
     required TeaModel tea,
@@ -70,7 +72,23 @@ class GetTeaFlowController {
       });
     }
 
-    return newUnlocked;
+    return AchievementUnlockResult(
+      previouslyUnlocked: previousUnlocked,
+      newlyUnlocked: newUnlocked,
+    );
+  }
+
+  Future<QuestResult> completeQuest({
+    required QuestProgressService questProgressService,
+    required StatsProvider statsProvider,
+  }) async {
+    final questResult = await questProgressService.completeQuest();
+
+    if (questResult.status == QuestCompletionStatus.completed) {
+      await statsProvider.load();
+    }
+
+    return questResult;
   }
 
   Achievement getAchievementById(IdKeys id) {

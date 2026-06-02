@@ -7,6 +7,8 @@ import 'package:zentea/data/stats/stats.dart';
 
 import 'package:zentea/services/achievements/i_achievements_service.dart';
 import 'package:zentea/services/achievements/achievements_service.dart';
+import 'package:zentea/services/achievements/i_achievement_notification_service.dart';
+import 'package:zentea/services/achievements/achievement_notification_service.dart';
 
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 
@@ -23,6 +25,9 @@ import 'package:zentea/services/tea_collection/tea_collection_service.dart';
 
 import 'package:zentea/services/today_tea/i_today_tea_service.dart';
 import 'package:zentea/services/today_tea/today_tea_service_impl.dart';
+
+import 'package:zentea/services/welcome_dialog/i_welcome_dialog_service.dart';
+import 'package:zentea/services/welcome_dialog/welcome_dialog_service.dart';
 
 List<SingleChildWidget> buildProviders(IStatsRepository statsRepository, Stats initialStats) => [
   Provider<IKeyValueStorage>(
@@ -42,6 +47,16 @@ List<SingleChildWidget> buildProviders(IStatsRepository statsRepository, Stats i
 
   Provider<IAchievementsService>(
     create: (context) => AchievementsService(context.read<IKeyValueStorage>()),
+  ),
+
+  Provider<IAchievementNotificationService>(
+    create: (context) => AchievementNotificationService(
+      context.read<IKeyValueStorage>(),
+    ),
+  ),
+
+  Provider<IWelcomeDialogService>(
+    create: (context) => WelcomeDialogService(context.read<IKeyValueStorage>()),
   ),
 
   Provider<ITodayTeaService>(

@@ -3,27 +3,20 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:zentea/core/extensions/id_keys_x.dart';
-import 'package:zentea/core/l10n/l10n.dart';
-import 'package:zentea/core/l10n/achievement_localization.dart';
-import 'package:zentea/core/theme/app_theme.dart';
-
-import 'package:zentea/data/achievements/achievement_keys.dart';
-import 'package:zentea/data/teas/tea_model.dart';
-import 'package:zentea/data/teas/tea_types.dart';
 import 'package:zentea/data/teas/tea_result.dart';
-import 'package:zentea/data/quest/quest_result.dart';
-
+import 'package:zentea/services/achievements/i_achievement_notification_service.dart';
 import 'package:zentea/services/achievements/i_achievements_service.dart';
+import 'package:zentea/services/get_tea/get_tea_flow_controller.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
 import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
-import 'package:zentea/services/storage/i_key_value_storage.dart';
 import 'package:zentea/services/today_tea/i_today_tea_service.dart';
 import 'package:zentea/services/url/url_service.dart';
-import 'package:zentea/services/quest_progress/quest_progress_service.dart';
+import 'package:zentea/services/welcome_dialog/i_welcome_dialog_service.dart';
+import 'package:zentea/ui/get_tea/widgets/achievement_notifications.dart';
+import 'package:zentea/ui/get_tea/widgets/tea_content.dart';
+import 'package:zentea/ui/get_tea/widgets/welcome_dialog.dart';
 
-import 'package:zentea/ui/get_tea/get_tea_flow_controller.dart';
-import 'package:zentea/ui/history_of_teas/history_builder.dart';
+import 'package:zentea/core/l10n/l10n.dart';
 
 class GetTeaBuilder extends StatefulWidget {
   final UrlService urlService;
@@ -38,9 +31,6 @@ class GetTeaBuilder extends StatefulWidget {
 }
 
 class _GetTeaBuilderState extends State<GetTeaBuilder> {
-  static const _shownAchievementNotificationsKey =
-      'shown_achievement_notifications';
-
   late final Future<TeaResult> _future;
   final GetTeaFlowController _controller = const GetTeaFlowController();
   bool _isTeaReceivedProcessed = false;
@@ -49,13 +39,11 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
   void initState() {
     super.initState();
 
-    final todayTeaService = context.read<ITodayTeaService>();
-    final teaCollectionService = context.read<ITeaCollectionService>();
-
-    _future = _controller.getTodayTea(
-      todayTeaService: todayTeaService,
-      teaCollectionService: teaCollectionService,
-    )
+    _future = _controller
+        .getTodayTea(
+          todayTeaService: context.read<ITodayTeaService>(),
+          teaCollectionService: context.read<ITeaCollectionService>(),
+        )
         .then((result) async {
       if (!mounted) return result;
 
@@ -69,125 +57,39 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
   }
 
   Future<void> _showWelcomeDialogIfNeeded() async {
-    final teaCollectionService = context.read<ITeaCollectionService>();
+    final shouldShow = await context
+        .read<IWelcomeDialogService>()
+        .consumeWelcomeDialogIfNeeded();
 
-    await teaCollectionService.ensureLoaded();
+    if (!mounted || !shouldShow) return;
 
-    if (!mounted || teaCollectionService.hasSeenDialog()) return;
-
-    await teaCollectionService.setDialogSeen();
-
-    if (!mounted) return;
-
-    showDialog(
-      context: context,
-      builder: (_) => _buildWelcomeDialog(context),
-    );
-
-    unawaited(teaCollectionService.setDialogSeen());
-  }
-
-  Widget _buildWelcomeDialog(BuildContext context) {
-    return AlertDialog(
-      title: Text(context.l10n.aboutQuiz),
-
-      content: Text(context.l10n.getTeaWarning),
-
-      actions: [
-        TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text(context.l10n.ok),
-        ),
-      ],
-    );
+    unawaited(WelcomeDialog.show(context));
   }
 
   Future<void> _processTeaReceived(TeaResult result) async {
     if (_isTeaReceivedProcessed) return;
     _isTeaReceivedProcessed = true;
 
-    final statsProvider = context.read<StatsProvider>();
-    final achievementsService = context.read<IAchievementsService>();
-    final storage = context.read<IKeyValueStorage>();
-    final previouslyUnlocked = await achievementsService.loadUnlocked();
-    final shownNotifications =
-    await _loadShownAchievementNotifications(storage);
-    final newUnlocked = await _controller.processTeaReceived(
-      statsProvider: statsProvider,
-      achievementsService: achievementsService,
+    final unlockResult = await _controller.processTeaReceived(
+      statsProvider: context.read<StatsProvider>(),
+      achievementsService: context.read<IAchievementsService>(),
       tea: result.tea,
       isNew: result.isNew,
       shouldCountServing: result.shouldCountServing,
     );
 
-    if (newUnlocked.isEmpty) return;
-
-    IdKeys? achievementToShow;
-    for (final id in newUnlocked) {
-      if (!previouslyUnlocked.contains(id) &&
-          !shownNotifications.contains(id)) {
-        achievementToShow = id;
-        break;
-      }
-    }
-
-    await _saveShownAchievementNotifications(
-      storage,
-      {
-        ...shownNotifications,
-        ...previouslyUnlocked,
-        ...newUnlocked,
-      },
-    );
+    final achievementToShow = await context
+        .read<IAchievementNotificationService>()
+        .takeFirstUnshown(
+          previouslyUnlocked: unlockResult.previouslyUnlocked,
+          newlyUnlocked: unlockResult.newlyUnlocked,
+        );
 
     if (!mounted || achievementToShow == null) return;
 
-    final localization = AchievementLocalization();
-    final achievement = _controller.getAchievementById(achievementToShow);
-
-    ScaffoldMessenger.of(context).showMaterialBanner(
-      MaterialBanner(
-        content: Text(
-          '${context.l10n.newAchievement}: '
-              '${localization.achievementTitle(context, achievement.titleKey)}',
-        ),
-        leading: const Icon(Icons.emoji_events),
-        backgroundColor: context.colors.primary.withValues(alpha: 0.12),
-        actions: [
-          TextButton(
-            onPressed: () {
-              ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
-            },
-            child: Text(context.l10n.ok),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Future<Set<IdKeys>> _loadShownAchievementNotifications(
-      IKeyValueStorage storage,
-      ) async {
-    final stored = await storage.get(_shownAchievementNotificationsKey);
-
-    if (stored is! Iterable) return <IdKeys>{};
-
-    return stored
-        .whereType<String>()
-        .map(IdKeysX.fromKey)
-        .whereType<IdKeys>()
-        .toSet();
-  }
-
-  Future<void> _saveShownAchievementNotifications(
-      IKeyValueStorage storage,
-      Set<IdKeys> ids,
-      ) async {
-    await storage.put<List<String>>(
-      _shownAchievementNotificationsKey,
-      ids.map((id) => id.key).toList(),
+    AchievementNotifications.showUnlocked(
+      context: context,
+      achievement: _controller.getAchievementById(achievementToShow),
     );
   }
 
@@ -199,21 +101,15 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
           context.l10n.todayTea,
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
-
         actions: [
           IconButton(
             onPressed: () {
-              showDialog(
-                context: context,
-                builder: _buildWelcomeDialog,
-              );
+              unawaited(WelcomeDialog.show(context));
             },
-
             icon: const Icon(Icons.info_outline),
           ),
         ],
       ),
-
       body: FutureBuilder<TeaResult>(
         future: _future,
         builder: (context, snapshot) {
@@ -221,169 +117,12 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
             return const Center(child: CircularProgressIndicator());
           }
 
-          final result = snapshot.data!;
-          return _TeaContent(
-            result: result,
+          return TeaContent(
+            result: snapshot.data!,
             urlService: widget.urlService,
+            controller: _controller,
           );
         },
-      ),
-    );
-  }
-}
-
-class _TeaContent extends StatelessWidget {
-  final TeaResult result;
-  final UrlService urlService;
-
-  const _TeaContent({
-    required this.result,
-    required this.urlService,
-  });
-
-  void _showSeriesSnackBar(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Row(
-          children: [
-            const Icon(Icons.local_fire_department, color: Colors.white),
-            const SizedBox(width: 8),
-            Expanded(
-              child: Text(
-                context.l10n.completedQuestSeries,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-              ),
-            ),
-          ],
-        ),
-
-        backgroundColor: context.colors.primary.withValues(alpha: 0.8),
-        behavior: SnackBarBehavior.floating,
-        margin: const EdgeInsets.all(16),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        duration: const Duration(seconds: 2),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final tea = result.tea;
-
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _TeaCard(tea: tea),
-
-            const SizedBox(height: 24),
-
-            Text(
-              result.isNew
-                  ? context.l10n.newTea
-                  : context.l10n.teaServedTimes(result.tea.timesServed),
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: context.colors.primary,
-              ),
-            ),
-
-            const SizedBox(height: 24),
-
-            // ACTION BLOCK
-            ElevatedButton(
-              onPressed: () async {
-                final service = context.read<QuestProgressService>();
-                final statsProvider = context.read<StatsProvider>();
-                final questResult = await service.completeQuest();
-
-                if (questResult.status == QuestCompletionStatus.completed) {
-                  await statsProvider.load();
-                }
-
-                if (!context.mounted) return;
-
-                if (questResult.status == QuestCompletionStatus.alreadyDoneToday) {
-                  _showSeriesSnackBar(context);
-                }
-              },
-              child: Text(context.l10n.questCompleted),
-            ),
-
-            const SizedBox(height: 16),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => HistoryBuilder(currentTea: tea),
-                  ),
-                );
-              },
-              child: Text(context.l10n.readTheStory),
-            ),
-
-            const SizedBox(height: 10),
-            TextButton(
-              onPressed: () {
-                urlService.open(tea.url);
-              },
-              child: Text(context.l10n.goToWiki),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _TeaCard extends StatelessWidget {
-  final TeaModel tea;
-
-  const _TeaCard({required this.tea});
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      elevation: 6,
-      borderRadius: BorderRadius.circular(16),
-      child: Container(
-        width: 220,
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: context.colors.surface,
-        ),
-
-        child: Column(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: SizedBox(
-                width: double.infinity,
-                height: 160,
-                child: Image.asset(
-                  tea.imagePath,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 12),
-
-            Text(
-              tea.type.title(context),
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
