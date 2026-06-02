@@ -1,3 +1,4 @@
+import 'package:zentea/core/extensions/id_keys_x.dart';
 import 'package:zentea/data/achievements/achievement_keys.dart';
 import 'package:zentea/data/achievements/list_of_achievements.dart';
 import 'package:zentea/data/stats/stats.dart';
@@ -20,6 +21,7 @@ class AchievementsService implements IAchievementsService {
 
     return stored
         .whereType<String>()
+        .map(IdKeysX.fromKey)
         .whereType<IdKeys>()
         .toSet();
   }

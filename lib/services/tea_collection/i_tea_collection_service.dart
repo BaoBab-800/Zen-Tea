@@ -16,8 +16,6 @@ abstract class ITeaCollectionService extends ChangeNotifier {
   Future<void> setServedCount(TeaModel tea, int value);
 
   Future<void> ensureLoaded();
-  bool hasSeenDialog();
-  Future<void> setDialogSeen();
 
   int countryCounter(TeaCountries country);
   String dumpState();

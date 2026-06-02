@@ -8,12 +8,9 @@ import '../storage/i_key_value_storage.dart';
 
 class TeaCollectionService extends ITeaCollectionService {
   static const _teasKey = 'teas_data';
-  static const _hasSeenDialogKey = 'has_seen_dialog';
-
   final IKeyValueStorage _storage;
   late final List<TeaModel> _teas;
   late final Future<void> _loadFuture;
-  bool _hasSeenDialog = false;
 
   TeaCollectionService(this._storage) {
     _teas = _buildDefaultCollection();
@@ -66,9 +63,6 @@ class TeaCollectionService extends ITeaCollectionService {
   Future<void> ensureLoaded() => _loadFuture;
 
   @override
-  bool hasSeenDialog() => _hasSeenDialog;
-
-  @override
   String dumpState() {
     final buffer = StringBuffer();
 
@@ -83,27 +77,15 @@ class TeaCollectionService extends ITeaCollectionService {
     }
 
     buffer.writeln('\n--- STORAGE ---');
-    buffer.writeln('hasSeenDialog=$_hasSeenDialog');
     buffer.writeln('\n=== END ===');
 
     return buffer.toString();
-  }
-
-  @override
-  Future<void> setDialogSeen() async {
-    if (_hasSeenDialog) return;
-
-    _hasSeenDialog = true;
-    notifyListeners();
-    await _storage.put(_hasSeenDialogKey, true);
   }
 
   List<TeaModel> _buildDefaultCollection() => List<TeaModel>.from(listOfTeas);
 
   Future<void> _loadFromStorage() async {
     final storedData = await _storage.get<Map>(_teasKey);
-    _hasSeenDialog = await _storage.get<bool>(_hasSeenDialogKey) ?? false;
-
     if (storedData == null) {
       notifyListeners();
       return;
