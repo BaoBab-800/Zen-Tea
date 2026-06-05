@@ -416,6 +416,12 @@ abstract class AppLocalizations {
   /// **'Chamomile tea'**
   String get chamomileTea;
 
+  /// No description provided for @aniseTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Anise Tea'**
+  String get aniseTea;
+
   /// No description provided for @oolongTea.
   ///
   /// In en, this message translates to:
@@ -443,7 +449,7 @@ abstract class AppLocalizations {
   /// No description provided for @blackTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Black Tea - «The Tea That Accidentally Became a Legend»'**
+  /// **'Black Tea - \"The Tea That Accidentally Became a Legend\"'**
   String get blackTeaStoryTitle;
 
   /// No description provided for @blackTeaStory.
@@ -547,6 +553,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Mint tea doesn\'t try to invigorate like coffee, nor does it attempt to impress with a complex flavor.\n\nIt does something different – ​​it seems to purify the space around you.\n\nMint was brewed in ancient cultures: in Egypt, Greece, and the Middle East. It was prized not only for its flavor but also for the feeling of freshness it provided, even in the heat.\n\nOver time, mint tea became a drink for a break – something you drink not on the run, but to take a breather.'**
   String get mintTeaStory;
+
+  /// No description provided for @aniseTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Anise Tea: \"The Drink of Pharaohs and Travelers\"'**
+  String get aniseTeaStoryTitle;
+
+  /// No description provided for @aniseTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Long before modern Egypt existed, anise seeds were already valued along the Nile. Archaeologists discovered anise among the treasures of ancient tombs, suggesting that it was known and appreciated thousands of years ago.\n\nAccording to local stories, travelers crossing the desert often carried anise because it was easy to store and could be brewed wherever water was available. A warm cup of anise tea became a comforting companion during cold desert nights.\n\nOver the centuries, the drink remained popular in Egyptian homes. Families served it to guests, shared it during conversations, and passed the tradition from generation to generation.\n\nToday, anise tea is still enjoyed throughout Egypt, connecting modern tea drinkers with a tradition that stretches back to the age of the pharaohs.'**
+  String get aniseTeaStory;
 
   /// No description provided for @oolongTeaStoryTitle.
   ///

@@ -2,6 +2,7 @@ import 'tea_model.dart';
 import 'tea_types.dart';
 
 final List<TeaModel> listOfTeas = [
+  // Common
   TeaModel(
     type: TeaType.blackTea,
     imagePath: 'assets/teas/black_tea.jpg',
@@ -102,6 +103,17 @@ final List<TeaModel> listOfTeas = [
     isUnlocked: false,
   ),
 
+  TeaModel(
+    type: TeaType.aniseTea,
+    imagePath: 'assets/teas/anise_tea.jpg',
+    features: TeaFeatures.common,
+    country: TeaCountries.egypt,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Anise'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  // Rare
   TeaModel(
     type: TeaType.oolongTea,
     imagePath: 'assets/teas/oolong_tea.jpg',

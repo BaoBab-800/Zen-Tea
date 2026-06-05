@@ -171,6 +171,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get chamomileTea => 'Chamomile tea';
 
   @override
+  String get aniseTea => 'Anise Tea';
+
+  @override
   String get oolongTea => 'Oolong tea';
 
   @override
@@ -184,7 +187,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get blackTeaStoryTitle =>
-      'Black Tea - «The Tea That Accidentally Became a Legend»';
+      'Black Tea - \"The Tea That Accidentally Became a Legend\"';
 
   @override
   String get blackTeaStory =>
@@ -251,6 +254,14 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get mintTeaStory =>
       'Mint tea doesn\'t try to invigorate like coffee, nor does it attempt to impress with a complex flavor.\n\nIt does something different – ​​it seems to purify the space around you.\n\nMint was brewed in ancient cultures: in Egypt, Greece, and the Middle East. It was prized not only for its flavor but also for the feeling of freshness it provided, even in the heat.\n\nOver time, mint tea became a drink for a break – something you drink not on the run, but to take a breather.';
+
+  @override
+  String get aniseTeaStoryTitle =>
+      'Anise Tea: \"The Drink of Pharaohs and Travelers\"';
+
+  @override
+  String get aniseTeaStory =>
+      'Long before modern Egypt existed, anise seeds were already valued along the Nile. Archaeologists discovered anise among the treasures of ancient tombs, suggesting that it was known and appreciated thousands of years ago.\n\nAccording to local stories, travelers crossing the desert often carried anise because it was easy to store and could be brewed wherever water was available. A warm cup of anise tea became a comforting companion during cold desert nights.\n\nOver the centuries, the drink remained popular in Egyptian homes. Families served it to guests, shared it during conversations, and passed the tradition from generation to generation.\n\nToday, anise tea is still enjoyed throughout Egypt, connecting modern tea drinkers with a tradition that stretches back to the age of the pharaohs.';
 
   @override
   String get oolongTeaStoryTitle =>

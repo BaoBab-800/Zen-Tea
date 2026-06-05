@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:zentea/l10n/app_localizations.dart';
 
 enum TeaType {
+  // Common
   blackTea,
   greenTea,
   earlGreyTea,
@@ -12,6 +13,9 @@ enum TeaType {
   whiteTea,
   mintTea,
   chamomileTea,
+  aniseTea,
+
+  // Rare
   oolongTea,
   rooibosTea,
   puerhTea,
@@ -50,6 +54,7 @@ extension TeaTypeX on TeaType {
     final l10n = AppLocalizations.of(context)!;
 
     switch (this) {
+      // Common
       case TeaType.blackTea:
         return l10n.blackTea;
       case TeaType.greenTea:
@@ -70,6 +75,10 @@ extension TeaTypeX on TeaType {
         return l10n.mintTea;
       case TeaType.chamomileTea:
         return l10n.chamomileTea;
+      case TeaType.aniseTea:
+        return l10n.aniseTea;
+
+      // Rare
       case TeaType.oolongTea:
         return l10n.oolongTea;
       case TeaType.rooibosTea:
@@ -87,6 +96,7 @@ extension TeaStoryX on TeaType {
     final l10n = AppLocalizations.of(context)!;
 
     switch (this) {
+      // Common
       case TeaType.blackTea:
         return l10n.blackTeaStory;
       case TeaType.greenTea:
@@ -107,6 +117,10 @@ extension TeaStoryX on TeaType {
         return l10n.mintTeaStory;
       case TeaType.chamomileTea:
         return l10n.chamomileTeaStory;
+      case TeaType.aniseTea:
+        return l10n.aniseTeaStory;
+
+      // Rare
       case TeaType.oolongTea:
         return l10n.oolongTeaStory;
       case TeaType.rooibosTea:
@@ -124,6 +138,7 @@ extension TeaTitleStoryX on TeaType {
     final l10n = AppLocalizations.of(context)!;
 
     switch(this) {
+      // Common
       case TeaType.blackTea:
         return l10n.blackTeaStoryTitle;
       case TeaType.greenTea:
@@ -144,6 +159,10 @@ extension TeaTitleStoryX on TeaType {
         return l10n.mintTeaStoryTitle;
       case TeaType.chamomileTea:
         return l10n.chamomileTeaStoryTitle;
+      case TeaType.aniseTea:
+        return l10n.aniseTeaStoryTitle;
+
+      // Rare
       case TeaType.oolongTea:
         return l10n.oolongTeaStoryTitle;
       case TeaType.rooibosTea:
