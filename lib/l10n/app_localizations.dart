@@ -422,6 +422,48 @@ abstract class AppLocalizations {
   /// **'Anise Tea'**
   String get aniseTea;
 
+  /// No description provided for @assamTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Assam tea'**
+  String get assamTea;
+
+  /// No description provided for @nilgiriTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Nilgiri tea'**
+  String get nilgiriTea;
+
+  /// No description provided for @genmaichaTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Genmaicha tea'**
+  String get genmaichaTea;
+
+  /// No description provided for @hojichaTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Hojicha tea'**
+  String get hojichaTea;
+
+  /// No description provided for @englishBreakfastTea.
+  ///
+  /// In en, this message translates to:
+  /// **'English Breakfast tea'**
+  String get englishBreakfastTea;
+
+  /// No description provided for @irishBreakfastTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Irish Breakfast tea'**
+  String get irishBreakfastTea;
+
+  /// No description provided for @helbaTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Helba tea'**
+  String get helbaTea;
+
   /// No description provided for @oolongTea.
   ///
   /// In en, this message translates to:
@@ -446,6 +488,30 @@ abstract class AppLocalizations {
   /// **'Sencha tea'**
   String get senchaTea;
 
+  /// No description provided for @honeybushTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Honeybush tea'**
+  String get honeybushTea;
+
+  /// No description provided for @darjeelingTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Darjeeling tea'**
+  String get darjeelingTea;
+
+  /// No description provided for @gyokuroTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Gyokuro tea'**
+  String get gyokuroTea;
+
+  /// No description provided for @tieguanyinTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Tieguanyin tea'**
+  String get tieguanyinTea;
+
   /// No description provided for @blackTeaStoryTitle.
   ///
   /// In en, this message translates to:
@@ -461,7 +527,7 @@ abstract class AppLocalizations {
   /// No description provided for @greenTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Green tea - «the tea that didn\'t let itself change»'**
+  /// **'Green tea - \"the tea that didn\'t let itself change\"'**
   String get greenTeaStoryTitle;
 
   /// No description provided for @greenTeaStory.
@@ -473,7 +539,7 @@ abstract class AppLocalizations {
   /// No description provided for @earlGreyTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Earl Grey - «tea with the aroma of chance and aristocracy»'**
+  /// **'Earl Grey - \"tea with the aroma of chance and aristocracy\"'**
   String get earlGreyTeaStoryTitle;
 
   /// No description provided for @earlGreyTeaStory.
@@ -485,7 +551,7 @@ abstract class AppLocalizations {
   /// No description provided for @masalaTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Masala chai - «tea that can\'t be quiet»'**
+  /// **'Masala chai - \"tea that can\'t be quiet\"'**
   String get masalaTeaStoryTitle;
 
   /// No description provided for @masalaTeaStory.
@@ -497,7 +563,7 @@ abstract class AppLocalizations {
   /// No description provided for @matchaTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Matcha is «tea that is not brewed, but lived.»'**
+  /// **'Matcha is \"tea that is not brewed, but lived\"'**
   String get matchaTeaStoryTitle;
 
   /// No description provided for @matchaTeaStory.
@@ -509,7 +575,7 @@ abstract class AppLocalizations {
   /// No description provided for @jasmineTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Jasmine tea is «a tea that is remembered not for its taste, but for its aroma.»'**
+  /// **'Jasmine tea is \"a tea that is remembered not for its taste, but for its aroma\"'**
   String get jasmineTeaStoryTitle;
 
   /// No description provided for @jasmineTeaStory.
@@ -521,7 +587,7 @@ abstract class AppLocalizations {
   /// No description provided for @hibiscusTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Hibiscus tea - «tea that doesn\'t pretend to be mild»'**
+  /// **'Hibiscus tea - \"tea that doesn\'t pretend to be mild\"'**
   String get hibiscusTeaStoryTitle;
 
   /// No description provided for @hibiscusTeaStory.
@@ -533,7 +599,7 @@ abstract class AppLocalizations {
   /// No description provided for @whiteTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'White tea - «tea that has hardly been touched»'**
+  /// **'White tea - \"tea that has hardly been touched\"'**
   String get whiteTeaStoryTitle;
 
   /// No description provided for @whiteTeaStory.
@@ -545,7 +611,7 @@ abstract class AppLocalizations {
   /// No description provided for @mintTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Mint tea - «The Tea That Can Stop Noise»'**
+  /// **'Mint tea - \"The Tea That Can Stop Noise\"'**
   String get mintTeaStoryTitle;
 
   /// No description provided for @mintTeaStory.
@@ -566,10 +632,94 @@ abstract class AppLocalizations {
   /// **'Long before modern Egypt existed, anise seeds were already valued along the Nile. Archaeologists discovered anise among the treasures of ancient tombs, suggesting that it was known and appreciated thousands of years ago.\n\nAccording to local stories, travelers crossing the desert often carried anise because it was easy to store and could be brewed wherever water was available. A warm cup of anise tea became a comforting companion during cold desert nights.\n\nOver the centuries, the drink remained popular in Egyptian homes. Families served it to guests, shared it during conversations, and passed the tradition from generation to generation.\n\nToday, anise tea is still enjoyed throughout Egypt, connecting modern tea drinkers with a tradition that stretches back to the age of the pharaohs.'**
   String get aniseTeaStory;
 
+  /// No description provided for @assamTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Assam - \"The Strong Tea of River Valleys\"'**
+  String get assamTeaStoryTitle;
+
+  /// No description provided for @assamTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Assam tea comes from northeastern India, from warm lowlands around the Brahmaputra River.\n\nIts character is bold, malty, and full-bodied, the kind of tea that wakes up the morning without asking twice. It became one of the foundations of many breakfast blends because it has enough strength to stand with milk and still keep its voice.'**
+  String get assamTeaStory;
+
+  /// No description provided for @nilgiriTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Nilgiri - \"Tea from the Blue Mountains\"'**
+  String get nilgiriTeaStoryTitle;
+
+  /// No description provided for @nilgiriTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Nilgiri tea is grown in the Blue Mountains of southern India, where tea gardens sit among cool winds and fragrant hills.\n\nIt is often bright, aromatic, and clean on the palate. Nilgiri does not try to overpower the cup; it brings freshness and clarity, like a mountain breeze moving through tea leaves.'**
+  String get nilgiriTeaStory;
+
+  /// No description provided for @genmaichaTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Genmaicha - \"The Tea with Toasted Rice\"'**
+  String get genmaichaTeaStoryTitle;
+
+  /// No description provided for @genmaichaTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Genmaicha began as a humble Japanese tea where green tea met toasted rice.\n\nThe rice adds a warm, nutty aroma and softens the grassy brightness of the leaves. It feels friendly and grounded, like a simple meal turned into a cup of comfort.'**
+  String get genmaichaTeaStory;
+
+  /// No description provided for @hojichaTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hojicha - \"The Roasted Green Tea\"'**
+  String get hojichaTeaStoryTitle;
+
+  /// No description provided for @hojichaTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Hojicha is green tea transformed by roasting. The leaves lose much of their sharp greenness and gain warm notes of wood, caramel, and toasted grain.\n\nBecause of its mellow character, hojicha feels like evening tea: gentle, low-key, and comforting without needing to prove anything.'**
+  String get hojichaTeaStory;
+
+  /// No description provided for @englishBreakfastTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'English Breakfast - \"The Morning Classic\"'**
+  String get englishBreakfastTeaStoryTitle;
+
+  /// No description provided for @englishBreakfastTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'English Breakfast tea is a blend built for mornings: strong, direct, and reliable.\n\nIt usually combines black teas with enough depth to pair with milk, breakfast, and a busy day ahead. Its magic is not mystery but consistency — the promise that the first cup will do its job.'**
+  String get englishBreakfastTeaStory;
+
+  /// No description provided for @irishBreakfastTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Irish Breakfast - \"The Bolder Breakfast Cup\"'**
+  String get irishBreakfastTeaStoryTitle;
+
+  /// No description provided for @irishBreakfastTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Irish Breakfast tea is known for being hearty and robust, often leaning on rich black teas with a malty backbone.\n\nIt is the kind of breakfast tea that does not whisper. It arrives warm, strong, and ready to carry milk, conversation, and a grey morning.'**
+  String get irishBreakfastTeaStory;
+
+  /// No description provided for @helbaTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Helba - \"The Golden Fenugreek Cup\"'**
+  String get helbaTeaStoryTitle;
+
+  /// No description provided for @helbaTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Helba is an Egyptian drink made from fenugreek seeds, brewed into a golden, aromatic infusion.\n\nIts flavor is warm, slightly nutty, and unmistakable. In many homes it belongs to the world of everyday remedies and hospitality, a cup that feels both practical and ancient.'**
+  String get helbaTeaStory;
+
   /// No description provided for @oolongTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Oolong - «the tea that didn\'t choose a side»'**
+  /// **'Oolong - \"the tea that didn\'t choose a side\"'**
   String get oolongTeaStoryTitle;
 
   /// No description provided for @oolongTeaStory.
@@ -581,7 +731,7 @@ abstract class AppLocalizations {
   /// No description provided for @rooibosTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Rooibos - «tea that wasn\'t tea»'**
+  /// **'Rooibos - \"tea that wasn\'t tea\"'**
   String get rooibosTeaStoryTitle;
 
   /// No description provided for @rooibosTeaStory.
@@ -593,7 +743,7 @@ abstract class AppLocalizations {
   /// No description provided for @puerhTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Pu-erh – «tea that can wait»'**
+  /// **'Pu-erh – \"tea that can wait\"'**
   String get puerhTeaStoryTitle;
 
   /// No description provided for @puerhTeaStory.
@@ -605,7 +755,7 @@ abstract class AppLocalizations {
   /// No description provided for @chamomileTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Chamomile Tea - «The Flower That Turned Into Calm»'**
+  /// **'Chamomile Tea - \"The Flower That Turned Into Calm\"'**
   String get chamomileTeaStoryTitle;
 
   /// No description provided for @chamomileTeaStory.
@@ -617,7 +767,7 @@ abstract class AppLocalizations {
   /// No description provided for @senchaTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Sencha - «The Everyday Tea of Calm Precision»'**
+  /// **'Sencha - \"The Everyday Tea of Calm Precision\"'**
   String get senchaTeaStoryTitle;
 
   /// No description provided for @senchaTeaStory.
@@ -625,6 +775,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sencha comes from Japan, where tea is not just a drink but part of daily life and balance.\n\nIt is made by steaming fresh tea leaves right after harvest, which helps preserve their bright green color and clean, grassy taste. Unlike ceremonial matcha, sencha is the tea of everyday moments - simple, honest, and deeply rooted in routine.\n\nFor many people in Japan, sencha is the first cup in the morning and a quiet pause during the day, bringing clarity without overwhelming energy.'**
   String get senchaTeaStory;
+
+  /// No description provided for @honeybushTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Honeybush - \"The Sweet Bush of the Cape\"'**
+  String get honeybushTeaStoryTitle;
+
+  /// No description provided for @honeybushTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Honeybush comes from South Africa, from a plant related in spirit to rooibos but naturally sweeter in aroma.\n\nIt is caffeine-free, gentle, and rounded, with a honeyed scent that explains its name before the first sip. Honeybush feels like sunlight held in a herbal cup.'**
+  String get honeybushTeaStory;
+
+  /// No description provided for @darjeelingTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Darjeeling - \"The Champagne of Tea\"'**
+  String get darjeelingTeaStoryTitle;
+
+  /// No description provided for @darjeelingTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Darjeeling grows high in the foothills of the Himalayas, where mist, cool air, and mountain soil shape its delicate character.\n\nIt is prized for a light body and a floral, muscatel aroma that can change from harvest to harvest. A cup of Darjeeling feels less like a heavy black tea and more like a quiet mountain view captured in leaves.'**
+  String get darjeelingTeaStory;
+
+  /// No description provided for @gyokuroTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Gyokuro - \"The Jade Dew\"'**
+  String get gyokuroTeaStoryTitle;
+
+  /// No description provided for @gyokuroTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Gyokuro is one of Japan\'s most treasured green teas. Before harvest, the bushes are shaded, encouraging deep sweetness, umami, and a silky texture.\n\nIt is not a tea for rushing. Gyokuro asks for cooler water, patience, and attention, rewarding the drinker with a concentrated, almost glowing calm.'**
+  String get gyokuroTeaStory;
+
+  /// No description provided for @tieguanyinTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tieguanyin - \"The Iron Goddess of Mercy\"'**
+  String get tieguanyinTeaStoryTitle;
+
+  /// No description provided for @tieguanyinTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Tieguanyin is a celebrated Chinese oolong whose name carries the legend of the Iron Goddess of Mercy.\n\nDepending on how it is made, it can be floral and bright or deeper and roasted. What stays constant is its elegance: a tea that opens slowly, steep after steep, revealing more than it says at first.'**
+  String get tieguanyinTeaStory;
 
   /// No description provided for @tServeTenTeasAchievement.
   ///

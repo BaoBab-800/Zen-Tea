@@ -174,6 +174,27 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aniseTea => 'Anise Tea';
 
   @override
+  String get assamTea => 'Assam tea';
+
+  @override
+  String get nilgiriTea => 'Nilgiri tea';
+
+  @override
+  String get genmaichaTea => 'Genmaicha tea';
+
+  @override
+  String get hojichaTea => 'Hojicha tea';
+
+  @override
+  String get englishBreakfastTea => 'English Breakfast tea';
+
+  @override
+  String get irishBreakfastTea => 'Irish Breakfast tea';
+
+  @override
+  String get helbaTea => 'Helba tea';
+
+  @override
   String get oolongTea => 'Oolong tea';
 
   @override
@@ -186,6 +207,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get senchaTea => 'Sencha tea';
 
   @override
+  String get honeybushTea => 'Honeybush tea';
+
+  @override
+  String get darjeelingTea => 'Darjeeling tea';
+
+  @override
+  String get gyokuroTea => 'Gyokuro tea';
+
+  @override
+  String get tieguanyinTea => 'Tieguanyin tea';
+
+  @override
   String get blackTeaStoryTitle =>
       'Black Tea - \"The Tea That Accidentally Became a Legend\"';
 
@@ -195,7 +228,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get greenTeaStoryTitle =>
-      'Green tea - «the tea that didn\'t let itself change»';
+      'Green tea - \"the tea that didn\'t let itself change\"';
 
   @override
   String get greenTeaStory =>
@@ -203,14 +236,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get earlGreyTeaStoryTitle =>
-      'Earl Grey - «tea with the aroma of chance and aristocracy»';
+      'Earl Grey - \"tea with the aroma of chance and aristocracy\"';
 
   @override
   String get earlGreyTeaStory =>
       'Earl Grey is a black tea that once encountered bergamot, it was never the same again.\n\nAccording to one of the most famous stories, this tea was named after the British Earl Charles Grey. Legend has it that he was given tea flavored with bergamot oil to soften the taste of water while traveling. The Earl liked it so much that it began to be served at court.\n\nWhether this is true or a beautiful invention, no one knows for sure. But the name has remained.';
 
   @override
-  String get masalaTeaStoryTitle => 'Masala chai - «tea that can\'t be quiet»';
+  String get masalaTeaStoryTitle =>
+      'Masala chai - \"tea that can\'t be quiet\"';
 
   @override
   String get masalaTeaStory =>
@@ -218,7 +252,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get matchaTeaStoryTitle =>
-      'Matcha is «tea that is not brewed, but lived.»';
+      'Matcha is \"tea that is not brewed, but lived\"';
 
   @override
   String get matchaTeaStory =>
@@ -226,7 +260,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get jasmineTeaStoryTitle =>
-      'Jasmine tea is «a tea that is remembered not for its taste, but for its aroma.»';
+      'Jasmine tea is \"a tea that is remembered not for its taste, but for its aroma\"';
 
   @override
   String get jasmineTeaStory =>
@@ -234,7 +268,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get hibiscusTeaStoryTitle =>
-      'Hibiscus tea - «tea that doesn\'t pretend to be mild»';
+      'Hibiscus tea - \"tea that doesn\'t pretend to be mild\"';
 
   @override
   String get hibiscusTeaStory =>
@@ -242,14 +276,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get whiteTeaStoryTitle =>
-      'White tea - «tea that has hardly been touched»';
+      'White tea - \"tea that has hardly been touched\"';
 
   @override
   String get whiteTeaStory =>
       'White tea is the most \'pristine\' of all teas.\n\nEgo is made from young buds and leaves that are hardly processed: they are simply collected and carefully dried. Without strong heating, without twisting, without trying to change something.\n\nAs if the main idea is not to interfere.';
 
   @override
-  String get mintTeaStoryTitle => 'Mint tea - «The Tea That Can Stop Noise»';
+  String get mintTeaStoryTitle => 'Mint tea - \"The Tea That Can Stop Noise\"';
 
   @override
   String get mintTeaStory =>
@@ -264,22 +298,76 @@ class AppLocalizationsEn extends AppLocalizations {
       'Long before modern Egypt existed, anise seeds were already valued along the Nile. Archaeologists discovered anise among the treasures of ancient tombs, suggesting that it was known and appreciated thousands of years ago.\n\nAccording to local stories, travelers crossing the desert often carried anise because it was easy to store and could be brewed wherever water was available. A warm cup of anise tea became a comforting companion during cold desert nights.\n\nOver the centuries, the drink remained popular in Egyptian homes. Families served it to guests, shared it during conversations, and passed the tradition from generation to generation.\n\nToday, anise tea is still enjoyed throughout Egypt, connecting modern tea drinkers with a tradition that stretches back to the age of the pharaohs.';
 
   @override
+  String get assamTeaStoryTitle =>
+      'Assam - \"The Strong Tea of River Valleys\"';
+
+  @override
+  String get assamTeaStory =>
+      'Assam tea comes from northeastern India, from warm lowlands around the Brahmaputra River.\n\nIts character is bold, malty, and full-bodied, the kind of tea that wakes up the morning without asking twice. It became one of the foundations of many breakfast blends because it has enough strength to stand with milk and still keep its voice.';
+
+  @override
+  String get nilgiriTeaStoryTitle =>
+      'Nilgiri - \"Tea from the Blue Mountains\"';
+
+  @override
+  String get nilgiriTeaStory =>
+      'Nilgiri tea is grown in the Blue Mountains of southern India, where tea gardens sit among cool winds and fragrant hills.\n\nIt is often bright, aromatic, and clean on the palate. Nilgiri does not try to overpower the cup; it brings freshness and clarity, like a mountain breeze moving through tea leaves.';
+
+  @override
+  String get genmaichaTeaStoryTitle =>
+      'Genmaicha - \"The Tea with Toasted Rice\"';
+
+  @override
+  String get genmaichaTeaStory =>
+      'Genmaicha began as a humble Japanese tea where green tea met toasted rice.\n\nThe rice adds a warm, nutty aroma and softens the grassy brightness of the leaves. It feels friendly and grounded, like a simple meal turned into a cup of comfort.';
+
+  @override
+  String get hojichaTeaStoryTitle => 'Hojicha - \"The Roasted Green Tea\"';
+
+  @override
+  String get hojichaTeaStory =>
+      'Hojicha is green tea transformed by roasting. The leaves lose much of their sharp greenness and gain warm notes of wood, caramel, and toasted grain.\n\nBecause of its mellow character, hojicha feels like evening tea: gentle, low-key, and comforting without needing to prove anything.';
+
+  @override
+  String get englishBreakfastTeaStoryTitle =>
+      'English Breakfast - \"The Morning Classic\"';
+
+  @override
+  String get englishBreakfastTeaStory =>
+      'English Breakfast tea is a blend built for mornings: strong, direct, and reliable.\n\nIt usually combines black teas with enough depth to pair with milk, breakfast, and a busy day ahead. Its magic is not mystery but consistency — the promise that the first cup will do its job.';
+
+  @override
+  String get irishBreakfastTeaStoryTitle =>
+      'Irish Breakfast - \"The Bolder Breakfast Cup\"';
+
+  @override
+  String get irishBreakfastTeaStory =>
+      'Irish Breakfast tea is known for being hearty and robust, often leaning on rich black teas with a malty backbone.\n\nIt is the kind of breakfast tea that does not whisper. It arrives warm, strong, and ready to carry milk, conversation, and a grey morning.';
+
+  @override
+  String get helbaTeaStoryTitle => 'Helba - \"The Golden Fenugreek Cup\"';
+
+  @override
+  String get helbaTeaStory =>
+      'Helba is an Egyptian drink made from fenugreek seeds, brewed into a golden, aromatic infusion.\n\nIts flavor is warm, slightly nutty, and unmistakable. In many homes it belongs to the world of everyday remedies and hospitality, a cup that feels both practical and ancient.';
+
+  @override
   String get oolongTeaStoryTitle =>
-      'Oolong - «the tea that didn\'t choose a side»';
+      'Oolong - \"the tea that didn\'t choose a side\"';
 
   @override
   String get oolongTeaStory =>
       'Oolong is a tea that exists between worlds.\n\nIts leaves are partially oxidized: not as much as black tea, and not as lightly as green tea. Therefore, it is neither one nor the other, and simultaneously both.\n\nThis is not a technological failure, but an art of balance.';
 
   @override
-  String get rooibosTeaStoryTitle => 'Rooibos - «tea that wasn\'t tea»';
+  String get rooibosTeaStoryTitle => 'Rooibos - \"tea that wasn\'t tea\"';
 
   @override
   String get rooibosTeaStory =>
       'Rooibos originated far from the traditional tea regions, in South Africa.\n\nIt\'s not the leaves of the tea bush, but the needle-like branches of a plant that grew wild. Locals brewed it long before the rest of the world discovered it.\n\nWhen Europeans tried rooibos, they realized it wasn\'t tea, but it behaved like it. So they decided—let it be.';
 
   @override
-  String get puerhTeaStoryTitle => 'Pu-erh – «tea that can wait»';
+  String get puerhTeaStoryTitle => 'Pu-erh – \"tea that can wait\"';
 
   @override
   String get puerhTeaStory =>
@@ -287,7 +375,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get chamomileTeaStoryTitle =>
-      'Chamomile Tea - «The Flower That Turned Into Calm»';
+      'Chamomile Tea - \"The Flower That Turned Into Calm\"';
 
   @override
   String get chamomileTeaStory =>
@@ -295,11 +383,41 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get senchaTeaStoryTitle =>
-      'Sencha - «The Everyday Tea of Calm Precision»';
+      'Sencha - \"The Everyday Tea of Calm Precision\"';
 
   @override
   String get senchaTeaStory =>
       'Sencha comes from Japan, where tea is not just a drink but part of daily life and balance.\n\nIt is made by steaming fresh tea leaves right after harvest, which helps preserve their bright green color and clean, grassy taste. Unlike ceremonial matcha, sencha is the tea of everyday moments - simple, honest, and deeply rooted in routine.\n\nFor many people in Japan, sencha is the first cup in the morning and a quiet pause during the day, bringing clarity without overwhelming energy.';
+
+  @override
+  String get honeybushTeaStoryTitle =>
+      'Honeybush - \"The Sweet Bush of the Cape\"';
+
+  @override
+  String get honeybushTeaStory =>
+      'Honeybush comes from South Africa, from a plant related in spirit to rooibos but naturally sweeter in aroma.\n\nIt is caffeine-free, gentle, and rounded, with a honeyed scent that explains its name before the first sip. Honeybush feels like sunlight held in a herbal cup.';
+
+  @override
+  String get darjeelingTeaStoryTitle => 'Darjeeling - \"The Champagne of Tea\"';
+
+  @override
+  String get darjeelingTeaStory =>
+      'Darjeeling grows high in the foothills of the Himalayas, where mist, cool air, and mountain soil shape its delicate character.\n\nIt is prized for a light body and a floral, muscatel aroma that can change from harvest to harvest. A cup of Darjeeling feels less like a heavy black tea and more like a quiet mountain view captured in leaves.';
+
+  @override
+  String get gyokuroTeaStoryTitle => 'Gyokuro - \"The Jade Dew\"';
+
+  @override
+  String get gyokuroTeaStory =>
+      'Gyokuro is one of Japan\'s most treasured green teas. Before harvest, the bushes are shaded, encouraging deep sweetness, umami, and a silky texture.\n\nIt is not a tea for rushing. Gyokuro asks for cooler water, patience, and attention, rewarding the drinker with a concentrated, almost glowing calm.';
+
+  @override
+  String get tieguanyinTeaStoryTitle =>
+      'Tieguanyin - \"The Iron Goddess of Mercy\"';
+
+  @override
+  String get tieguanyinTeaStory =>
+      'Tieguanyin is a celebrated Chinese oolong whose name carries the legend of the Iron Goddess of Mercy.\n\nDepending on how it is made, it can be floral and bright or deeper and roasted. What stays constant is its elegance: a tea that opens slowly, steep after steep, revealing more than it says at first.';
 
   @override
   String get tServeTenTeasAchievement => 'Just 10 times';

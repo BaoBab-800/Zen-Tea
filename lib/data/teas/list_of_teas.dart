@@ -113,6 +113,76 @@ final List<TeaModel> listOfTeas = [
     isUnlocked: false,
   ),
 
+  TeaModel(
+    type: TeaType.assamTea,
+    imagePath: 'assets/teas/assam_tea.jpg',
+    features: TeaFeatures.common,
+    country: TeaCountries.india,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Assam_tea'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  TeaModel(
+    type: TeaType.nilgiriTea,
+    imagePath: 'assets/teas/nilgiri_tea.jpg',
+    features: TeaFeatures.common,
+    country: TeaCountries.india,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Nilgiri_tea'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  TeaModel(
+    type: TeaType.genmaichaTea,
+    imagePath: 'assets/teas/genmaicha_tea.jpg',
+    features: TeaFeatures.common,
+    country: TeaCountries.japan,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Genmaicha'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  TeaModel(
+    type: TeaType.hojichaTea,
+    imagePath: 'assets/teas/hojicha_tea.jpg',
+    features: TeaFeatures.common,
+    country: TeaCountries.japan,
+    url: Uri.parse('https://en.wikipedia.org/wiki/H%C5%8Djicha'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  TeaModel(
+    type: TeaType.englishBreakfastTea,
+    imagePath: 'assets/teas/english_breakfast_tea.jpg',
+    features: TeaFeatures.common,
+    country: TeaCountries.unitedKingdom,
+    url: Uri.parse('https://en.wikipedia.org/wiki/English_breakfast_tea'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  TeaModel(
+    type: TeaType.irishBreakfastTea,
+    imagePath: 'assets/teas/irish_breakfast_tea.jpg',
+    features: TeaFeatures.common,
+    country: TeaCountries.unitedKingdom,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Irish_breakfast_tea'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  TeaModel(
+    type: TeaType.helbaTea,
+    imagePath: 'assets/teas/helba_tea.jpg',
+    features: TeaFeatures.common,
+    country: TeaCountries.egypt,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Fenugreek'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
   // Rare
   TeaModel(
     type: TeaType.oolongTea,
@@ -150,6 +220,47 @@ final List<TeaModel> listOfTeas = [
     features: TeaFeatures.rare,
     country: TeaCountries.japan,
     url: Uri.parse('https://en.wikipedia.org/wiki/Sencha'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  TeaModel(
+    type: TeaType.honeybushTea,
+    imagePath: 'assets/teas/honeybush_tea.jpg',
+    features: TeaFeatures.rare,
+    country: TeaCountries.southAfrica,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Honeybush'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  // Legendary
+  TeaModel(
+    type: TeaType.darjeelingTea,
+    imagePath: 'assets/teas/darjeeling_tea.jpg',
+    features: TeaFeatures.legendary,
+    country: TeaCountries.india,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Darjeeling_tea'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  TeaModel(
+    type: TeaType.gyokuroTea,
+    imagePath: 'assets/teas/gyokuro_tea.jpg',
+    features: TeaFeatures.legendary,
+    country: TeaCountries.japan,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Gyokuro'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  TeaModel(
+    type: TeaType.tieguanyinTea,
+    imagePath: 'assets/teas/tieguanyin_tea.jpg',
+    features: TeaFeatures.legendary,
+    country: TeaCountries.china,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Tieguanyin'),
     timesServed: 0,
     isUnlocked: false,
   ),

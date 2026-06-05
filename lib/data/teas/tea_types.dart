@@ -14,12 +14,25 @@ enum TeaType {
   mintTea,
   chamomileTea,
   aniseTea,
+  assamTea,
+  nilgiriTea,
+  genmaichaTea,
+  hojichaTea,
+  englishBreakfastTea,
+  irishBreakfastTea,
+  helbaTea,
 
   // Rare
   oolongTea,
   rooibosTea,
   puerhTea,
   senchaTea,
+  honeybushTea,
+
+  // Legendary
+  darjeelingTea,
+  gyokuroTea,
+  tieguanyinTea,
 }
 
 enum TeaFeatures {
@@ -77,6 +90,20 @@ extension TeaTypeX on TeaType {
         return l10n.chamomileTea;
       case TeaType.aniseTea:
         return l10n.aniseTea;
+      case TeaType.assamTea:
+        return l10n.assamTea;
+      case TeaType.nilgiriTea:
+        return l10n.nilgiriTea;
+      case TeaType.genmaichaTea:
+        return l10n.genmaichaTea;
+      case TeaType.hojichaTea:
+        return l10n.hojichaTea;
+      case TeaType.englishBreakfastTea:
+        return l10n.englishBreakfastTea;
+      case TeaType.irishBreakfastTea:
+        return l10n.irishBreakfastTea;
+      case TeaType.helbaTea:
+        return l10n.helbaTea;
 
       // Rare
       case TeaType.oolongTea:
@@ -87,6 +114,16 @@ extension TeaTypeX on TeaType {
         return l10n.puerhTea;
       case TeaType.senchaTea:
         return l10n.senchaTea;
+      case TeaType.honeybushTea:
+        return l10n.honeybushTea;
+
+      // Legendary
+      case TeaType.darjeelingTea:
+        return l10n.darjeelingTea;
+      case TeaType.gyokuroTea:
+        return l10n.gyokuroTea;
+      case TeaType.tieguanyinTea:
+        return l10n.tieguanyinTea;
     }
   }
 }
@@ -119,6 +156,20 @@ extension TeaStoryX on TeaType {
         return l10n.chamomileTeaStory;
       case TeaType.aniseTea:
         return l10n.aniseTeaStory;
+      case TeaType.assamTea:
+        return l10n.assamTeaStory;
+      case TeaType.nilgiriTea:
+        return l10n.nilgiriTeaStory;
+      case TeaType.genmaichaTea:
+        return l10n.genmaichaTeaStory;
+      case TeaType.hojichaTea:
+        return l10n.hojichaTeaStory;
+      case TeaType.englishBreakfastTea:
+        return l10n.englishBreakfastTeaStory;
+      case TeaType.irishBreakfastTea:
+        return l10n.irishBreakfastTeaStory;
+      case TeaType.helbaTea:
+        return l10n.helbaTeaStory;
 
       // Rare
       case TeaType.oolongTea:
@@ -129,6 +180,16 @@ extension TeaStoryX on TeaType {
         return l10n.puerhTeaStory;
       case TeaType.senchaTea:
         return l10n.senchaTeaStory;
+      case TeaType.honeybushTea:
+        return l10n.honeybushTeaStory;
+
+      // Legendary
+      case TeaType.darjeelingTea:
+        return l10n.darjeelingTeaStory;
+      case TeaType.gyokuroTea:
+        return l10n.gyokuroTeaStory;
+      case TeaType.tieguanyinTea:
+        return l10n.tieguanyinTeaStory;
     }
   }
 }
@@ -161,6 +222,20 @@ extension TeaTitleStoryX on TeaType {
         return l10n.chamomileTeaStoryTitle;
       case TeaType.aniseTea:
         return l10n.aniseTeaStoryTitle;
+      case TeaType.assamTea:
+        return l10n.assamTeaStoryTitle;
+      case TeaType.nilgiriTea:
+        return l10n.nilgiriTeaStoryTitle;
+      case TeaType.genmaichaTea:
+        return l10n.genmaichaTeaStoryTitle;
+      case TeaType.hojichaTea:
+        return l10n.hojichaTeaStoryTitle;
+      case TeaType.englishBreakfastTea:
+        return l10n.englishBreakfastTeaStoryTitle;
+      case TeaType.irishBreakfastTea:
+        return l10n.irishBreakfastTeaStoryTitle;
+      case TeaType.helbaTea:
+        return l10n.helbaTeaStoryTitle;
 
       // Rare
       case TeaType.oolongTea:
@@ -171,6 +246,16 @@ extension TeaTitleStoryX on TeaType {
         return l10n.puerhTeaStoryTitle;
       case TeaType.senchaTea:
         return l10n.senchaTeaStoryTitle;
+      case TeaType.honeybushTea:
+        return l10n.honeybushTeaStoryTitle;
+
+      // Legendary
+      case TeaType.darjeelingTea:
+        return l10n.darjeelingTeaStoryTitle;
+      case TeaType.gyokuroTea:
+        return l10n.gyokuroTeaStoryTitle;
+      case TeaType.tieguanyinTea:
+        return l10n.tieguanyinTeaStoryTitle;
     }
   }
 }
