@@ -154,26 +154,6 @@ final List<TeaModel> listOfTeas = [
   ),
 
   TeaModel(
-    type: TeaType.englishBreakfastTea,
-    imagePath: 'assets/teas/english_breakfast_tea.jpg',
-    features: TeaFeatures.common,
-    country: TeaCountries.unitedKingdom,
-    url: Uri.parse('https://en.wikipedia.org/wiki/English_breakfast_tea'),
-    timesServed: 0,
-    isUnlocked: false,
-  ),
-
-  TeaModel(
-    type: TeaType.irishBreakfastTea,
-    imagePath: 'assets/teas/irish_breakfast_tea.jpg',
-    features: TeaFeatures.common,
-    country: TeaCountries.unitedKingdom,
-    url: Uri.parse('https://en.wikipedia.org/wiki/Irish_breakfast_tea'),
-    timesServed: 0,
-    isUnlocked: false,
-  ),
-
-  TeaModel(
     type: TeaType.helbaTea,
     imagePath: 'assets/teas/helba_tea.jpg',
     features: TeaFeatures.common,

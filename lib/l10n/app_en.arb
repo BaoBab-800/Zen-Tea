@@ -71,8 +71,6 @@
   "nilgiriTea": "Nilgiri tea",
   "genmaichaTea": "Genmaicha tea",
   "hojichaTea": "Hojicha tea",
-  "englishBreakfastTea": "English Breakfast tea",
-  "irishBreakfastTea": "Irish Breakfast tea",
   "helbaTea": "Helba tea",
 
   "oolongTea": "Oolong tea",
@@ -126,12 +124,6 @@
 
   "hojichaTeaStoryTitle": "Hojicha - \"The Roasted Green Tea\"",
   "hojichaTeaStory": "Hojicha is green tea transformed by roasting. The leaves lose much of their sharp greenness and gain warm notes of wood, caramel, and toasted grain.\n\nBecause of its mellow character, hojicha feels like evening tea: gentle, low-key, and comforting without needing to prove anything.",
-
-  "englishBreakfastTeaStoryTitle": "English Breakfast - \"The Morning Classic\"",
-  "englishBreakfastTeaStory": "English Breakfast tea is a blend built for mornings: strong, direct, and reliable.\n\nIt usually combines black teas with enough depth to pair with milk, breakfast, and a busy day ahead. Its magic is not mystery but consistency — the promise that the first cup will do its job.",
-
-  "irishBreakfastTeaStoryTitle": "Irish Breakfast - \"The Bolder Breakfast Cup\"",
-  "irishBreakfastTeaStory": "Irish Breakfast tea is known for being hearty and robust, often leaning on rich black teas with a malty backbone.\n\nIt is the kind of breakfast tea that does not whisper. It arrives warm, strong, and ready to carry milk, conversation, and a grey morning.",
 
   "helbaTeaStoryTitle": "Helba - \"The Golden Fenugreek Cup\"",
   "helbaTeaStory": "Helba is an Egyptian drink made from fenugreek seeds, brewed into a golden, aromatic infusion.\n\nIts flavor is warm, slightly nutty, and unmistakable. In many homes it belongs to the world of everyday remedies and hospitality, a cup that feels both practical and ancient.",

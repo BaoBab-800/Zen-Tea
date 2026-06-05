@@ -186,12 +186,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get hojichaTea => 'Чай ходжіча';
 
   @override
-  String get englishBreakfastTea => 'Англійський чай для сніданку';
-
-  @override
-  String get irishBreakfastTea => 'Ірландський чай для сніданку';
-
-  @override
   String get helbaTea => 'Чай Хельба';
 
   @override
@@ -325,22 +319,6 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get hojichaTeaStory =>
       'Ходзіча - це зелений чай, перетворений шляхом обсмажування. Листя втрачає значну частину своєї різкої зелені та набуває теплих ноток дерева, карамелі та підсмаженого зерна.\n\nЗавдяки своєму м\'якому характеру, ходжіча відчувається як вечірній чай: ніжний, стриманий та заспокійливий, без потреби щось доводити.';
-
-  @override
-  String get englishBreakfastTeaStoryTitle =>
-      'Англійський сніданок - \"Ранкова класика\"';
-
-  @override
-  String get englishBreakfastTeaStory =>
-      'Англійський сніданок - це суміш, створена для ранку: міцна, прямий та надійний.\n\nЗазвичай вона поєднує чорні чаї з достатньою глибиною, щоб поєднуватися з молоком, сніданком та напруженим днем. Його магія не в таємничості, а в послідовності — обіцянці, що перша чашка виконає свою роботу.';
-
-  @override
-  String get irishBreakfastTeaStoryTitle =>
-      'Ірландський сніданок - \"Сміливіша чашка сніданку\"';
-
-  @override
-  String get irishBreakfastTeaStory =>
-      'Ірландський сніданок відомий своєю ситністю та міцністю, часто спираючись на насичений чорний чай із солодовим відтінком.\n\nЦе той вид сніданкового чаю, який не шепоче. Він приходить теплим, міцним і готовим нести молоко, розмову та сірий ранок.';
 
   @override
   String get helbaTeaStoryTitle => 'Хельба - \"Золота чашка пажитника\"';

@@ -18,8 +18,6 @@ enum TeaType {
   nilgiriTea,
   genmaichaTea,
   hojichaTea,
-  englishBreakfastTea,
-  irishBreakfastTea,
   helbaTea,
 
   // Rare
@@ -98,10 +96,6 @@ extension TeaTypeX on TeaType {
         return l10n.genmaichaTea;
       case TeaType.hojichaTea:
         return l10n.hojichaTea;
-      case TeaType.englishBreakfastTea:
-        return l10n.englishBreakfastTea;
-      case TeaType.irishBreakfastTea:
-        return l10n.irishBreakfastTea;
       case TeaType.helbaTea:
         return l10n.helbaTea;
 
@@ -164,10 +158,6 @@ extension TeaStoryX on TeaType {
         return l10n.genmaichaTeaStory;
       case TeaType.hojichaTea:
         return l10n.hojichaTeaStory;
-      case TeaType.englishBreakfastTea:
-        return l10n.englishBreakfastTeaStory;
-      case TeaType.irishBreakfastTea:
-        return l10n.irishBreakfastTeaStory;
       case TeaType.helbaTea:
         return l10n.helbaTeaStory;
 
@@ -230,10 +220,6 @@ extension TeaTitleStoryX on TeaType {
         return l10n.genmaichaTeaStoryTitle;
       case TeaType.hojichaTea:
         return l10n.hojichaTeaStoryTitle;
-      case TeaType.englishBreakfastTea:
-        return l10n.englishBreakfastTeaStoryTitle;
-      case TeaType.irishBreakfastTea:
-        return l10n.irishBreakfastTeaStoryTitle;
       case TeaType.helbaTea:
         return l10n.helbaTeaStoryTitle;
 

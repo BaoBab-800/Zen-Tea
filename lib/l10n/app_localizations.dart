@@ -446,18 +446,6 @@ abstract class AppLocalizations {
   /// **'Hojicha tea'**
   String get hojichaTea;
 
-  /// No description provided for @englishBreakfastTea.
-  ///
-  /// In en, this message translates to:
-  /// **'English Breakfast tea'**
-  String get englishBreakfastTea;
-
-  /// No description provided for @irishBreakfastTea.
-  ///
-  /// In en, this message translates to:
-  /// **'Irish Breakfast tea'**
-  String get irishBreakfastTea;
-
   /// No description provided for @helbaTea.
   ///
   /// In en, this message translates to:
@@ -679,30 +667,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hojicha is green tea transformed by roasting. The leaves lose much of their sharp greenness and gain warm notes of wood, caramel, and toasted grain.\n\nBecause of its mellow character, hojicha feels like evening tea: gentle, low-key, and comforting without needing to prove anything.'**
   String get hojichaTeaStory;
-
-  /// No description provided for @englishBreakfastTeaStoryTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'English Breakfast - \"The Morning Classic\"'**
-  String get englishBreakfastTeaStoryTitle;
-
-  /// No description provided for @englishBreakfastTeaStory.
-  ///
-  /// In en, this message translates to:
-  /// **'English Breakfast tea is a blend built for mornings: strong, direct, and reliable.\n\nIt usually combines black teas with enough depth to pair with milk, breakfast, and a busy day ahead. Its magic is not mystery but consistency — the promise that the first cup will do its job.'**
-  String get englishBreakfastTeaStory;
-
-  /// No description provided for @irishBreakfastTeaStoryTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Irish Breakfast - \"The Bolder Breakfast Cup\"'**
-  String get irishBreakfastTeaStoryTitle;
-
-  /// No description provided for @irishBreakfastTeaStory.
-  ///
-  /// In en, this message translates to:
-  /// **'Irish Breakfast tea is known for being hearty and robust, often leaning on rich black teas with a malty backbone.\n\nIt is the kind of breakfast tea that does not whisper. It arrives warm, strong, and ready to carry milk, conversation, and a grey morning.'**
-  String get irishBreakfastTeaStory;
 
   /// No description provided for @helbaTeaStoryTitle.
   ///

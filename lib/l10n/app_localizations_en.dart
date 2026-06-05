@@ -186,12 +186,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get hojichaTea => 'Hojicha tea';
 
   @override
-  String get englishBreakfastTea => 'English Breakfast tea';
-
-  @override
-  String get irishBreakfastTea => 'Irish Breakfast tea';
-
-  @override
   String get helbaTea => 'Helba tea';
 
   @override
@@ -327,22 +321,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get hojichaTeaStory =>
       'Hojicha is green tea transformed by roasting. The leaves lose much of their sharp greenness and gain warm notes of wood, caramel, and toasted grain.\n\nBecause of its mellow character, hojicha feels like evening tea: gentle, low-key, and comforting without needing to prove anything.';
-
-  @override
-  String get englishBreakfastTeaStoryTitle =>
-      'English Breakfast - \"The Morning Classic\"';
-
-  @override
-  String get englishBreakfastTeaStory =>
-      'English Breakfast tea is a blend built for mornings: strong, direct, and reliable.\n\nIt usually combines black teas with enough depth to pair with milk, breakfast, and a busy day ahead. Its magic is not mystery but consistency — the promise that the first cup will do its job.';
-
-  @override
-  String get irishBreakfastTeaStoryTitle =>
-      'Irish Breakfast - \"The Bolder Breakfast Cup\"';
-
-  @override
-  String get irishBreakfastTeaStory =>
-      'Irish Breakfast tea is known for being hearty and robust, often leaning on rich black teas with a malty backbone.\n\nIt is the kind of breakfast tea that does not whisper. It arrives warm, strong, and ready to carry milk, conversation, and a grey morning.';
 
   @override
   String get helbaTeaStoryTitle => 'Helba - \"The Golden Fenugreek Cup\"';
