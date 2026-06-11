@@ -1,11 +1,12 @@
 # Zen tea
 
-A Flutter app that recommends tea based on weather, time of day and user mood.
-- weather conditions
-- time of day
-- personal preferences
-- offers mini-stories for each tea
+A Flutter app that offers tea every day.
+- teas of varying rarity
 - tea card collection
+- statistics about the collection and teas drunk
+- offers mini-stories for each tea
+- map of tea countries
+- achievements
 
 ## Screenshots
 
