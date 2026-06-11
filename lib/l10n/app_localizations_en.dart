@@ -27,7 +27,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get totalTeasOpened => 'Total teas opened';
 
   @override
-  String get totalTeasDrunk => 'Total teas drunk';
+  String get totalTeasDrunk => 'Total teas received';
 
   @override
   String get maximumSeries => 'Maximum series';

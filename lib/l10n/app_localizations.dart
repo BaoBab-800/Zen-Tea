@@ -137,7 +137,7 @@ abstract class AppLocalizations {
   /// No description provided for @totalTeasDrunk.
   ///
   /// In en, this message translates to:
-  /// **'Total teas drunk'**
+  /// **'Total teas received'**
   String get totalTeasDrunk;
 
   /// No description provided for @maximumSeries.
