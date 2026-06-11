@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:developer' as developer;
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -90,7 +91,8 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
                       : 'Stats: served=${dev.stats.totalServed}, unique=${dev.stats.uniqueTeas}, '
                       'rare=${dev.stats.rareTeasObtained}, quests=${dev.stats.totalQuestCompleted}, '
                       'streak=${dev.stats.streakDays}, max=${dev.stats.maxStreak}, '
-                      'achievements=${dev.unlockedAchievements}/${allAchievements.length}',
+                      'achievements=${dev.unlockedAchievements}/${allAchievements.length} '
+                      'lastCompletedAt=${dev.stats.lastCompletedAt}',
                 ),
               ),
 
@@ -145,6 +147,7 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
     }
 
     await _updateStats(_zeroStats());
+    developer.log('All values has been reset', name: 'DeveloperRoom');
   }
 
   Future<void> _unlockAll() async {
@@ -166,6 +169,8 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
         rareTeasObtained: rareTeasCount,
       ),
     );
+
+    developer.log('All teas has been unlocked', name: 'DeveloperRoom');
   }
 
   Future<void> _blockAll() async {
@@ -178,17 +183,23 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
 
     final current = statsProvider.stats;
     await _updateStats(current.copyWith(uniqueTeas: 0));
+
+    developer.log('All teas has been blocked', name: 'DeveloperRoom');
   }
 
   Future<void> _setRandomStreak() async {
     final provider = context.read<StatsProvider>();
+    final streakDays = Random().nextInt(30);
+    final maxStreak = Random().nextInt(30);
 
     await _updateStats(
       provider.stats.copyWith(
-        streakDays: Random().nextInt(30),
-        maxStreak: Random().nextInt(30),
+        streakDays: streakDays,
+        maxStreak: maxStreak,
       ),
     );
+
+    developer.log('Streak $streakDays installed, max streak: $maxStreak', name: 'DeveloperRoom');
   }
 
   Future<void> _resetStreak() async {
@@ -196,6 +207,8 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
     await _updateStats(
       statsProvider.stats.copyWith(streakDays: 0, maxStreak: 0),
     );
+
+    developer.log('Streak has been reset', name: 'DeveloperRoom');
   }
 
   Future<void> _resetAllStats() async {
@@ -203,6 +216,8 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
 
     await _updateStats(_zeroStats());
     await achievementsService.saveUnlocked({});
+
+    developer.log('All values have been reset', name: 'DeveloperRoom');
   }
 
   Future<void> _updateStats(Stats stats) async {

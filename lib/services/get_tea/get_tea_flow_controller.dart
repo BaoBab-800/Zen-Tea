@@ -44,7 +44,7 @@ class GetTeaFlowController {
     );
 
     developer.log(
-      'GetTeaFlowController: getTodayTea - isNew: $isNew, shouldCountServing: $shouldCountServing',
+      'getTodayTea - isNew: $isNew, shouldCountServing: $shouldCountServing', name: 'GetTeaFlowController',
     );
     return TeaResult(
       tea: updated,
