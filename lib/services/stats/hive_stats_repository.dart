@@ -22,6 +22,7 @@ class HiveStatsRepository extends IStatsRepository {
         rareTeasObtained: 0,
         totalQuestCompleted: 0,
         maxStreak: 0,
+        lastCompletedAt: null,
       );
       await _box.put(_key, initialStats);
       return initialStats;

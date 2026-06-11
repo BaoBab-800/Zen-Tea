@@ -1,3 +1,5 @@
+import 'dart:developer' as developer;
+
 import 'package:zentea/data/achievements/abstract_achievement.dart';
 import 'package:zentea/data/achievements/achievement_keys.dart';
 import 'package:zentea/data/achievements/achievement_unlock_result.dart';
@@ -5,6 +7,7 @@ import 'package:zentea/data/achievements/list_of_achievements.dart';
 import 'package:zentea/data/quest/quest_result.dart';
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_result.dart';
+
 import 'package:zentea/services/achievements/i_achievements_service.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
@@ -40,6 +43,9 @@ class GetTeaFlowController {
       (item) => item.type == tea.type,
     );
 
+    developer.log(
+      'GetTeaFlowController: getTodayTea - isNew: $isNew, shouldCountServing: $shouldCountServing',
+    );
     return TeaResult(
       tea: updated,
       isNew: isNew,

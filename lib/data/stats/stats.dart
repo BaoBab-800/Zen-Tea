@@ -25,6 +25,9 @@ class Stats {
   @HiveField(6)
   final int maxStreak;
 
+  @HiveField(7)
+  final DateTime? lastCompletedAt;
+
   const Stats({
     required this.totalServed,
     required this.uniqueTeas,
@@ -33,6 +36,7 @@ class Stats {
     required this.rareTeasObtained,
     required this.totalQuestCompleted,
     required this.maxStreak,
+    this.lastCompletedAt,
   });
 
   Stats copyWith({
@@ -43,6 +47,7 @@ class Stats {
     int? rareTeasObtained,
     int? totalQuestCompleted,
     int? maxStreak,
+    DateTime? lastCompletedAt,
   }) {
     return Stats(
       totalServed: totalServed ?? this.totalServed,
@@ -52,6 +57,7 @@ class Stats {
       rareTeasObtained: rareTeasObtained ?? this.rareTeasObtained,
       totalQuestCompleted: totalQuestCompleted ?? this.totalQuestCompleted,
       maxStreak: maxStreak ?? this.maxStreak,
+      lastCompletedAt: lastCompletedAt ?? this.lastCompletedAt,
     );
   }
 }

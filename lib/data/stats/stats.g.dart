@@ -24,13 +24,14 @@ class StatsAdapter extends TypeAdapter<Stats> {
       rareTeasObtained: fields[4] as int,
       totalQuestCompleted: fields[5] as int,
       maxStreak: fields[6] as int,
+      lastCompletedAt: fields[7] as DateTime?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Stats obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.totalServed)
       ..writeByte(1)
@@ -44,7 +45,9 @@ class StatsAdapter extends TypeAdapter<Stats> {
       ..writeByte(5)
       ..write(obj.totalQuestCompleted)
       ..writeByte(6)
-      ..write(obj.maxStreak);
+      ..write(obj.maxStreak)
+      ..writeByte(7)
+      ..write(obj.lastCompletedAt);
   }
 
   @override

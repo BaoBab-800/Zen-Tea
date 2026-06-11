@@ -1,3 +1,5 @@
+import 'dart:developer' as developer;
+
 import 'package:flutter/foundation.dart';
 
 import 'package:zentea/data/stats/stats.dart';
@@ -22,7 +24,10 @@ class StatsProvider extends ChangeNotifier {
   }
 
   Future<void> onTeaOpened(TeaModel tea, {required bool isNew}) async {
-    final stats = await _statsRepository.getStats();
+    final now = DateTime.now();
+
+    final stats = _stats;
+
     final isNewRareTea = isNew && tea.features != TeaFeatures.common;
 
     final updated = stats.copyWith(
@@ -32,9 +37,15 @@ class StatsProvider extends ChangeNotifier {
       rareTeasObtained: isNewRareTea
           ? stats.rareTeasObtained + 1
           : stats.rareTeasObtained,
+      lastCompletedAt: now,
     );
 
     await updateStats(updated);
+
+    developer.log(
+      'Stats updated on tea opened: $updated',
+      name: 'StatsProvider',
+    );
   }
 
   Future<void> updateStats(Stats stats) async {

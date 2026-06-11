@@ -1,3 +1,4 @@
+import 'dart:developer' as developer;
 import 'package:flutter/foundation.dart';
 
 import 'package:zentea/data/quest/quest_result.dart';
@@ -12,13 +13,6 @@ class QuestProgressService extends ChangeNotifier implements IQuestProgressServi
   final IKeyValueStorage storage;
   final IAchievementsService achievementsService;
 
-  static const _lastCompletedAtKey = 'lastCompletedAt';
-
-  DateTime? _lastCompletedAt;
-
-  @override
-  DateTime? get lastCompletedAt => _lastCompletedAt;
-
   QuestProgressService({
     required this.statsProvider,
     required this.storage,
@@ -26,28 +20,24 @@ class QuestProgressService extends ChangeNotifier implements IQuestProgressServi
   });
 
   @override
-  Future<void> init() async {
-    final last = await storage.get(_lastCompletedAtKey);
-
-    _lastCompletedAt = last != null ? DateTime.parse(last) : null;
-  }
-
-  @override
   Future<QuestResult> completeQuest() async {
     final now = DateTime.now();
+    final stats = statsProvider.stats;
 
-    if (_isSameDay(_lastCompletedAt, now)) {
+    if (_isSameDay(stats.lastCompletedAt, now)) {
+      developer.log('Quest already completed today, last completed at: ${stats.lastCompletedAt}', name: 'QuestProgressService');
       return QuestResult(
         status: QuestCompletionStatus.alreadyDoneToday,
       );
     }
 
-    final stats = statsProvider.stats;
     final unlocked = await achievementsService.loadUnlocked();
 
-    final newStreak = _isConsecutiveDay(_lastCompletedAt, now)
+    developer.log('Old streak: ${stats.streakDays}, last completed at: ${stats.lastCompletedAt}', name: 'QuestProgressService');
+    final newStreak = _isConsecutiveDay(stats.lastCompletedAt, now)
         ? stats.streakDays + 1
         : 1;
+    developer.log('New streak calculated: $newStreak', name: 'QuestProgressService');
 
     final updatedStats = stats.copyWith(
       streakDays: newStreak,
@@ -55,15 +45,10 @@ class QuestProgressService extends ChangeNotifier implements IQuestProgressServi
       maxStreak: newStreak > stats.maxStreak
           ? newStreak
           : stats.maxStreak,
+      lastCompletedAt: now,
     );
 
     await statsProvider.updateStats(updatedStats);
-
-    _lastCompletedAt = now;
-    await storage.put(
-      _lastCompletedAtKey,
-      now.toIso8601String(),
-    );
 
     final newUnlocked = achievementsService.checkAchievements(
       stats: updatedStats,
@@ -77,8 +62,7 @@ class QuestProgressService extends ChangeNotifier implements IQuestProgressServi
       });
     }
 
-    notifyListeners();
-
+    developer.log('Quest completed successfully', name: 'QuestProgressService');
     return QuestResult(
       status: QuestCompletionStatus.completed,
     );
