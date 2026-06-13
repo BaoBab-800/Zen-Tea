@@ -45,10 +45,31 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settings => 'Settings';
 
   @override
+  String get about => 'About application';
+
+  @override
   String get theme => 'Theme';
 
   @override
   String get language => 'Language';
+
+  @override
+  String get aboutApplicationDescription =>
+      'Is an app for tea lovers where you can learn about different varieties, their properties, and their history.';
+
+  @override
+  String get aboutWhyDoYouNeedThisApp =>
+      'I created this app to make the world of tea closer and more understandable: from simple everyday teas to rare varieties.';
+
+  @override
+  String get aboutPhilosophy =>
+      'Tea is a world that everyone sees in their own way.';
+
+  @override
+  String get aboutTeam => 'Developed by a Flutter developer enthusiast.';
+
+  @override
+  String get aboutVersion => 'Version 1.0.0';
 
   @override
   String get goToDeveloperRoom => 'Go to developer room';

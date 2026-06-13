@@ -170,6 +170,12 @@ abstract class AppLocalizations {
   /// **'Settings'**
   String get settings;
 
+  /// No description provided for @about.
+  ///
+  /// In en, this message translates to:
+  /// **'About application'**
+  String get about;
+
   /// No description provided for @theme.
   ///
   /// In en, this message translates to:
@@ -181,6 +187,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Language'**
   String get language;
+
+  /// No description provided for @aboutApplicationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Is an app for tea lovers where you can learn about different varieties, their properties, and their history.'**
+  String get aboutApplicationDescription;
+
+  /// No description provided for @aboutWhyDoYouNeedThisApp.
+  ///
+  /// In en, this message translates to:
+  /// **'I created this app to make the world of tea closer and more understandable: from simple everyday teas to rare varieties.'**
+  String get aboutWhyDoYouNeedThisApp;
+
+  /// No description provided for @aboutPhilosophy.
+  ///
+  /// In en, this message translates to:
+  /// **'Tea is a world that everyone sees in their own way.'**
+  String get aboutPhilosophy;
+
+  /// No description provided for @aboutTeam.
+  ///
+  /// In en, this message translates to:
+  /// **'Developed by a Flutter developer enthusiast.'**
+  String get aboutTeam;
+
+  /// No description provided for @aboutVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Version 1.0.0'**
+  String get aboutVersion;
 
   /// No description provided for @goToDeveloperRoom.
   ///

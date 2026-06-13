@@ -22,19 +22,21 @@ class HomeDrawerSection extends StatelessWidget {
             ),
           ),
 
-          _buildDrawerItem(context.l10n.settings, Icons.settings, context),
+          _buildDrawerItem(context.l10n.settings, Icons.settings, AppRoute.settings, context),
+
+          _buildDrawerItem(context.l10n.about, Icons.info_outline, AppRoute.about, context)
         ],
       ),
     );
   }
 
-  Widget _buildDrawerItem(String title, IconData icon, BuildContext context) {
+  Widget _buildDrawerItem(String title, IconData icon, AppRoute route, BuildContext context) {
     return ListTile(
       leading: Icon(icon),
       title: Text(title),
       onTap: () {
         Navigator.pop(context);
-        Navigation(context).pushRoute(AppRoute.settings);
+        Navigation(context).pushRoute(route);
       },
     );
   }

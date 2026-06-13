@@ -45,10 +45,30 @@ class AppLocalizationsUk extends AppLocalizations {
   String get settings => 'Налаштування';
 
   @override
+  String get about => 'Про додаток';
+
+  @override
   String get theme => 'Тема';
 
   @override
   String get language => 'Мова';
+
+  @override
+  String get aboutApplicationDescription =>
+      'Це додаток для любителів чаю, де ви можете дізнатися про різні сорти, їхні властивості та історію.';
+
+  @override
+  String get aboutWhyDoYouNeedThisApp =>
+      'Я створив цей додаток, щоб зробити світ чаю ближчим та зрозумілішим: від простих повсякденних чаїв до рідкісних сортів.';
+
+  @override
+  String get aboutPhilosophy => 'Чай – це світ, який кожен бачить по-своєму.';
+
+  @override
+  String get aboutTeam => 'Розроблено ентузіастом-розробником Flutter.';
+
+  @override
+  String get aboutVersion => 'Версія 1.0.0';
 
   @override
   String get goToDeveloperRoom => 'Перейти до кімнати розробника';

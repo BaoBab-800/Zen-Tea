@@ -10,6 +10,7 @@ import '../ui/tea_collection/tea_collection_page_builder.dart';
 import '../ui/achievements/achievements_builder.dart';
 import '../ui/settings/settings_page_builder.dart';
 import '../ui/developer/developer_room.dart';
+import '../ui/about/about_builder.dart';
 
 enum AppRoute {
   home(name: 'home', path: '/'),
@@ -18,8 +19,8 @@ enum AppRoute {
   teaCollection(name: 'teaCollection', path: '/tea-collection'),
   achievements(name: 'achievements', path: '/achievements'),
   settings(name: 'settings', path: '/settings'),
-  about(name: 'about', path: '/about'),
-  developer(name: 'developer', path: '/developer');
+  developer(name: 'developer', path: '/developer'),
+  about(name: 'about', path: '/about');
 
   final String name;
   final String path;
@@ -71,9 +72,15 @@ class AppRouter {
       ),
 
       GoRoute(
-        name: AppRoute.about.name,
+        name: AppRoute.developer.name,
         path: AppRoute.developer.path,
         builder: (context, state) => const DeveloperRoom(),
+      ),
+
+      GoRoute(
+        name: AppRoute.about.name,
+        path: AppRoute.about.path,
+        builder: (context, state) => const AboutBuilder(),
       ),
     ],
   );
