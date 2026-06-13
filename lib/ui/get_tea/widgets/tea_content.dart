@@ -7,7 +7,6 @@ import 'package:zentea/data/quest/quest_result.dart';
 import 'package:zentea/data/teas/tea_result.dart';
 import 'package:zentea/services/get_tea/get_tea_flow_controller.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
-import 'package:zentea/services/stats/stats_provider.dart';
 import 'package:zentea/services/url/url_service.dart';
 import 'package:zentea/ui/get_tea/widgets/tea_card.dart';
 import 'package:zentea/ui/history_of_teas/history_builder.dart';
@@ -35,6 +34,7 @@ class TeaContent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TeaCard(tea: tea),
+
             const SizedBox(height: 24),
             Text(
               result.isNew
@@ -46,11 +46,13 @@ class TeaContent extends StatelessWidget {
                 color: context.colors.primary,
               ),
             ),
+
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: () => _completeQuest(context),
               child: Text(context.l10n.questCompleted),
             ),
+
             const SizedBox(height: 16),
             TextButton(
               onPressed: () {
@@ -63,6 +65,7 @@ class TeaContent extends StatelessWidget {
               },
               child: Text(context.l10n.readTheStory),
             ),
+
             const SizedBox(height: 10),
             TextButton(
               onPressed: () {
@@ -77,10 +80,7 @@ class TeaContent extends StatelessWidget {
   }
 
   Future<void> _completeQuest(BuildContext context) async {
-    final questResult = await controller.completeQuest(
-      questProgressService: context.read<QuestProgressService>(),
-      statsProvider: context.read<StatsProvider>(),
-    );
+    final questResult = await context.read<QuestProgressService>().completeQuest();
 
     if (!context.mounted) return;
 

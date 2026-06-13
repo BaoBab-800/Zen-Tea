@@ -236,6 +236,7 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
     rareTeasObtained: 0,
     totalQuestCompleted: 0,
     maxStreak: 0,
+    lastCompletedAt: null,
   );
 }
 

@@ -24,8 +24,6 @@ class StatsProvider extends ChangeNotifier {
   }
 
   Future<void> onTeaOpened(TeaModel tea, {required bool isNew}) async {
-    final now = DateTime.now();
-
     final stats = _stats;
 
     final isNewRareTea = isNew && tea.features != TeaFeatures.common;
@@ -37,7 +35,6 @@ class StatsProvider extends ChangeNotifier {
       rareTeasObtained: isNewRareTea
           ? stats.rareTeasObtained + 1
           : stats.rareTeasObtained,
-      lastCompletedAt: now,
     );
 
     await updateStats(updated);

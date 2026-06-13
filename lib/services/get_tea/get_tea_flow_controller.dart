@@ -4,12 +4,10 @@ import 'package:zentea/data/achievements/abstract_achievement.dart';
 import 'package:zentea/data/achievements/achievement_keys.dart';
 import 'package:zentea/data/achievements/achievement_unlock_result.dart';
 import 'package:zentea/data/achievements/list_of_achievements.dart';
-import 'package:zentea/data/quest/quest_result.dart';
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_result.dart';
 
 import 'package:zentea/services/achievements/i_achievements_service.dart';
-import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
 import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
 import 'package:zentea/services/today_tea/i_today_tea_service.dart';
@@ -82,19 +80,6 @@ class GetTeaFlowController {
       previouslyUnlocked: previousUnlocked,
       newlyUnlocked: newUnlocked,
     );
-  }
-
-  Future<QuestResult> completeQuest({
-    required QuestProgressService questProgressService,
-    required StatsProvider statsProvider,
-  }) async {
-    final questResult = await questProgressService.completeQuest();
-
-    if (questResult.status == QuestCompletionStatus.completed) {
-      await statsProvider.load();
-    }
-
-    return questResult;
   }
 
   Achievement getAchievementById(IdKeys id) {
