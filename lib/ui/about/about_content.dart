@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:zentea/app/app_router.dart';
+
 import 'package:zentea/core/theme/app_theme.dart';
 import 'package:zentea/core/l10n/l10n.dart';
 
@@ -78,12 +80,50 @@ class AboutContent extends StatelessWidget {
             Text(context.l10n.aboutTeam),
 
             const SizedBox(height: 12.0),
-            Text(
-              context.l10n.aboutVersion,
-              style: TextStyle(color: Colors.grey),
-            ),
+            VersionText(),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class VersionText extends StatefulWidget {
+  const VersionText({super.key});
+
+  @override
+  State<VersionText> createState() => _VersionTextState();
+}
+
+class _VersionTextState extends State<VersionText> {
+  int _tapCount = 0;
+  DateTime? _lastTap;
+
+  void _onVersionTap() {
+    final now = DateTime.now();
+
+    if (_lastTap == null ||
+        now.difference(_lastTap!) > const Duration(seconds: 1)) {
+      _tapCount = 0;
+    }
+
+    _lastTap = now;
+    _tapCount++;
+
+    if (_tapCount >= 7) {
+      _tapCount = 0;
+
+      Navigation(context).pushRoute(AppRoute.hisPage);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: _onVersionTap,
+      child: Text(
+        context.l10n.aboutVersion,
+        style: TextStyle(color: Colors.grey),
       ),
     );
   }
