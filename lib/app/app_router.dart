@@ -11,7 +11,8 @@ import '../ui/achievements/achievements_builder.dart';
 import '../ui/settings/settings_page_builder.dart';
 import '../ui/developer/developer_room.dart';
 import '../ui/about/about_builder.dart';
-import '../ui/his_page/his_page_builder.dart';
+import '../ui/his_page/his_page_start.dart';
+import '../ui/his_page/his_page_content.dart';
 
 enum AppRoute {
   home(name: 'home', path: '/'),
@@ -22,7 +23,8 @@ enum AppRoute {
   settings(name: 'settings', path: '/settings'),
   developer(name: 'developer', path: '/developer'),
   about(name: 'about', path: '/about'),
-  hisPage(name: 'hisPage', path: '/his-page');
+  hisPageStart(name: 'hisPageStart', path: '/his-page-start'),
+  hisPageContent(name: 'hisPageContent', path: '/his-page-content');
 
   final String name;
   final String path;
@@ -86,9 +88,15 @@ class AppRouter {
       ),
 
       GoRoute(
-        name: AppRoute.hisPage.name,
-        path: AppRoute.hisPage.path,
-        builder: (context, state) => const HisPageBuilder(),
+        name: AppRoute.hisPageStart.name,
+        path: AppRoute.hisPageStart.path,
+        builder: (context, state) => const HisPageStart(),
+      ),
+
+      GoRoute(
+        name: AppRoute.hisPageContent.name,
+        path: AppRoute.hisPageContent.path,
+        builder: (context, state) => const HisPageContent(),
       ),
     ],
   );
