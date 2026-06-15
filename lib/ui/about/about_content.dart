@@ -113,7 +113,7 @@ class _VersionTextState extends State<VersionText> {
     if (_tapCount >= 7) {
       _tapCount = 0;
 
-      Navigation(context).pushRoute(AppRoute.hisPageStart);
+      Navigation(context).goRoute(AppRoute.hisPageStart);
     }
   }
 

@@ -35,7 +35,7 @@ class _HisPageStartState extends State<HisPageStart> {
     });
 
     if (_stage >= 5) {
-      Navigation(context).pushRoute(AppRoute.hisPageContent);
+      Navigation(context).goRoute(AppRoute.hisPageContent);
     }
   }
 
