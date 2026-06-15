@@ -30,31 +30,33 @@ class HisQuoteCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final archiveId = (index + 1).toString().padLeft(3, '0');
+    final archiveId = (index + 1);
 
-    return Padding(
-      padding: const EdgeInsets.all(12),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'ARCHIVE_$archiveId',
-            style: const TextStyle(
-              fontSize: 12,
-              letterSpacing: 2,
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Poem $archiveId',
+              style: const TextStyle(
+                fontSize: 12,
+                letterSpacing: 2,
+              ),
             ),
-          ),
 
-          const SizedBox(height: 8),
+            const SizedBox(height: 8),
 
-          Text(
-            quote,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
+            Text(
+              quote,
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
