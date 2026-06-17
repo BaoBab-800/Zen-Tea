@@ -110,6 +110,31 @@ class _VersionTextState extends State<VersionText> {
     _lastTap = now;
     _tapCount++;
 
+    if (_tapCount == 3){
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'He is watching you.',
+            style: TextStyle(
+              color: context.colors.onSurface,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+
+          backgroundColor: context.colors.surface,
+          behavior: SnackBarBehavior.floating,
+          margin: const EdgeInsets.all(16),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          duration: const Duration(seconds: 2),
+        ),
+
+        snackBarAnimationStyle: const AnimationStyle(
+          duration: Duration(milliseconds: 800),
+          reverseDuration: Duration(milliseconds: 800),
+        ),
+      );
+    }
+
     if (_tapCount >= 7) {
       _tapCount = 0;
 
