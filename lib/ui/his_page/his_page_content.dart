@@ -11,7 +11,7 @@ class HisPageContent extends StatelessWidget {
       body: ListView.builder(
         itemCount: hisQuotes.length,
         itemBuilder: (context, index) {
-          return HisQuoteCard(quote: hisQuotes[index], index: index);
+          return HisQuoteCard(quote: hisQuotes[index]!, index: index);
         },
       ),
     );
