@@ -8,11 +8,25 @@ class HisPageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        itemCount: hisQuotes.length,
-        itemBuilder: (context, index) {
-          return HisQuoteCard(quote: hisQuotes[index]!, index: index);
-        },
+      appBar: AppBar(
+        title: Text(
+          'His Scriptures',
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        toolbarHeight: 40,
+      ),
+
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 4.0),
+        child: ListView.builder(
+          itemCount: hisQuotes.length,
+          itemBuilder: (context, index) {
+            return HisQuoteCard(quote: hisQuotes[index]!, index: index);
+          },
+        ),
       ),
     );
   }

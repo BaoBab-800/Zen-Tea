@@ -103,7 +103,7 @@ class _VersionTextState extends State<VersionText> {
     final now = DateTime.now();
 
     if (_lastTap == null ||
-        now.difference(_lastTap!) > const Duration(seconds: 1)) {
+        now.difference(_lastTap!) > const Duration(seconds: 3)) {
       _tapCount = 0;
     }
 
