@@ -95,35 +95,43 @@ class _GetTeaBuilderState extends State<GetTeaBuilder> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          context.l10n.todayTea,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              unawaited(WelcomeDialog.show(context));
-            },
-            icon: const Icon(Icons.info_outline),
+    return PopScope(
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) {
+          ScaffoldMessenger.of(context).clearMaterialBanners();
+        }
+      },
+
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            context.l10n.todayTea,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
-        ],
-      ),
-
-      body: FutureBuilder<TeaResult>(
-        future: _future,
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return const Center(child: CircularProgressIndicator());
-          }
-
-          return TeaContent(
-            result: snapshot.data!,
-            urlService: widget.urlService,
-            controller: _controller,
-          );
-        },
+          actions: [
+            IconButton(
+              onPressed: () {
+                unawaited(WelcomeDialog.show(context));
+              },
+              icon: const Icon(Icons.info_outline),
+            ),
+          ],
+        ),
+      
+        body: FutureBuilder<TeaResult>(
+          future: _future,
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return const Center(child: CircularProgressIndicator());
+            }
+      
+            return TeaContent(
+              result: snapshot.data!,
+              urlService: widget.urlService,
+              controller: _controller,
+            );
+          },
+        ),
       ),
     );
   }
