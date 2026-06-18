@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:zentea/data/his/his_quotes.dart';
+import 'package:zentea/data/his/his_chapters_list.dart';
+import 'chapters_page.dart';
 
 class HisPageContent extends StatelessWidget {
   const HisPageContent({super.key});
@@ -16,61 +17,33 @@ class HisPageContent extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
-        toolbarHeight: 40,
+        centerTitle: true,
+        toolbarHeight: 44,
       ),
 
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 4.0),
-        child: ListView.builder(
-          itemCount: hisQuotes.length,
-          itemBuilder: (context, index) {
-            return HisQuoteCard(quote: hisQuotes[index]!, index: index);
-          },
-        ),
-      ),
-    );
-  }
-}
-
-class HisQuoteCard extends StatelessWidget {
-  final String quote;
-  final int index;
-
-  const HisQuoteCard({
-    super.key,
-    required this.quote,
-    required this.index,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final archiveId = (index + 1);
-
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Poem $archiveId',
-              style: const TextStyle(
-                fontSize: 12,
-                letterSpacing: 2,
-              ),
-            ),
-
-            const SizedBox(height: 8),
-
-            Text(
-              quote,
-              style: const TextStyle(
-                fontSize: 16,
+      body: ListView.builder(
+        itemCount: hisChaptersList.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(
+              'Chapter ${hisChaptersList[index].id}',
+              style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
             ),
-          ],
-        ),
+
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => ChapterPage(
+                    chapter: hisChaptersList[index],
+                  )
+                ),
+              );
+            }
+          );
+        },
       ),
     );
   }
