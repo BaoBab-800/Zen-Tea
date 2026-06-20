@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:zentea/data/his/his_chapters_list.dart';
+
 import 'chapters_page.dart';
 
 class HisPageContent extends StatelessWidget {
@@ -24,26 +25,36 @@ class HisPageContent extends StatelessWidget {
       body: ListView.builder(
         itemCount: hisChaptersList.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(
-              'Chapter ${hisChaptersList[index].id}',
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => ChapterPage(
-                    chapter: hisChaptersList[index],
-                  )
-                ),
-              );
-            }
-          );
+          return chapterTitle(context, index);
         },
+      ),
+    );
+  }
+
+  Widget chapterTitle(BuildContext context, int index) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => ChapterPage(
+              chapter: hisChaptersList[index],
+            ),
+          ),
+        );
+      },
+
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          child: Text(
+            'Chapter ${hisChaptersList[index].id}',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
       ),
     );
   }
