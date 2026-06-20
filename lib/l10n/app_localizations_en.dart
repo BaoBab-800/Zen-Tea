@@ -69,7 +69,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutTeam => 'Developed by a Flutter developer enthusiast.';
 
   @override
-  String get aboutVersion => 'Version 1.0.0';
+  String get aboutVersion => 'Version ';
 
   @override
   String get goToDeveloperRoom => 'Go to developer room';

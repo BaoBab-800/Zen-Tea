@@ -68,7 +68,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get aboutTeam => 'Розроблено ентузіастом-розробником Flutter.';
 
   @override
-  String get aboutVersion => 'Версія 1.0.0';
+  String get aboutVersion => 'Версія ';
 
   @override
   String get goToDeveloperRoom => 'Перейти до кімнати розробника';

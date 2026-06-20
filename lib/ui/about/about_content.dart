@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import 'package:zentea/app/app_router.dart';
 
@@ -98,6 +99,23 @@ class VersionText extends StatefulWidget {
 class _VersionTextState extends State<VersionText> {
   int _tapCount = 0;
   DateTime? _lastTap;
+  String _version = "Loading...";
+  String _displayVersion = "Loading...";
+
+  @override
+  void initState() {
+    super.initState();
+    _loadVersion();
+  }
+
+  Future<void> _loadVersion() async {
+    final info = await PackageInfo.fromPlatform();
+
+    setState(() {
+      _version = info.version;
+      _displayVersion = _version;
+    });
+  }
 
   void _onVersionTap() {
     final now = DateTime.now();
@@ -110,36 +128,29 @@ class _VersionTextState extends State<VersionText> {
     _lastTap = now;
     _tapCount++;
 
-    if (_tapCount == 3){
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            'He is watching you.',
-            style: TextStyle(
-              color: context.colors.onSurface,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-
-          backgroundColor: context.colors.surface,
-          behavior: SnackBarBehavior.floating,
-          margin: const EdgeInsets.all(16),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          duration: const Duration(seconds: 2),
-        ),
-
-        snackBarAnimationStyle: const AnimationStyle(
-          duration: Duration(milliseconds: 800),
-          reverseDuration: Duration(milliseconds: 800),
-        ),
-      );
-    }
+    setState(() {
+      if (_tapCount >= 3 && _tapCount < 7) {
+        _displayVersion = _hidePatch(_version);
+      } else if (_tapCount < 3) {
+        _displayVersion = _version;
+      }
+    });
 
     if (_tapCount >= 7) {
       _tapCount = 0;
+      setState(() {
+        _displayVersion = _version;
+      });
 
       Navigation(context).goRoute(AppRoute.hisPageStart);
     }
+  }
+
+  String _hidePatch(String version) {
+    final parts = version.split('.');
+    if (parts.length != 3) return version;
+
+    return '${parts[0]}.${parts[1]}.x';
   }
 
   @override
@@ -147,8 +158,8 @@ class _VersionTextState extends State<VersionText> {
     return GestureDetector(
       onTap: _onVersionTap,
       child: Text(
-        context.l10n.aboutVersion,
-        style: TextStyle(color: Colors.grey),
+        '${context.l10n.aboutVersion}$_displayVersion',
+        style: const TextStyle(color: Colors.grey),
       ),
     );
   }
