@@ -1,0 +1,7 @@
+List<String> chapterTwo = [
+  'And it came to pass in the winter wilderness, that a wayfarer drew nigh unto a certain settlement. And meeting an elder in the way, he questioned him, saying, \'What manner of people dwell upon this land?\'',
+  'And the elder answered and said unto him, \'What manner of people seekest thou here? Even such shall they be unto thee.\'',
+  'And the wayfarer lifted up his eyes, and they were heavy with sorrow. And he said, \'In the country of my kindred, men walked in cruelty and wrath, and my soul was vexed daily by their unrighteous deeds. Therefore did I flee from them, for my heart longeth for those who are meek and full of loving-kindness.\'',
+  'Then the elder looked upon him with great compassion, and laid his hand upon him, saying, \'Fear not, my son. If thy heart truly hungereth after righteousness, thy steps have not been in vain. Cleanse thy feet from the dust of thy past journeys, and enter in; for according to the love that abideth in thee, so shall the people of this land be revealed unto thee.\'',
+  'And the wayfarer departed, and went on his way rejoicing, for hope had entered into his soul. And the elder sat by the wayside, keeping watch, as he waited for other travelers who should pass by.',
+];
