@@ -51,7 +51,14 @@
     }
   },
   "questCompleted": "Завдання виконано",
-  "series": "Серія: ",
+  "series": "Серія: {days}",
+  "@series": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
   "completedQuestSeries": "Ви вже виконали завдання.",
   "readTheStory": "Прочитати історію",
   "goToWiki": "Перейти до Вікіпедії",

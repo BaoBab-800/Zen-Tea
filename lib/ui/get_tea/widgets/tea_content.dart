@@ -8,6 +8,7 @@ import 'package:zentea/data/teas/tea_result.dart';
 import 'package:zentea/services/get_tea/get_tea_flow_controller.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 import 'package:zentea/services/url/url_service.dart';
+import 'package:zentea/services/stats/stats_provider.dart';
 import 'package:zentea/ui/get_tea/widgets/tea_card.dart';
 import 'package:zentea/ui/history_of_teas/history_builder.dart';
 
@@ -81,28 +82,35 @@ class TeaContent extends StatelessWidget {
 
   Future<void> _completeQuest(BuildContext context) async {
     final questResult = await context.read<QuestProgressService>().completeQuest();
+    final series = context.read<StatsProvider>().stats.streakDays;
 
     if (!context.mounted) return;
 
-    if (questResult.status == QuestCompletionStatus.alreadyDoneToday) {
-      _showSeriesSnackBar(context);
+    switch (questResult.status) {
+      case QuestCompletionStatus.completed:
+        _showSeriesSnackBar(
+          context: context,
+          message: context.l10n.series(series),
+        );
+      case QuestCompletionStatus.alreadyDoneToday:
+        _showSeriesSnackBar(
+          context: context,
+          message: context.l10n.completedQuestSeries,
+        );
     }
   }
 
-  void _showSeriesSnackBar(BuildContext context) {
+  void _showSeriesSnackBar({
+    required BuildContext context,
+    required String message,
+  }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Row(
           children: [
             const Icon(Icons.local_fire_department, color: Colors.white),
             const SizedBox(width: 8),
-            Expanded(
-              child: Text(
-                context.l10n.completedQuestSeries,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-              ),
-            ),
+            Expanded(child: Text(message)),
           ],
         ),
         backgroundColor: context.colors.primary.withValues(alpha: 0.8),

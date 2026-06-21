@@ -335,8 +335,8 @@ abstract class AppLocalizations {
   /// No description provided for @series.
   ///
   /// In en, this message translates to:
-  /// **'Series: '**
-  String get series;
+  /// **'Series: {days}'**
+  String series(int days);
 
   /// No description provided for @completedQuestSeries.
   ///
