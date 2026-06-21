@@ -25,34 +25,87 @@ class HisPageContent extends StatelessWidget {
       body: ListView.builder(
         itemCount: hisChaptersList.length,
         itemBuilder: (context, index) {
-          return chapterTitle(context, index);
+          final chapter = hisChaptersList[index];
+
+          return chapterTitle(
+            context,
+            index,
+            chapter.icon,
+          );
         },
       ),
     );
   }
 
-  Widget chapterTitle(BuildContext context, int index) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => ChapterPage(
-              chapter: hisChaptersList[index],
-            ),
-          ),
-        );
-      },
+  Widget chapterTitle(BuildContext context, int index, IconData icon) {
+    final chapter = hisChaptersList[index];
 
-      child: Card(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          child: Text(
-            'Chapter ${hisChaptersList[index].id}',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+      decoration: BoxDecoration(
+        color: Theme
+            .of(context)
+            .cardColor,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: Theme
+              .of(context)
+              .dividerColor
+              .withValues(alpha: 0.1),
+        ),
+      ),
+
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => ChapterPage(chapter: chapter),
             ),
+          );
+        },
+
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Theme
+                      .of(context)
+                      .primaryColor
+                      .withValues(alpha: 0.1),
+                  shape: BoxShape.circle,
+                ),
+
+                child: Icon(
+                  icon,
+                  color: Theme
+                      .of(context)
+                      .primaryColor,
+                  size: 20,
+                ),
+              ),
+
+              const SizedBox(width: 16),
+              Expanded(
+                child: Text(
+                  'Chapter ${chapter.id}',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 0.5,
+                  ),
+                ),
+              ),
+
+              Icon(
+                Icons.chevron_right_rounded,
+                color: Colors.grey.shade400,
+              ),
+            ],
           ),
         ),
       ),
