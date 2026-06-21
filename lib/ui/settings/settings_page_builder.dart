@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:zentea/core/l10n/l10n.dart';
 
 import 'package:zentea/app/app_router.dart';
+
+import 'package:zentea/core/l10n/l10n.dart';
+
 import 'settings_theme_section.dart';
 import 'settings_language_section.dart';
+import 'settings_dev_button.dart';
 
 class SettingsPageBuilder extends StatelessWidget {
   const SettingsPageBuilder({super.key});
@@ -21,17 +24,20 @@ class SettingsPageBuilder extends StatelessWidget {
         ),
       ),
 
-      body: ListView(
+      body: Column(
         children: [
           SettingsThemeSection(),
           SettingsLanguageSection(),
-          _goToDeveloperRoom(context),
+          _goToDeveloperRoomTestButton(context),  // Temporarily
+          Expanded(child: SizedBox()),
+          SettingsDevButton(),
         ],
       ),
     );
   }
 
-  Widget _goToDeveloperRoom(BuildContext context) {
+  // Temporarily
+  Widget _goToDeveloperRoomTestButton(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
         context.pushRoute(AppRoute.developer);
