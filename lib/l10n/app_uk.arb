@@ -1,7 +1,7 @@
 {
   "@@locale": "uk",
 
-  "currentTeaSeries": "Поточна серія чаю: ",
+  "currentTeaSeries": "Серія чаю: ",
   "getTeaForToday": "Отримати чай на сьогодні",
   "teaMap": "Карта чаїв",
   "teaCollection": "Колекція чаю",

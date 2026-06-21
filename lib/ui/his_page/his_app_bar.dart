@@ -82,7 +82,7 @@ class HisAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Text(
               'His Scriptures',
               style: TextStyle(
-                color: context.colors.onPrimary,
+                color: Colors.white,
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
