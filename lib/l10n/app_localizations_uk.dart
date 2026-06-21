@@ -95,6 +95,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get resetStreak => 'Скинути серію';
 
   @override
+  String get warning => 'Попередження!';
+
+  @override
+  String get warningContent =>
+      'Ви можете робити що завгодно зі своєю статистикою в кімнаті розробника.\nВикористовуйте на свій страх і ризик.';
+
+  @override
   String get themeSystem => 'Системна';
 
   @override

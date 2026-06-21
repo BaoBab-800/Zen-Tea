@@ -96,6 +96,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get resetStreak => 'Reset streak';
 
   @override
+  String get warning => 'Warning!';
+
+  @override
+  String get warningContent =>
+      'You can do anything with your stats in the developer\'s room.\nUse at your own risk.';
+
+  @override
   String get themeSystem => 'System';
 
   @override

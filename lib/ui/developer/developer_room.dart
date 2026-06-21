@@ -69,6 +69,19 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
           context.l10n.developerRoom,
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
+
+        actions: [
+          IconButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (_) => warningDialog(context),
+              );
+            },
+
+            icon: Icon(Icons.info_outline),
+          ),
+        ],
       ),
 
       body: FutureBuilder<(_DevSnapshot, ITeaCollectionService)>(
@@ -135,6 +148,21 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
           );
         },
       ),
+    );
+  }
+
+  Widget warningDialog(BuildContext context) {
+    return AlertDialog(
+      title: Text(context.l10n.warning),
+      content: Text(context.l10n.warningContent),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text(context.l10n.ok),
+        ),
+      ],
     );
   }
 

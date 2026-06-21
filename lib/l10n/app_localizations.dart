@@ -266,6 +266,18 @@ abstract class AppLocalizations {
   /// **'Reset streak'**
   String get resetStreak;
 
+  /// No description provided for @warning.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning!'**
+  String get warning;
+
+  /// No description provided for @warningContent.
+  ///
+  /// In en, this message translates to:
+  /// **'You can do anything with your stats in the developer\'s room.\nUse at your own risk.'**
+  String get warningContent;
+
   /// No description provided for @themeSystem.
   ///
   /// In en, this message translates to:
