@@ -28,7 +28,7 @@ class _ChapterPageState extends State<ChapterPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            'Error: Unknown characters have been replaced with �',
+            'Error: Unknown characters detected.',
             style: TextStyle(
               color: context.colors.onError,
               fontWeight: FontWeight.w600,
