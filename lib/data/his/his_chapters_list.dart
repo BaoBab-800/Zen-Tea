@@ -4,6 +4,7 @@ import 'his_chapter_model.dart';
 import 'chapters_content/chapter_one.dart';
 import 'chapters_content/chapter_two.dart';
 import 'chapters_content/chapter_three.dart';
+import 'chapters_content/chapter_four.dart';
 
 List<HisChapterModel> hisChaptersList = [
   HisChapterModel(
@@ -23,5 +24,11 @@ List<HisChapterModel> hisChaptersList = [
     content: chapterThree,
     icon: Icons.warning,
     hasUnknownSymbolsError: true,
-  )
+  ),
+
+  HisChapterModel(
+    id: 4,
+    content: chapterFour,
+    icon: Icons.terrain_outlined,
+  ),
 ];
