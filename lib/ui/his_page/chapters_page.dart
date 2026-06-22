@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:zentea/core/theme/app_theme.dart';
 import 'package:zentea/data/his/his_chapter_model.dart';
 
-class ChapterPage extends StatelessWidget {
+class ChapterPage extends StatefulWidget {
   final HisChapterModel chapter;
 
   const ChapterPage({
@@ -11,21 +12,55 @@ class ChapterPage extends StatelessWidget {
   });
 
   @override
+  State<ChapterPage> createState() => _ChapterPageState();
+}
+
+class _ChapterPageState extends State<ChapterPage> {
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.chapter.hasUnknownSymbolsError) showError(context);
+  }
+
+  void showError(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'Error: Unknown characters have been replaced with �',
+            style: TextStyle(
+              color: context.colors.onError,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+
+          backgroundColor: context.colors.error,
+          behavior: SnackBarBehavior.floating,
+          margin: const EdgeInsets.all(16),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Chapter ${chapter.id}',
+          'Chapter ${widget.chapter.id}',
         ),
       ),
 
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 4.0),
         child: ListView.builder(
-          itemCount: chapter.content.length,
+          itemCount: widget.chapter.content.length,
           itemBuilder: (context, index) {
-            return HisQuoteCard(
-              quote: chapter.content[index],
+            return PoemCard(
+              quote: widget.chapter.content[index],
               index: index,
             );
           },
@@ -35,11 +70,11 @@ class ChapterPage extends StatelessWidget {
   }
 }
 
-class HisQuoteCard extends StatelessWidget {
+class PoemCard extends StatelessWidget {
   final String quote;
   final int index;
 
-  const HisQuoteCard({
+  const PoemCard({
     super.key,
     required this.quote,
     required this.index,
