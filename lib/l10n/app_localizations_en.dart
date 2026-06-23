@@ -168,6 +168,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get southAfrica => 'South Africa';
 
   @override
+  String get brazil => 'Brazil';
+
+  @override
+  String get ukraine => 'Ukraine';
+
+  @override
   String get locked => 'Locked';
 
   @override
@@ -219,6 +225,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get helbaTea => 'Helba tea';
 
   @override
+  String get mateTea => 'Mate tea';
+
+  @override
+  String get carpathianTea => 'Carpathian tea';
+
+  @override
   String get oolongTea => 'Oolong tea';
 
   @override
@@ -232,6 +244,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get honeybushTea => 'Honeybush tea';
+
+  @override
+  String get branchTea => 'Branch tea';
 
   @override
   String get darjeelingTea => 'Darjeeling tea';
@@ -360,22 +375,38 @@ class AppLocalizationsEn extends AppLocalizations {
       'Helba is an Egyptian drink made from fenugreek seeds, brewed into a golden, aromatic infusion.\n\nIts flavor is warm, slightly nutty, and unmistakable. In many homes it belongs to the world of everyday remedies and hospitality, a cup that feels both practical and ancient.';
 
   @override
+  String get mateTeaStoryTitle =>
+      'Mate - \"The energy of the earth shared in a circle\"';
+
+  @override
+  String get mateTeaStory =>
+      'Mate is not just a drink; it is a ritual of connection.\n\nBorn in the heart of South American rainforests, it was discovered by the Guaraní people, who called it a gift from the gods. It requires no complex processing, yet it demands patience, a special gourd, and a metal straw.\n\nTo drink mate is to slow down, pass the cup, and share the vital energy of nature with friends.';
+
+  @override
+  String get carpathianTeaStoryTitle =>
+      'Carpathian Blend - \"the healing breath of the mountains\"';
+
+  @override
+  String get carpathianTeaStory =>
+      'Carpathian tea is a liquid ecosystem of the Ukrainian highlands.\n\nIt is not planted by humans, but gathered by hand on wild mountain meadows, where thyme, oregano, and mint drink the morning mists. It has no strict recipe, for every herbalist listens to nature.\n\nTo brew it is to open a portal to the ancient forests, bringing the calm and resilience of the mountains into a warm porcelain cup.';
+
+  @override
   String get oolongTeaStoryTitle =>
-      'Oolong - \"the tea that didn\'t choose a side\"';
+      'Oolong - \"The tea that didn\'t choose a side\"';
 
   @override
   String get oolongTeaStory =>
       'Oolong is a tea that exists between worlds.\n\nIts leaves are partially oxidized: not as much as black tea, and not as lightly as green tea. Therefore, it is neither one nor the other, and simultaneously both.\n\nThis is not a technological failure, but an art of balance.';
 
   @override
-  String get rooibosTeaStoryTitle => 'Rooibos - \"tea that wasn\'t tea\"';
+  String get rooibosTeaStoryTitle => 'Rooibos - \"Tea that wasn\'t tea\"';
 
   @override
   String get rooibosTeaStory =>
       'Rooibos originated far from the traditional tea regions, in South Africa.\n\nIt\'s not the leaves of the tea bush, but the needle-like branches of a plant that grew wild. Locals brewed it long before the rest of the world discovered it.\n\nWhen Europeans tried rooibos, they realized it wasn\'t tea, but it behaved like it. So they decided—let it be.';
 
   @override
-  String get puerhTeaStoryTitle => 'Pu-erh – \"tea that can wait\"';
+  String get puerhTeaStoryTitle => 'Pu-erh – \"Tea that can wait\"';
 
   @override
   String get puerhTeaStory =>
@@ -404,6 +435,14 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get honeybushTeaStory =>
       'Honeybush comes from South Africa, from a plant related in spirit to rooibos but naturally sweeter in aroma.\n\nIt is caffeine-free, gentle, and rounded, with a honeyed scent that explains its name before the first sip. Honeybush feels like sunlight held in a herbal cup.';
+
+  @override
+  String get branchTeaStoryTitle =>
+      'Branch Tea - \"the hidden pulse of the winter garden\"';
+
+  @override
+  String get branchTeaStory =>
+      'Branch tea is the art of finding life where everything seems asleep.\n\nWhile traditional tea relies on fragile leaves, this ancient Ukrainian drink is born from the young twigs of cherry, currant, and raspberry trees. It is a slow, patient brew that coaxes deep, wooden, and berry aromas from the very bones of the plant.\n\nIt is proof that even in the coldest winter, the essence of spring is already hiding within the wood.';
 
   @override
   String get darjeelingTeaStoryTitle => 'Darjeeling - \"The Champagne of Tea\"';

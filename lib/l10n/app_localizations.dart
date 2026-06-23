@@ -398,6 +398,18 @@ abstract class AppLocalizations {
   /// **'South Africa'**
   String get southAfrica;
 
+  /// No description provided for @brazil.
+  ///
+  /// In en, this message translates to:
+  /// **'Brazil'**
+  String get brazil;
+
+  /// No description provided for @ukraine.
+  ///
+  /// In en, this message translates to:
+  /// **'Ukraine'**
+  String get ukraine;
+
   /// No description provided for @locked.
   ///
   /// In en, this message translates to:
@@ -500,6 +512,18 @@ abstract class AppLocalizations {
   /// **'Helba tea'**
   String get helbaTea;
 
+  /// No description provided for @mateTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Mate tea'**
+  String get mateTea;
+
+  /// No description provided for @carpathianTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Carpathian tea'**
+  String get carpathianTea;
+
   /// No description provided for @oolongTea.
   ///
   /// In en, this message translates to:
@@ -529,6 +553,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Honeybush tea'**
   String get honeybushTea;
+
+  /// No description provided for @branchTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Branch tea'**
+  String get branchTea;
 
   /// No description provided for @darjeelingTea.
   ///
@@ -728,10 +758,34 @@ abstract class AppLocalizations {
   /// **'Helba is an Egyptian drink made from fenugreek seeds, brewed into a golden, aromatic infusion.\n\nIts flavor is warm, slightly nutty, and unmistakable. In many homes it belongs to the world of everyday remedies and hospitality, a cup that feels both practical and ancient.'**
   String get helbaTeaStory;
 
+  /// No description provided for @mateTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Mate - \"The energy of the earth shared in a circle\"'**
+  String get mateTeaStoryTitle;
+
+  /// No description provided for @mateTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Mate is not just a drink; it is a ritual of connection.\n\nBorn in the heart of South American rainforests, it was discovered by the Guaraní people, who called it a gift from the gods. It requires no complex processing, yet it demands patience, a special gourd, and a metal straw.\n\nTo drink mate is to slow down, pass the cup, and share the vital energy of nature with friends.'**
+  String get mateTeaStory;
+
+  /// No description provided for @carpathianTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Carpathian Blend - \"the healing breath of the mountains\"'**
+  String get carpathianTeaStoryTitle;
+
+  /// No description provided for @carpathianTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Carpathian tea is a liquid ecosystem of the Ukrainian highlands.\n\nIt is not planted by humans, but gathered by hand on wild mountain meadows, where thyme, oregano, and mint drink the morning mists. It has no strict recipe, for every herbalist listens to nature.\n\nTo brew it is to open a portal to the ancient forests, bringing the calm and resilience of the mountains into a warm porcelain cup.'**
+  String get carpathianTeaStory;
+
   /// No description provided for @oolongTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Oolong - \"the tea that didn\'t choose a side\"'**
+  /// **'Oolong - \"The tea that didn\'t choose a side\"'**
   String get oolongTeaStoryTitle;
 
   /// No description provided for @oolongTeaStory.
@@ -743,7 +797,7 @@ abstract class AppLocalizations {
   /// No description provided for @rooibosTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Rooibos - \"tea that wasn\'t tea\"'**
+  /// **'Rooibos - \"Tea that wasn\'t tea\"'**
   String get rooibosTeaStoryTitle;
 
   /// No description provided for @rooibosTeaStory.
@@ -755,7 +809,7 @@ abstract class AppLocalizations {
   /// No description provided for @puerhTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Pu-erh – \"tea that can wait\"'**
+  /// **'Pu-erh – \"Tea that can wait\"'**
   String get puerhTeaStoryTitle;
 
   /// No description provided for @puerhTeaStory.
@@ -799,6 +853,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Honeybush comes from South Africa, from a plant related in spirit to rooibos but naturally sweeter in aroma.\n\nIt is caffeine-free, gentle, and rounded, with a honeyed scent that explains its name before the first sip. Honeybush feels like sunlight held in a herbal cup.'**
   String get honeybushTeaStory;
+
+  /// No description provided for @branchTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Branch Tea - \"the hidden pulse of the winter garden\"'**
+  String get branchTeaStoryTitle;
+
+  /// No description provided for @branchTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Branch tea is the art of finding life where everything seems asleep.\n\nWhile traditional tea relies on fragile leaves, this ancient Ukrainian drink is born from the young twigs of cherry, currant, and raspberry trees. It is a slow, patient brew that coaxes deep, wooden, and berry aromas from the very bones of the plant.\n\nIt is proof that even in the coldest winter, the essence of spring is already hiding within the wood.'**
+  String get branchTeaStory;
 
   /// No description provided for @darjeelingTeaStoryTitle.
   ///

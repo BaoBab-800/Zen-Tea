@@ -19,6 +19,8 @@ enum TeaType {
   genmaichaTea,
   hojichaTea,
   helbaTea,
+  mateTea,
+  carpathianTea,
 
   // Rare
   oolongTea,
@@ -26,6 +28,7 @@ enum TeaType {
   puerhTea,
   senchaTea,
   honeybushTea,
+  branchTea,
 
   // Legendary
   darjeelingTea,
@@ -47,6 +50,8 @@ enum TeaCountries {
   egypt,
   morocco,
   southAfrica,
+  brazil,
+  ukraine,
 }
 
 int getWeight(TeaFeatures feature) {
@@ -98,6 +103,10 @@ extension TeaTypeX on TeaType {
         return l10n.hojichaTea;
       case TeaType.helbaTea:
         return l10n.helbaTea;
+      case TeaType.mateTea:
+        return l10n.mateTea;
+      case TeaType.carpathianTea:
+        return l10n.carpathianTea;
 
       // Rare
       case TeaType.oolongTea:
@@ -110,6 +119,8 @@ extension TeaTypeX on TeaType {
         return l10n.senchaTea;
       case TeaType.honeybushTea:
         return l10n.honeybushTea;
+      case TeaType.branchTea:
+        return l10n.branchTea;
 
       // Legendary
       case TeaType.darjeelingTea:
@@ -160,6 +171,10 @@ extension TeaStoryX on TeaType {
         return l10n.hojichaTeaStory;
       case TeaType.helbaTea:
         return l10n.helbaTeaStory;
+      case TeaType.mateTea:
+        return l10n.mateTeaStory;
+      case TeaType.carpathianTea:
+        return l10n.carpathianTeaStory;
 
       // Rare
       case TeaType.oolongTea:
@@ -172,6 +187,8 @@ extension TeaStoryX on TeaType {
         return l10n.senchaTeaStory;
       case TeaType.honeybushTea:
         return l10n.honeybushTeaStory;
+      case TeaType.branchTea:
+        return l10n.branchTeaStory;
 
       // Legendary
       case TeaType.darjeelingTea:
@@ -222,6 +239,10 @@ extension TeaTitleStoryX on TeaType {
         return l10n.hojichaTeaStoryTitle;
       case TeaType.helbaTea:
         return l10n.helbaTeaStoryTitle;
+      case TeaType.mateTea:
+        return l10n.mateTeaStoryTitle;
+      case TeaType.carpathianTea:
+        return l10n.carpathianTeaStoryTitle;
 
       // Rare
       case TeaType.oolongTea:
@@ -234,6 +255,8 @@ extension TeaTitleStoryX on TeaType {
         return l10n.senchaTeaStoryTitle;
       case TeaType.honeybushTea:
         return l10n.honeybushTeaStoryTitle;
+      case TeaType.branchTea:
+        return l10n.branchTeaStoryTitle;
 
       // Legendary
       case TeaType.darjeelingTea:
@@ -265,6 +288,10 @@ extension TeaCountriesX on TeaCountries {
         return l10n.morocco;
       case TeaCountries.southAfrica:
         return l10n.southAfrica;
+      case TeaCountries.brazil:
+        return l10n.brazil;
+      case TeaCountries.ukraine:
+        return l10n.ukraine;
     }
   }
 }

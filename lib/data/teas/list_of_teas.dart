@@ -163,6 +163,26 @@ final List<TeaModel> listOfTeas = [
     isUnlocked: false,
   ),
 
+  TeaModel(
+    type: TeaType.mateTea,
+    imagePath: 'assets/teas/mate_tea.jpg',
+    features: TeaFeatures.common,
+    country: TeaCountries.brazil,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Mate_(drink)'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  TeaModel(
+    type: TeaType.carpathianTea,
+    imagePath: 'assets/teas/carpathian_tea.jpg',
+    features: TeaFeatures.common,
+    country: TeaCountries.ukraine,
+    url: Uri.parse('https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BF%D0%BE%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D1%87%D0%B0%D0%B9'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
   // Rare
   TeaModel(
     type: TeaType.oolongTea,
@@ -210,6 +230,16 @@ final List<TeaModel> listOfTeas = [
     features: TeaFeatures.rare,
     country: TeaCountries.southAfrica,
     url: Uri.parse('https://en.wikipedia.org/wiki/Honeybush'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  TeaModel(
+    type: TeaType.branchTea,
+    imagePath: 'assets/teas/branch_tea.jpg',
+    features: TeaFeatures.rare,
+    country: TeaCountries.ukraine,
+    url: Uri.parse('https://uk.wikipedia.org/wiki/%D0%A3%D0%B7%D0%B2%D0%B0%D1%80'),
     timesServed: 0,
     isUnlocked: false,
   ),
