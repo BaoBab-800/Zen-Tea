@@ -6,6 +6,7 @@ import 'chapters_content/chapter_two.dart';
 import 'chapters_content/chapter_three.dart';
 import 'chapters_content/chapter_four.dart';
 import 'chapters_content/chapter_five.dart';
+import 'chapters_content/chapter_six.dart';
 
 List<HisChapterModel> hisChaptersList = [
   HisChapterModel(
@@ -37,5 +38,11 @@ List<HisChapterModel> hisChaptersList = [
     id: 5,
     content: chapterFive,
     icon: Icons.favorite,
+  ),
+
+  HisChapterModel(
+    id: 6,
+    content: chapterSix,
+    icon: Icons.psychology,
   ),
 ];
