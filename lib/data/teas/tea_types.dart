@@ -21,6 +21,7 @@ enum TeaType {
   helbaTea,
   mateTea,
   carpathianTea,
+  labradorTea,
 
   // Rare
   oolongTea,
@@ -34,6 +35,7 @@ enum TeaType {
   darjeelingTea,
   gyokuroTea,
   tieguanyinTea,
+  manoominTea,
 }
 
 enum TeaFeatures {
@@ -52,6 +54,7 @@ enum TeaCountries {
   southAfrica,
   brazil,
   ukraine,
+  canada,
 }
 
 int getWeight(TeaFeatures feature) {
@@ -107,6 +110,8 @@ extension TeaTypeX on TeaType {
         return l10n.mateTea;
       case TeaType.carpathianTea:
         return l10n.carpathianTea;
+      case TeaType.labradorTea:
+        return l10n.labradorTea;
 
       // Rare
       case TeaType.oolongTea:
@@ -129,6 +134,8 @@ extension TeaTypeX on TeaType {
         return l10n.gyokuroTea;
       case TeaType.tieguanyinTea:
         return l10n.tieguanyinTea;
+      case TeaType.manoominTea:
+        return l10n.manoominTea;
     }
   }
 }
@@ -175,6 +182,8 @@ extension TeaStoryX on TeaType {
         return l10n.mateTeaStory;
       case TeaType.carpathianTea:
         return l10n.carpathianTeaStory;
+      case TeaType.labradorTea:
+        return l10n.labradorTeaStory;
 
       // Rare
       case TeaType.oolongTea:
@@ -197,6 +206,8 @@ extension TeaStoryX on TeaType {
         return l10n.gyokuroTeaStory;
       case TeaType.tieguanyinTea:
         return l10n.tieguanyinTeaStory;
+      case TeaType.manoominTea:
+        return l10n.manoominTeaStory;
     }
   }
 }
@@ -243,6 +254,8 @@ extension TeaTitleStoryX on TeaType {
         return l10n.mateTeaStoryTitle;
       case TeaType.carpathianTea:
         return l10n.carpathianTeaStoryTitle;
+      case TeaType.labradorTea:
+        return l10n.labradorTeaStoryTitle;
 
       // Rare
       case TeaType.oolongTea:
@@ -265,6 +278,8 @@ extension TeaTitleStoryX on TeaType {
         return l10n.gyokuroTeaStoryTitle;
       case TeaType.tieguanyinTea:
         return l10n.tieguanyinTeaStoryTitle;
+      case TeaType.manoominTea:
+        return l10n.manoominTeaStoryTitle;
     }
   }
 }
@@ -292,6 +307,8 @@ extension TeaCountriesX on TeaCountries {
         return l10n.brazil;
       case TeaCountries.ukraine:
         return l10n.ukraine;
+      case TeaCountries.canada:
+        return l10n.canada;
     }
   }
 }

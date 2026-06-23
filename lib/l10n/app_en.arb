@@ -71,6 +71,7 @@
   "southAfrica": "South Africa",
   "brazil": "Brazil",
   "ukraine": "Ukraine",
+  "canada": "Canada",
 
   "locked": "Locked",
 
@@ -92,6 +93,7 @@
   "helbaTea": "Helba tea",
   "mateTea": "Mate tea",
   "carpathianTea": "Carpathian tea",
+  "labradorTea": "Labrador tea",
 
   "oolongTea": "Oolong tea",
   "rooibosTea": "Rooibos tea",
@@ -103,6 +105,7 @@
   "darjeelingTea": "Darjeeling tea",
   "gyokuroTea": "Gyokuro tea",
   "tieguanyinTea": "Tieguanyin tea",
+  "manoominTea": "Manoomin tea",
 
   "blackTeaStoryTitle": "Black Tea - \"The Tea That Accidentally Became a Legend\"",
   "blackTeaStory": "They say black tea didn't appear because someone intended it that way, but because green tea was forgotten one day.\n\nIn China, tea leaves were typically processed quickly to preserve their freshness and green color. But one day, a batch of leaves was left over and began to oxidize. The leaves darkened, the aroma changed, and instead of the usual herbal flavor, a rich, deep aroma emerged.\n\nAnd instead of throwing it away, people tried it. And they liked it.\n\nThus, a new type of tea was born, which later became known as black tea.",
@@ -155,6 +158,9 @@
   "carpathianTeaStoryTitle": "Carpathian Blend - \"the healing breath of the mountains\"",
   "carpathianTeaStory": "Carpathian tea is a liquid ecosystem of the Ukrainian highlands.\n\nIt is not planted by humans, but gathered by hand on wild mountain meadows, where thyme, oregano, and mint drink the morning mists. It has no strict recipe, for every herbalist listens to nature.\n\nTo brew it is to open a portal to the ancient forests, bringing the calm and resilience of the mountains into a warm porcelain cup.",
 
+  "labradorTeaStoryTitle": "Labrador Tea - \"the ancient warmth of the tundra\"",
+  "labradorTeaStory": "Labrador tea is a survival code written by nature itself.\n\nFor centuries, its resilient evergreen leaves have braved the freezing subarctic mists of the Canadian boreal forests. Discovered by Indigenous peoples, it became a sacred brew of vitality, medicine, and deep connection to the frozen earth.\n\nTo sip it is to experience the wild north: a crisp, pine-scented steam that warms the soul with notes of fresh moss and hidden citrus.",
+
   "oolongTeaStoryTitle": "Oolong - \"The tea that didn't choose a side\"",
   "oolongTeaStory": "Oolong is a tea that exists between worlds.\n\nIts leaves are partially oxidized: not as much as black tea, and not as lightly as green tea. Therefore, it is neither one nor the other, and simultaneously both.\n\nThis is not a technological failure, but an art of balance.",
 
@@ -185,6 +191,8 @@
   "tieguanyinTeaStoryTitle": "Tieguanyin - \"The Iron Goddess of Mercy\"",
   "tieguanyinTeaStory": "Tieguanyin is a celebrated Chinese oolong whose name carries the legend of the Iron Goddess of Mercy.\n\nDepending on how it is made, it can be floral and bright or deeper and roasted. What stays constant is its elegance: a tea that opens slowly, steep after steep, revealing more than it says at first.",
 
+  "manoominTeaStoryTitle": "Manoomin - \"where the sacred lake meets the roasting fire\"",
+  "manoominTeaStory": "Manoomin tea is a sacred dialogue between two distant shores.\n\nIt brings together the roasting art of traditional tea and the ancient wild rice hand-harvested from Canadian lakes by Indigenous peoples. It is not just a blend, but a harmony of earth and water, born from canoes guiding through lake mists.\n\nEvery cup offers a comforting, deeply grounding warmth, rich with toasted nuttiness, popcorn aromas, and the spirit of the northern wilderness.",
 
 
   "tServeTenTeasAchievement": "Just 10 times",

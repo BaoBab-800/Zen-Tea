@@ -183,6 +183,16 @@ final List<TeaModel> listOfTeas = [
     isUnlocked: false,
   ),
 
+  TeaModel(
+    type: TeaType.labradorTea,
+    imagePath: 'assets/teas/labrador_tea.jpg',
+    features: TeaFeatures.common,
+    country: TeaCountries.canada,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Labrador_tea'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
   // Rare
   TeaModel(
     type: TeaType.oolongTea,
@@ -271,6 +281,16 @@ final List<TeaModel> listOfTeas = [
     features: TeaFeatures.legendary,
     country: TeaCountries.china,
     url: Uri.parse('https://en.wikipedia.org/wiki/Tieguanyin'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
+  TeaModel(
+    type: TeaType.manoominTea,
+    imagePath: 'assets/teas/manoomin_tea.jpg',
+    features: TeaFeatures.legendary,
+    country: TeaCountries.canada,
+    url: Uri.parse('https://en.wikipedia.org/?title=Manoomin&redirect=no'),
     timesServed: 0,
     isUnlocked: false,
   ),

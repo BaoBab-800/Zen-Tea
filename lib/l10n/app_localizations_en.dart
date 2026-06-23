@@ -174,6 +174,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ukraine => 'Ukraine';
 
   @override
+  String get canada => 'Canada';
+
+  @override
   String get locked => 'Locked';
 
   @override
@@ -231,6 +234,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get carpathianTea => 'Carpathian tea';
 
   @override
+  String get labradorTea => 'Labrador tea';
+
+  @override
   String get oolongTea => 'Oolong tea';
 
   @override
@@ -256,6 +262,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tieguanyinTea => 'Tieguanyin tea';
+
+  @override
+  String get manoominTea => 'Manoomin tea';
 
   @override
   String get blackTeaStoryTitle =>
@@ -391,6 +400,14 @@ class AppLocalizationsEn extends AppLocalizations {
       'Carpathian tea is a liquid ecosystem of the Ukrainian highlands.\n\nIt is not planted by humans, but gathered by hand on wild mountain meadows, where thyme, oregano, and mint drink the morning mists. It has no strict recipe, for every herbalist listens to nature.\n\nTo brew it is to open a portal to the ancient forests, bringing the calm and resilience of the mountains into a warm porcelain cup.';
 
   @override
+  String get labradorTeaStoryTitle =>
+      'Labrador Tea - \"the ancient warmth of the tundra\"';
+
+  @override
+  String get labradorTeaStory =>
+      'Labrador tea is a survival code written by nature itself.\n\nFor centuries, its resilient evergreen leaves have braved the freezing subarctic mists of the Canadian boreal forests. Discovered by Indigenous peoples, it became a sacred brew of vitality, medicine, and deep connection to the frozen earth.\n\nTo sip it is to experience the wild north: a crisp, pine-scented steam that warms the soul with notes of fresh moss and hidden citrus.';
+
+  @override
   String get oolongTeaStoryTitle =>
       'Oolong - \"The tea that didn\'t choose a side\"';
 
@@ -465,6 +482,14 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get tieguanyinTeaStory =>
       'Tieguanyin is a celebrated Chinese oolong whose name carries the legend of the Iron Goddess of Mercy.\n\nDepending on how it is made, it can be floral and bright or deeper and roasted. What stays constant is its elegance: a tea that opens slowly, steep after steep, revealing more than it says at first.';
+
+  @override
+  String get manoominTeaStoryTitle =>
+      'Manoomin - \"where the sacred lake meets the roasting fire\"';
+
+  @override
+  String get manoominTeaStory =>
+      'Manoomin tea is a sacred dialogue between two distant shores.\n\nIt brings together the roasting art of traditional tea and the ancient wild rice hand-harvested from Canadian lakes by Indigenous peoples. It is not just a blend, but a harmony of earth and water, born from canoes guiding through lake mists.\n\nEvery cup offers a comforting, deeply grounding warmth, rich with toasted nuttiness, popcorn aromas, and the spirit of the northern wilderness.';
 
   @override
   String get tServeTenTeasAchievement => 'Just 10 times';

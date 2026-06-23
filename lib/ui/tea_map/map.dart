@@ -210,5 +210,7 @@ String _teaCountryCode(TeaCountries country) {
       return 'BR';
     case TeaCountries.ukraine:
       return 'UA';
+    case TeaCountries.canada:
+      return 'CA';
   }
 }
