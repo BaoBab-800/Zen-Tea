@@ -179,6 +179,15 @@ class AppLocalizationsUk extends AppLocalizations {
   String get locked => 'Заблоковано';
 
   @override
+  String get common => 'Звичайний';
+
+  @override
+  String get rare => 'Рідкісний';
+
+  @override
+  String get legendary => 'Легендарний';
+
+  @override
   String get blackTea => 'Чорний чай';
 
   @override

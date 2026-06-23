@@ -422,6 +422,24 @@ abstract class AppLocalizations {
   /// **'Locked'**
   String get locked;
 
+  /// No description provided for @common.
+  ///
+  /// In en, this message translates to:
+  /// **'Common'**
+  String get common;
+
+  /// No description provided for @rare.
+  ///
+  /// In en, this message translates to:
+  /// **'Rare'**
+  String get rare;
+
+  /// No description provided for @legendary.
+  ///
+  /// In en, this message translates to:
+  /// **'Legendary'**
+  String get legendary;
+
   /// No description provided for @blackTea.
   ///
   /// In en, this message translates to:

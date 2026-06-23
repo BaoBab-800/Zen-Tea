@@ -75,6 +75,10 @@
 
   "locked": "Locked",
 
+  "common": "Common",
+  "rare": "Rare",
+  "legendary": "Legendary",
+
   "blackTea": "Black tea",
   "greenTea": "Green tea",
   "earlGreyTea": "Earl grey tea",

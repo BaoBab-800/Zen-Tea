@@ -180,6 +180,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get locked => 'Locked';
 
   @override
+  String get common => 'Common';
+
+  @override
+  String get rare => 'Rare';
+
+  @override
+  String get legendary => 'Legendary';
+
+  @override
   String get blackTea => 'Black tea';
 
   @override

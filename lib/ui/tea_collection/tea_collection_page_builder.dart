@@ -2,15 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:zentea/core/l10n/l10n.dart';
-import 'package:zentea/core/theme/app_theme.dart';
-
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
-
 import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
-import 'package:zentea/services/url/url_service.dart';
-
-import 'package:zentea/ui/history_of_teas/history_builder.dart';
+import 'tea_card.dart';
 
 class TeaCollectionPageBuilder extends StatelessWidget {
   const TeaCollectionPageBuilder({super.key});
@@ -18,6 +13,9 @@ class TeaCollectionPageBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final teas = context.watch<ITeaCollectionService>().teas;
+    final commonTeas = teas.where((tea) => tea.features == TeaFeatures.common).toList();
+    final rareTeas = teas.where((tea) => tea.features == TeaFeatures.rare).toList();
+    final legendaryTeas = teas.where((tea) => tea.features == TeaFeatures.legendary).toList();
 
     return Scaffold(
       appBar: AppBar(
@@ -28,159 +26,63 @@ class TeaCollectionPageBuilder extends StatelessWidget {
       ),
 
       body: Padding(
-        padding: const EdgeInsets.only(left: 12, right: 12, top: 14),
-        child: GridView.builder(
-          itemCount: teas.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            crossAxisSpacing: 8.0,
-            mainAxisSpacing: 8.0,
-            childAspectRatio: 0.7,
-          ),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+        child: CustomScrollView(
+          slivers: [
+            _raritySeparator(context.l10n.common),
+            _teaGridView(context, commonTeas),
 
-          itemBuilder: (context, index) {
-            return TeaCard(tea: teas[index]);
-          }
+            _raritySeparator(context.l10n.rare),
+            _teaGridView(context, rareTeas),
+
+            _raritySeparator(context.l10n.legendary),
+            _teaGridView(context, legendaryTeas),
+          ],
         ),
       ),
     );
   }
-}
 
-class TeaCard extends StatelessWidget {
-  final TeaModel tea;
-  final UrlService urlService = UrlService();
+  Widget _teaGridView(BuildContext context, List<TeaModel> teas) {
+    return SliverGrid(
+      delegate: SliverChildBuilderDelegate(
+            (context, index) => TeaCard(tea: teas[index]),
+        childCount: teas.length,
+      ),
 
-  TeaCard({super.key, required this.tea});
-
-  void showTeaDialog(BuildContext context, TeaModel tea, UrlService urlService) {
-    showDialog(
-      context: context,
-      barrierColor: Colors.black.withValues(alpha: 0.6),
-      builder: (context) {
-        return Dialog(
-          insetPadding: const EdgeInsets.all(16),
-          backgroundColor: context.colors.onPrimary.withValues(alpha: 0.9),
-          child: Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 24, left: 24, right: 2, bottom: 12),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Image.asset(
-                        tea.imagePath,
-                        fit: BoxFit.cover,
-                        height: 200,
-                        width: 200,
-                      ),
-                    ),
-
-                    const SizedBox(height: 6),
-                    Text(
-                      context.l10n.teaServedTimes(tea.timesServed),
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-
-                    const SizedBox(height: 12),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => HistoryBuilder(currentTea: tea),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        context.l10n.readTheStory,
-                        style: TextStyle(fontWeight: FontWeight.w600),
-                      ),
-                    ),
-
-                    const SizedBox(height: 12),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        urlService.open(tea.url);
-                      },
-                      child: Text(
-                        context.l10n.goToWiki,
-                        style: TextStyle(fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              Positioned(
-                top: 4,
-                right: 4,
-                child: IconButton(
-                  icon: const Icon(Icons.close),
-                  onPressed: () => Navigator.pop(context),
-                ),
-              ),
-            ],
-          ),
-        );
-      },
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3,
+        crossAxisSpacing: 8,
+        mainAxisSpacing: 8,
+        childAspectRatio: 0.7,
+      ),
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      borderRadius: BorderRadius.circular(8.0),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(8.0),
-        onTap: () {
-          if (!tea.isUnlocked) return;
+  Widget _raritySeparator(String rarityName) {
+    return SliverToBoxAdapter(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 12),
+        child: Row(
+          children: [
+            const Expanded(
+              child: Divider(indent: 16),
+            ),
 
-          showTeaDialog(
-            context,
-            tea,
-            urlService,
-          );
-        },
-
-        child: Container(
-          decoration: BoxDecoration(
-            color: context.colors.onPrimary.withValues(alpha: 0.5),
-            borderRadius: BorderRadius.circular(8),
-          ),
-
-          child: Column(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(4),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: tea.isUnlocked
-                        ? Image.asset(
-                      tea.imagePath,
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      height: double.infinity,
-                    ) : const Center(child: Icon(Icons.lock)),
-                  ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Text(
+                rarityName,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
                 ),
               ),
+            ),
 
-              Text(
-                tea.isUnlocked ? tea.type.title(context) : context.l10n.locked,
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
+            const Expanded(
+              child: Divider(endIndent: 16),
+            ),
+          ],
         ),
       ),
     );
