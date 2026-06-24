@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:zentea/data/his/his_chapters_list.dart';
 
 import 'chapters_page.dart';
-import 'his_app_bar.dart';
 
 class HisPageContent extends StatelessWidget {
   const HisPageContent({super.key});
@@ -11,7 +10,16 @@ class HisPageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HisAppBar(),
+      appBar: AppBar(
+        title: Text(
+          'His Scriptures',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+      ),
 
       body: ListView.builder(
         itemCount: hisChaptersList.length,
