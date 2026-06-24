@@ -5,5 +5,7 @@ abstract class ITodayTeaService {
 
   Future<bool> shouldCountServingForToday();
 
+  Future<void> debugAdvanceToNextDay();
+
   TeaModel getWeightedRandomTea(List<TeaModel> teas);
 }

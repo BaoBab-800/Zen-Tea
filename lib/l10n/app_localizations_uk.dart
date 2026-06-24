@@ -89,6 +89,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get blockAll => 'Закрити все';
 
   @override
+  String get nextDay => 'Наступний день';
+
+  @override
   String get setRandomStreak => 'Встановити випадкове значення (0-99)';
 
   @override

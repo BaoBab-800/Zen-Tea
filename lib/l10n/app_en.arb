@@ -30,6 +30,7 @@
   "resetAllStats": "Reset all stats",
   "unlockAll": "Unlock all",
   "blockAll": "Block all",
+  "nextDay": "Next day",
   "setRandomStreak": "Set random streak (0-99)",
   "resetStreak": "Reset streak",
   "warning": "Warning!",

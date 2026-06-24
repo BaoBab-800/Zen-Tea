@@ -16,6 +16,7 @@ import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 import 'package:zentea/services/stats/i_stats_repository.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
 import 'package:zentea/services/tea_collection/i_tea_collection_service.dart';
+import 'package:zentea/services/today_tea/i_today_tea_service.dart';
 
 class DeveloperRoom extends StatefulWidget {
   const DeveloperRoom({super.key});
@@ -129,6 +130,12 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
 
               const SizedBox(height: 6),
               TextButton(
+                onPressed: _busy ? null : () => _run(_nextDay),
+                child: Text(context.l10n.nextDay),
+              ),
+
+              const SizedBox(height: 6),
+              TextButton(
                 onPressed: _busy ? null : () => _run(_setRandomStreak),
                 child: Text(context.l10n.setRandomStreak),
               ),
@@ -163,6 +170,17 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
           child: Text(context.l10n.ok),
         ),
       ],
+    );
+  }
+
+  Future<void> _nextDay() async {
+    final todayTeaService = context.read<ITodayTeaService>();
+
+    await todayTeaService.debugAdvanceToNextDay();
+
+    developer.log(
+      'Daily tea state advanced to the next day',
+      name: 'DeveloperRoom',
     );
   }
 

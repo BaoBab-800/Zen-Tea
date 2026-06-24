@@ -38,6 +38,15 @@ class TodayTeaServiceImpl implements ITodayTeaService {
   }
 
   @override
+  Future<void> debugAdvanceToNextDay() async {
+    final yesterday = _dateKey(
+      DateTime.now().subtract(const Duration(days: 1)),
+    );
+    await _storage.put(_servedDateKey, yesterday);
+    await _storage.put(_teaDateKey, yesterday);
+  }
+
+  @override
   TeaModel getWeightedRandomTea(List<TeaModel> teas) {
     final totalWeight = teas.fold<int>(0, (sum, tea) => sum + getWeight(tea.features));
     final random = Random().nextInt(totalWeight);
@@ -65,10 +74,11 @@ class TodayTeaServiceImpl implements ITodayTeaService {
     await _storage.put(_teaTypeKey, teaTypeName);
   }
 
-  String _todayKey() {
-    final now = DateTime.now();
-    final month = now.month.toString().padLeft(2, '0');
-    final day = now.day.toString().padLeft(2, '0');
-    return '${now.year}-$month-$day';
+  String _todayKey() => _dateKey(DateTime.now());
+
+  String _dateKey(DateTime date) {
+    final month = date.month.toString().padLeft(2, '0');
+    final day = date.day.toString().padLeft(2, '0');
+    return '${date.year}-$month-$day';
   }
 }

@@ -254,6 +254,12 @@ abstract class AppLocalizations {
   /// **'Block all'**
   String get blockAll;
 
+  /// No description provided for @nextDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Next day'**
+  String get nextDay;
+
   /// No description provided for @setRandomStreak.
   ///
   /// In en, this message translates to:

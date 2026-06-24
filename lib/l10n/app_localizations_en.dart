@@ -90,6 +90,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get blockAll => 'Block all';
 
   @override
+  String get nextDay => 'Next day';
+
+  @override
   String get setRandomStreak => 'Set random streak (0-99)';
 
   @override
