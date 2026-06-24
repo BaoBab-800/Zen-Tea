@@ -25,8 +25,6 @@ class HomeDrawerSection extends StatelessWidget {
           _buildDrawerItem(context.l10n.settings, Icons.settings, AppRoute.settings, context),
 
           _buildDrawerItem(context.l10n.about, Icons.info_outline, AppRoute.about, context),
-
-          _buildDrawerItem('His test', Icons.build, AppRoute.hisPageContent, context),
         ],
       ),
     );
