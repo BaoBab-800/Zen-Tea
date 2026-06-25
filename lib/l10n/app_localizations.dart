@@ -422,6 +422,12 @@ abstract class AppLocalizations {
   /// **'Canada'**
   String get canada;
 
+  /// No description provided for @russia.
+  ///
+  /// In en, this message translates to:
+  /// **'Russia'**
+  String get russia;
+
   /// No description provided for @locked.
   ///
   /// In en, this message translates to:
@@ -559,6 +565,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Labrador tea'**
   String get labradorTea;
+
+  /// No description provided for @ivanTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Ivan-tea'**
+  String get ivanTea;
 
   /// No description provided for @oolongTea.
   ///
@@ -835,6 +847,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Labrador tea is a survival code written by nature itself.\n\nFor centuries, its resilient evergreen leaves have braved the freezing subarctic mists of the Canadian boreal forests. Discovered by Indigenous peoples, it became a sacred brew of vitality, medicine, and deep connection to the frozen earth.\n\nTo sip it is to experience the wild north: a crisp, pine-scented steam that warms the soul with notes of fresh moss and hidden citrus.'**
   String get labradorTeaStory;
+
+  /// No description provided for @ivanTeaStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ivan-Tea - \"the flame that heals the scorched earth\"'**
+  String get ivanTeaStoryTitle;
+
+  /// No description provided for @ivanTeaStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Ivan-tea is a story of rebirth and silent power.\n\nIts beautiful purple flowers are always the first to bloom on burnt lands and clearing sites, bringing life back to wounded soil. Through the art of deep leaf fermentation, it transforms from a simple wild herb into a rich, full-bodied brew that rivals classic black tea.\n\nFree of caffeine yet full of vital energy, it is a testament to the soothing, resilient embrace of northern nature.'**
+  String get ivanTeaStory;
 
   /// No description provided for @oolongTeaStoryTitle.
   ///

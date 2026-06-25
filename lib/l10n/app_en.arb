@@ -73,6 +73,7 @@
   "brazil": "Brazil",
   "ukraine": "Ukraine",
   "canada": "Canada",
+  "russia": "Russia",
 
   "locked": "Locked",
 
@@ -99,6 +100,7 @@
   "mateTea": "Mate tea",
   "carpathianTea": "Carpathian tea",
   "labradorTea": "Labrador tea",
+  "ivanTea": "Ivan-tea",
 
   "oolongTea": "Oolong tea",
   "rooibosTea": "Rooibos tea",
@@ -165,6 +167,9 @@
 
   "labradorTeaStoryTitle": "Labrador Tea - \"the ancient warmth of the tundra\"",
   "labradorTeaStory": "Labrador tea is a survival code written by nature itself.\n\nFor centuries, its resilient evergreen leaves have braved the freezing subarctic mists of the Canadian boreal forests. Discovered by Indigenous peoples, it became a sacred brew of vitality, medicine, and deep connection to the frozen earth.\n\nTo sip it is to experience the wild north: a crisp, pine-scented steam that warms the soul with notes of fresh moss and hidden citrus.",
+
+  "ivanTeaStoryTitle": "Ivan-Tea - \"the flame that heals the scorched earth\"",
+  "ivanTeaStory": "Ivan-tea is a story of rebirth and silent power.\n\nIts beautiful purple flowers are always the first to bloom on burnt lands and clearing sites, bringing life back to wounded soil. Through the art of deep leaf fermentation, it transforms from a simple wild herb into a rich, full-bodied brew that rivals classic black tea.\n\nFree of caffeine yet full of vital energy, it is a testament to the soothing, resilient embrace of northern nature.",
 
   "oolongTeaStoryTitle": "Oolong - \"The tea that didn't choose a side\"",
   "oolongTeaStory": "Oolong is a tea that exists between worlds.\n\nIts leaves are partially oxidized: not as much as black tea, and not as lightly as green tea. Therefore, it is neither one nor the other, and simultaneously both.\n\nThis is not a technological failure, but an art of balance.",

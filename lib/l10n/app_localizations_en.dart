@@ -180,6 +180,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get canada => 'Canada';
 
   @override
+  String get russia => 'Russia';
+
+  @override
   String get locked => 'Locked';
 
   @override
@@ -247,6 +250,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get labradorTea => 'Labrador tea';
+
+  @override
+  String get ivanTea => 'Ivan-tea';
 
   @override
   String get oolongTea => 'Oolong tea';
@@ -418,6 +424,14 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get labradorTeaStory =>
       'Labrador tea is a survival code written by nature itself.\n\nFor centuries, its resilient evergreen leaves have braved the freezing subarctic mists of the Canadian boreal forests. Discovered by Indigenous peoples, it became a sacred brew of vitality, medicine, and deep connection to the frozen earth.\n\nTo sip it is to experience the wild north: a crisp, pine-scented steam that warms the soul with notes of fresh moss and hidden citrus.';
+
+  @override
+  String get ivanTeaStoryTitle =>
+      'Ivan-Tea - \"the flame that heals the scorched earth\"';
+
+  @override
+  String get ivanTeaStory =>
+      'Ivan-tea is a story of rebirth and silent power.\n\nIts beautiful purple flowers are always the first to bloom on burnt lands and clearing sites, bringing life back to wounded soil. Through the art of deep leaf fermentation, it transforms from a simple wild herb into a rich, full-bodied brew that rivals classic black tea.\n\nFree of caffeine yet full of vital energy, it is a testament to the soothing, resilient embrace of northern nature.';
 
   @override
   String get oolongTeaStoryTitle =>

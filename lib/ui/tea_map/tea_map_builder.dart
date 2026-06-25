@@ -41,6 +41,8 @@ class _TeaMapBuilderState extends State<TeaMapBuilder> {
         return TeaCountries.ukraine;
       case 'CA':
         return TeaCountries.canada;
+      case 'RU':
+        return TeaCountries.russia;
       default:
         return null;
     }
@@ -116,6 +118,7 @@ class _TeaMapBuilderState extends State<TeaMapBuilder> {
       (context.l10n.brazil, TeaCountries.brazil),
       (context.l10n.ukraine, TeaCountries.ukraine),
       (context.l10n.canada, TeaCountries.canada),
+      (context.l10n.russia, TeaCountries.russia),
     ];
 
     return Scaffold(

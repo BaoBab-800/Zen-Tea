@@ -22,6 +22,7 @@ enum TeaType {
   mateTea,
   carpathianTea,
   labradorTea,
+  ivanTea,
 
   // Rare
   oolongTea,
@@ -55,6 +56,7 @@ enum TeaCountries {
   brazil,
   ukraine,
   canada,
+  russia,
 }
 
 int getWeight(TeaFeatures feature) {
@@ -112,6 +114,8 @@ extension TeaTypeX on TeaType {
         return l10n.carpathianTea;
       case TeaType.labradorTea:
         return l10n.labradorTea;
+      case TeaType.ivanTea:
+        return l10n.ivanTea;
 
       // Rare
       case TeaType.oolongTea:
@@ -184,6 +188,8 @@ extension TeaStoryX on TeaType {
         return l10n.carpathianTeaStory;
       case TeaType.labradorTea:
         return l10n.labradorTeaStory;
+      case TeaType.ivanTea:
+        return l10n.ivanTeaStory;
 
       // Rare
       case TeaType.oolongTea:
@@ -256,6 +262,8 @@ extension TeaTitleStoryX on TeaType {
         return l10n.carpathianTeaStoryTitle;
       case TeaType.labradorTea:
         return l10n.labradorTeaStoryTitle;
+      case TeaType.ivanTea:
+        return l10n.ivanTeaStoryTitle;
 
       // Rare
       case TeaType.oolongTea:
@@ -309,6 +317,8 @@ extension TeaCountriesX on TeaCountries {
         return l10n.ukraine;
       case TeaCountries.canada:
         return l10n.canada;
+      case TeaCountries.russia:
+        return l10n.russia;
     }
   }
 }

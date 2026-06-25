@@ -193,6 +193,16 @@ final List<TeaModel> listOfTeas = [
     isUnlocked: false,
   ),
 
+  TeaModel(
+    type: TeaType.ivanTea,
+    imagePath: 'assets/teas/ivan_tea.jpg',
+    features: TeaFeatures.common,
+    country: TeaCountries.russia,
+    url: Uri.parse('https://en.wikipedia.org/wiki/Chamaenerion'),
+    timesServed: 0,
+    isUnlocked: false,
+  ),
+
   // Rare
   TeaModel(
     type: TeaType.oolongTea,
