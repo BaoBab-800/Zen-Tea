@@ -54,3 +54,7 @@ class AppTheme {
 extension ThemeContext on BuildContext {
   ColorScheme get colors => Theme.of(this).colorScheme;
 }
+
+Color lighten(Color color, double amount) {
+  return Color.lerp(color, Colors.white, amount)!;
+}

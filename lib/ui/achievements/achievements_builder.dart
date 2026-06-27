@@ -53,12 +53,68 @@ class AchievementsBuilder extends StatelessWidget {
         final unlocked = snapshot.data ?? <IdKeys>{};
         final isUnlocked = unlocked.contains(achievement.id);
 
-        return Card(
-          color: isUnlocked ? context.colors.primary : null,
-          child: ListTile(
-            leading: Icon(achievement.icon),
-            title: Text(localization.achievementTitle(context, achievement.titleKey)),
-            subtitle: Text(localization.achievementDescription(context, achievement.descriptionKey)),
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: isUnlocked ? LinearGradient(
+                colors: [
+                  lighten(context.colors.primary, 0.1),
+                  context.colors.primary,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ) : LinearGradient(
+                colors: [
+                  context.colors.surfaceContainerLow,
+                  context.colors.surfaceContainer,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+
+              borderRadius: BorderRadius.circular(16),
+            ),
+
+            child: ListTile(
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 4,
+              ),
+
+              leading: Container(
+                width: 48,
+                height: 48,
+                decoration: BoxDecoration(
+                  color: isUnlocked
+                      ? context.colors.onPrimary.withValues(alpha: 0.15)
+                      : null,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: isUnlocked ? Icon(
+                  achievement.icon,
+                  color: isUnlocked ? Colors.white : null,
+                ) : Icon(Icons.lock),
+              ),
+
+              title: Text(
+                localization.achievementTitle(context, achievement.titleKey),
+                style: TextStyle(
+                  color: isUnlocked ? Colors.white : null,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              subtitle: Text(
+                localization.achievementDescription(
+                  context,
+                  achievement.descriptionKey,
+                ),
+                style: TextStyle(
+                  color: isUnlocked ? Colors.white : null,
+                ),
+              ),
+            ),
           ),
         );
       },
