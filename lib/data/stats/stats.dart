@@ -20,12 +20,15 @@ class Stats {
   final int rareTeasObtained;
 
   @HiveField(5)
-  final int totalQuestCompleted;
+  final int legendaryTeasObtained;
 
   @HiveField(6)
-  final int maxStreak;
+  final int totalQuestCompleted;
 
   @HiveField(7)
+  final int maxStreak;
+
+  @HiveField(8)
   final DateTime? lastCompletedAt;
 
   const Stats({
@@ -34,6 +37,7 @@ class Stats {
     required this.streakDays,
     required this.currentTeaServed,
     required this.rareTeasObtained,
+    required this.legendaryTeasObtained,
     required this.totalQuestCompleted,
     required this.maxStreak,
     this.lastCompletedAt,
@@ -45,6 +49,7 @@ class Stats {
     int? streakDays,
     int? currentTeaServed,
     int? rareTeasObtained,
+    int? legendaryTeasObtained,
     int? totalQuestCompleted,
     int? maxStreak,
     DateTime? lastCompletedAt,
@@ -55,6 +60,7 @@ class Stats {
       streakDays: streakDays ?? this.streakDays,
       currentTeaServed: currentTeaServed ?? this.currentTeaServed,
       rareTeasObtained: rareTeasObtained ?? this.rareTeasObtained,
+      legendaryTeasObtained: legendaryTeasObtained ?? this.legendaryTeasObtained,
       totalQuestCompleted: totalQuestCompleted ?? this.totalQuestCompleted,
       maxStreak: maxStreak ?? this.maxStreak,
       lastCompletedAt: lastCompletedAt ?? this.lastCompletedAt,

@@ -1,7 +1,8 @@
 enum IdKeys {
   idServeTenTeasAchievement('id_serve_ten_teas_achievement'),
-  idGetRareTeasAchievement('id_get_rare_tea_achievement'),
-  idFirstStepsAchievement('id_first_steps_achievement');
+  idFirstStepsAchievement('id_first_steps_achievement'),
+  idGetRareTeasAchievement('id_get_rare_teas_achievement'),
+  idLegendaryTeaAchievement('id_legendary_tea_achievement');
 
   final String key;
   const IdKeys(this.key);
@@ -9,12 +10,14 @@ enum IdKeys {
 
 enum TitleKeys {
   tServeTenTeasAchievement,
-  tGetRareTeasAchievement,
   tFirstStepsAchievement,
+  tGetRareTeasAchievement,
+  tLegendaryTeaAchievement
 }
 
 enum DescriptionKeys {
   dServeTenTeasAchievement,
-  dGetRareTeasAchievement,
   dFirstStepsAchievement,
+  dGetRareTeasAchievement,
+  dLegendaryTeaAchievement
 }

@@ -280,6 +280,7 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
     streakDays: 0,
     currentTeaServed: 0,
     rareTeasObtained: 0,
+    legendaryTeasObtained: 0,
     totalQuestCompleted: 0,
     maxStreak: 0,
     lastCompletedAt: null,

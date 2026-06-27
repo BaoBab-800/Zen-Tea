@@ -1004,18 +1004,6 @@ abstract class AppLocalizations {
   /// **'Hold on your 10-day streak'**
   String get dServeTenTeasAchievement;
 
-  /// No description provided for @tGetRareTeaAchievement.
-  ///
-  /// In en, this message translates to:
-  /// **'A rare find'**
-  String get tGetRareTeaAchievement;
-
-  /// No description provided for @dGetRareTeaAchievement.
-  ///
-  /// In en, this message translates to:
-  /// **'Get a rare tea'**
-  String get dGetRareTeaAchievement;
-
   /// No description provided for @tFirstStepsAchievement.
   ///
   /// In en, this message translates to:
@@ -1027,6 +1015,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Open 3 different teas'**
   String get dFirstStepsAchievement;
+
+  /// No description provided for @tGetRareTeasAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'A rare find'**
+  String get tGetRareTeasAchievement;
+
+  /// No description provided for @dGetRareTeasAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'Get 3 Rare Teas'**
+  String get dGetRareTeasAchievement;
+
+  /// No description provided for @tLegendaryTeaAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'Sounds like a legend'**
+  String get tLegendaryTeaAchievement;
+
+  /// No description provided for @dLegendaryTeaAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'Find the legendary tea'**
+  String get dLegendaryTeaAchievement;
 }
 
 class _AppLocalizationsDelegate

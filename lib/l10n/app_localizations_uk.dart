@@ -521,14 +521,20 @@ class AppLocalizationsUk extends AppLocalizations {
   String get dServeTenTeasAchievement => 'Продовжуйте свою 10-денну серію';
 
   @override
-  String get tGetRareTeaAchievement => 'Рідкісна знахідка';
-
-  @override
-  String get dGetRareTeaAchievement => 'Отримайте рідкісний чай';
-
-  @override
   String get tFirstStepsAchievement => 'Перші кроки';
 
   @override
   String get dFirstStepsAchievement => 'Відкрийте 3 різні чаї';
+
+  @override
+  String get tGetRareTeasAchievement => 'Рідкісна знахідка';
+
+  @override
+  String get dGetRareTeasAchievement => 'Отримайте рідкісний чай';
+
+  @override
+  String get tLegendaryTeaAchievement => 'Звучить як легенда';
+
+  @override
+  String get dLegendaryTeaAchievement => 'Знайди легендарний чай';
 }

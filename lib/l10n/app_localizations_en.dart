@@ -524,14 +524,20 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dServeTenTeasAchievement => 'Hold on your 10-day streak';
 
   @override
-  String get tGetRareTeaAchievement => 'A rare find';
-
-  @override
-  String get dGetRareTeaAchievement => 'Get a rare tea';
-
-  @override
   String get tFirstStepsAchievement => 'First Steps';
 
   @override
   String get dFirstStepsAchievement => 'Open 3 different teas';
+
+  @override
+  String get tGetRareTeasAchievement => 'A rare find';
+
+  @override
+  String get dGetRareTeasAchievement => 'Get 3 Rare Teas';
+
+  @override
+  String get tLegendaryTeaAchievement => 'Sounds like a legend';
+
+  @override
+  String get dLegendaryTeaAchievement => 'Find the legendary tea';
 }
