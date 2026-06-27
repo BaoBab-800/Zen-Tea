@@ -103,7 +103,8 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
                   dev == null
                       ? 'Stats: loading...'
                       : 'Stats: served=${dev.stats.totalServed}, unique=${dev.stats.uniqueTeas}, '
-                      'rare=${dev.stats.rareTeasObtained}, quests=${dev.stats.totalQuestCompleted}, '
+                      'rare=${dev.stats.rareTeasObtained}, legendary=${dev.stats.legendaryTeasObtained}, '
+                      'quests=${dev.stats.totalQuestCompleted}, '
                       'streak=${dev.stats.streakDays}, max=${dev.stats.maxStreak}, '
                       'achievements=${dev.unlockedAchievements}/${allAchievements.length} '
                       'lastCompletedAt=${dev.stats.lastCompletedAt}',
@@ -207,12 +208,15 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
     final rareTeasCount = listOfTeas
         .where((tea) => tea.features != TeaFeatures.common)
         .length;
+    final legendaryTeasCount = listOfTeas
+        .where((tea) => tea.features == TeaFeatures.legendary)
+        .length;
     final current = statsProvider.stats;
-    await _updateStats(current.copyWith(uniqueTeas: listOfTeas.length));
     await _updateStats(
       current.copyWith(
         uniqueTeas: listOfTeas.length,
         rareTeasObtained: rareTeasCount,
+        legendaryTeasObtained: legendaryTeasCount,
       ),
     );
 
@@ -228,7 +232,13 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
     }
 
     final current = statsProvider.stats;
-    await _updateStats(current.copyWith(uniqueTeas: 0));
+    await _updateStats(
+      current.copyWith(
+        uniqueTeas: 0,
+        rareTeasObtained: 0,
+        legendaryTeasObtained: 0,
+      ),
+    );
 
     developer.log('All teas has been blocked', name: 'DeveloperRoom');
   }

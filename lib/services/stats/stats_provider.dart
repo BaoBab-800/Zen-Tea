@@ -27,6 +27,7 @@ class StatsProvider extends ChangeNotifier {
     final stats = _stats;
 
     final isNewRareTea = isNew && tea.features != TeaFeatures.common;
+    final isNewLegendaryTea = isNew && tea.features == TeaFeatures.legendary;
 
     final updated = stats.copyWith(
       totalServed: stats.totalServed + 1,
@@ -35,6 +36,9 @@ class StatsProvider extends ChangeNotifier {
       rareTeasObtained: isNewRareTea
           ? stats.rareTeasObtained + 1
           : stats.rareTeasObtained,
+      legendaryTeasObtained: isNewLegendaryTea
+          ? stats.legendaryTeasObtained + 1
+          : stats.legendaryTeasObtained,
     );
 
     await updateStats(updated);
