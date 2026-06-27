@@ -4,17 +4,17 @@ import 'package:zentea/data/achievements/abstract_achievement.dart';
 import 'package:zentea/data/achievements/achievement_keys.dart';
 import 'package:zentea/data/stats/stats.dart';
 
-class GetRareTeaAchievement extends Achievement {
-  GetRareTeaAchievement()
+class GetRareTeasAchievement extends Achievement {
+  GetRareTeasAchievement()
       : super(
-    id: IdKeys.idGetRareTeaAchievement,
-    titleKey: TitleKeys.tGetRareTeaAchievement,
-    descriptionKey: DescriptionKeys.dGetRareTeaAchievement,
+    id: IdKeys.idGetRareTeasAchievement,
+    titleKey: TitleKeys.tGetRareTeasAchievement,
+    descriptionKey: DescriptionKeys.dGetRareTeasAchievement,
     icon: Icons.star,
   );
 
   @override
   bool isUnlocked(Stats stats) {
-    return stats.rareTeasObtained >= 1;
+    return stats.rareTeasObtained >= 3;
   }
 }
