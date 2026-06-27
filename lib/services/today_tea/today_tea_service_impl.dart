@@ -4,6 +4,7 @@ import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 
 import 'package:zentea/services/storage/i_key_value_storage.dart';
+import 'package:zentea/services/stats/stats_provider.dart';
 
 import 'i_today_tea_service.dart';
 
@@ -13,8 +14,9 @@ class TodayTeaServiceImpl implements ITodayTeaService {
   static const _teaTypeKey = 'tea_type';
 
   final IKeyValueStorage _storage;
+  final StatsProvider _statsProvider;
 
-  TodayTeaServiceImpl(this._storage);
+  TodayTeaServiceImpl(this._storage, this._statsProvider);
 
   @override
   Future<TeaModel> getTeaOfToday(List<TeaModel> teas) async {
@@ -42,6 +44,11 @@ class TodayTeaServiceImpl implements ITodayTeaService {
     final yesterday = _dateKey(
       DateTime.now().subtract(const Duration(days: 1)),
     );
+    final updatedStats = _statsProvider.stats.copyWith(
+      lastCompletedAt: DateTime.now().subtract(const Duration(days: 1)),
+    );
+
+    await _statsProvider.updateStats(updatedStats);
     await _storage.put(_servedDateKey, yesterday);
     await _storage.put(_teaDateKey, yesterday);
   }

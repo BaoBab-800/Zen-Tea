@@ -60,7 +60,10 @@ List<SingleChildWidget> buildProviders(IStatsRepository statsRepository, Stats i
   ),
 
   Provider<ITodayTeaService>(
-    create: (context) => TodayTeaServiceImpl(context.read<IKeyValueStorage>()),
+    create: (context) => TodayTeaServiceImpl(
+      context.read<IKeyValueStorage>(),
+      context.read<StatsProvider>()
+    ),
   ),
 
   ChangeNotifierProvider<SettingsService>(
