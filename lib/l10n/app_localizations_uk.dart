@@ -21,6 +21,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get teaCollection => 'Колекція чаю';
 
   @override
+  String get calendar => 'Чайний календар';
+
+  @override
   String get achievements => 'Досягнення';
 
   @override

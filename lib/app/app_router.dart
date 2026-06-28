@@ -13,6 +13,7 @@ import '../ui/developer/developer_room.dart';
 import '../ui/about/about_builder.dart';
 import '../ui/his_page/his_page_start.dart';
 import '../ui/his_page/his_page_content.dart';
+import '../ui/calendar/calendar_page_builder.dart';
 
 enum AppRoute {
   home(name: 'home', path: '/'),
@@ -24,7 +25,8 @@ enum AppRoute {
   developer(name: 'developer', path: '/developer'),
   about(name: 'about', path: '/about'),
   hisPageStart(name: 'hisPageStart', path: '/his-page-start'),
-  hisPageContent(name: 'hisPageContent', path: '/his-page-content');
+  hisPageContent(name: 'hisPageContent', path: '/his-page-content'),
+  calendar(name: 'calendar', path: '/calendar');
 
   final String name;
   final String path;
@@ -97,6 +99,12 @@ class AppRouter {
         name: AppRoute.hisPageContent.name,
         path: AppRoute.hisPageContent.path,
         builder: (context, state) => const HisPageContent(),
+      ),
+
+      GoRoute(
+        name: AppRoute.calendar.name,
+        path: AppRoute.calendar.path,
+        builder: (context, state) => const CalendarPageBuilder(),
       ),
     ],
   );

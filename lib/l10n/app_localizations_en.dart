@@ -21,6 +21,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get teaCollection => 'Tea Collection';
 
   @override
+  String get calendar => 'Tea calendar';
+
+  @override
   String get achievements => 'Achievements';
 
   @override

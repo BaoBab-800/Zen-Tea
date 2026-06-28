@@ -122,6 +122,12 @@ abstract class AppLocalizations {
   /// **'Tea Collection'**
   String get teaCollection;
 
+  /// No description provided for @calendar.
+  ///
+  /// In en, this message translates to:
+  /// **'Tea calendar'**
+  String get calendar;
+
   /// No description provided for @achievements.
   ///
   /// In en, this message translates to:

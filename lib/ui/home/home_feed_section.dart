@@ -15,24 +15,65 @@ class HomeFeedSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(height: 6),
-        _currentSeries(context),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: constraints.maxHeight,
+            ),
 
-        const SizedBox(height: 8),
-        HomeStatisticsSection(),
+            child: IntrinsicHeight(
+              child: Column(
+                children: [
+                  const SizedBox(height: 6),
+                  _currentSeries(context),
 
-        const Spacer(),
-        _buildCard(context.l10n.getTeaForToday, context, Icons.emoji_food_beverage, AppRoute.getTeaForToday),
+                  const SizedBox(height: 8),
+                  HomeStatisticsSection(),
 
-        _buildCard(context.l10n.teaMap, context, Icons.map, AppRoute.teaMap),
+                  const SizedBox(height: 32),
+                  const Spacer(),
+                  _buildCard(
+                    context.l10n.getTeaForToday,
+                    context,
+                    Icons.emoji_food_beverage,
+                    AppRoute.getTeaForToday,
+                  ),
 
-        _buildCard(context.l10n.teaCollection, context, Icons.menu_book, AppRoute.teaCollection),
+                  _buildCard(
+                    context.l10n.teaMap,
+                    context,
+                    Icons.map,
+                    AppRoute.teaMap,
+                  ),
 
-        _buildCard(context.l10n.achievements, context, Icons.workspace_premium, AppRoute.achievements),
-        const SizedBox(height: 12),
-      ],
+                  _buildCard(
+                    context.l10n.teaCollection,
+                    context,
+                    Icons.menu_book,
+                    AppRoute.teaCollection,
+                  ),
+
+                  _buildCard(
+                    context.l10n.calendar,
+                    context,
+                    Icons.calendar_month,
+                    AppRoute.calendar,
+                  ),
+
+                  _buildCard(
+                    context.l10n.achievements,
+                    context,
+                    Icons.workspace_premium,
+                    AppRoute.achievements,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 
