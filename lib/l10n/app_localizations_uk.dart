@@ -152,6 +152,63 @@ class AppLocalizationsUk extends AppLocalizations {
   String get goToWiki => 'Перейти до Вікіпедії';
 
   @override
+  String get january => 'Січень';
+
+  @override
+  String get february => 'Лютий';
+
+  @override
+  String get march => 'Березень';
+
+  @override
+  String get april => 'Квітень';
+
+  @override
+  String get may => 'Травень';
+
+  @override
+  String get june => 'Червень';
+
+  @override
+  String get july => 'Липень';
+
+  @override
+  String get august => 'Серпень';
+
+  @override
+  String get september => 'Вересень';
+
+  @override
+  String get october => 'Жовтень';
+
+  @override
+  String get november => 'Листопад';
+
+  @override
+  String get december => 'Грудень';
+
+  @override
+  String get mon => 'Пн';
+
+  @override
+  String get tue => 'Вт';
+
+  @override
+  String get wed => 'Ср';
+
+  @override
+  String get thu => 'Чт';
+
+  @override
+  String get fri => 'Пт';
+
+  @override
+  String get sat => 'Сб';
+
+  @override
+  String get sun => 'Нд';
+
+  @override
   String get china => 'Китай';
 
   @override
