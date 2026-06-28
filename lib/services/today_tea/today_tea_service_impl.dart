@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:zentea/data/teas/tea_model.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 
+import 'package:zentea/services/calendar/i_calendar_activity_service.dart';
 import 'package:zentea/services/storage/i_key_value_storage.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
 
@@ -15,18 +16,26 @@ class TodayTeaServiceImpl implements ITodayTeaService {
 
   final IKeyValueStorage _storage;
   final StatsProvider _statsProvider;
+  final ICalendarActivityService _calendarActivityService;
 
-  TodayTeaServiceImpl(this._storage, this._statsProvider);
+  const TodayTeaServiceImpl(
+    this._storage,
+    this._statsProvider,
+    this._calendarActivityService
+  );
 
   @override
   Future<TeaModel> getTeaOfToday(List<TeaModel> teas) async {
     if (teas.isEmpty) throw StateError('Tea list cannot be empty');
 
     final savedTea = await _loadSavedTea(teas);
-    if (savedTea != null) return savedTea;
+    if (savedTea != null) {
+      await _calendarActivityService.recordTeaForToday(savedTea.type);
+      return savedTea;
+    }
 
     final tea = getWeightedRandomTea(teas);
-    await _saveTeaOfToday(tea.type.name);
+    await _saveTeaOfToday(tea.type);
     return tea;
   }
 
@@ -55,7 +64,9 @@ class TodayTeaServiceImpl implements ITodayTeaService {
 
   @override
   TeaModel getWeightedRandomTea(List<TeaModel> teas) {
-    final totalWeight = teas.fold<int>(0, (sum, tea) => sum + getWeight(tea.features));
+    final totalWeight = teas.fold<int>(
+      0, (sum, tea) => sum + getWeight(tea.features),
+    );
     final random = Random().nextInt(totalWeight);
 
     var current = 0;
@@ -75,10 +86,11 @@ class TodayTeaServiceImpl implements ITodayTeaService {
     return teas.where((tea) => tea.type.name == savedTeaType).firstOrNull;
   }
 
-  Future<void> _saveTeaOfToday(String teaTypeName) async {
+  Future<void> _saveTeaOfToday(TeaType teaType) async {
     final today = _todayKey();
     await _storage.put(_teaDateKey, today);
-    await _storage.put(_teaTypeKey, teaTypeName);
+    await _storage.put(_teaTypeKey, teaType.name);
+    await _calendarActivityService.recordTeaForToday(teaType);
   }
 
   String _todayKey() => _dateKey(DateTime.now());

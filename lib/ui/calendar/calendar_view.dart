@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:zentea/core/l10n/calendar_localization.dart';
 import 'package:zentea/core/extensions/month_mapping_x.dart';
 import 'package:zentea/core/extensions/date_time_x.dart';
 import 'package:zentea/core/theme/app_theme.dart';
 
+import 'package:zentea/data/calendar/calendar_day.dart';
 import 'package:zentea/data/calendar/calendar_keys.dart';
 import 'package:zentea/data/calendar/calendar_grid_state.dart';
+import 'package:zentea/data/teas/tea_types.dart';
 
 import 'package:zentea/services/calendar/build_month_days.dart';
+import 'package:zentea/services/calendar/calendar_activity_service.dart';
 
 class CalendarView extends StatefulWidget {
   const CalendarView({super.key});
@@ -52,18 +56,30 @@ class _CalendarViewState extends State<CalendarView> {
 
         const Divider(),
         Expanded(
-          child: _CalendarGrid(
-            state: CalendarGridState(
-              month: currentMonth,
-              selectedDate: selectedDate,
-            ),
-            onSelect: (date) {
-              setState(() {
-                selectedDate = date;
-              });
+          child: Consumer<CalendarActivityService>(
+            builder: (context, calendarActivity, _) {
+              return _CalendarGrid(
+                state: CalendarGridState(
+                  month: currentMonth,
+                  selectedDate: selectedDate,
+                ),
+                calendarDays: calendarActivity.days,
+                onSelect: (date) {
+                  setState(() {
+                    selectedDate = date;
+                  });
+                },
+              );
             },
           ),
         ),
+
+        if (selectedDate != null)
+          _SelectedDayDetails(
+            day: context
+                .watch<CalendarActivityService>()
+                .dayByDate(selectedDate!),
+          ),
       ],
     );
   }
@@ -71,10 +87,12 @@ class _CalendarViewState extends State<CalendarView> {
 
 class _CalendarGrid extends StatelessWidget {
   final CalendarGridState state;
+  final List<CalendarDay> calendarDays;
   final void Function(DateTime date) onSelect;
 
   const _CalendarGrid({
     required this.state,
+    required this.calendarDays,
     required this.onSelect,
   });
 
@@ -86,6 +104,7 @@ class _CalendarGrid extends StatelessWidget {
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 7,
       ),
+
       itemCount: days.length,
       itemBuilder: (context, index) {
         final day = days[index];
@@ -96,6 +115,8 @@ class _CalendarGrid extends StatelessWidget {
 
         final isSelected = state.selectedDate != null &&
             _isSameDay(day, state.selectedDate!);
+        final calendarDay = _calendarDayFor(day);
+        final hasActivity = calendarDay?.hasActivity ?? false;
 
         return GestureDetector(
           onTap: () => onSelect(day),
@@ -107,8 +128,23 @@ class _CalendarGrid extends StatelessWidget {
                   : null,
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Center(
-              child: Text('${day.day}'),
+
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('${day.day}'),
+                const SizedBox(height: 4),
+                if (hasActivity)
+                  Icon(
+                    calendarDay?.teaOfTheDay == null
+                        ? Icons.circle
+                        : Icons.local_cafe,
+                    size: 8,
+                    color: context.colors.primary,
+                  )
+                else
+                  const SizedBox(height: 8),
+              ],
             ),
           ),
         );
@@ -116,10 +152,40 @@ class _CalendarGrid extends StatelessWidget {
     );
   }
 
+  CalendarDay? _calendarDayFor(DateTime date) {
+    for (final day in calendarDays) {
+      if (_isSameDay(day.date, date)) return day;
+    }
+    return null;
+  }
+
   bool _isSameDay(DateTime a, DateTime b) {
     return a.year == b.year &&
         a.month == b.month &&
         a.day == b.day;
+  }
+}
+
+class _SelectedDayDetails extends StatelessWidget {
+  final CalendarDay? day;
+
+  const _SelectedDayDetails({required this.day});
+
+  @override
+  Widget build(BuildContext context) {
+    final tea = day?.teaOfTheDay;
+
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Text(
+        day?.hasActivity == true
+            ? tea == null
+            ? 'Activity recorded'
+            : 'Tea of the day: ${tea.title(context)}'
+            : 'No activity recorded',
+        style: const TextStyle(fontWeight: FontWeight.w600),
+      ),
+    );
   }
 }
 

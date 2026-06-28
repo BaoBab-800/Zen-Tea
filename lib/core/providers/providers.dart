@@ -10,6 +10,8 @@ import 'package:zentea/services/achievements/achievements_service.dart';
 import 'package:zentea/services/achievements/i_achievement_notification_service.dart';
 import 'package:zentea/services/achievements/achievement_notification_service.dart';
 
+import 'package:zentea/services/calendar/calendar_activity_service.dart';
+
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 
 import 'package:zentea/services/settings/settings_service.dart';
@@ -59,10 +61,17 @@ List<SingleChildWidget> buildProviders(IStatsRepository statsRepository, Stats i
     create: (context) => WelcomeDialogService(context.read<IKeyValueStorage>()),
   ),
 
+  ChangeNotifierProvider<CalendarActivityService>(
+    create: (context) => CalendarActivityService(
+      context.read<IKeyValueStorage>(),
+    ),
+  ),
+
   Provider<ITodayTeaService>(
     create: (context) => TodayTeaServiceImpl(
       context.read<IKeyValueStorage>(),
-      context.read<StatsProvider>()
+      context.read<StatsProvider>(),
+      context.read<CalendarActivityService>(),
     ),
   ),
 
