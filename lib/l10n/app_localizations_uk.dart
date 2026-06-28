@@ -209,6 +209,17 @@ class AppLocalizationsUk extends AppLocalizations {
   String get sun => 'Нд';
 
   @override
+  String get noActivityRecorded => 'Активність не зафіксована';
+
+  @override
+  String get activityRecorded => 'Активність зафіксовано';
+
+  @override
+  String teaOfTheDay(String tea) {
+    return 'Чай дня: $tea';
+  }
+
+  @override
   String get china => 'Китай';
 
   @override

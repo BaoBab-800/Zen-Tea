@@ -210,6 +210,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sun => 'Sun';
 
   @override
+  String get noActivityRecorded => 'No activity recorded';
+
+  @override
+  String get activityRecorded => 'Activity recorded';
+
+  @override
+  String teaOfTheDay(String tea) {
+    return 'Tea of the day: $tea';
+  }
+
+  @override
   String get china => 'China';
 
   @override

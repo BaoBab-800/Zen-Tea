@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:zentea/core/l10n/l10n.dart';
 import 'package:zentea/core/l10n/calendar_localization.dart';
 import 'package:zentea/core/extensions/month_mapping_x.dart';
 import 'package:zentea/core/extensions/date_time_x.dart';
@@ -9,6 +10,7 @@ import 'package:zentea/core/theme/app_theme.dart';
 import 'package:zentea/data/calendar/calendar_day.dart';
 import 'package:zentea/data/calendar/calendar_keys.dart';
 import 'package:zentea/data/calendar/calendar_grid_state.dart';
+import 'package:zentea/data/calendar/day_state.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 
 import 'package:zentea/services/calendar/build_month_days.dart';
@@ -173,19 +175,67 @@ class _SelectedDayDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tea = day?.teaOfTheDay;
+    final (state, icon) = _buildContent(day?.teaOfTheDay, day);
+    final title = _getTitle(context, state, day?.teaOfTheDay);
 
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: Text(
-        day?.hasActivity == true
-            ? tea == null
-            ? 'Activity recorded'
-            : 'Tea of the day: ${tea.title(context)}'
-            : 'No activity recorded',
-        style: const TextStyle(fontWeight: FontWeight.w600),
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(16),
+
+        decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: Theme.of(context).dividerColor.withValues(alpha: 0.3),
+          ),
+        ),
+
+        child: Row(
+          children: [
+            Icon(icon),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Text(
+                title,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
+  }
+
+  (DayState, IconData) _buildContent(TeaType? tea, CalendarDay? day) {
+    if (day?.hasActivity != true) {
+      return (DayState.noActivity, Icons.event_busy);
+    }
+
+    if (tea == null) {
+      return (DayState.activityOnly, Icons.check_circle_outline);
+    }
+
+    return (DayState.teaSelected, Icons.emoji_food_beverage);
+  }
+
+  String _getTitle(BuildContext context, DayState state, TeaType? tea) {
+    final l10n = context.l10n;
+
+    switch (state) {
+      case DayState.noActivity:
+        return l10n.noActivityRecorded;
+
+      case DayState.activityOnly:
+        return l10n.activityRecorded;
+
+      case DayState.teaSelected:
+        return l10n.teaOfTheDay(tea!.title(context));
+    }
   }
 }
 

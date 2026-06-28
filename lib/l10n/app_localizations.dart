@@ -482,6 +482,24 @@ abstract class AppLocalizations {
   /// **'Sun'**
   String get sun;
 
+  /// No description provided for @noActivityRecorded.
+  ///
+  /// In en, this message translates to:
+  /// **'No activity recorded'**
+  String get noActivityRecorded;
+
+  /// No description provided for @activityRecorded.
+  ///
+  /// In en, this message translates to:
+  /// **'Activity recorded'**
+  String get activityRecorded;
+
+  /// Shows the selected tea for the day
+  ///
+  /// In en, this message translates to:
+  /// **'Tea of the day: {tea}'**
+  String teaOfTheDay(String tea);
+
   /// No description provided for @china.
   ///
   /// In en, this message translates to:

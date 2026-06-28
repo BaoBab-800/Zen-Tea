@@ -85,6 +85,19 @@
   "sat": "Сб",
   "sun": "Нд",
 
+  "noActivityRecorded": "Активність не зафіксована",
+  "activityRecorded": "Активність зафіксовано",
+  "teaOfTheDay": "Чай дня: {tea}",
+  "@teaOfTheDay": {
+    "description": "Shows the selected tea for the day",
+    "placeholders": {
+      "tea": {
+        "type": "String",
+        "description": "Name of the tea"
+      }
+    }
+  },
+
   "china": "Китай",
   "unitedKingdom": "Сполучене Королівство",
   "india": "Індія",

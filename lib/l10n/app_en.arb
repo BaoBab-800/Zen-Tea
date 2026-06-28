@@ -85,6 +85,19 @@
   "sat": "Sat",
   "sun": "Sun",
 
+  "noActivityRecorded": "No activity recorded",
+  "activityRecorded": "Activity recorded",
+  "teaOfTheDay": "Tea of the day: {tea}",
+  "@teaOfTheDay": {
+    "description": "Shows the selected tea for the day",
+    "placeholders": {
+      "tea": {
+        "type": "String",
+        "description": "Name of the tea"
+      }
+    }
+  },
+
   "china": "China",
   "unitedKingdom": "United Kingdom",
   "india": "India",
