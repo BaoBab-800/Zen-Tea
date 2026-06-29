@@ -256,48 +256,62 @@ class _MonthHeader extends StatelessWidget {
       padding: const EdgeInsets.only(top: 8, bottom: 4, left: 16, right: 16),
       child: Row(
         children: [
-          PopupMenuButton<MonthsKeys>(
-            onSelected: onMonthSelected,
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              child: PopupMenuButton<MonthsKeys>(
+                onSelected: onMonthSelected,
 
-            itemBuilder: (context) {
-              return MonthsKeys.values.map((m) {
-                return PopupMenuItem(
-                  value: m,
-                  child: Text(CalendarLocalization.month(context, m)),
-                );
-              }).toList();
-            },
+                itemBuilder: (context) {
+                  return MonthsKeys.values.map((m) {
+                    return PopupMenuItem(
+                      value: m,
+                      child: Text(CalendarLocalization.month(context, m)),
+                    );
+                  }).toList();
+                },
 
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  CalendarLocalization.month(context, month.toMonthKey()),
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      CalendarLocalization.month(context, month.toMonthKey()),
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                    ),
+                    const Icon(Icons.arrow_drop_down),
+                  ],
                 ),
-                const Icon(Icons.arrow_drop_down),
-              ],
+              ),
             ),
           ),
 
           const Spacer(),
 
-          IconButton(
-            icon: const Icon(Icons.chevron_left),
-            onPressed: () => onYearSelected(month.year - 1),
-          ),
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+              child: Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.chevron_left),
+                    onPressed: () => onYearSelected(month.year - 1),
+                  ),
 
-          Text(
-            '${month.year}',
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
+                  Text(
+                    '${month.year}',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  IconButton(
+                    icon: const Icon(Icons.chevron_right),
+                    onPressed: () => onYearSelected(month.year + 1),
+                  ),
+                ],
+              ),
             ),
-          ),
-
-          IconButton(
-            icon: const Icon(Icons.chevron_right),
-            onPressed: () => onYearSelected(month.year + 1),
           ),
         ],
       ),
