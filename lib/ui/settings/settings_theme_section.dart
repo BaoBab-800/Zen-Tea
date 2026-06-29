@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:zentea/core/l10n/l10n.dart';
 import 'package:zentea/core/extensions/theme_mode_x.dart';
+import 'package:zentea/core/l10n/l10n.dart';
 
 import 'package:zentea/services/settings/settings_service.dart';
 
@@ -15,32 +15,42 @@ class SettingsThemeSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Divider(indent: 6, endIndent: 6),
-
-        ListTile(
-          title: Text(
-            context.l10n.theme,
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-            ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
+          child: Row(
+            children: [
+              const Icon(Icons.palette_outlined, size: 20),
+              const SizedBox(width: 8),
+              Text(
+                context.l10n.theme,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
           ),
         ),
 
-        RadioGroup<ThemeMode>(
-          groupValue: settings.themeMode,
-          onChanged: (value) {
-            if (value == null) return;
+        Card(
+          margin: const EdgeInsets.symmetric(horizontal: 12),
+          child: RadioGroup<ThemeMode>(
+            groupValue: settings.themeMode,
+            onChanged: (value) {
+              if (value == null) return;
+              settings.changeTheme(value);
+            },
 
-            settings.changeTheme(value);
-          },
-          child: Column(
-            children: [
-              for (final theme in ThemeMode.values)
-                RadioListTile<ThemeMode>(
-                  title: Text(theme.label(context.l10n)),
-                  value: theme,
-                ),
-            ],
+            child: Column(
+              children: [
+                for (final theme in ThemeMode.values)
+                  RadioListTile<ThemeMode>(
+                    dense: true,
+                    title: Text(theme.label(context.l10n)),
+                    value: theme,
+                  ),
+              ],
+            ),
           ),
         ),
       ],

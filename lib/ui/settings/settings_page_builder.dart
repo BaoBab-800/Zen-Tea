@@ -26,11 +26,12 @@ class SettingsPageBuilder extends StatelessWidget {
 
       body: Column(
         children: [
-          SettingsThemeSection(),
-          SettingsLanguageSection(),
+          const SettingsThemeSection(),
+          const SettingsLanguageSection(),
+          const SizedBox(height: 6),
           _goToDeveloperRoomTestButton(context),  // Temporarily
-          Expanded(child: SizedBox()),
-          SettingsDevButton(),
+          const Expanded(child: SizedBox()),
+          const SettingsDevButton(),
         ],
       ),
     );

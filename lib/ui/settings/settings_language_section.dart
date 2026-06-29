@@ -14,34 +14,44 @@ class SettingsLanguageSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Divider(indent: 6, endIndent: 6),
-
-        ListTile(
-          title: Text(
-            context.l10n.language,
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-            ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
+          child: Row(
+            children: [
+              const Icon(Icons.language_rounded, size: 20),
+              const SizedBox(width: 8),
+              Text(
+                context.l10n.language,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
           ),
         ),
 
-        RadioGroup<Locale>(
-          groupValue: settings.locale,
-          onChanged: (value) {
-            if (value == null) return;
-            settings.changeLocale(value.languageCode);
-          },
+        Card(
+          margin: const EdgeInsets.symmetric(horizontal: 12),
+          child: RadioGroup<Locale>(
+            groupValue: settings.locale,
+            onChanged: (value) {
+              if (value == null) return;
+              settings.changeLocale(value.languageCode);
+            },
 
-          child: Column(
-            children: [
-              for (final language in L10n.supportedLocales)
-                RadioListTile<Locale>(
-                  title: Text(language.languageCode.toUpperCase()),
-                  value: language,
-                ),
-            ],
+            child: Column(
+              children: [
+                for (final language in L10n.supportedLocales)
+                  RadioListTile<Locale>(
+                    dense: true,
+                    title: Text(language.languageCode.toUpperCase()),
+                    value: language,
+                  ),
+              ],
+            ),
           ),
-        )
+        ),
       ],
     );
   }
