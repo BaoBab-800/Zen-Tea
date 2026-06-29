@@ -15,6 +15,6 @@ class ServeTenTeasAchievement extends Achievement {
 
   @override
   bool isUnlocked(Stats stats) {
-    return stats.totalServed >= 10;
+    return stats.maxStreak >= 10;
   }
 }
