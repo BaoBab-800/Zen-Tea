@@ -24,6 +24,9 @@
   "aboutPhilosophy": "Tea is a world that everyone sees in their own way.",
   "aboutTeam": "Developed by a Flutter developer enthusiast.",
   "aboutVersion": "Version ",
+  "aboutLinks": "Links:",
+  "aboutGithub": "Project GitHub",
+  "aboutSupport": "A penny for tea",
 
   "goToDeveloperRoom": "Go to developer room",
   "developerRoom": "Developer room",

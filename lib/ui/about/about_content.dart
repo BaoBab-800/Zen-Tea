@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import 'package:zentea/app/app_router.dart';
 
 import 'package:zentea/core/theme/app_theme.dart';
 import 'package:zentea/core/l10n/l10n.dart';
+import 'package:zentea/services/url/url_service.dart';
 
 class AboutContent extends StatelessWidget {
   const AboutContent({super.key});
@@ -45,20 +47,20 @@ class AboutContent extends StatelessWidget {
               ],
             ),
 
-            const SizedBox(height: 14.0),
+            const SizedBox(height: 14),
             Text(
               context.l10n.aboutApplicationDescription,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
 
-            const SizedBox(height: 12.0),
+            const SizedBox(height: 12),
             Text(
               context.l10n.aboutWhyDoYouNeedThisApp,
               textAlign: TextAlign.center,
             ),
 
-            const SizedBox(height: 18.0),
+            const SizedBox(height: 18),
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -77,14 +79,40 @@ class AboutContent extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 18.0),
+            const SizedBox(height: 18),
             Text(context.l10n.aboutTeam),
 
-            const SizedBox(height: 12.0),
+            const SizedBox(height: 6),
+            _buildLinksSection(context),
+
+            const SizedBox(height: 10),
             VersionText(),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildLinksSection(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          context.l10n.aboutLinks,
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+        ),
+        const SizedBox(height: 4),
+
+        LinkText(
+          text: context.l10n.aboutGithub,
+          url: Uri.parse('https://github.com/BaoBab-800/Zen-tea'),
+        ),
+        const SizedBox(height: 2),
+
+        LinkText(
+          text: context.l10n.aboutSupport,
+          url: Uri.parse('https://заглушка'),
+        ),
+      ],
     );
   }
 }
@@ -160,6 +188,31 @@ class _VersionTextState extends State<VersionText> {
       child: Text(
         '${context.l10n.aboutVersion}$_displayVersion',
         style: const TextStyle(color: Colors.grey),
+      ),
+    );
+  }
+}
+
+class LinkText extends StatelessWidget {
+  final String text;
+  final Uri url;
+
+  const LinkText({
+    super.key,
+    required this.text,
+    required this.url,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => context.read<UrlService>().open(url),
+      child: Text(
+        text,
+        style: const TextStyle(
+          color: Colors.blue,
+          decoration: TextDecoration.underline,
+        ),
       ),
     );
   }

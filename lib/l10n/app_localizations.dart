@@ -224,6 +224,24 @@ abstract class AppLocalizations {
   /// **'Version '**
   String get aboutVersion;
 
+  /// No description provided for @aboutLinks.
+  ///
+  /// In en, this message translates to:
+  /// **'Links:'**
+  String get aboutLinks;
+
+  /// No description provided for @aboutGithub.
+  ///
+  /// In en, this message translates to:
+  /// **'Project GitHub'**
+  String get aboutGithub;
+
+  /// No description provided for @aboutSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'A penny for tea'**
+  String get aboutSupport;
+
   /// No description provided for @goToDeveloperRoom.
   ///
   /// In en, this message translates to:

@@ -74,6 +74,15 @@ class AppLocalizationsUk extends AppLocalizations {
   String get aboutVersion => 'Версія ';
 
   @override
+  String get aboutLinks => 'Посилання:';
+
+  @override
+  String get aboutGithub => 'GitHub проекту';
+
+  @override
+  String get aboutSupport => 'Копієчку на чай';
+
+  @override
   String get goToDeveloperRoom => 'Перейти до кімнати розробника';
 
   @override

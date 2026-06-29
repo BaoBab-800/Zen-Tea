@@ -24,6 +24,9 @@
   "aboutPhilosophy": "Чай – це світ, який кожен бачить по-своєму.",
   "aboutTeam": "Розроблено ентузіастом-розробником Flutter.",
   "aboutVersion": "Версія ",
+  "aboutLinks": "Посилання:",
+  "aboutGithub": "GitHub проекту",
+  "aboutSupport": "Копієчку на чай",
 
   "goToDeveloperRoom": "Перейти до кімнати розробника",
   "developerRoom": "Кімната розробника",

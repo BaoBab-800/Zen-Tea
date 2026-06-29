@@ -31,6 +31,8 @@ import 'package:zentea/services/today_tea/today_tea_service_impl.dart';
 import 'package:zentea/services/welcome_dialog/i_welcome_dialog_service.dart';
 import 'package:zentea/services/welcome_dialog/welcome_dialog_service.dart';
 
+import 'package:zentea/services/url/url_service.dart';
+
 List<SingleChildWidget> buildProviders(IStatsRepository statsRepository, Stats initialStats) => [
   Provider<IKeyValueStorage>(
     create: (_) => HiveKeyValueStorage(Hive.box('app_storage')),
@@ -93,5 +95,9 @@ List<SingleChildWidget> buildProviders(IStatsRepository statsRepository, Stats i
 
   Provider<AchievementLocalization>(
     create: (_) => AchievementLocalization(),
+  ),
+
+  Provider<UrlService>(
+    create: (_) => UrlService(),
   ),
 ];

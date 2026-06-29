@@ -75,6 +75,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutVersion => 'Version ';
 
   @override
+  String get aboutLinks => 'Links:';
+
+  @override
+  String get aboutGithub => 'Project GitHub';
+
+  @override
+  String get aboutSupport => 'A penny for tea';
+
+  @override
   String get goToDeveloperRoom => 'Go to developer room';
 
   @override
