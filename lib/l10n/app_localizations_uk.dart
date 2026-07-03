@@ -45,6 +45,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get menu => 'Меню';
 
   @override
+  String get profile => 'Профіль';
+
+  @override
   String get settings => 'Налаштування';
 
   @override
@@ -55,6 +58,9 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get language => 'Мова';
+
+  @override
+  String get profileChoosingAnAvatar => 'Виберіть чай для свого аватара';
 
   @override
   String get aboutApplicationDescription =>

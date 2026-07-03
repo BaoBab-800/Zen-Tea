@@ -170,6 +170,12 @@ abstract class AppLocalizations {
   /// **'Menu'**
   String get menu;
 
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
   /// No description provided for @settings.
   ///
   /// In en, this message translates to:
@@ -193,6 +199,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Language'**
   String get language;
+
+  /// No description provided for @profileChoosingAnAvatar.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose tea for your avatar'**
+  String get profileChoosingAnAvatar;
 
   /// No description provided for @aboutApplicationDescription.
   ///

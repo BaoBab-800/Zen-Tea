@@ -1,0 +1,37 @@
+import 'package:flutter/material.dart';
+
+import 'package:zentea/core/theme/app_theme.dart';
+
+import 'choosing_avatar_section.dart';
+
+class ProfileBuilder extends StatelessWidget {
+  const ProfileBuilder({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+
+      body: Container(
+        margin: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: context.colors.surface,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.2),
+              blurRadius: 8,
+              offset: const Offset(4, 6),
+            ),
+          ],
+        ),
+
+        child: ListView(
+          children: [
+            Center(child: ChoosingAvatarSection()),
+          ],
+        ),
+      ),
+    );
+  }
+}

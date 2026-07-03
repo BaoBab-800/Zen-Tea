@@ -14,10 +14,13 @@
   "newAchievement": "New achievement",
 
   "menu": "Menu",
+  "profile": "Profile",
   "settings": "Settings",
   "about": "About application",
   "theme": "Theme",
   "language": "Language",
+
+  "profileChoosingAnAvatar": "Choose tea for your avatar",
 
   "aboutApplicationDescription": "Is an app for tea lovers where you can learn about different varieties, their properties, and their history.",
   "aboutWhyDoYouNeedThisApp": "I created this app to make the world of tea closer and more understandable: from simple everyday teas to rare varieties.",

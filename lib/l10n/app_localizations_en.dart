@@ -45,6 +45,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get menu => 'Menu';
 
   @override
+  String get profile => 'Profile';
+
+  @override
   String get settings => 'Settings';
 
   @override
@@ -55,6 +58,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get language => 'Language';
+
+  @override
+  String get profileChoosingAnAvatar => 'Choose tea for your avatar';
 
   @override
   String get aboutApplicationDescription =>
