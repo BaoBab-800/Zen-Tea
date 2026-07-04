@@ -52,7 +52,12 @@ class SelectionDialogGrid extends StatelessWidget {
   Widget _buildTeaGrid(BuildContext context, List<TeaModel> teas) {
     return SliverGrid(
       delegate: SliverChildBuilderDelegate(
-            (context, index) => SelectedTeaCard(tea: teas[index]),
+            (context, index) => SelectedTeaCard(
+              tea: teas[index],
+              onTap: (imagePath) {
+                Navigator.pop(context, imagePath);
+              },
+            ),
         childCount: teas.length,
       ),
 
@@ -97,31 +102,41 @@ class SelectionDialogGrid extends StatelessWidget {
 
 class SelectedTeaCard extends StatelessWidget {
   final TeaModel tea;
+  final ValueChanged<String>? onTap;
 
   const SelectedTeaCard({
     super.key,
     required this.tea,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: context.colors.onPrimary.withValues(alpha: 0.5),
-        borderRadius: BorderRadius.circular(8),
-      ),
+    return GestureDetector(
+      onTap: () {
+        if (tea.isUnlocked) {
+          onTap?.call(tea.imagePath);
+        }
+      },
 
-      child: Padding(
-        padding: const EdgeInsets.all(4),
-        child: ClipRRect(
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: context.colors.onPrimary.withValues(alpha: 0.5),
           borderRadius: BorderRadius.circular(8),
-          child: tea.isUnlocked
-              ? Image.asset(
-            tea.imagePath,
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: double.infinity,
-          ) : const Center(child: Icon(Icons.lock)),
+        ),
+
+        child: Padding(
+          padding: const EdgeInsets.all(4),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: tea.isUnlocked
+                ? Image.asset(
+              tea.imagePath,
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
+            ) : const Center(child: Icon(Icons.lock)),
+          ),
         ),
       ),
     );

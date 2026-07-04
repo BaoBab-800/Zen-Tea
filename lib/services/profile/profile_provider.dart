@@ -20,4 +20,11 @@ class ProfileProvider extends ChangeNotifier {
     _profileStats = profileStats;
     notifyListeners();
   }
+
+  Future<void> updateAvatar(String avatarImagePath) async {
+    final newProfile = _profileStats.copyWith(avatarImagePath: avatarImagePath);
+    await _profileStatsRepository.saveProfileStats(newProfile);
+    _profileStats = newProfile;
+    notifyListeners();
+  }
 }
