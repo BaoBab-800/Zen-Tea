@@ -5,11 +5,11 @@ import 'package:zentea/data/profile/profile_stats.dart';
 import 'package:zentea/services/stats/i_stats_repository.dart';
 import 'i_profile_stats_repository.dart';
 
-class ProfileStatsRepository implements IProfileStatsRepository {
+class ProfileRepository implements IProfileStatsRepository {
   final Box<ProfileStats> _box;
   final IStatsRepository _statsRepository;
 
-  ProfileStatsRepository(this._box, this._statsRepository);
+  ProfileRepository(this._box, this._statsRepository);
 
   static const _profileStatsKey = 'profile_stats_key';
 

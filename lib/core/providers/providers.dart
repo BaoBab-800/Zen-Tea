@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
 import 'package:zentea/core/l10n/achievement_localization.dart';
+
+import 'package:zentea/data/profile/profile_stats.dart';
 import 'package:zentea/data/stats/stats.dart';
 
 import 'package:zentea/services/achievements/i_achievements_service.dart';
@@ -33,7 +35,15 @@ import 'package:zentea/services/welcome_dialog/welcome_dialog_service.dart';
 
 import 'package:zentea/services/url/url_service.dart';
 
-List<SingleChildWidget> buildProviders(IStatsRepository statsRepository, Stats initialStats) => [
+import 'package:zentea/services/profile/profile_provider.dart';
+import 'package:zentea/services/profile/i_profile_stats_repository.dart';
+
+List<SingleChildWidget> buildProviders(
+    IStatsRepository statsRepository,
+    Stats initialStats,
+    IProfileStatsRepository profileRepository,
+    ProfileStats initialProfile,
+    ) => [
   Provider<IKeyValueStorage>(
     create: (_) => HiveKeyValueStorage(Hive.box('app_storage')),
   ),
@@ -42,7 +52,7 @@ List<SingleChildWidget> buildProviders(IStatsRepository statsRepository, Stats i
     value: statsRepository,
   ),
 
-  ChangeNotifierProvider(
+  ChangeNotifierProvider<StatsProvider>(
     create: (_) => StatsProvider(
       statsRepository,
       initialStats: initialStats,
@@ -99,5 +109,12 @@ List<SingleChildWidget> buildProviders(IStatsRepository statsRepository, Stats i
 
   Provider<UrlService>(
     create: (_) => UrlService(),
+  ),
+
+  ChangeNotifierProvider<ProfileProvider>(
+    create: (_) => ProfileProvider(
+      profileRepository,
+      initialProfile: initialProfile,
+    ),
   ),
 ];
