@@ -27,8 +27,28 @@ class ChoosingAvatarSection extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Stack(
-        alignment: Alignment.bottomRight,
+        alignment: Alignment.center,
         children: [
+          DecoratedBox(
+            decoration: BoxDecoration(
+              color: context.colors.primary,
+              shape: BoxShape.circle,
+              gradient: LinearGradient(
+                colors: [
+                  context.colors.primary.withValues(alpha: 0.7),
+                  context.colors.primary,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
+
+            child: SizedBox(
+              width: 153,
+              height: 153,
+            ),
+          ),
+
           Padding(
             padding: const EdgeInsets.all(4),
             child: ClipRRect(
@@ -42,14 +62,18 @@ class ChoosingAvatarSection extends StatelessWidget {
             ),
           ),
 
-          IconButton(
-            onPressed: () {
-              showAvatarSelectionDialog(context);
-            },
+          Positioned(
+            right: 0,
+            bottom: 0,
+            child: IconButton(
+              onPressed: () {
+                showAvatarSelectionDialog(context);
+              },
 
-            icon: Icon(
-              Icons.brush,
-              color: context.colors.primary,
+              icon: Icon(
+                Icons.brush,
+                color: context.colors.primary,
+              ),
             ),
           ),
         ],
