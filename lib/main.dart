@@ -12,7 +12,7 @@ import 'services/profile/profile_repository.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Hive.initFlutter();
+  await Hive.initFlutter('zentea');
   Hive.registerAdapter(StatsAdapter());
   Hive.registerAdapter(ProfileStatsAdapter());
 
