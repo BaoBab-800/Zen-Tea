@@ -206,7 +206,7 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
     }
 
     final rareTeasCount = listOfTeas
-        .where((tea) => tea.features != TeaFeatures.common)
+        .where((tea) => tea.features == TeaFeatures.rare)
         .length;
     final legendaryTeasCount = listOfTeas
         .where((tea) => tea.features == TeaFeatures.legendary)
