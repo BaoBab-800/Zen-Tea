@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zentea/core/l10n/l10n.dart';
 
 import 'package:zentea/core/theme/app_theme.dart';
 
@@ -11,7 +12,15 @@ class ProfileBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(
+          context.l10n.profile,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
 
       body: Container(
         margin: const EdgeInsets.all(16),
