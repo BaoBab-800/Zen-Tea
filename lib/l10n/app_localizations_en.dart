@@ -39,6 +39,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ok => 'Ok';
 
   @override
+  String get stats => 'Stats';
+
+  @override
   String get newAchievement => 'New achievement';
 
   @override
@@ -61,6 +64,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get profileChoosingAnAvatar => 'Choose tea for your avatar';
+
+  @override
+  String get profileOfThem => 'of them:';
 
   @override
   String get aboutApplicationDescription =>

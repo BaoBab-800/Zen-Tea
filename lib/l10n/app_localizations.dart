@@ -158,6 +158,12 @@ abstract class AppLocalizations {
   /// **'Ok'**
   String get ok;
 
+  /// No description provided for @stats.
+  ///
+  /// In en, this message translates to:
+  /// **'Stats'**
+  String get stats;
+
   /// No description provided for @newAchievement.
   ///
   /// In en, this message translates to:
@@ -205,6 +211,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Choose tea for your avatar'**
   String get profileChoosingAnAvatar;
+
+  /// No description provided for @profileOfThem.
+  ///
+  /// In en, this message translates to:
+  /// **'of them:'**
+  String get profileOfThem;
 
   /// No description provided for @aboutApplicationDescription.
   ///

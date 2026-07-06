@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:zentea/core/theme/app_theme.dart';
 
 import 'choosing_avatar_section.dart';
+import 'statistics_section.dart';
 
 class ProfileBuilder extends StatelessWidget {
   const ProfileBuilder({super.key});
@@ -28,7 +29,8 @@ class ProfileBuilder extends StatelessWidget {
 
         child: ListView(
           children: [
-            Center(child: ChoosingAvatarSection()),
+            ChoosingAvatarSection(),
+            StatisticsSection(),
           ],
         ),
       ),

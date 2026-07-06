@@ -39,6 +39,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get ok => 'Ок';
 
   @override
+  String get stats => 'Статистика';
+
+  @override
   String get newAchievement => 'Нове досягнення';
 
   @override
@@ -61,6 +64,9 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get profileChoosingAnAvatar => 'Виберіть чай для свого аватара';
+
+  @override
+  String get profileOfThem => 'з них:';
 
   @override
   String get aboutApplicationDescription =>
