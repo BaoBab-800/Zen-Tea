@@ -19,17 +19,20 @@ class ProfileStatsAdapter extends TypeAdapter<ProfileStats> {
     return ProfileStats(
       stats: fields[1] as Stats,
       avatarImagePath: fields[0] as String,
+      isHisPageFound: fields[2] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, ProfileStats obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.avatarImagePath)
       ..writeByte(1)
-      ..write(obj.stats);
+      ..write(obj.stats)
+      ..writeByte(2)
+      ..write(obj.isHisPageFound);
   }
 
   @override

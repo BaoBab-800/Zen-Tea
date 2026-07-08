@@ -6,6 +6,7 @@ import 'package:zentea/app/app_router.dart';
 
 import 'package:zentea/core/theme/app_theme.dart';
 import 'package:zentea/core/l10n/l10n.dart';
+import 'package:zentea/services/profile/profile_provider.dart';
 import 'package:zentea/services/url/url_service.dart';
 
 class AboutContent extends StatelessWidget {
@@ -146,6 +147,8 @@ class _VersionTextState extends State<VersionText> {
   }
 
   void _onVersionTap() {
+    final profileProvider = context.read<ProfileProvider>();
+
     final now = DateTime.now();
 
     if (_lastTap == null ||
@@ -161,6 +164,7 @@ class _VersionTextState extends State<VersionText> {
         _displayVersion = _hidePatch(_version);
       } else if (_tapCount < 3) {
         _displayVersion = _version;
+        profileProvider.updateHisPageFlag(true);
       }
     });
 

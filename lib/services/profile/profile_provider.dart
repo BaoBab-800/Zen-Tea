@@ -27,4 +27,11 @@ class ProfileProvider extends ChangeNotifier {
     _profileStats = newProfile;
     notifyListeners();
   }
+
+  Future<void> updateHisPageFlag(bool newFlagState) async {
+    final newProfile = _profileStats.copyWith(isHisPageFound: newFlagState);
+    await _profileStatsRepository.saveProfileStats(newProfile);
+    _profileStats = newProfile;
+    notifyListeners();
+  }
 }

@@ -11,18 +11,24 @@ class ProfileStats {
   @HiveField(1)
   final Stats stats;
 
+  @HiveField(2)
+  final bool isHisPageFound;
+
   const ProfileStats({
     required this.stats,
     required this.avatarImagePath,
+    required this.isHisPageFound,
   });
 
   ProfileStats copyWith({
     String? avatarImagePath,
     Stats? stats,
+    bool? isHisPageFound,
   }) {
     return ProfileStats(
       avatarImagePath: avatarImagePath ?? this.avatarImagePath,
       stats: stats ?? this.stats,
+      isHisPageFound: isHisPageFound ?? this.isHisPageFound,
     );
   }
 }

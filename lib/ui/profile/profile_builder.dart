@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:zentea/core/l10n/l10n.dart';
 
 import 'package:zentea/core/theme/app_theme.dart';
+import 'package:zentea/services/profile/profile_provider.dart';
 
 import 'choosing_avatar_section.dart';
 import 'statistics_section.dart';
+import 'to_his_page.dart';
 
 class ProfileBuilder extends StatelessWidget {
   const ProfileBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final flag = context.read<ProfileProvider>().profileStats.isHisPageFound;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -41,6 +46,7 @@ class ProfileBuilder extends StatelessWidget {
             children: [
               ChoosingAvatarSection(),
               StatisticsSection(),
+              if (flag) ToHisPage(),
             ],
           ),
         ),

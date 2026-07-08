@@ -43,7 +43,9 @@ class StatisticsSection extends StatelessWidget {
         Text(context.l10n.profileByRarity),
 
         _StatsTile(
-          value: stats.uniqueTeas - stats.rareTeasObtained,
+          value: stats.uniqueTeas
+              - stats.rareTeasObtained
+              - stats.legendaryTeasObtained,
           title: context.l10n.common,
         ),
 
@@ -63,7 +65,7 @@ class StatisticsSection extends StatelessWidget {
           value: stats.maxStreak,
           title: context.l10n.maximumSeries,
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 4),
       ],
     );
   }
