@@ -97,7 +97,7 @@ class _StatsTile extends StatelessWidget {
               Expanded(
                 child: Divider(
                   thickness: 1,
-                  color: Colors.white.withValues(alpha: 0.5),
+                  color: Colors.grey.withValues(alpha: 0.5),
                 ),
               ),
 
@@ -113,7 +113,10 @@ class _StatsTile extends StatelessWidget {
                 ),
                 child: Text(
                   '$value',
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ],
