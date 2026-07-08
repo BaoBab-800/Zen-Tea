@@ -66,7 +66,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get profileChoosingAnAvatar => 'Виберіть чай для свого аватара';
 
   @override
-  String get profileOfThem => 'з них:';
+  String get profileGeneral => 'Загальне';
+
+  @override
+  String get profileByRarity => 'За рідкостю';
+
+  @override
+  String get profileActivity => 'Активність';
 
   @override
   String get aboutApplicationDescription =>

@@ -212,11 +212,23 @@ abstract class AppLocalizations {
   /// **'Choose tea for your avatar'**
   String get profileChoosingAnAvatar;
 
-  /// No description provided for @profileOfThem.
+  /// No description provided for @profileGeneral.
   ///
   /// In en, this message translates to:
-  /// **'of them:'**
-  String get profileOfThem;
+  /// **'General'**
+  String get profileGeneral;
+
+  /// No description provided for @profileByRarity.
+  ///
+  /// In en, this message translates to:
+  /// **'By rarity'**
+  String get profileByRarity;
+
+  /// No description provided for @profileActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Activity'**
+  String get profileActivity;
 
   /// No description provided for @aboutApplicationDescription.
   ///

@@ -22,25 +22,27 @@ class ProfileBuilder extends StatelessWidget {
         ),
       ),
 
-      body: Container(
-        margin: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: context.colors.surface,
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.2),
-              blurRadius: 8,
-              offset: const Offset(4, 6),
-            ),
-          ],
-        ),
+      body: SingleChildScrollView(
+        child: Container(
+          margin: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: context.colors.surface,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.2),
+                blurRadius: 8,
+                offset: const Offset(4, 6),
+              ),
+            ],
+          ),
 
-        child: ListView(
-          children: [
-            ChoosingAvatarSection(),
-            StatisticsSection(),
-          ],
+          child: Column(
+            children: [
+              ChoosingAvatarSection(),
+              StatisticsSection(),
+            ],
+          ),
         ),
       ),
     );

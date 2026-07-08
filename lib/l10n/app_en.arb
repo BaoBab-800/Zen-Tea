@@ -22,7 +22,9 @@
   "language": "Language",
 
   "profileChoosingAnAvatar": "Choose tea for your avatar",
-  "profileOfThem": "of them:",
+  "profileGeneral": "General",
+  "profileByRarity": "By rarity",
+  "profileActivity": "Activity",
 
   "aboutApplicationDescription": "Is an app for tea lovers where you can learn about different varieties, their properties, and their history.",
   "aboutWhyDoYouNeedThisApp": "I created this app to make the world of tea closer and more understandable: from simple everyday teas to rare varieties.",

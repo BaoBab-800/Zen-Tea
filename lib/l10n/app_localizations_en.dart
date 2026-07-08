@@ -66,7 +66,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileChoosingAnAvatar => 'Choose tea for your avatar';
 
   @override
-  String get profileOfThem => 'of them:';
+  String get profileGeneral => 'General';
+
+  @override
+  String get profileByRarity => 'By rarity';
+
+  @override
+  String get profileActivity => 'Activity';
 
   @override
   String get aboutApplicationDescription =>

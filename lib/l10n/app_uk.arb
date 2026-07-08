@@ -15,7 +15,9 @@
   "newAchievement": "Нове досягнення",
 
   "profileChoosingAnAvatar": "Виберіть чай для свого аватара",
-  "profileOfThem": "з них:",
+  "profileGeneral": "Загальне",
+  "profileByRarity": "За рідкостю",
+  "profileActivity": "Активність",
 
   "menu": "Меню",
   "profile": "Профіль",

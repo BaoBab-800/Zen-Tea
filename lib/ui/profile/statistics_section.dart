@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:zentea/core/l10n/l10n.dart';
+import 'package:zentea/core/theme/app_theme.dart';
 
 import 'package:zentea/services/stats/stats_provider.dart';
 
@@ -14,11 +15,20 @@ class StatisticsSection extends StatelessWidget {
 
     return Column(
       children: [
+        const SizedBox(height: 4),
         Text(
           context.l10n.stats,
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
-        Divider(indent: 8, endIndent: 8),
+
+        Container(
+          width: 70,
+          height: 1,
+          color: context.colors.primary,
+        ),
+
+        const SizedBox(height: 4),
+        Text(context.l10n.profileGeneral),
 
         _StatsTile(
           value: stats.totalServed,
@@ -30,18 +40,7 @@ class StatisticsSection extends StatelessWidget {
           title: context.l10n.totalTeasOpened,
         ),
 
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Text(
-              context.l10n.profileOfThem,
-              style: TextStyle(
-                fontStyle: FontStyle.italic,
-              ),
-            ),
-          ),
-        ),
+        Text(context.l10n.profileByRarity),
 
         _StatsTile(
           value: stats.uniqueTeas - stats.rareTeasObtained,
@@ -58,12 +57,13 @@ class StatisticsSection extends StatelessWidget {
           title: context.l10n.legendary,
         ),
 
+        Text(context.l10n.profileActivity),
+
         _StatsTile(
           value: stats.maxStreak,
           title: context.l10n.maximumSeries,
         ),
-
-        Divider(indent: 8, endIndent: 8),
+        const SizedBox(height: 8),
       ],
     );
   }
@@ -102,9 +102,19 @@ class _StatsTile extends StatelessWidget {
               ),
 
               const SizedBox(width: 8),
-              Text(
-                '$value',
-                style: TextStyle(fontWeight: FontWeight.w600),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8,
+                  vertical: 4,
+                ),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primaryContainer,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  '$value',
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
               ),
             ],
           ),
