@@ -12,6 +12,7 @@ import 'package:zentea/data/teas/list_of_teas.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 
 import 'package:zentea/services/achievements/i_achievements_service.dart';
+import 'package:zentea/services/profile/profile_provider.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 import 'package:zentea/services/stats/i_stats_repository.dart';
 import 'package:zentea/services/stats/stats_provider.dart';
@@ -63,6 +64,7 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
     context.watch<ITeaCollectionService>();
     context.watch<QuestProgressService>();
     context.watch<StatsProvider>();
+    final profileProvider = context.watch<ProfileProvider>();
 
     return Scaffold(
       appBar: AppBar(
@@ -107,7 +109,8 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
                       'quests=${dev.stats.totalQuestCompleted}, '
                       'streak=${dev.stats.streakDays}, max=${dev.stats.maxStreak}, '
                       'achievements=${dev.unlockedAchievements}/${allAchievements.length} '
-                      'lastCompletedAt=${dev.stats.lastCompletedAt}',
+                      'lastCompletedAt=${dev.stats.lastCompletedAt} '
+                      'HisPageIsFound=${profileProvider.profileStats.isHisPageFound}',
                 ),
               ),
 
@@ -145,6 +148,11 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
               TextButton(
                 onPressed: _busy ? null : () => _run(_resetStreak),
                 child: Text(context.l10n.resetStreak),
+              ),
+
+              TextButton(
+                onPressed: _busy ? null : () => _run(_changeHisPageFlag),
+                child: Text(context.l10n.changeHisPageFlag),
               ),
 
               const SizedBox(height: 6),
@@ -282,6 +290,13 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
 
     await statsRepository.saveStats(stats);
     await statsProvider.load();
+  }
+
+  Future<void> _changeHisPageFlag() async {
+    final profileProvider = context.read<ProfileProvider>();
+    final newFlag = !profileProvider.profileStats.isHisPageFound;
+
+    await profileProvider.updateHisPageFlag(newFlag);
   }
 
   Stats _zeroStats() => Stats(

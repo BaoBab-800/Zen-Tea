@@ -44,6 +44,7 @@
   "nextDay": "Next day",
   "setRandomStreak": "Set random streak (0-99)",
   "resetStreak": "Reset streak",
+  "changeHisPageFlag": "Change xxx page flag",
   "warning": "Warning!",
   "warningContent": "You can do anything with your stats in the developer's room.\nUse at your own risk.",
 

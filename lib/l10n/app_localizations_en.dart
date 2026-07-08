@@ -129,6 +129,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get resetStreak => 'Reset streak';
 
   @override
+  String get changeHisPageFlag => 'Change xxx page flag';
+
+  @override
   String get warning => 'Warning!';
 
   @override
