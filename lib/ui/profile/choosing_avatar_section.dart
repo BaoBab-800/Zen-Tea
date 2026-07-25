@@ -72,7 +72,7 @@ class ChoosingAvatarSection extends StatelessWidget {
                 },
 
                 icon: Icon(
-                  Icons.brush,
+                  Icons.edit,
                   color: context.colors.primary,
                 ),
               ),
