@@ -19,20 +19,23 @@ class ProfileStatsAdapter extends TypeAdapter<ProfileStats> {
     return ProfileStats(
       stats: fields[1] as Stats,
       avatarImagePath: fields[0] as String,
-      isHisPageFound: (fields[2] as bool?) ?? false,
+      isHisPageFound: fields[2] == null ? false : fields[2] as bool,
+      isDeveloperRoomFound: fields[3] == null ? false : fields[3] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, ProfileStats obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.avatarImagePath)
       ..writeByte(1)
       ..write(obj.stats)
       ..writeByte(2)
-      ..write(obj.isHisPageFound);
+      ..write(obj.isHisPageFound)
+      ..writeByte(3)
+      ..write(obj.isDeveloperRoomFound);
   }
 
   @override

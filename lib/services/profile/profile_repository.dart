@@ -22,6 +22,7 @@ class ProfileRepository implements IProfileStatsRepository {
         avatarImagePath: 'assets/teas/default_tea_avatar.jpg',
         stats: await _statsRepository.getStats(),
         isHisPageFound: false,
+        isDeveloperRoomFound: false,
       );
 
       await _box.put(_profileStatsKey, initialProfile);

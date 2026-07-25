@@ -8,13 +8,15 @@ import 'package:zentea/services/profile/profile_provider.dart';
 import 'choosing_avatar_section.dart';
 import 'statistics_section.dart';
 import 'to_his_page.dart';
+import 'to_developer_room.dart';
 
 class ProfileBuilder extends StatelessWidget {
   const ProfileBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final flag = context.read<ProfileProvider>().profileStats.isHisPageFound;
+    final profileStatsProvder =
+        context.read<ProfileProvider>().profileStats;
 
     return Scaffold(
       appBar: AppBar(
@@ -46,7 +48,8 @@ class ProfileBuilder extends StatelessWidget {
             children: [
               ChoosingAvatarSection(),
               StatisticsSection(),
-              if (flag) ToHisPage(),
+              if (profileStatsProvder.isHisPageFound) ToHisPage(),
+              if (profileStatsProvder.isDeveloperRoomFound) ToDeveloperRoom(),
             ],
           ),
         ),

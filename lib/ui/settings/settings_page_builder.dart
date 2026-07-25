@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:zentea/app/app_router.dart';
-
 import 'package:zentea/core/l10n/l10n.dart';
 
 import 'settings_theme_section.dart';
@@ -29,21 +27,10 @@ class SettingsPageBuilder extends StatelessWidget {
           const SettingsThemeSection(),
           const SettingsLanguageSection(),
           const SizedBox(height: 6),
-          _goToDeveloperRoomTestButton(context),  // Temporarily
           const Expanded(child: SizedBox()),
           const SettingsDevButton(),
         ],
       ),
-    );
-  }
-
-  // Temporarily
-  Widget _goToDeveloperRoomTestButton(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        context.pushRoute(AppRoute.developer);
-      },
-      child: Text(context.l10n.goToDeveloperRoom),
     );
   }
 }

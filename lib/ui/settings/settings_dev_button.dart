@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:zentea/app/app_router.dart';
 
 import 'package:zentea/core/theme/app_theme.dart';
+import 'package:zentea/services/profile/profile_provider.dart';
 
 class SettingsDevButton extends StatefulWidget {
   const SettingsDevButton({super.key});
@@ -22,6 +24,7 @@ class _SettingsDevButtonState extends State<SettingsDevButton> {
 
   void _onWidgetTap() {
     final now = DateTime.now();
+    final profileProvider = context.read<ProfileProvider>();
 
     if (_lastTap == null ||
         now.difference(_lastTap!) > const Duration(seconds: 1)) {
@@ -32,6 +35,7 @@ class _SettingsDevButtonState extends State<SettingsDevButton> {
     _tapCount++;
 
     if (_tapCount >= 7) {
+      profileProvider.updateDeveloperRoomFlag(true);
       Navigation(context).pushRoute(AppRoute.developer);
     }
   }

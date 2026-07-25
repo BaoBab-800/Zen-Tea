@@ -34,4 +34,11 @@ class ProfileProvider extends ChangeNotifier {
     _profileStats = newProfile;
     notifyListeners();
   }
+
+  Future<void> updateDeveloperRoomFlag(bool newFlagState) async {
+    final newProfile = _profileStats.copyWith(isDeveloperRoomFound: newFlagState);
+    await _profileStatsRepository.saveProfileStats(newProfile);
+    _profileStats = newProfile;
+    notifyListeners();
+  }
 }
