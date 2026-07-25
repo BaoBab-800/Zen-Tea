@@ -350,6 +350,12 @@ abstract class AppLocalizations {
   /// **'Change xxx page flag'**
   String get changeHisPageFlag;
 
+  /// No description provided for @changeDeveloperRoomFlag.
+  ///
+  /// In en, this message translates to:
+  /// **'Change developer room flag'**
+  String get changeDeveloperRoomFlag;
+
   /// No description provided for @warning.
   ///
   /// In en, this message translates to:

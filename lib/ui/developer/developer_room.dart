@@ -150,9 +150,16 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
                 child: Text(context.l10n.resetStreak),
               ),
 
+              const SizedBox(height: 6),
               TextButton(
                 onPressed: _busy ? null : () => _run(_changeHisPageFlag),
                 child: Text(context.l10n.changeHisPageFlag),
+              ),
+
+              const SizedBox(height: 6),
+              TextButton(
+                onPressed: _busy ? null : () => _run(_changeDeveloperRoomFlag),
+                child: Text(context.l10n.changeDeveloperRoomFlag),
               ),
 
               const SizedBox(height: 6),
@@ -297,6 +304,13 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
     final newFlag = !profileProvider.profileStats.isHisPageFound;
 
     await profileProvider.updateHisPageFlag(newFlag);
+  }
+
+  Future<void> _changeDeveloperRoomFlag() async {
+    final profileProvider = context.read<ProfileProvider>();
+    final newFlag = !profileProvider.profileStats.isDeveloperRoomFound;
+
+    await profileProvider.updateDeveloperRoomFlag(newFlag);
   }
 
   Stats _zeroStats() => Stats(

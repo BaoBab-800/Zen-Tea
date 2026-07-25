@@ -138,6 +138,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get changeHisPageFlag => 'Change xxx page flag';
 
   @override
+  String get changeDeveloperRoomFlag => 'Change developer room flag';
+
+  @override
   String get warning => 'Warning!';
 
   @override

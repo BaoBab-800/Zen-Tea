@@ -137,6 +137,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get changeHisPageFlag => 'Змінити прапорець xxx сторінки';
 
   @override
+  String get changeDeveloperRoomFlag => 'Змінити прапорець кімнати розробника';
+
+  @override
   String get warning => 'Попередження!';
 
   @override
