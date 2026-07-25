@@ -110,7 +110,8 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
                       'streak=${dev.stats.streakDays}, max=${dev.stats.maxStreak}, '
                       'achievements=${dev.unlockedAchievements}/${allAchievements.length} '
                       'lastCompletedAt=${dev.stats.lastCompletedAt} '
-                      'HisPageIsFound=${profileProvider.profileStats.isHisPageFound}',
+                      'HisPageIsFound=${profileProvider.profileStats.isHisPageFound} '
+                      'DeveloperRoomIsFound=${profileProvider.profileStats.isDeveloperRoomFound}',
                 ),
               ),
 
@@ -284,6 +285,10 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
 
   Future<void> _resetAllStats() async {
     final achievementsService = context.read<IAchievementsService>();
+    final profileProvider = context.read<ProfileProvider>();
+
+    if (profileProvider.profileStats.isHisPageFound) await _changeHisPageFlag();
+    if (profileProvider.profileStats.isDeveloperRoomFound) await _changeDeveloperRoomFlag();
 
     await _updateStats(_zeroStats());
     await achievementsService.saveUnlocked({});
