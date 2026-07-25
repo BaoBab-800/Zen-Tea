@@ -19,7 +19,7 @@ class ProfileStatsAdapter extends TypeAdapter<ProfileStats> {
     return ProfileStats(
       stats: fields[1] as Stats,
       avatarImagePath: fields[0] as String,
-      isHisPageFound: fields[2] as bool,
+      isHisPageFound: (fields[2] as bool?) ?? false,
     );
   }
 

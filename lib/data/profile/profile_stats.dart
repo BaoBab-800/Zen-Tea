@@ -11,7 +11,7 @@ class ProfileStats {
   @HiveField(1)
   final Stats stats;
 
-  @HiveField(2)
+  @HiveField(2, defaultValue: false)
   final bool isHisPageFound;
 
   const ProfileStats({
