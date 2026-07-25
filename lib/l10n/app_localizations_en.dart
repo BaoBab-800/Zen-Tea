@@ -102,6 +102,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutSupport => 'A penny for tea';
 
   @override
+  String get aboutToHisPage => 'Go to His Page';
+
+  @override
+  String get aboutToDeveloperRoom => 'Go to the developer room';
+
+  @override
   String get goToDeveloperRoom => 'Go to developer room';
 
   @override

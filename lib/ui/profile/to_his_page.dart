@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zentea/app/app_router.dart';
+import 'package:zentea/core/l10n/l10n.dart';
 
 class ToHisPage extends StatelessWidget {
   const ToHisPage({super.key});
@@ -13,7 +14,7 @@ class ToHisPage extends StatelessWidget {
           onPressed: () => Navigation(context).pushRoute(AppRoute.hisPageContent),
 
           child: Text(
-            'To His page',
+            context.l10n.aboutToHisPage,
           ),
         ),
         const SizedBox(height: 4),

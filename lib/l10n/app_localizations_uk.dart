@@ -101,6 +101,12 @@ class AppLocalizationsUk extends AppLocalizations {
   String get aboutSupport => 'Копієчку на чай';
 
   @override
+  String get aboutToHisPage => 'Перейти на Його сторінку';
+
+  @override
+  String get aboutToDeveloperRoom => 'Перейти до кімнати розробника';
+
+  @override
   String get goToDeveloperRoom => 'Перейти до кімнати розробника';
 
   @override

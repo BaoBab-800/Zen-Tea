@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zentea/app/app_router.dart';
+import 'package:zentea/core/l10n/l10n.dart';
 
 class ToDeveloperRoom extends StatelessWidget {
   const ToDeveloperRoom({super.key});
@@ -13,7 +14,7 @@ class ToDeveloperRoom extends StatelessWidget {
           onPressed: () => Navigation(context).pushRoute(AppRoute.developer),
 
           child: Text(
-            'To developer room',
+            context.l10n.aboutToDeveloperRoom,
           ),
         ),
         const SizedBox(height: 4),

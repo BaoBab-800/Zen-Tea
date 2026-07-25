@@ -278,6 +278,18 @@ abstract class AppLocalizations {
   /// **'A penny for tea'**
   String get aboutSupport;
 
+  /// No description provided for @aboutToHisPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to His Page'**
+  String get aboutToHisPage;
+
+  /// No description provided for @aboutToDeveloperRoom.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to the developer room'**
+  String get aboutToDeveloperRoom;
+
   /// No description provided for @goToDeveloperRoom.
   ///
   /// In en, this message translates to:
