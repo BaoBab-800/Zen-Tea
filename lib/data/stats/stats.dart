@@ -66,4 +66,31 @@ class Stats {
       lastCompletedAt: lastCompletedAt ?? this.lastCompletedAt,
     );
   }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) || other is Stats
+        && totalServed == other.totalServed
+        && uniqueTeas == other.uniqueTeas
+        && streakDays == other.streakDays
+        && currentTeaServed == other.currentTeaServed
+        && rareTeasObtained == other.rareTeasObtained
+        && legendaryTeasObtained == other.legendaryTeasObtained
+        && totalQuestCompleted == other.totalQuestCompleted
+        && maxStreak == other.maxStreak
+        && lastCompletedAt == other.lastCompletedAt;
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    totalServed,
+    uniqueTeas,
+    streakDays,
+    currentTeaServed,
+    rareTeasObtained,
+    legendaryTeasObtained,
+    totalQuestCompleted,
+    maxStreak,
+    lastCompletedAt,
+  );
 }

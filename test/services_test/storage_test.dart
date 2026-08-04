@@ -6,22 +6,22 @@ import 'package:hive/hive.dart';
 import 'package:zentea/services/storage/hive_key_value_storage.dart';
 
 void main() {
-  late Directory tempDirectory;
+  late Directory tempStorageDirectory;
   late Box<dynamic> box;
   late HiveKeyValueStorage storage;
 
   setUp(() async {
-    tempDirectory = await Directory.systemTemp.createTemp();
+    tempStorageDirectory = await Directory.systemTemp.createTemp();
 
-    Hive.init(tempDirectory.path);
+    Hive.init(tempStorageDirectory.path);
 
-    box = await Hive.openBox('test_box');
+    box = await Hive.openBox('test_storage_box');
     storage = HiveKeyValueStorage(box);
   });
   
   tearDown(() async {
     await box.close();
-    await tempDirectory.delete(recursive: true);
+    await tempStorageDirectory.delete(recursive: true);
   });
 
   group('HiveKeyValueStorage', () {

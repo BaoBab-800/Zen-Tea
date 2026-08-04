@@ -9,11 +9,11 @@ class HiveStatsRepository extends IStatsRepository {
 
   HiveStatsRepository(this._box);
 
-  static const _key = 'stats';
+  static const statsKey = 'stats';
 
   @override
   Future<Stats> getStats() async {
-    if (_box.isEmpty) {
+   if (_box.isEmpty) {
       final initialStats = Stats(
         totalServed: 0,
         uniqueTeas: 0,
@@ -25,15 +25,15 @@ class HiveStatsRepository extends IStatsRepository {
         maxStreak: 0,
         lastCompletedAt: null,
       );
-      await _box.put(_key, initialStats);
+      await _box.put(statsKey, initialStats);
       return initialStats;
     }
 
-    return _box.get(_key)!;
+    return _box.get(statsKey)!;
   }
 
   @override
   Future<void> saveStats(Stats stats) async {
-    await _box.put(_key, stats);
+    await _box.put(statsKey, stats);
   }
 }
