@@ -9,7 +9,7 @@ class TeaModel {
   final int timesServed;
   final bool isUnlocked;
 
-  TeaModel({
+  const TeaModel({
     required this.type,
     required this.imagePath,
     required this.features,
