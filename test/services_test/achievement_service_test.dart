@@ -8,11 +8,32 @@ import 'package:zentea/services/achievements/achievements_service.dart';
 import 'package:zentea/services/storage/i_key_value_storage.dart';
 
 class MockKeyValueStorage extends Mock implements IKeyValueStorage {}
-class MockStats extends Mock implements Stats {}
 
 void main() {
   late MockKeyValueStorage mockStorage;
   late AchievementsService service;
+
+  const lockedStats = Stats(
+    totalServed: 0,
+    uniqueTeas: 0,
+    streakDays: 0,
+    currentTeaServed: 0,
+    rareTeasObtained: 0,
+    legendaryTeasObtained: 0,
+    totalQuestCompleted: 0,
+    maxStreak: 0,
+  );
+
+  const unlockAllStats = Stats(
+    totalServed: 0,
+    uniqueTeas: 3,
+    streakDays: 0,
+    currentTeaServed: 0,
+    rareTeasObtained: 3,
+    legendaryTeasObtained: 1,
+    totalQuestCompleted: 0,
+    maxStreak: 10,
+  );
 
   setUp(() {
     mockStorage = MockKeyValueStorage();
@@ -71,18 +92,23 @@ void main() {
 
   group('checkAchievements', () {
     test('returns newly unlocked achievements', () {
-      final mockStats = MockStats();
-
       final result = service.checkAchievements(
         currentUnlocked: {},
-        stats: mockStats,
+        stats: unlockAllStats,
       );
 
-      expect(result, isA<Set<IdKeys>>());
+      expect(
+        result,
+        equals({
+          IdKeys.idFirstStepsAchievement,
+          IdKeys.idServeTenTeasAchievement,
+          IdKeys.idGetRareTeasAchievement,
+          IdKeys.idLegendaryTeaAchievement,
+        }),
+      );
     });
 
     test('does not return achievements that are already unlocked', () {
-      final mockStats = MockStats();
       final alreadyUnlocked = {
         IdKeys.idFirstStepsAchievement,
         IdKeys.idServeTenTeasAchievement,
@@ -90,10 +116,25 @@ void main() {
 
       final result = service.checkAchievements(
         currentUnlocked: alreadyUnlocked,
-        stats: mockStats,
+        stats: unlockAllStats,
       );
 
-      expect(result.intersection(alreadyUnlocked), isEmpty);
+      expect(
+        result,
+        equals({
+          IdKeys.idGetRareTeasAchievement,
+          IdKeys.idLegendaryTeaAchievement,
+        }),
+      );
+    });
+
+    test('returns no achievements when stats do not meet any thresholds', () {
+      final result = service.checkAchievements(
+        currentUnlocked: {},
+        stats: lockedStats,
+      );
+
+      expect(result, isEmpty);
     });
   });
 
