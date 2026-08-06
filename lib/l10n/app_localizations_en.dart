@@ -650,4 +650,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get dLegendaryTeaAchievement => 'Find the legendary tea';
+
+  @override
+  String get tCollectAllTheTeasAchievement => 'A true collector';
+
+  @override
+  String get dCollectAllTheTeasAchievement => 'Find all teas';
 }

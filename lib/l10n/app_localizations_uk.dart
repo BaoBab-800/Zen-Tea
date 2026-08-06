@@ -647,4 +647,10 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get dLegendaryTeaAchievement => 'Знайди легендарний чай';
+
+  @override
+  String get tCollectAllTheTeasAchievement => 'Справжній колекціонер';
+
+  @override
+  String get dCollectAllTheTeasAchievement => 'Знайдіть усі чаї';
 }

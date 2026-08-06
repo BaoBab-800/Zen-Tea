@@ -16,6 +16,8 @@ class AchievementLocalization {
         return l10n.tGetRareTeasAchievement;
       case TitleKeys.tLegendaryTeaAchievement:
         return l10n.tLegendaryTeaAchievement;
+      case TitleKeys.tCollectAllTheTeasAchievement:
+        return l10n.tCollectAllTheTeasAchievement;
     }
   }
 
@@ -31,6 +33,8 @@ class AchievementLocalization {
         return l10n.dGetRareTeasAchievement;
       case DescriptionKeys.dLegendaryTeaAchievement:
         return l10n.dLegendaryTeaAchievement;
+      case DescriptionKeys.dCollectAllTheTeasAchievement:
+        return l10n.dCollectAllTheTeasAchievement;
     }
   }
 }

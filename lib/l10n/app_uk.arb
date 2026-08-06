@@ -265,5 +265,8 @@
   "dGetRareTeasAchievement": "Отримайте рідкісний чай",
 
   "tLegendaryTeaAchievement": "Звучить як легенда",
-  "dLegendaryTeaAchievement": "Знайди легендарний чай"
+  "dLegendaryTeaAchievement": "Знайди легендарний чай",
+
+  "tCollectAllTheTeasAchievement": "Справжній колекціонер",
+  "dCollectAllTheTeasAchievement": "Знайдіть усі чаї"
 }

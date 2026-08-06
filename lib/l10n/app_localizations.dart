@@ -1255,6 +1255,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Find the legendary tea'**
   String get dLegendaryTeaAchievement;
+
+  /// No description provided for @tCollectAllTheTeasAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'A true collector'**
+  String get tCollectAllTheTeasAchievement;
+
+  /// No description provided for @dCollectAllTheTeasAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'Find all teas'**
+  String get dCollectAllTheTeasAchievement;
 }
 
 class _AppLocalizationsDelegate

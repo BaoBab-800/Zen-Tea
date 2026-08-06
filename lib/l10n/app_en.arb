@@ -264,5 +264,8 @@
   "dGetRareTeasAchievement": "Get 3 Rare Teas",
 
   "tLegendaryTeaAchievement": "Sounds like a legend",
-  "dLegendaryTeaAchievement": "Find the legendary tea"
+  "dLegendaryTeaAchievement": "Find the legendary tea",
+
+  "tCollectAllTheTeasAchievement": "A true collector",
+  "dCollectAllTheTeasAchievement": "Find all teas"
 }
