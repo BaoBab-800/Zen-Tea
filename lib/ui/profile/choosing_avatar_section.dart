@@ -51,7 +51,7 @@ class ChoosingAvatarSection extends StatelessWidget {
             ),
 
             Padding(
-              padding: const EdgeInsets.all(4),
+              padding: const EdgeInsets.all(10),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(100),
                 child: Image.asset(
