@@ -34,6 +34,7 @@ class SettingsThemeSection extends StatelessWidget {
 
         Card(
           margin: const EdgeInsets.symmetric(horizontal: 12),
+          clipBehavior: Clip.antiAlias,
           child: RadioGroup<ThemeMode>(
             groupValue: settings.themeMode,
             onChanged: (value) {
@@ -46,8 +47,8 @@ class SettingsThemeSection extends StatelessWidget {
                 for (final theme in ThemeMode.values)
                   RadioListTile<ThemeMode>(
                     dense: true,
-                    title: Text(theme.label(context.l10n)),
                     value: theme,
+                    title: Text(theme.label(context.l10n)),
                   ),
               ],
             ),

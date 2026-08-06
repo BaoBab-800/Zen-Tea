@@ -33,6 +33,7 @@ class SettingsLanguageSection extends StatelessWidget {
 
         Card(
           margin: const EdgeInsets.symmetric(horizontal: 12),
+          clipBehavior: Clip.antiAlias,
           child: RadioGroup<Locale>(
             groupValue: settings.locale,
             onChanged: (value) {
