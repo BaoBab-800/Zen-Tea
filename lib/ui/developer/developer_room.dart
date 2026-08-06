@@ -117,11 +117,6 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
                 ),
 
                 TextButton(
-                  onPressed: _busy ? null : () => _run(_resetAllValues),
-                  child: Text(context.l10n.resetAllValues),
-                ),
-
-                TextButton(
                   onPressed: _busy ? null : () => _run(_unlockAll),
                   child: Text(context.l10n.unlockAll),
                 ),
@@ -204,18 +199,6 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
       'Daily tea state advanced to the next day',
       name: 'DeveloperRoom',
     );
-  }
-
-  Future<void> _resetAllValues() async {
-    final teaService = context.read<ITeaCollectionService>();
-
-    for (final tea in listOfTeas) {
-      await teaService.setServedCount(tea, 0);
-      await teaService.setUnlocked(tea, false);
-    }
-
-    await _updateStats(_zeroStats());
-    developer.log('All values has been reset', name: 'DeveloperRoom');
   }
 
   Future<void> _unlockAll() async {

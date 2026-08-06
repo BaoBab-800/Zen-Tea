@@ -302,12 +302,6 @@ abstract class AppLocalizations {
   /// **'Developer room'**
   String get developerRoom;
 
-  /// No description provided for @resetAllValues.
-  ///
-  /// In en, this message translates to:
-  /// **'Reset all values'**
-  String get resetAllValues;
-
   /// No description provided for @resetAllStats.
   ///
   /// In en, this message translates to:

@@ -114,9 +114,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get developerRoom => 'Developer room';
 
   @override
-  String get resetAllValues => 'Reset all values';
-
-  @override
   String get resetAllStats => 'Reset all stats';
 
   @override

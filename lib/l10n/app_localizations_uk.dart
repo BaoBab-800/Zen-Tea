@@ -113,9 +113,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get developerRoom => 'Кімната розробника';
 
   @override
-  String get resetAllValues => 'Обнулити всі значення';
-
-  @override
   String get resetAllStats => 'Скинути всю статистику';
 
   @override
