@@ -216,6 +216,8 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
         .where((tea) => tea.features == TeaFeatures.legendary)
         .length;
     final current = statsProvider.stats;
+
+    await _unlockAllAchievements();
     await _updateStats(
       current.copyWith(
         uniqueTeas: listOfTeas.length,
@@ -236,6 +238,7 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
     }
 
     final current = statsProvider.stats;
+    await _lockAllAchievements();
     await _updateStats(
       current.copyWith(
         uniqueTeas: 0,
