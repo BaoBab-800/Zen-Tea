@@ -128,6 +128,12 @@ class AppLocalizationsUk extends AppLocalizations {
   String get nextDay => 'Наступний день';
 
   @override
+  String get unlockAllAchievements => 'Unlock all achievements';
+
+  @override
+  String get lockAllAchievements => 'Lock all achievements';
+
+  @override
   String get setRandomStreak => 'Встановити випадкове значення (0-99)';
 
   @override

@@ -95,80 +95,85 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
           final teaService = data?.$2;
           final stateDump = teaService?.dumpState() ?? 'Loading...';
 
-          return ListView(
-            children: [
-              const SizedBox(height: 12),
-              Center(child: Text(stateDump)),
-              const SizedBox(height: 6),
-              Center(
-                child: Text(
-                  dev == null
-                      ? 'Stats: loading...'
-                      : 'Stats: served=${dev.stats.totalServed}, unique=${dev.stats.uniqueTeas}, '
-                      'rare=${dev.stats.rareTeasObtained}, legendary=${dev.stats.legendaryTeasObtained}, '
-                      'quests=${dev.stats.totalQuestCompleted}, '
-                      'streak=${dev.stats.streakDays}, max=${dev.stats.maxStreak}, '
-                      'achievements=${dev.unlockedAchievements}/${allAchievements.length} '
-                      'lastCompletedAt=${dev.stats.lastCompletedAt} '
-                      'HisPageIsFound=${profileProvider.profileStats.isHisPageFound} '
-                      'DeveloperRoomIsFound=${profileProvider.profileStats.isDeveloperRoomFound}',
+          return SingleChildScrollView(
+            child: Column(
+              spacing: 6,
+              children: [
+                const SizedBox(height: 6),
+                Center(child: Text(stateDump)),
+                Center(
+                  child: Text(
+                    dev == null
+                        ? 'Stats: loading...'
+                        : 'Stats: served=${dev.stats.totalServed}, unique=${dev.stats.uniqueTeas}, '
+                        'rare=${dev.stats.rareTeasObtained}, legendary=${dev.stats.legendaryTeasObtained}, '
+                        'quests=${dev.stats.totalQuestCompleted}, '
+                        'streak=${dev.stats.streakDays}, max=${dev.stats.maxStreak}, '
+                        'achievements=${dev.unlockedAchievements}/${allAchievements.length} '
+                        'lastCompletedAt=${dev.stats.lastCompletedAt} '
+                        'HisPageIsFound=${profileProvider.profileStats.isHisPageFound} '
+                        'DeveloperRoomIsFound=${profileProvider.profileStats.isDeveloperRoomFound}',
+                  ),
                 ),
-              ),
 
-              const SizedBox(height: 6),
-              TextButton(
-                onPressed: _busy ? null : () => _run(_resetAllValues),
-                child: Text(context.l10n.resetAllValues),
-              ),
+                TextButton(
+                  onPressed: _busy ? null : () => _run(_resetAllValues),
+                  child: Text(context.l10n.resetAllValues),
+                ),
 
-              const SizedBox(height: 6),
-              TextButton(
-                onPressed: _busy ? null : () => _run(_unlockAll),
-                child: Text(context.l10n.unlockAll),
-              ),
+                TextButton(
+                  onPressed: _busy ? null : () => _run(_unlockAll),
+                  child: Text(context.l10n.unlockAll),
+                ),
 
-              const SizedBox(height: 6),
-              TextButton(
-                onPressed: _busy ? null : () => _run(_blockAll),
-                child: Text(context.l10n.blockAll),
-              ),
+                TextButton(
+                  onPressed: _busy ? null : () => _run(_blockAll),
+                  child: Text(context.l10n.blockAll),
+                ),
 
-              const SizedBox(height: 6),
-              TextButton(
-                onPressed: _busy ? null : () => _run(_nextDay),
-                child: Text(context.l10n.nextDay),
-              ),
+                TextButton(
+                  onPressed: _busy ? null : () => _run(_nextDay),
+                  child: Text(context.l10n.nextDay),
+                ),
 
-              const SizedBox(height: 6),
-              TextButton(
-                onPressed: _busy ? null : () => _run(_setRandomStreak),
-                child: Text(context.l10n.setRandomStreak),
-              ),
+                TextButton(
+                  onPressed: _busy ? null : () => _run(_unlockAllAchievements),
+                  child: Text(context.l10n.unlockAllAchievements),
+                ),
 
-              const SizedBox(height: 6),
-              TextButton(
-                onPressed: _busy ? null : () => _run(_resetStreak),
-                child: Text(context.l10n.resetStreak),
-              ),
+                TextButton(
+                  onPressed: _busy ? null : () => _run(_lockAllAchievements),
+                  child: Text(context.l10n.lockAllAchievements),
+                ),
 
-              const SizedBox(height: 6),
-              TextButton(
-                onPressed: _busy ? null : () => _run(_changeHisPageFlag),
-                child: Text(context.l10n.changeHisPageFlag),
-              ),
+                TextButton(
+                  onPressed: _busy ? null : () => _run(_setRandomStreak),
+                  child: Text(context.l10n.setRandomStreak),
+                ),
 
-              const SizedBox(height: 6),
-              TextButton(
-                onPressed: _busy ? null : () => _run(_changeDeveloperRoomFlag),
-                child: Text(context.l10n.changeDeveloperRoomFlag),
-              ),
+                TextButton(
+                  onPressed: _busy ? null : () => _run(_resetStreak),
+                  child: Text(context.l10n.resetStreak),
+                ),
 
-              const SizedBox(height: 6),
-              TextButton(
-                onPressed: _busy ? null : () => _run(_resetAllStats),
-                child: Text(context.l10n.resetAllStats),
-              ),
-            ],
+                TextButton(
+                  onPressed: _busy ? null : () => _run(_changeHisPageFlag),
+                  child: Text(context.l10n.changeHisPageFlag),
+                ),
+
+                TextButton(
+                  onPressed: _busy ? null : () => _run(_changeDeveloperRoomFlag),
+                  child: Text(context.l10n.changeDeveloperRoomFlag),
+                ),
+
+                TextButton(
+                  onPressed: _busy ? null : () => _run(_resetAllStats),
+                  child: Text(context.l10n.resetAllStats),
+                ),
+
+                const SizedBox(height: 10),
+              ],
+            ),
           );
         },
       ),
@@ -284,14 +289,13 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
   }
 
   Future<void> _resetAllStats() async {
-    final achievementsService = context.read<IAchievementsService>();
     final profileProvider = context.read<ProfileProvider>();
 
     if (profileProvider.profileStats.isHisPageFound) await _changeHisPageFlag();
     if (profileProvider.profileStats.isDeveloperRoomFound) await _changeDeveloperRoomFlag();
 
     await _updateStats(_zeroStats());
-    await achievementsService.saveUnlocked({});
+    await _lockAllAchievements();
 
     developer.log('All values have been reset', name: 'DeveloperRoom');
   }
@@ -302,6 +306,18 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
 
     await statsRepository.saveStats(stats);
     await statsProvider.load();
+  }
+
+  Future<void> _unlockAllAchievements() async {
+    final achievementsService = context.read<IAchievementsService>();
+    await achievementsService.saveUnlocked(
+      allAchievements.map((a) => a.id).toSet(),
+    );
+  }
+
+  Future<void> _lockAllAchievements() async {
+    final achievementsService = context.read<IAchievementsService>();
+    await achievementsService.saveUnlocked({});
   }
 
   Future<void> _changeHisPageFlag() async {

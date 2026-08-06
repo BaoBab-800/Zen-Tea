@@ -129,6 +129,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get nextDay => 'Next day';
 
   @override
+  String get unlockAllAchievements => 'Unlock all achievements';
+
+  @override
+  String get lockAllAchievements => 'Lock all achievements';
+
+  @override
   String get setRandomStreak => 'Set random streak (0-99)';
 
   @override

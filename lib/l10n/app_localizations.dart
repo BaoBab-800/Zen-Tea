@@ -332,6 +332,18 @@ abstract class AppLocalizations {
   /// **'Next day'**
   String get nextDay;
 
+  /// No description provided for @unlockAllAchievements.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock all achievements'**
+  String get unlockAllAchievements;
+
+  /// No description provided for @lockAllAchievements.
+  ///
+  /// In en, this message translates to:
+  /// **'Lock all achievements'**
+  String get lockAllAchievements;
+
   /// No description provided for @setRandomStreak.
   ///
   /// In en, this message translates to:

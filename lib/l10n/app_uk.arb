@@ -44,6 +44,8 @@
   "unlockAll": "Відкрити все",
   "blockAll": "Закрити все",
   "nextDay": "Наступний день",
+  "unlockAllAchievements": "Unlock all achievements",
+  "lockAllAchievements": "Lock all achievements",
   "setRandomStreak": "Встановити випадкове значення (0-99)",
   "resetStreak": "Скинути серію",
   "changeHisPageFlag": "Змінити прапорець xxx сторінки",

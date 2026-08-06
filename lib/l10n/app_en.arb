@@ -44,6 +44,8 @@
   "unlockAll": "Unlock all",
   "blockAll": "Block all",
   "nextDay": "Next day",
+  "unlockAllAchievements": "Unlock all achievements",
+  "lockAllAchievements": "Lock all achievements",
   "setRandomStreak": "Set random streak (0-99)",
   "resetStreak": "Reset streak",
   "changeHisPageFlag": "Change xxx page flag",
