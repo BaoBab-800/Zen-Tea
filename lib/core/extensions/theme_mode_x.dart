@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zentea/l10n/app_localizations.dart';
+import 'package:zentea/l10n/generated/app_localizations.dart';
 
 extension ThemeModeX on ThemeMode {
   String label(AppLocalizations l10n) => switch (this) {
