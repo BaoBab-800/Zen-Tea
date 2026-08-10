@@ -941,31 +941,31 @@ abstract class AppLocalizations {
   /// No description provided for @blackTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Black Tea - \"The Tea That Accidentally Became a Legend\"'**
+  /// **'Black Tea — «The Tea That Accidentally Became a Legend»'**
   String get blackTeaStoryTitle;
 
   /// No description provided for @blackTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'They say black tea didn\'t appear because someone intended it that way, but because green tea was forgotten one day.\n\nIn China, tea leaves were typically processed quickly to preserve their freshness and green color. But one day, a batch of leaves was left over and began to oxidize. The leaves darkened, the aroma changed, and instead of the usual herbal flavor, a rich, deep aroma emerged.\n\nAnd instead of throwing it away, people tried it. And they liked it.\n\nThus, a new type of tea was born, which later became known as black tea.'**
+  /// **'They say black tea was not created on purpose, but rather discovered by accident when a batch of green tea was left forgotten.\n\nIn China, tea leaves were usually processed soon after being picked to preserve their fresh character and green color. But one day, a batch of leaves was left unattended and began to oxidize. The leaves slowly darkened, their aroma changed, and something new began to emerge — a deeper, richer character than anyone had expected.\n\nInstead of throwing the leaves away, people decided to give them a try. And they liked what they tasted.\n\nAnd so, almost by accident, a new kind of tea was discovered — one that would later become known as black tea.'**
   String get blackTeaStory;
 
   /// No description provided for @blackTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **'To prepare black tea, use water heated to around 90-95°C. Pour it over the leaves and let them slowly release their flavor for 3-5 minutes. The longer you wait, the deeper and stronger the taste becomes.'**
+  /// **'To prepare black tea, use water heated to around 90-95°C. Pour it over the tea leaves and let them slowly release their flavor for 3-5 minutes. A longer steep will usually bring out a deeper and stronger taste.'**
   String get blackTeaPreparation;
 
   /// No description provided for @blackTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **'Black tea is usually enjoyed hot, allowing its rich aroma to unfold with every sip. It can be enjoyed on its own, but a little milk, lemon, or honey can give it an entirely different character.'**
+  /// **'Black tea is often enjoyed hot, allowing its rich aroma and flavor to unfold with every sip. It can be enjoyed on its own, but a little milk, lemon, or honey can give it a completely different character.'**
   String get blackTeaHowToDrink;
 
   /// No description provided for @blackTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **'Black tea naturally contains caffeine, which makes it a pleasant companion when you need to stay awake or simply want a little energy. It also contains polyphenols and other compounds that naturally occur in tea leaves.'**
+  /// **'Black tea naturally contains caffeine, making it a pleasant companion when you want to stay alert or simply need a little extra energy. It also contains polyphenols and other naturally occurring compounds found in tea leaves.'**
   String get blackTeaProperties;
 
   /// No description provided for @greenTeaStoryTitle.
