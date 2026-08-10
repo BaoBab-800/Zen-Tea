@@ -322,3 +322,225 @@ extension TeaCountriesX on TeaCountries {
     }
   }
 }
+
+extension TeaPreparationX on TeaType {
+  String preparation(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
+    switch (this) {
+    // Common
+      case TeaType.blackTea:
+        return l10n.blackTeaPreparation;
+      case TeaType.greenTea:
+        return l10n.greenTeaPreparation;
+      case TeaType.earlGreyTea:
+        return l10n.earlGreyTeaPreparation;
+      case TeaType.masalaTea:
+        return l10n.masalaTeaPreparation;
+      case TeaType.matchaTea:
+        return l10n.matchaTeaPreparation;
+      case TeaType.jasmineTea:
+        return l10n.jasmineTeaPreparation;
+      case TeaType.hibiscusTea:
+        return l10n.hibiscusTeaPreparation;
+      case TeaType.whiteTea:
+        return l10n.whiteTeaPreparation;
+      case TeaType.mintTea:
+        return l10n.mintTeaPreparation;
+      case TeaType.chamomileTea:
+        return l10n.chamomileTeaPreparation;
+      case TeaType.aniseTea:
+        return l10n.aniseTeaPreparation;
+      case TeaType.assamTea:
+        return l10n.assamTeaPreparation;
+      case TeaType.nilgiriTea:
+        return l10n.nilgiriTeaPreparation;
+      case TeaType.genmaichaTea:
+        return l10n.genmaichaTeaPreparation;
+      case TeaType.hojichaTea:
+        return l10n.hojichaTeaPreparation;
+      case TeaType.helbaTea:
+        return l10n.helbaTeaPreparation;
+      case TeaType.mateTea:
+        return l10n.mateTeaPreparation;
+      case TeaType.carpathianTea:
+        return l10n.carpathianTeaPreparation;
+      case TeaType.labradorTea:
+        return l10n.labradorTeaPreparation;
+      case TeaType.ivanTea:
+        return l10n.ivanTeaPreparation;
+
+    // Rare
+      case TeaType.oolongTea:
+        return l10n.oolongTeaPreparation;
+      case TeaType.rooibosTea:
+        return l10n.rooibosTeaPreparation;
+      case TeaType.puerhTea:
+        return l10n.puerhTeaPreparation;
+      case TeaType.senchaTea:
+        return l10n.senchaTeaPreparation;
+      case TeaType.honeybushTea:
+        return l10n.honeybushTeaPreparation;
+      case TeaType.branchTea:
+        return l10n.branchTeaPreparation;
+
+    // Legendary
+      case TeaType.darjeelingTea:
+        return l10n.darjeelingTeaPreparation;
+      case TeaType.gyokuroTea:
+        return l10n.gyokuroTeaPreparation;
+      case TeaType.tieguanyinTea:
+        return l10n.tieguanyinTeaPreparation;
+      case TeaType.manoominTea:
+        return l10n.manoominTeaPreparation;
+    }
+  }
+}
+
+extension TeaHowToDrinkX on TeaType {
+  String howToDrink(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
+    switch (this) {
+    // Common
+      case TeaType.blackTea:
+        return l10n.blackTeaHowToDrink;
+      case TeaType.greenTea:
+        return l10n.greenTeaHowToDrink;
+      case TeaType.earlGreyTea:
+        return l10n.earlGreyTeaHowToDrink;
+      case TeaType.masalaTea:
+        return l10n.masalaTeaHowToDrink;
+      case TeaType.matchaTea:
+        return l10n.matchaTeaHowToDrink;
+      case TeaType.jasmineTea:
+        return l10n.jasmineTeaHowToDrink;
+      case TeaType.hibiscusTea:
+        return l10n.hibiscusTeaHowToDrink;
+      case TeaType.whiteTea:
+        return l10n.whiteTeaHowToDrink;
+      case TeaType.mintTea:
+        return l10n.mintTeaHowToDrink;
+      case TeaType.chamomileTea:
+        return l10n.chamomileTeaHowToDrink;
+      case TeaType.aniseTea:
+        return l10n.aniseTeaHowToDrink;
+      case TeaType.assamTea:
+        return l10n.assamTeaHowToDrink;
+      case TeaType.nilgiriTea:
+        return l10n.nilgiriTeaHowToDrink;
+      case TeaType.genmaichaTea:
+        return l10n.genmaichaTeaHowToDrink;
+      case TeaType.hojichaTea:
+        return l10n.hojichaTeaHowToDrink;
+      case TeaType.helbaTea:
+        return l10n.helbaTeaHowToDrink;
+      case TeaType.mateTea:
+        return l10n.mateTeaHowToDrink;
+      case TeaType.carpathianTea:
+        return l10n.carpathianTeaHowToDrink;
+      case TeaType.labradorTea:
+        return l10n.labradorTeaHowToDrink;
+      case TeaType.ivanTea:
+        return l10n.ivanTeaHowToDrink;
+
+    // Rare
+      case TeaType.oolongTea:
+        return l10n.oolongTeaHowToDrink;
+      case TeaType.rooibosTea:
+        return l10n.rooibosTeaHowToDrink;
+      case TeaType.puerhTea:
+        return l10n.puerhTeaHowToDrink;
+      case TeaType.senchaTea:
+        return l10n.senchaTeaHowToDrink;
+      case TeaType.honeybushTea:
+        return l10n.honeybushTeaHowToDrink;
+      case TeaType.branchTea:
+        return l10n.branchTeaHowToDrink;
+
+    // Legendary
+      case TeaType.darjeelingTea:
+        return l10n.darjeelingTeaHowToDrink;
+      case TeaType.gyokuroTea:
+        return l10n.gyokuroTeaHowToDrink;
+      case TeaType.tieguanyinTea:
+        return l10n.tieguanyinTeaHowToDrink;
+      case TeaType.manoominTea:
+        return l10n.manoominTeaHowToDrink;
+    }
+  }
+}
+
+extension TeaPropertiesX on TeaType {
+  String properties(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
+    switch (this) {
+    // Common
+      case TeaType.blackTea:
+        return l10n.blackTeaProperties;
+      case TeaType.greenTea:
+        return l10n.greenTeaProperties;
+      case TeaType.earlGreyTea:
+        return l10n.earlGreyTeaProperties;
+      case TeaType.masalaTea:
+        return l10n.masalaTeaProperties;
+      case TeaType.matchaTea:
+        return l10n.matchaTeaProperties;
+      case TeaType.jasmineTea:
+        return l10n.jasmineTeaProperties;
+      case TeaType.hibiscusTea:
+        return l10n.hibiscusTeaProperties;
+      case TeaType.whiteTea:
+        return l10n.whiteTeaProperties;
+      case TeaType.mintTea:
+        return l10n.mintTeaProperties;
+      case TeaType.chamomileTea:
+        return l10n.chamomileTeaProperties;
+      case TeaType.aniseTea:
+        return l10n.aniseTeaProperties;
+      case TeaType.assamTea:
+        return l10n.assamTeaProperties;
+      case TeaType.nilgiriTea:
+        return l10n.nilgiriTeaProperties;
+      case TeaType.genmaichaTea:
+        return l10n.genmaichaTeaProperties;
+      case TeaType.hojichaTea:
+        return l10n.hojichaTeaProperties;
+      case TeaType.helbaTea:
+        return l10n.helbaTeaProperties;
+      case TeaType.mateTea:
+        return l10n.mateTeaProperties;
+      case TeaType.carpathianTea:
+        return l10n.carpathianTeaProperties;
+      case TeaType.labradorTea:
+        return l10n.labradorTeaProperties;
+      case TeaType.ivanTea:
+        return l10n.ivanTeaProperties;
+
+    // Rare
+      case TeaType.oolongTea:
+        return l10n.oolongTeaProperties;
+      case TeaType.rooibosTea:
+        return l10n.rooibosTeaProperties;
+      case TeaType.puerhTea:
+        return l10n.puerhTeaProperties;
+      case TeaType.senchaTea:
+        return l10n.senchaTeaProperties;
+      case TeaType.honeybushTea:
+        return l10n.honeybushTeaProperties;
+      case TeaType.branchTea:
+        return l10n.branchTeaProperties;
+
+    // Legendary
+      case TeaType.darjeelingTea:
+        return l10n.darjeelingTeaProperties;
+      case TeaType.gyokuroTea:
+        return l10n.gyokuroTeaProperties;
+      case TeaType.tieguanyinTea:
+        return l10n.tieguanyinTeaProperties;
+      case TeaType.manoominTea:
+        return l10n.manoominTeaProperties;
+    }
+  }
+}

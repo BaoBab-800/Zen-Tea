@@ -435,12 +435,33 @@ class AppLocalizationsUk extends AppLocalizations {
       'Кажуть, що чорний чай з\'явився не тому, що хтось так його задумав, а тому, що про зелений чай одного дня забули.\n\nУ Китаї чайне листя зазвичай швидко обробляли, щоб зберегти його свіжість і зелений колір. Але одного разу партія листя залишилася і почала окислюватися. Листя потемніло, аромат змінився, і замість звичайного трав\'яного смаку з\'явився насичений, глибокий аромат.\n\nІ замість того, щоб викинути його, люди спробували. І їм сподобалося.\n\nТак народився новий вид чаю, який пізніше став відомим як чорний чай.';
 
   @override
+  String get blackTeaPreparation =>
+      'Для приготування чорного чаю використовуйте воду, нагріту приблизно до 90-95°C. Залийте нею листя та дайте їм повільно вивільняти свій аромат протягом 3-5 хвилин. Чим довше ви чекаєте, тим глибшим і сильнішим стає смак.';
+
+  @override
+  String get blackTeaHowToDrink =>
+      'Чорний чай зазвичай п\'ють гарячим, що дозволяє його насиченому аромату розкриватися з кожним ковтком. Його можна насолоджуватися і самостійно, але трохи молока, лимона або меду може надати йому зовсім іншого характеру.';
+
+  @override
+  String get blackTeaProperties =>
+      'Чорний чай природним чином містить кофеїн, що робить його приємним супутником, коли вам потрібно не заснути або просто хочеться трохи енергії. Він також містить поліфеноли та інші сполуки, які природним чином містяться в чайному листі.';
+
+  @override
   String get greenTeaStoryTitle =>
       'Зелений чай - \"чай, який не дозволив собі змінитися\"';
 
   @override
   String get greenTeaStory =>
       'Зелений чай – це чай, який майже «уник» трансформації.\n\nВважається, що його історія почалася в Китаї понад 4000 років тому, і протягом тривалого часу це був «найчистіший» спосіб вживання чаю: листя просто ненадовго нагрівали, щоб зупинити будь-які зміни.\n\nНа відміну від чорного чаю, зелений чай дозволяє листю ледь дозріти. Здається, він зберігає момент – свіжість, трав\'яний аромат, легку гіркоту та яскраву енергію рослини.';
+
+  @override
+  String get greenTeaPreparation => '';
+
+  @override
+  String get greenTeaHowToDrink => '';
+
+  @override
+  String get greenTeaProperties => '';
 
   @override
   String get earlGreyTeaStoryTitle =>
@@ -451,12 +472,30 @@ class AppLocalizationsUk extends AppLocalizations {
       'Ерл Грей – це чорний чай, який одного разу зустрівся з бергамотом, і він уже ніколи не був таким, як раніше.\n\nЗгідно з однією з найвідоміших історій, цей чай був названий на честь британського графа Чарльза Грея. Легенда свідчить, що йому подарували чай, ароматизований олією бергамоту, щоб пом\'якшити смак води під час подорожі. Графу він так сподобався, що його почали подавати при дворі.\n\nЧи це правда, чи гарний винахід, ніхто точно не знає. Але назва залишилася.';
 
   @override
+  String get earlGreyTeaPreparation => '';
+
+  @override
+  String get earlGreyTeaHowToDrink => '';
+
+  @override
+  String get earlGreyTeaProperties => '';
+
+  @override
   String get masalaTeaStoryTitle =>
       'Масала чай - \"чай, який не може бути тихим\"';
 
   @override
   String get masalaTeaStory =>
       'Чай масала народився не як вишуканий напій, а як вулична енергія.\n\nЧай потрапив до Індії відносно пізно – його привезли британці у 19 столітті. Але місцеві жителі вважали його надто нудним. Тож вони зробили те, що вміють найкраще: почали експериментувати.\n\nТож до звичайного чорного чаю вони додали молоко, цукор і цілу суміш спецій під назвою «масала». І чай перестав бути просто напоєм. Він став подією.';
+
+  @override
+  String get masalaTeaPreparation => '';
+
+  @override
+  String get masalaTeaHowToDrink => '';
+
+  @override
+  String get masalaTeaProperties => '';
 
   @override
   String get matchaTeaStoryTitle =>
@@ -467,12 +506,30 @@ class AppLocalizationsUk extends AppLocalizations {
       'Матча - це не просто чай. Це чай, який п\'ють цілим.\n\nЙого історія починається в Китаї, але справжню форму він набув у Японії, де став частиною чайної церемонії, майже як мистецтво уповільнення часу.\n\nЗа кілька тижнів до збору врожаю чайні кущі навмисно затіняють від сонця. Рослина «думає», що це тінь лісу, і починає виробляти більше хлорофілу та амінокислот. Ось чому матча така яскраво-зелена та насичена смаком.';
 
   @override
+  String get matchaTeaPreparation => '';
+
+  @override
+  String get matchaTeaHowToDrink => '';
+
+  @override
+  String get matchaTeaProperties => '';
+
+  @override
   String get jasmineTeaStoryTitle =>
       'Жасминовий чай - це \"чай, який запам\'ятовують не за смак, а за аромат\"';
 
   @override
   String get jasmineTeaStory =>
       'Жасминовий чай - це не лише чай, а й квіти.\n\nЙого основою майже завжди є зелений чай, але справжня дія відбувається не в листках, а навколо них. Свіжі квіти жасмину розкриваються вночі та вивільняють свій аромат. Чайне листя поглинає цей аромат, ніби «вдихаючи» його.\n\nПотім квіти збирають, але аромат залишається.';
+
+  @override
+  String get jasmineTeaPreparation => '';
+
+  @override
+  String get jasmineTeaHowToDrink => '';
+
+  @override
+  String get jasmineTeaProperties => '';
 
   @override
   String get hibiscusTeaStoryTitle =>
@@ -483,12 +540,30 @@ class AppLocalizationsUk extends AppLocalizations {
       'Гібіскус – це не листок і не чайний кущ. Це висушені пелюстки квітів.\n\nЕго заварювали в різних куточках світу: в Африці, на Близькому Сході, в Латинській Америці. І скрізь він був приблизно однаковим – яскравим, кислим і освіжаючим.\n\nВін не намагається бути «затишним». Він одразу заявляє про себе.';
 
   @override
+  String get hibiscusTeaPreparation => '';
+
+  @override
+  String get hibiscusTeaHowToDrink => '';
+
+  @override
+  String get hibiscusTeaProperties => '';
+
+  @override
   String get whiteTeaStoryTitle =>
       'Білий чай - \"чай, якого майже не торкалися\"';
 
   @override
   String get whiteTeaStory =>
       'Білий чай - най \'незайманіший\' з усіх чаїв.\n\nЕго виготовляють з молодих бруньок і листя, які майже не обробляються: їх просто збирають і ретельно сушать. Без сильного нагрівання, без скручування, без спроб щось змінити.\n\nНіби головна ідея - не втручатися.';
+
+  @override
+  String get whiteTeaPreparation => '';
+
+  @override
+  String get whiteTeaHowToDrink => '';
+
+  @override
+  String get whiteTeaProperties => '';
 
   @override
   String get mintTeaStoryTitle =>
@@ -499,12 +574,30 @@ class AppLocalizationsUk extends AppLocalizations {
       'М\'ятний чай не намагається підбадьорити, як кава, і не намагається вразити складним смаком.\n\nВін робить щось інше – трохи очищає простір навколо вас.\n\nМ\'яту заварювали в стародавніх культурах: в Єгипті, Греції та на Близькому Сході. Її цінували не лише за смак, але й за відчуття свіжості, яке вона давала, навіть у спеку.\n\nЗ часом м\'ятний чай став напоєм для перерви – тим, що п\'ють не на бігу, а щоб перепочити.';
 
   @override
+  String get mintTeaPreparation => '';
+
+  @override
+  String get mintTeaHowToDrink => '';
+
+  @override
+  String get mintTeaProperties => '';
+
+  @override
   String get aniseTeaStoryTitle =>
       'Анісовий чай: \"Напій фараонів та мандрівників\"';
 
   @override
   String get aniseTeaStory =>
       'Задовго до існування сучасного Єгипту насіння анісу вже цінувалося вздовж Нілу. Археологи виявили аніс серед скарбів стародавніх гробниць, що свідчить про те, що він був відомий та цінувався тисячі років тому.\n\nЗгідно з мíсцевими розповíдями, мандрíвники, якí перетинали пустелю, часто брали з собою анíс, оск³льки його було легко збер³гати, і його можна було заварювати скр³зь, де була вода. Тепла чашка анíсового чаю стала заспок³йливим супутником у холодн³ пустельн³ ноч³.\n\nПротягом стол³ть нап³й залишався популярним у єгипетських дом²вках. С²м\'ї подавали його гостям, д²лилися ним п²д час розмов і передавали традиц³ю з покол³ння в покол³ння.\n\nСьогодн³ анíсовий чай дос³ внутр³ по всьому Єгипту, пов\'язуючи сучасних любител³в чаю з традиц³єю, яка сягає кор²ньми у епоху фараонів.';
+
+  @override
+  String get aniseTeaPreparation => '';
+
+  @override
+  String get aniseTeaHowToDrink => '';
+
+  @override
+  String get aniseTeaProperties => '';
 
   @override
   String get assamTeaStoryTitle => 'Ассам - \"Міцний чай річкових долин\"';
@@ -514,11 +607,29 @@ class AppLocalizationsUk extends AppLocalizations {
       'Ассамський чай походить з північно-східної Індії, з теплих низовин навколо річки Брахмапутра.\n\nЙого характер сміливий, солодовий та насичений, це той вид чаю, який прокидається вранці, не питаючи двічі. Він став однією з основ багатьох сніданкових сумішей, оскільки має достатню силу, щоб стояти з молоком і все ще зберігати свій голос.';
 
   @override
+  String get assamTeaPreparation => '';
+
+  @override
+  String get assamTeaHowToDrink => '';
+
+  @override
+  String get assamTeaProperties => '';
+
+  @override
   String get nilgiriTeaStoryTitle => 'Нілгірі - \"Чай з Блакитних гір\"';
 
   @override
   String get nilgiriTeaStory =>
       'Чай Нілгірі вирощують у Блакитних горах південної Індії, де чайні сади розташовані серед прохолодних вітрів та запашних пагорбів.\n\nВін часто яскравий, ароматний та чистий на смак. Нілгірі не намагається перебити чашку; він приносить свіжість та ясность, як гірський бриз, що рухається крізь чайне листя.';
+
+  @override
+  String get nilgiriTeaPreparation => '';
+
+  @override
+  String get nilgiriTeaHowToDrink => '';
+
+  @override
+  String get nilgiriTeaProperties => '';
 
   @override
   String get genmaichaTeaStoryTitle => 'Генмайча - \"Чай з підсмаженим рисом\"';
@@ -528,6 +639,15 @@ class AppLocalizationsUk extends AppLocalizations {
       'Генмайча починався як скромний японський чай, де Зелений чай поєднується з підсмаженим рисом.\n\nРис додає теплого горіхового аромату та пом\'якшує трав\'янисту яскравість листя. Він відчувається дружнім та заземленим, як проста страва, перетворена на чашку комфорту.';
 
   @override
+  String get genmaichaTeaPreparation => '';
+
+  @override
+  String get genmaichaTeaHowToDrink => '';
+
+  @override
+  String get genmaichaTeaProperties => '';
+
+  @override
   String get hojichaTeaStoryTitle => 'Ходзіча - \"Смажений зелений чай\"';
 
   @override
@@ -535,11 +655,29 @@ class AppLocalizationsUk extends AppLocalizations {
       'Ходзіча - це зелений чай, перетворений шляхом обсмажування. Листя втрачає значну частину своєї різкої зелені та набуває теплих ноток дерева, карамелі та підсмаженого зерна.\n\nЗавдяки своєму м\'якому характеру, ходжіча відчувається як вечірній чай: ніжний, стриманий та заспокійливий, без потреби щось доводити.';
 
   @override
+  String get hojichaTeaPreparation => '';
+
+  @override
+  String get hojichaTeaHowToDrink => '';
+
+  @override
+  String get hojichaTeaProperties => '';
+
+  @override
   String get helbaTeaStoryTitle => 'Хельба - \"Золота чашка пажитника\"';
 
   @override
   String get helbaTeaStory =>
       'Хельба - це єгипетський напій, виготовлений з насіння пажитника, завареного в золотистий, ароматний настій.\n\nЙого смак теплий, злегка горіховий і безпомилковий. У багатьох домівках він належить до світу повсякденних ліків та гостинності, чашка, яка відчувається одночасно практичною та старовинною.';
+
+  @override
+  String get helbaTeaPreparation => '';
+
+  @override
+  String get helbaTeaHowToDrink => '';
+
+  @override
+  String get helbaTeaProperties => '';
 
   @override
   String get mateTeaStoryTitle =>
@@ -550,12 +688,30 @@ class AppLocalizationsUk extends AppLocalizations {
       'Мате - це не просто напій; це ритуал єднання.\n\nНароджений у серці південноамериканських тропічних лісів, він був відкритий народом гуарані, який назвав його даром богів. Він не потребує складної обробки, проте вимагає терпіння, спеціального гарбуза та металевої трубочки.\n\nПити мате - це сповільнитися, передати чашку та поділитися життєвою енергією природи з друзями.';
 
   @override
+  String get mateTeaPreparation => '';
+
+  @override
+  String get mateTeaHowToDrink => '';
+
+  @override
+  String get mateTeaProperties => '';
+
+  @override
   String get carpathianTeaStoryTitle =>
       'Карпатська суміш – \"Цілюще дихання гір\"';
 
   @override
   String get carpathianTeaStory =>
       'Карпатський чай – це рідка екосистема українського нагір\'я.\n\nЙого не посадили люди, а зібрали вручну на диких гірських луках, де чебрець, орегано та м\'ята п\'ють ранкові тумани. Він не має суворого рецепту, бо кожен травник прислухається до природи.\n\nЗаварювати його – це відкривати портал до стародавніх лісів, приносячи спокій та стійкість гір у теплу порцелянову чашку.';
+
+  @override
+  String get carpathianTeaPreparation => '';
+
+  @override
+  String get carpathianTeaHowToDrink => '';
+
+  @override
+  String get carpathianTeaProperties => '';
 
   @override
   String get labradorTeaStoryTitle =>
@@ -566,12 +722,30 @@ class AppLocalizationsUk extends AppLocalizations {
       'Лабрадорський чай – це код виживання, написаний самою природою.\n\nПротягом століть його стійке вічнозелене листя незважаючи на крижані субарктичні тумани канадських бореальних лісів. Відкритий корінними народами, він став священним настоєм життєвої сили, ліків та глибокого зв\'язку із замерзлою землею.\n\nП\'ючи його, ви відчуєте дику північ: свіжу пару з ароматом сосни, яка зігріває душу нотками свіжого моху та прихованих цитрусових.';
 
   @override
+  String get labradorTeaPreparation => '';
+
+  @override
+  String get labradorTeaHowToDrink => '';
+
+  @override
+  String get labradorTeaProperties => '';
+
+  @override
   String get ivanTeaStoryTitle =>
       'Іван-чай – \"полум\'я, що зцілює випалену землю\"';
 
   @override
   String get ivanTeaStory =>
       'Іван-чай – це історія відродження та мовчазної сили.\n\nЙого прекрасні фіолетові квіти завжди першими розпускаються на випалених землях та розчищених місцях, повертаючи життя пораненому ґрунту. Завдяки мистецтву глибокої ферментації листя, він перетворюється з простої дикої трави на насичений, насичений напій, який може зрівнятися з класичним чорним чаєм.\n\nБез кофеїну, але сповнений життєвої енергії, він є свідченням заспокійливих, стійких обіймів північної природи.';
+
+  @override
+  String get ivanTeaPreparation => '';
+
+  @override
+  String get ivanTeaHowToDrink => '';
+
+  @override
+  String get ivanTeaProperties => '';
 
   @override
   String get oolongTeaStoryTitle =>
@@ -582,6 +756,15 @@ class AppLocalizationsUk extends AppLocalizations {
       'Улун - це чай, що існує між світами.\n\nЙого листя частково окислюється: не так сильно, як чорний чай, і не так легко, як зелений чай. Тому він не є ні тим, ні іншим, а одночасно і тим, і іншим.\n\nЦе не технологічна невдача, а мистецтво балансу.';
 
   @override
+  String get oolongTeaPreparation => '';
+
+  @override
+  String get oolongTeaHowToDrink => '';
+
+  @override
+  String get oolongTeaProperties => '';
+
+  @override
   String get rooibosTeaStoryTitle => 'Ройбуш - \"чай, який не був чаєм\"';
 
   @override
@@ -589,11 +772,29 @@ class AppLocalizationsUk extends AppLocalizations {
       'Ройбуш виник далеко від традиційних чайних регіонів, у Південній Африці.\n\nЦе не листя чайного куща, а голкоподібні гілки рослини, що росла дико. Місцеві жителі заварювали його задовго до того, як решта світу відкрила для нього.\n\nКоли європейці спробували ройбуш, вони зрозуміли, що це не чай, але він поводився як чай. Тож вони вирішили – нехай буде так.';
 
   @override
+  String get rooibosTeaPreparation => '';
+
+  @override
+  String get rooibosTeaHowToDrink => '';
+
+  @override
+  String get rooibosTeaProperties => '';
+
+  @override
   String get puerhTeaStoryTitle => 'Пуер - \"чай, який може почекати\"';
 
   @override
   String get puerhTeaStory =>
       'Пуер - це чай, який витримує випробування часом.\n\nУ той час як інші чаї прагнуть зберегти свою свіжість, пуер - це протилежність: йому дозволяють еволюціонувати. Після обробки чай продовжує «жити», поступово змінюючи свій смак, аромат і характер.\n\nДеякі пуери витримуються роками. Іноді - десятиліттями.';
+
+  @override
+  String get puerhTeaPreparation => '';
+
+  @override
+  String get puerhTeaHowToDrink => '';
+
+  @override
+  String get puerhTeaProperties => '';
 
   @override
   String get chamomileTeaStoryTitle =>
@@ -604,12 +805,30 @@ class AppLocalizationsUk extends AppLocalizations {
       'Ромашковий чай походить із Стародавнього Єгипту, де маленькі білі квіти цінувалися як священна та цілюща рослина.\n\nЙого часто асоціювали із сонцем і використовували в традиційних засобах для заспокоєння організму та відновлення рівноваги. Люди ставилися до нього не як до розкішного напою, а як до чогось природного, що допомагає, коли життя здається важким.\n\nЗ часом ромашка поширилася по всьому світу і стала відомою як чай відпочинку, той, який ви п\'єте, коли все сповільнюється, і день нарешті дозволяє вам дихати.';
 
   @override
+  String get chamomileTeaPreparation => '';
+
+  @override
+  String get chamomileTeaHowToDrink => '';
+
+  @override
+  String get chamomileTeaProperties => '';
+
+  @override
   String get senchaTeaStoryTitle =>
       'Сенча - \"Щоденний чай спокійної точності\"';
 
   @override
   String get senchaTeaStory =>
       'Сенча походить з Японії, де чай - це не просто напій, а частина повсякденного життя та балансу.\n\nЙого виготовляють шляхом обробки паром свіжого чайного листя одразу після збору врожаю, що допомагає зберегти їх яскраво-зелений колір та чистий трав\'янистий смак. На відміну від церемоніального матча, сенча - це чай повсякденних моментів - простий, щирий та глибоко вкорінений у рутину.\n\nДля багатьох людей у Японії сенча - це перша чашка вранці та тиха пауза протягом дня, що приносить ясність без надмірної енергії.';
+
+  @override
+  String get senchaTeaPreparation => '';
+
+  @override
+  String get senchaTeaHowToDrink => '';
+
+  @override
+  String get senchaTeaProperties => '';
 
   @override
   String get honeybushTeaStoryTitle =>
@@ -620,12 +839,30 @@ class AppLocalizationsUk extends AppLocalizations {
       'Медовий кущ походить з Південної Африки, з рослини, спорідненої за духом з ройбушем, але природно солодшої за ароматом.\n\nВін не містить кофеїну, ніжний та округлий, з медовим ароматом, що пояснює його назву ще до першого ковтка. Медовий кущ відчувається як сонячне світло, затримане в чашці з травами.';
 
   @override
+  String get honeybushTeaPreparation => '';
+
+  @override
+  String get honeybushTeaHowToDrink => '';
+
+  @override
+  String get honeybushTeaProperties => '';
+
+  @override
   String get branchTeaStoryTitle =>
       'Чай із гілок – \"прихований пульс зимового саду\"';
 
   @override
   String get branchTeaStory =>
       'Чай із гілок або узварний чай – це мистецтво знаходити життя там, де все здається сплячим.\n\nУ той час як традиційний чай спирається на тендітне листя, цей давній український напій народжується з молодих гілочок вишні, смородини та малини. Це повільне, терпляче заварювання, яке витягує глибокі, деревні та ягідні аромати з самих кісточок рослини.\n\nЦе доказ того, що навіть у найхолоднішу зиму суть весни вже ховається в деревині.';
+
+  @override
+  String get branchTeaPreparation => '';
+
+  @override
+  String get branchTeaHowToDrink => '';
+
+  @override
+  String get branchTeaProperties => '';
 
   @override
   String get darjeelingTeaStoryTitle => 'Дарджилінг - \"Шампанське чаю\"';
@@ -635,11 +872,29 @@ class AppLocalizationsUk extends AppLocalizations {
       'Дарджилінг росте високо біля передгір\'їв Гімалаїв, де туман, прохолодне повітря та гірський ґрунт формують його ніжний характер.\n\nВін цінується за легке тіло та квітковий, мускатний аромат, який може змінюватися від врожаю до врожаю. Чашка Дарджилінгу відчувається не так, як важкий чорний чай, а більше як тихий гірський краєвид, закарбований у листі.';
 
   @override
+  String get darjeelingTeaPreparation => '';
+
+  @override
+  String get darjeelingTeaHowToDrink => '';
+
+  @override
+  String get darjeelingTeaProperties => '';
+
+  @override
   String get gyokuroTeaStoryTitle => 'Гьокуро - \"Нефритова роса\"';
 
   @override
   String get gyokuroTeaStory =>
       'Гьокуро - один з найцінніших зелених чаїв Японії. Перед збором урожаю кущі затінюють, що сприяє глибокій солодкості, умами та шовковистій текстурі.\n\nЦе не чай для поспіху. Гьокуро вимагає прохолоднішої води, терпіння та уваги, винагороджуючи того, хто п\'є, концентрованим, майже сяючим спокоєм.';
+
+  @override
+  String get gyokuroTeaPreparation => '';
+
+  @override
+  String get gyokuroTeaHowToDrink => '';
+
+  @override
+  String get gyokuroTeaProperties => '';
 
   @override
   String get tieguanyinTeaStoryTitle =>
@@ -650,10 +905,28 @@ class AppLocalizationsUk extends AppLocalizations {
       'Тегуаньінь - це відомий китайський улун, ім\'я якого несе легенду про Залізну богиню милосердя.\n\nЗалежно від способу його приготування, він може бути квітковим та яскравим або глибшим та обсмаженим. Незмінною залишається його елегантність: чай, який відкривається повільно, заварюється за заварюванням, розкриваючи більше, ніж спочатку.';
 
   @override
+  String get tieguanyinTeaPreparation => '';
+
+  @override
+  String get tieguanyinTeaHowToDrink => '';
+
+  @override
+  String get tieguanyinTeaProperties => '';
+
+  @override
   String get manoominTeaStoryTitle =>
       'Манумін – \"де священне озеро зустрічається з вогнем обсмажування\"';
 
   @override
   String get manoominTeaStory =>
       'Чай Манумін – це священний діалог між двома далекими берегами.\n\nВін поєднує мистецтво обсмажування традиційного чаю та стародавній дикий рис, зібраний вручну з канадських озер корінними народами. Це не просто суміш, а гармонія землі та води, народжена з каное, що прямують крізь озерний туман.\n\nКожна чашка пропонує заспокійливе, глибоко заземлююче тепло, насичене підсмаженими горіхами, ароматами попкорну та духом північної дикої природи.';
+
+  @override
+  String get manoominTeaPreparation => '';
+
+  @override
+  String get manoominTeaHowToDrink => '';
+
+  @override
+  String get manoominTeaProperties => '';
 }
