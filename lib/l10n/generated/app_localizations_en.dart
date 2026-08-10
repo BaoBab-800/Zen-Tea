@@ -260,6 +260,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get themeDark => 'Dark';
 
   @override
+  String get history => 'History';
+
+  @override
+  String get howToPrepare => 'How to prepare';
+
+  @override
+  String get howToDrink => 'How to drink';
+
+  @override
+  String get beneficialProperties => 'Beneficial properties';
+
+  @override
   String get goToDeveloperRoom => 'Go to developer room';
 
   @override

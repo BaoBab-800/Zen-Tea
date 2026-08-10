@@ -259,6 +259,18 @@ class AppLocalizationsUk extends AppLocalizations {
   String get themeDark => 'Темна';
 
   @override
+  String get history => 'Історія';
+
+  @override
+  String get howToPrepare => 'Як приготувати';
+
+  @override
+  String get howToDrink => 'Як пити';
+
+  @override
+  String get beneficialProperties => 'Корисні властивості';
+
+  @override
   String get goToDeveloperRoom => 'Перейти до кімнати розробника';
 
   @override

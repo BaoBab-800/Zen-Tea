@@ -590,6 +590,30 @@ abstract class AppLocalizations {
   /// **'Dark'**
   String get themeDark;
 
+  /// No description provided for @history.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get history;
+
+  /// No description provided for @howToPrepare.
+  ///
+  /// In en, this message translates to:
+  /// **'How to prepare'**
+  String get howToPrepare;
+
+  /// No description provided for @howToDrink.
+  ///
+  /// In en, this message translates to:
+  /// **'How to drink'**
+  String get howToDrink;
+
+  /// No description provided for @beneficialProperties.
+  ///
+  /// In en, this message translates to:
+  /// **'Beneficial properties'**
+  String get beneficialProperties;
+
   /// No description provided for @goToDeveloperRoom.
   ///
   /// In en, this message translates to:

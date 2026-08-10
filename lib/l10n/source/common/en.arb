@@ -26,5 +26,10 @@
 
   "themeSystem": "System",
   "themeLight": "Light",
-  "themeDark": "Dark"
+  "themeDark": "Dark",
+
+  "history": "History",
+  "howToPrepare": "How to prepare",
+  "howToDrink": "How to drink",
+  "beneficialProperties": "Beneficial properties"
 }

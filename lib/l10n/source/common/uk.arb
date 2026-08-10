@@ -26,5 +26,10 @@
 
   "themeSystem": "Системна",
   "themeLight": "Світла",
-  "themeDark": "Темна"
+  "themeDark": "Темна",
+
+  "history": "Історія",
+  "howToPrepare": "Як приготувати",
+  "howToDrink": "Як пити",
+  "beneficialProperties": "Корисні властивості"
 }

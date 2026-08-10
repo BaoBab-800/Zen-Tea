@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zentea/core/l10n/l10n.dart';
 
 import 'package:zentea/core/theme/app_theme.dart';
 import 'package:zentea/data/teas/tea_types.dart';
@@ -70,7 +71,7 @@ class HistoryBuilder extends StatelessWidget {
                       const Divider(),
 
                       const SizedBox(height: 6),
-                      Text(currentTea.type.story(context)),
+                      _textContent(context),
                     ],
                   ),
                 ),
@@ -78,6 +79,62 @@ class HistoryBuilder extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _textContent(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _section(
+          context,
+          title: context.l10n.history,
+          content: currentTea.type.story(context),
+        ),
+        _section(
+          context,
+          title: context.l10n.howToPrepare,
+          content: currentTea.type.preparation(context),
+        ),
+        _section(
+          context,
+          title: context.l10n.howToDrink,
+          content: currentTea.type.howToDrink(context),
+        ),
+        _section(
+          context,
+          title: context.l10n.beneficialProperties,
+          content: currentTea.type.properties(context),
+        ),
+      ],
+    );
+  }
+
+  Widget _section(
+      BuildContext context, {
+        required String title,
+        required String content,
+      }) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            content,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              height: 1.5,
+            ),
+          ),
+        ],
       ),
     );
   }
