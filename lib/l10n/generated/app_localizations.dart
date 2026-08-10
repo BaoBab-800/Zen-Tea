@@ -941,13 +941,13 @@ abstract class AppLocalizations {
   /// No description provided for @blackTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Black Tea — «The Tea That Accidentally Became a Legend»'**
+  /// **'Black Tea – «The Tea That Accidentally Became a Legend»'**
   String get blackTeaStoryTitle;
 
   /// No description provided for @blackTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'They say black tea was not created on purpose, but rather discovered by accident when a batch of green tea was left forgotten.\n\nIn China, tea leaves were usually processed soon after being picked to preserve their fresh character and green color. But one day, a batch of leaves was left unattended and began to oxidize. The leaves slowly darkened, their aroma changed, and something new began to emerge — a deeper, richer character than anyone had expected.\n\nInstead of throwing the leaves away, people decided to give them a try. And they liked what they tasted.\n\nAnd so, almost by accident, a new kind of tea was discovered — one that would later become known as black tea.'**
+  /// **'They say black tea was not created on purpose, but rather discovered by accident when a batch of green tea was left forgotten.\n\nIn China, tea leaves were usually processed soon after being picked to preserve their fresh character and green color. But one day, a batch of leaves was left unattended and began to oxidize. The leaves slowly darkened, their aroma changed, and something new began to emerge – a deeper, richer character than anyone had expected.\n\nInstead of throwing the leaves away, people decided to give them a try. And they liked what they tasted.\n\nAnd so, almost by accident, a new kind of tea was discovered – one that would later become known as black tea.'**
   String get blackTeaStory;
 
   /// No description provided for @blackTeaPreparation.
@@ -971,7 +971,7 @@ abstract class AppLocalizations {
   /// No description provided for @greenTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Green Tea — «The Whisper of the Ancient Emperor»'**
+  /// **'Green Tea – «The Whisper of the Ancient Emperor»'**
   String get greenTeaStoryTitle;
 
   /// No description provided for @greenTeaStory.
@@ -1001,31 +1001,31 @@ abstract class AppLocalizations {
   /// No description provided for @earlGreyTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Earl Grey - \"tea with the aroma of chance and aristocracy\"'**
+  /// **'Earl Grey – «Tea with the aroma of chance and aristocracy»'**
   String get earlGreyTeaStoryTitle;
 
   /// No description provided for @earlGreyTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Earl Grey is a black tea that once encountered bergamot, it was never the same again.\n\nAccording to one of the most famous stories, this tea was named after the British Earl Charles Grey. Legend has it that he was given tea flavored with bergamot oil to soften the taste of water while traveling. The Earl liked it so much that it began to be served at court.\n\nWhether this is true or a beautiful invention, no one knows for sure. But the name has remained.'**
+  /// **'Earl Grey is a black tea transformed by the bright, unmistakable aroma of bergamot.\n\nThe tea is traditionally associated with Charles Grey, the 2nd Earl Grey, a British statesman who served as Prime Minister in the 1830s. According to one popular legend, Grey received a shipment of tea flavored with bergamot oil and enjoyed the unusual combination so much that it became associated with his name.\n\nBut the true origin of Earl Grey remains uncertain. Several stories surround its creation, and there is no definitive evidence proving exactly how the blend came to be. Whatever the truth may be, bergamot and black tea became a classic combination – and the name Earl Grey has endured ever since.'**
   String get earlGreyTeaStory;
 
   /// No description provided for @earlGreyTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare Earl Grey, heat water to around 90-95°C. Pour it over the tea leaves or tea bag and let it steep for 3-5 minutes. A shorter steep keeps the citrus aroma bright and delicate, while a longer one brings out more of the strength of the black tea base.'**
   String get earlGreyTeaPreparation;
 
   /// No description provided for @earlGreyTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Earl Grey is traditionally enjoyed hot, either plain or with a slice of lemon that complements the citrusy bergamot aroma. For a richer drink, add a splash of milk and a little vanilla to make a London Fog.'**
   String get earlGreyTeaHowToDrink;
 
   /// No description provided for @earlGreyTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Earl Grey contains caffeine from its black tea base, which can help increase alertness and reduce feelings of fatigue. Its characteristic aroma comes from bergamot oil, which gives the tea its distinctive fresh citrus character.'**
   String get earlGreyTeaProperties;
 
   /// No description provided for @masalaTeaStoryTitle.
