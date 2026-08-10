@@ -1,0 +1,16 @@
+{
+  "tServeTenTeasAchievement": "Just 10 times",
+  "dServeTenTeasAchievement": "Hold on your 10-day streak",
+
+  "tFirstStepsAchievement": "First Steps",
+  "dFirstStepsAchievement": "Open 3 different teas",
+
+  "tGetRareTeasAchievement": "A rare find",
+  "dGetRareTeasAchievement": "Get 3 Rare Teas",
+
+  "tLegendaryTeaAchievement": "Sounds like a legend",
+  "dLegendaryTeaAchievement": "Find the legendary tea",
+
+  "tCollectAllTheTeasAchievement": "A true collector",
+  "dCollectAllTheTeasAchievement": "Find all teas"
+}

@@ -1,0 +1,19 @@
+{
+  "china": "China",
+  "unitedKingdom": "United Kingdom",
+  "india": "India",
+  "japan": "Japan",
+  "egypt": "Egypt",
+  "morocco": "Morocco",
+  "southAfrica": "South Africa",
+  "brazil": "Brazil",
+  "ukraine": "Ukraine",
+  "canada": "Canada",
+  "russia": "Russia",
+
+  "locked": "Locked",
+
+  "common": "Common",
+  "rare": "Rare",
+  "legendary": "Legendary"
+}

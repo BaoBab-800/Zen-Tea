@@ -1,0 +1,24 @@
+{
+  "todayTea": "Today tea",
+  "aboutQuiz": "About quiz",
+  "getTeaWarning": "Every day, you will receive a new tea. After drinking the tea, you can click the «Quest Completed» button and your streak will increase. You won't be competing with others here, and no one will check your progress. At least be honest with yourself.",
+  "newTea": "New tea!",
+  "teaServedTimes": "Served {count} times",
+  "@teaServedTimes": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "questCompleted": "Quest completed",
+  "series": "Series: {days}",
+  "@series": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "completedQuestSeries": "You've already completed the quest.",
+  "readTheStory": "Read the story",
+  "goToWiki": "Go to Wikipedia"
+}

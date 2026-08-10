@@ -1,0 +1,30 @@
+{
+  "currentTeaSeries": "Tea Series: ",
+  "getTeaForToday": "Get tea for today",
+  "teaMap": "Tea map",
+  "teaCollection": "Tea Collection",
+  "calendar": "Tea calendar",
+  "achievements": "Achievements",
+  "totalTeasOpened": "Total teas opened",
+  "totalTeasDrunk": "Total teas received",
+  "maximumSeries": "Maximum series",
+  "ok": "Ok",
+  "stats": "Stats",
+  "newAchievement": "New achievement",
+
+  "menu": "Menu",
+  "profile": "Profile",
+  "settings": "Settings",
+  "about": "About application",
+  "theme": "Theme",
+  "language": "Language",
+
+  "profileChoosingAnAvatar": "Choose tea for your avatar",
+  "profileGeneral": "General",
+  "profileByRarity": "By rarity",
+  "profileActivity": "Activity",
+
+  "themeSystem": "System",
+  "themeLight": "Light",
+  "themeDark": "Dark"
+}

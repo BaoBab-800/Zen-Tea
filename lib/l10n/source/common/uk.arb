@@ -1,0 +1,30 @@
+{
+  "currentTeaSeries": "Серія чаю: ",
+  "getTeaForToday": "Отримати чай на сьогодні",
+  "teaMap": "Карта чаїв",
+  "teaCollection": "Колекція чаю",
+  "calendar": "Чайний календар",
+  "achievements": "Досягнення",
+  "totalTeasOpened": "Усього чаїв відкрито",
+  "totalTeasDrunk": "Усього чаїв отримано",
+  "maximumSeries": "Максимальна серія",
+  "ok": "Ок",
+  "stats": "Статистика",
+  "newAchievement": "Нове досягнення",
+
+  "menu": "Меню",
+  "profile": "Профіль",
+  "settings": "Налаштування",
+  "about": "Про додаток",
+  "theme": "Тема",
+  "language": "Мова",
+
+  "profileChoosingAnAvatar": "Виберіть чай для свого аватара",
+  "profileGeneral": "Загальне",
+  "profileByRarity": "За рідкостю",
+  "profileActivity": "Активність",
+
+  "themeSystem": "Системна",
+  "themeLight": "Світла",
+  "themeDark": "Темна"
+}

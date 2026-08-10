@@ -1,0 +1,35 @@
+{
+  "january": "January",
+  "february": "February",
+  "march": "March",
+  "april": "April",
+  "may": "May",
+  "june": "June",
+  "july": "July",
+  "august": "August",
+  "september": "September",
+  "october": "October",
+  "november": "November",
+  "december": "December",
+
+  "mon": "Mon",
+  "tue": "Tue",
+  "wed": "Wed",
+  "thu": "Thu",
+  "fri": "Fri",
+  "sat": "Sat",
+  "sun": "Sun",
+
+  "noActivityRecorded": "No activity recorded",
+  "activityRecorded": "Activity recorded",
+  "teaOfTheDay": "Tea of the day: {tea}",
+  "@teaOfTheDay": {
+    "description": "Shows the selected tea for the day",
+    "placeholders": {
+      "tea": {
+        "type": "String",
+        "description": "Name of the tea"
+      }
+    }
+  },
+}

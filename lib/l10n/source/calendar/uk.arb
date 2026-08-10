@@ -1,0 +1,35 @@
+{
+  "january": "Січень",
+  "february": "Лютий",
+  "march": "Березень",
+  "april": "Квітень",
+  "may": "Травень",
+  "june": "Червень",
+  "july": "Липень",
+  "august": "Серпень",
+  "september": "Вересень",
+  "october": "Жовтень",
+  "november": "Листопад",
+  "december": "Грудень",
+
+  "mon": "Пн",
+  "tue": "Вт",
+  "wed": "Ср",
+  "thu": "Чт",
+  "fri": "Пт",
+  "sat": "Сб",
+  "sun": "Нд",
+
+  "noActivityRecorded": "Активність не зафіксована",
+  "activityRecorded": "Активність зафіксовано",
+  "teaOfTheDay": "Чай дня: {tea}",
+  "@teaOfTheDay": {
+    "description": "Shows the selected tea for the day",
+    "placeholders": {
+      "tea": {
+        "type": "String",
+        "description": "Name of the tea"
+      }
+    }
+  }
+}
