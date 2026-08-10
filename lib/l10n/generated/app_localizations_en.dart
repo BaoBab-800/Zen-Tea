@@ -461,20 +461,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get greenTeaStoryTitle =>
-      'Green tea - \"the tea that didn\'t let itself change\"';
+      'Green Tea — «The Whisper of the Ancient Emperor»';
 
   @override
   String get greenTeaStory =>
-      'Green tea is a tea that has almost \'escaped\' transformation.\n\nIts history is believed to have begun in China over 4,000 years ago, and for a long time, it was the \'purest\' way to drink tea: the leaves were simply heated briefly to halt any changes.\n\nUnlike black tea, green tea allows the leaves to barely age. It seems to preserve the moment—the freshness, the herbal aroma, the slight bitterness, and the vibrant energy of the plant.';
+      'Legend has it that thousands of years ago, the Chinese Emperor Shennong was resting under a wild tea tree while his servants boiled drinking water. A gentle breeze blew a few leaves directly into the steaming pot.\n\nFascinated by the inviting aroma and the delicate green tint the water took on, the curious emperor decided to taste the brew. He found it remarkably refreshing and invigorating.\n\nAccording to legend, this was the moment that marked the beginning of the history of tea, opening a quiet tradition of harmony and mindfulness that has endured for centuries.';
 
   @override
-  String get greenTeaPreparation => '';
+  String get greenTeaPreparation =>
+      'To prepare green tea, heat water to around 70-80°C to avoid scalding the delicate leaves. Pour over the leaves and steep for 1-3 minutes. Shorter steeping preserves its smooth, sweet undertones, while a bit longer brings out a light, crisp character.';
 
   @override
-  String get greenTeaHowToDrink => '';
+  String get greenTeaHowToDrink =>
+      'Green tea is best enjoyed pure and fresh, without added sweeteners or milk. Take slow sips from a thin ceramic or glass cup to fully appreciate its clean, earthy, and floral notes.';
 
   @override
-  String get greenTeaProperties => '';
+  String get greenTeaProperties =>
+      'Green tea is rich in antioxidant polyphenols, including catechins, the most notable of which is EGCG. It also contains L-theanine and caffeine, the combination of which may promote alertness, concentration, and clarity of thought.';
 
   @override
   String get earlGreyTeaStoryTitle =>
