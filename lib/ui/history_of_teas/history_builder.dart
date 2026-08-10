@@ -35,7 +35,7 @@ class HistoryBuilder extends StatelessWidget {
                 child: Container(
                   width: double.infinity,
                   margin: const EdgeInsets.symmetric(horizontal: 16),
-                  padding: const EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     color: context.colors.surface,
@@ -56,13 +56,18 @@ class HistoryBuilder extends StatelessWidget {
 
                       const SizedBox(height: 12),
 
-                      Text(
-                        currentTea.type.titleStory(context),
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                      const Divider(),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 2),
+                        child: Text(
+                          currentTea.type.titleStory(context),
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
+                      const Divider(),
 
                       const SizedBox(height: 6),
                       Text(currentTea.type.story(context)),
