@@ -42,17 +42,17 @@ class HomeFeedSection extends StatelessWidget {
                   ),
 
                   _buildCard(
-                    context.l10n.teaMap,
-                    context,
-                    Icons.map,
-                    AppRoute.teaMap,
-                  ),
-
-                  _buildCard(
                     context.l10n.teaCollection,
                     context,
                     Icons.menu_book,
                     AppRoute.teaCollection,
+                  ),
+
+                  _buildCard(
+                    context.l10n.teaMap,
+                    context,
+                    Icons.map,
+                    AppRoute.teaMap,
                   ),
 
                   _buildCard(
