@@ -1211,31 +1211,31 @@ abstract class AppLocalizations {
   /// No description provided for @aniseTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Anise Tea: \"The Drink of Pharaohs and Travelers\"'**
+  /// **'Anise Tea - «The Drink of Pharaohs and Travelers»'**
   String get aniseTeaStoryTitle;
 
   /// No description provided for @aniseTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Long before modern Egypt existed, anise seeds were already valued along the Nile. Archaeologists discovered anise among the treasures of ancient tombs, suggesting that it was known and appreciated thousands of years ago.\n\nAccording to local stories, travelers crossing the desert often carried anise because it was easy to store and could be brewed wherever water was available. A warm cup of anise tea became a comforting companion during cold desert nights.\n\nOver the centuries, the drink remained popular in Egyptian homes. Families served it to guests, shared it during conversations, and passed the tradition from generation to generation.\n\nToday, anise tea is still enjoyed throughout Egypt, connecting modern tea drinkers with a tradition that stretches back to the age of the pharaohs.'**
+  /// **'Anise is one of the oldest cultivated spice plants, with origins in the eastern Mediterranean and Southwest Asia. Its seeds were known and used in ancient Egypt, Greece, and Rome, where anise was valued for its distinctive sweet aroma and used in both cooking and traditional preparations.\n\nOver the centuries, anise spread across the Mediterranean, the Middle East, and North Africa. Its naturally sweet, licorice-like flavor made anise infusions a familiar herbal drink in many cultures, where they were often enjoyed after meals.'**
   String get aniseTeaStory;
 
   /// No description provided for @aniseTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare anise tea, lightly crush 1-2 teaspoons of dried anise seeds to release their volatile oils. Pour boiling water (95-100°C) over the seeds, cover the cup, and let it steep for 5-10 minutes before straining.'**
   String get aniseTeaPreparation;
 
   /// No description provided for @aniseTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Anise tea is best enjoyed hot, offering a naturally sweet, licorice-like aroma. It can be consumed plain or sweetened with a spoonful of honey, making it an ideal drink after meals.'**
   String get aniseTeaHowToDrink;
 
   /// No description provided for @aniseTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Naturally caffeine-free, anise tea contains aromatic compounds such as anethole, which gives the infusion its characteristic sweet, licorice-like aroma. These aromatic compounds are responsible for much of the distinctive character of anise tea.'**
   String get aniseTeaProperties;
 
   /// No description provided for @assamTeaStoryTitle.
