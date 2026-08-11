@@ -1181,31 +1181,31 @@ abstract class AppLocalizations {
   /// No description provided for @mintTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Mint tea - \"The Tea That Can Stop Noise\"'**
+  /// **'Mint Tea - «The Tea That Can Stop Noise»'**
   String get mintTeaStoryTitle;
 
   /// No description provided for @mintTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Mint tea doesn\'t try to invigorate like coffee, nor does it attempt to impress with a complex flavor.\n\nIt does something different – it seems to purify the space around you.\n\nMint was brewed in ancient cultures: in Egypt, Greece, and the Middle East. It was prized not only for its flavor but also for the feeling of freshness it provided, even in the heat.\n\nOver time, mint tea became a drink for a break – something you drink not on the run, but to take a breather.'**
+  /// **'Mint has been cultivated and used in herbal infusions for thousands of years, with evidence of its use in ancient Egypt dating back to around 1000 BCE. In ancient Greece and Rome, mint was valued for its aromatic qualities, culinary uses, and traditional applications.\n\nIn North Africa and the Middle East, particularly in Morocco, mint tea became a cornerstone of hospitality during the 19th century. British traders helped popularize gunpowder green tea in the region, and local traditions gradually combined it with fresh spearmint and generous amounts of sugar. The result became the iconic Maghrebi mint tea, served daily as a symbol of welcome and community.'**
   String get mintTeaStory;
 
   /// No description provided for @mintTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare mint tea, pour boiling water (90-95°C) over fresh spearmint or peppermint leaves, optionally adding a green tea base like gunpowder tea. Let it steep for 3-5 minutes to release the essential oils without extracting excessive bitterness.'**
   String get mintTeaPreparation;
 
   /// No description provided for @mintTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Mint tea is traditionally served hot, often poured from a height to create a light foam on top. It can be sweetened to taste with sugar or honey and is equally refreshing served chilled over ice on warm days.'**
   String get mintTeaHowToDrink;
 
   /// No description provided for @mintTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Naturally caffeine-free when prepared from mint leaves alone, mint tea contains aromatic compounds such as menthol, which give it its characteristic cool, refreshing sensation. Its fresh aroma and cooling character make it a soothing and invigorating herbal infusion.'**
   String get mintTeaProperties;
 
   /// No description provided for @aniseTeaStoryTitle.
