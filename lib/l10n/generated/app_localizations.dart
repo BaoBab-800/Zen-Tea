@@ -1181,7 +1181,7 @@ abstract class AppLocalizations {
   /// No description provided for @mintTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Mint Tea - «The Tea That Can Stop Noise»'**
+  /// **'Mint Tea – «The Tea That Can Stop Noise»'**
   String get mintTeaStoryTitle;
 
   /// No description provided for @mintTeaStory.
@@ -1211,7 +1211,7 @@ abstract class AppLocalizations {
   /// No description provided for @aniseTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Anise Tea - «The Drink of Pharaohs and Travelers»'**
+  /// **'Anise Tea – «The Drink of Pharaohs and Travelers»'**
   String get aniseTeaStoryTitle;
 
   /// No description provided for @aniseTeaStory.
@@ -1241,13 +1241,13 @@ abstract class AppLocalizations {
   /// No description provided for @assamTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Assam Tea - «Strong Tea of the River Valleys»'**
+  /// **'Assam Tea – «Strong Tea of the River Valleys»'**
   String get assamTeaStoryTitle;
 
   /// No description provided for @assamTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Assam tea originates from the tropical lowlands of northeastern India, along the floodplains of the Brahmaputra River. Unlike many traditional Chinese tea varieties, Assam tea comes from a distinct variety of the tea plant, commonly known as *Camellia sinensis var. assamica*. The wild tea growing in the region was documented by Scottish adventurer Robert Bruce in 1823, although local communities had known and used the plant long before.\n\nRecognizing its commercial potential, the British East India Company established extensive plantations across Assam in the 1830s. The region\'s rich alluvial soil, high humidity, and heavy rainfall helped produce a bold, full-bodied black tea with distinctive malty notes. Its robust flavor later made Assam an important component of many breakfast tea blends.'**
+  /// **'Assam tea originates from the tropical lowlands of northeastern India, along the floodplains of the Brahmaputra River. Unlike many traditional Chinese tea varieties, Assam tea comes from a distinct variety of the tea plant, commonly known as \"Camellia sinensis var. assamica\". The wild tea growing in the region was documented by Scottish adventurer Robert Bruce in 1823, although local communities had known and used the plant long before.\n\nRecognizing its commercial potential, the British East India Company established extensive plantations across Assam in the 1830s. The region\'s rich alluvial soil, high humidity, and heavy rainfall helped produce a bold, full-bodied black tea with distinctive malty notes. Its robust flavor later made Assam an important component of many breakfast tea blends.'**
   String get assamTeaStory;
 
   /// No description provided for @assamTeaPreparation.
@@ -1271,31 +1271,31 @@ abstract class AppLocalizations {
   /// No description provided for @nilgiriTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Nilgiri - \"Tea from the Blue Mountains\"'**
+  /// **'Nilgiri Tea – «Tea from the Blue Mountains»'**
   String get nilgiriTeaStoryTitle;
 
   /// No description provided for @nilgiriTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Nilgiri tea is grown in the Blue Mountains of southern India, where tea gardens sit among cool winds and fragrant hills.\n\nIt is often bright, aromatic, and clean on the palate. Nilgiri does not try to overpower the cup; it brings freshness and clarity, like a mountain breeze moving through tea leaves.'**
+  /// **'Nilgiri tea comes from the Nilgiri Hills—part of the Western Ghats range in southern India—where high altitudes, abundant rainfall, and subtropical breezes create unique growing conditions. Commercial tea cultivation was introduced to the region in the 1830s by British officers, who imported *Camellia sinensis* seeds from China.\n\nHarvested year-round across high-altitude estates, Nilgiri tea is known for producing a clear, fragrant, and smooth cup with low astringency. Unlike many other black teas, high-grade Nilgiri teas do not easily cloud when chilled, making them historically significant as a preferred base for iced tea in North America.'**
   String get nilgiriTeaStory;
 
   /// No description provided for @nilgiriTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare Nilgiri tea, heat fresh water to around 90-95°C. Pour over the leaves and steep for 3-4 minutes to unlock its bright, aromatic flavor profile.'**
   String get nilgiriTeaPreparation;
 
   /// No description provided for @nilgiriTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Nilgiri tea can be enjoyed hot or poured over ice. Its crisp profile and resistance to clouding make it an exceptional choice for freshly brewed iced tea, served plain or with a light slice of lemon.'**
   String get nilgiriTeaHowToDrink;
 
   /// No description provided for @nilgiriTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Nilgiri tea naturally contains caffeine along with polyphenols and flavonoids inherent to black tea, offering a balanced and refreshing option throughout the day.'**
   String get nilgiriTeaProperties;
 
   /// No description provided for @genmaichaTeaStoryTitle.
