@@ -1535,31 +1535,31 @@ abstract class AppLocalizations {
   /// No description provided for @rooibosTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Rooibos - \"Tea that wasn\'t tea\"'**
+  /// **'Rooibos - «The Tea That Was Never Tea»'**
   String get rooibosTeaStoryTitle;
 
   /// No description provided for @rooibosTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Rooibos originated far from the traditional tea regions, in South Africa.\n\nIt\'s not the leaves of the tea bush, but the needle-like branches of a plant that grew wild. Locals brewed it long before the rest of the world discovered it.\n\nWhen Europeans tried rooibos, they realized it wasn\'t tea, but it behaved like it. So they decided—let it be.'**
+  /// **'Rooibos meaning \"red bush\" in Afrikaans, grows exclusively in the Cederberg mountain region of South Africa. For centuries, the indigenous Khoisan people harvested the wild shrub\'s needle-like leaves, bruising and fermenting them in the sun to produce a naturally sweet, mahogany-red infusion.\n\nIn the early 20th century, European settlers and merchants popularized rooibos as an accessible alternative to imported black tea. Russian immigrant Benjamin Ginsberg standardized its commercial processing, and later agricultural breakthroughs allowed the wild mountain plant to be cultivated systematically while preserving its distinctive, honeyed, woodsy character.'**
   String get rooibosTeaStory;
 
   /// No description provided for @rooibosTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare rooibos, pour boiling water (95-100°C) over 1-2 teaspoons of dried leaves. Let it steep for 5-7 minutes. Because rooibos contains virtually no tannins, it will not turn bitter even with long steeping times.'**
   String get rooibosTeaPreparation;
 
   /// No description provided for @rooibosTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Rooibos can be enjoyed hot or chilled as an iced tea. Its naturally sweet, nutty profile pairs well with a splash of milk and honey or a slice of fresh lemon.'**
   String get rooibosTeaHowToDrink;
 
   /// No description provided for @rooibosTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Naturally caffeine-free and low in tannins, rooibos naturally contains unique plant polyphenols such as aspalathin and nothofagin, making it a mild, comforting drink for any time of day.'**
   String get rooibosTeaProperties;
 
   /// No description provided for @puerhTeaStoryTitle.

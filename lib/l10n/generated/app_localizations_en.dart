@@ -834,20 +834,23 @@ class AppLocalizationsEn extends AppLocalizations {
       'Oolong tea naturally contains a moderate amount of caffeine alongside L-theanine. It is rich in complex tea polyphenols, particularly polymerized polyphenols (theasinensins) formed during partial oxidation.';
 
   @override
-  String get rooibosTeaStoryTitle => 'Rooibos - \"Tea that wasn\'t tea\"';
+  String get rooibosTeaStoryTitle => 'Rooibos - «The Tea That Was Never Tea»';
 
   @override
   String get rooibosTeaStory =>
-      'Rooibos originated far from the traditional tea regions, in South Africa.\n\nIt\'s not the leaves of the tea bush, but the needle-like branches of a plant that grew wild. Locals brewed it long before the rest of the world discovered it.\n\nWhen Europeans tried rooibos, they realized it wasn\'t tea, but it behaved like it. So they decided—let it be.';
+      'Rooibos meaning \"red bush\" in Afrikaans, grows exclusively in the Cederberg mountain region of South Africa. For centuries, the indigenous Khoisan people harvested the wild shrub\'s needle-like leaves, bruising and fermenting them in the sun to produce a naturally sweet, mahogany-red infusion.\n\nIn the early 20th century, European settlers and merchants popularized rooibos as an accessible alternative to imported black tea. Russian immigrant Benjamin Ginsberg standardized its commercial processing, and later agricultural breakthroughs allowed the wild mountain plant to be cultivated systematically while preserving its distinctive, honeyed, woodsy character.';
 
   @override
-  String get rooibosTeaPreparation => '';
+  String get rooibosTeaPreparation =>
+      'To prepare rooibos, pour boiling water (95-100°C) over 1-2 teaspoons of dried leaves. Let it steep for 5-7 minutes. Because rooibos contains virtually no tannins, it will not turn bitter even with long steeping times.';
 
   @override
-  String get rooibosTeaHowToDrink => '';
+  String get rooibosTeaHowToDrink =>
+      'Rooibos can be enjoyed hot or chilled as an iced tea. Its naturally sweet, nutty profile pairs well with a splash of milk and honey or a slice of fresh lemon.';
 
   @override
-  String get rooibosTeaProperties => '';
+  String get rooibosTeaProperties =>
+      'Naturally caffeine-free and low in tannins, rooibos naturally contains unique plant polyphenols such as aspalathin and nothofagin, making it a mild, comforting drink for any time of day.';
 
   @override
   String get puerhTeaStoryTitle => 'Pu-erh – \"Tea that can wait\"';
