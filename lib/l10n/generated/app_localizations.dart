@@ -1061,31 +1061,31 @@ abstract class AppLocalizations {
   /// No description provided for @matchaTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Matcha is \"tea that is not brewed, but lived\"'**
+  /// **'Matcha – «Tea That Is Not Brewed, but Lived»'**
   String get matchaTeaStoryTitle;
 
   /// No description provided for @matchaTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Matcha isn\'t just tea. It\'s tea you drink whole.\n\nIts history begins in China, but it took its true form in Japan, where it became part of the tea ceremony, almost like the art of slowing down time.\n\nSeveral weeks before harvesting, the tea bushes are deliberately shaded from the sun. The plant \'thinks\' it\'s the forest\'s shade and begins to produce more chlorophyll and amino acids. This is why matcha is so bright green and rich in flavor.'**
+  /// **'Matcha traces its origins to Song Dynasty China, where steaming, drying, and grinding tea leaves into a fine powder was a common preparation method. In the late 12th century, the Japanese Zen monk Eisai brought tea seeds and knowledge of powdered tea preparation to Japan.\n\nOver the following centuries, Japanese tea masters refined the process, developing the practice of shading tea plants for several weeks before harvest. Shading reduces photosynthesis, causing the leaves to produce higher levels of chlorophyll and L-theanine. The leaves are then steamed, dried without rolling to make tencha, and ground into fine powder on stone mills.'**
   String get matchaTeaStory;
 
   /// No description provided for @matchaTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Sift 1-2 grams of matcha powder into a bowl to prevent clumping. Add 60-70 ml of water heated to 70-80°C, and whisk vigorously in a \'W\' or \'M\' motion using a bamboo whisk (chasen) until a fine layer of foam forms.'**
   String get matchaTeaPreparation;
 
   /// No description provided for @matchaTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Matcha is traditionally consumed directly from the bowl without additives, drinking it in a few slow sips while warm. Modern variations include whisking it with steamed milk to prepare a matcha latte.'**
   String get matchaTeaHowToDrink;
 
   /// No description provided for @matchaTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Since the entire leaf is consumed, matcha provides a concentrated source of tea polyphenols, particularly catechins such as epigallocatechin gallate (EGCG). It also contains L-theanine and caffeine, a combination that is associated with alertness and focused attention.'**
   String get matchaTeaProperties;
 
   /// No description provided for @jasmineTeaStoryTitle.

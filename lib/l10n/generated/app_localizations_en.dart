@@ -521,20 +521,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get matchaTeaStoryTitle =>
-      'Matcha is \"tea that is not brewed, but lived\"';
+      'Matcha – «Tea That Is Not Brewed, but Lived»';
 
   @override
   String get matchaTeaStory =>
-      'Matcha isn\'t just tea. It\'s tea you drink whole.\n\nIts history begins in China, but it took its true form in Japan, where it became part of the tea ceremony, almost like the art of slowing down time.\n\nSeveral weeks before harvesting, the tea bushes are deliberately shaded from the sun. The plant \'thinks\' it\'s the forest\'s shade and begins to produce more chlorophyll and amino acids. This is why matcha is so bright green and rich in flavor.';
+      'Matcha traces its origins to Song Dynasty China, where steaming, drying, and grinding tea leaves into a fine powder was a common preparation method. In the late 12th century, the Japanese Zen monk Eisai brought tea seeds and knowledge of powdered tea preparation to Japan.\n\nOver the following centuries, Japanese tea masters refined the process, developing the practice of shading tea plants for several weeks before harvest. Shading reduces photosynthesis, causing the leaves to produce higher levels of chlorophyll and L-theanine. The leaves are then steamed, dried without rolling to make tencha, and ground into fine powder on stone mills.';
 
   @override
-  String get matchaTeaPreparation => '';
+  String get matchaTeaPreparation =>
+      'Sift 1-2 grams of matcha powder into a bowl to prevent clumping. Add 60-70 ml of water heated to 70-80°C, and whisk vigorously in a \'W\' or \'M\' motion using a bamboo whisk (chasen) until a fine layer of foam forms.';
 
   @override
-  String get matchaTeaHowToDrink => '';
+  String get matchaTeaHowToDrink =>
+      'Matcha is traditionally consumed directly from the bowl without additives, drinking it in a few slow sips while warm. Modern variations include whisking it with steamed milk to prepare a matcha latte.';
 
   @override
-  String get matchaTeaProperties => '';
+  String get matchaTeaProperties =>
+      'Since the entire leaf is consumed, matcha provides a concentrated source of tea polyphenols, particularly catechins such as epigallocatechin gallate (EGCG). It also contains L-theanine and caffeine, a combination that is associated with alertness and focused attention.';
 
   @override
   String get jasmineTeaStoryTitle =>
