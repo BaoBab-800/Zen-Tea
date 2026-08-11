@@ -1505,31 +1505,31 @@ abstract class AppLocalizations {
   /// No description provided for @oolongTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Oolong - \"The tea that didn\'t choose a side\"'**
+  /// **'Oolong Tea - «The Tea That Didn\'t Choose a Side»'**
   String get oolongTeaStoryTitle;
 
   /// No description provided for @oolongTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Oolong is a tea that exists between worlds.\n\nIts leaves are partially oxidized: not as much as black tea, and not as lightly as green tea. Therefore, it is neither one nor the other, and simultaneously both.\n\nThis is not a technological failure, but an art of balance.'**
+  /// **'Oolong tea is closely associated with the Wuyi Mountains of Fujian province, China, where some of its earliest documented forms were developed. Over time, intricate processing techniques gave oolong its unique place between lightly oxidized green teas and fully oxidized black teas. The name oolong, often translated as \"Black Dragon\", adds to the mystery surrounding this remarkable style of tea.\n\nCrafting oolong requires careful control of time and temperature. Fresh leaves undergo withering, bruising, partial oxidation, and often roasting. Depending on the region and style – from the dark, mineral-rich cliff teas of Wuyi to the tightly rolled, floral High Mountain oolongs of Taiwan – the degree of oxidation varies widely, creating an extraordinary spectrum of aromas and flavors.'**
   String get oolongTeaStory;
 
   /// No description provided for @oolongTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare oolong tea, use water heated to around 85-95°C depending on the roast level. Steep for 2-3 minutes, ideally using multiple short infusions in a gongfu teapot or gaiwan to watch the tightly rolled leaves unfurl.'**
   String get oolongTeaPreparation;
 
   /// No description provided for @oolongTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Oolong tea is best enjoyed plain in small porcelain cups to fully appreciate its evolving taste notes-ranging from orchid and honey to toasted wood and stone fruit-across several re-steeps.'**
   String get oolongTeaHowToDrink;
 
   /// No description provided for @oolongTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Oolong tea naturally contains a moderate amount of caffeine alongside L-theanine. It is rich in complex tea polyphenols, particularly polymerized polyphenols (theasinensins) formed during partial oxidation.'**
   String get oolongTeaProperties;
 
   /// No description provided for @rooibosTeaStoryTitle.
