@@ -715,20 +715,23 @@ class AppLocalizationsEn extends AppLocalizations {
       'The high-heat roasting process breaks down a significant portion of the tea\'s natural caffeine, making hojicha much lower in caffeine than standard green teas. It naturally contains remaining polyphenols and L-theanine from the green tea leaves.';
 
   @override
-  String get helbaTeaStoryTitle => 'Helba - \"The Golden Fenugreek Cup\"';
+  String get helbaTeaStoryTitle => 'Helba Tea – «The Golden Fenugreek Cup»';
 
   @override
   String get helbaTeaStory =>
-      'Helba is an Egyptian drink made from fenugreek seeds, brewed into a golden, aromatic infusion.\n\nIts flavor is warm, slightly nutty, and unmistakable. In many homes it belongs to the world of everyday remedies and hospitality, a cup that feels both practical and ancient.';
+      'Helba is a traditional Middle Eastern and North African hot beverage made from the seeds of yellow fenugreek (Trigonella foenum-graecum). Cultivated since antiquity across the Mediterranean and Nile Delta, fenugreek seeds were documented in early Egyptian papyri for their culinary and restorative uses.\n\nUnlike traditional leaf-based teas, helba is prepared by decocting whole fenugreek seeds in boiling water until they release their bright golden color and distinct, maple-nutty aroma. In Egyptian culture, helba has long served as a staple household beverage offered to guests and brewed for everyday warmth.';
 
   @override
-  String get helbaTeaPreparation => '';
+  String get helbaTeaPreparation =>
+      'To prepare helba, rinse 1-2 teaspoons of whole fenugreek seeds, then add them to a small pot of water. Simmer on low heat for 5-10 minutes to extract the full flavor, then strain into a cup.';
 
   @override
-  String get helbaTeaHowToDrink => '';
+  String get helbaTeaHowToDrink =>
+      'Helba is served piping hot and is commonly sweetened with sugar or honey to complement its naturally rich, slightly bitter flavor. The softened seeds left at the bottom of the cup are often eaten after finishing the drink.';
 
   @override
-  String get helbaTeaProperties => '';
+  String get helbaTeaProperties =>
+      'Naturally caffeine-free, helba is made from fenugreek seeds, which naturally contain soluble fiber, mucilage, and saponins. It is traditionally enjoyed as a warming, comforting infusion after meals.';
 
   @override
   String get mateTeaStoryTitle =>
