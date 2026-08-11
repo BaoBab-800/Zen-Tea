@@ -152,11 +152,6 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
                 ),
 
                 TextButton(
-                  onPressed: _busy ? null : () => _run(_changeHisPageFlag),
-                  child: Text(context.l10n.changeHisPageFlag),
-                ),
-
-                TextButton(
                   onPressed: _busy ? null : () => _run(_changeDeveloperRoomFlag),
                   child: Text(context.l10n.changeDeveloperRoomFlag),
                 ),
@@ -166,7 +161,10 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
                   child: Text(context.l10n.resetAllStats),
                 ),
 
-                const SizedBox(height: 10),
+                TextButton(
+                  onPressed: _busy ? null : () => _run(_changeHisPageFlag),
+                  child: Text('                      '),
+                ),
               ],
             ),
           );

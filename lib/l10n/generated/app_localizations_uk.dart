@@ -301,9 +301,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get resetStreak => 'Скинути серію';
 
   @override
-  String get changeHisPageFlag => 'Змінити прапорець xxx сторінки';
-
-  @override
   String get changeDeveloperRoomFlag => 'Змінити прапорець кімнати розробника';
 
   @override

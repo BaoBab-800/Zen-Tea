@@ -674,12 +674,6 @@ abstract class AppLocalizations {
   /// **'Reset streak'**
   String get resetStreak;
 
-  /// No description provided for @changeHisPageFlag.
-  ///
-  /// In en, this message translates to:
-  /// **'Change xxx page flag'**
-  String get changeHisPageFlag;
-
   /// No description provided for @changeDeveloperRoomFlag.
   ///
   /// In en, this message translates to:
