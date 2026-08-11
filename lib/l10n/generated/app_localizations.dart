@@ -1031,31 +1031,31 @@ abstract class AppLocalizations {
   /// No description provided for @masalaTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Masala chai - \"tea that can\'t be quiet\"'**
+  /// **'Masala Chai – «Spiced Heritage in Every Cup»'**
   String get masalaTeaStoryTitle;
 
   /// No description provided for @masalaTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Masala chai was born not as a sophisticated drink, but as a street energy.\n\nTea arrived in India relatively late – it was brought by the British in the 19th century. But locals found it too boring. So, they did what they do best: they started experimenting.\n\nSo, they added milk, sugar, and a whole spice blend called \'masala\' to ordinary black tea. And tea ceased to be just a drink. It became an event.'**
+  /// **'Before tea was widely consumed in India, traditional spiced decoctions called \'kadha\' were used in Ayurvedic medicine for centuries. These herbal brews blended spices like ginger, cardamom, and black pepper for their restorative properties.\n\nIn the 19th century, the British East India Company established commercial tea plantations in Assam to break China\'s monopoly on tea. To encourage domestic consumption, the Indian Tea Association began promoting tea breaks for local workers in the early 20th century.\n\nIndian street vendors, known as chaiwalas, adapted the drink by combining black tea leaves with milk, sugar, and traditional kadha spices to make it richer and more affordable. This created the classic spiced beverage known today around the world.'**
   String get masalaTeaStory;
 
   /// No description provided for @masalaTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To make Masala chai, simmer equal parts water and milk in a saucepan. Add strong black tea (traditionally CTC Assam tea) along with freshly crushed spices such as cardamom, ginger, cloves, and cinnamon, and let it gently boil for 3-5 minutes before straining.'**
   String get masalaTeaPreparation;
 
   /// No description provided for @masalaTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Masala chai is served hot, traditionally sweetened with sugar or unrefined cane sugar (jaggery) to balance the sharp spices. It is best enjoyed fresh from a cup or clay kulhar.'**
   String get masalaTeaHowToDrink;
 
   /// No description provided for @masalaTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Masala chai contains caffeine from black tea, along with aromatic compounds found in spices such as ginger, cardamom, cinnamon, and cloves. Together, they give the drink its characteristic warming aroma, rich flavor, and gentle boost of alertness.'**
   String get masalaTeaProperties;
 
   /// No description provided for @matchaTeaStoryTitle.
