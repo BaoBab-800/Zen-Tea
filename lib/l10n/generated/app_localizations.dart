@@ -1241,31 +1241,31 @@ abstract class AppLocalizations {
   /// No description provided for @assamTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Assam - \"The Strong Tea of River Valleys\"'**
+  /// **'Assam Tea - «Strong Tea of the River Valleys»'**
   String get assamTeaStoryTitle;
 
   /// No description provided for @assamTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Assam tea comes from northeastern India, from warm lowlands around the Brahmaputra River.\n\nIts character is bold, malty, and full-bodied, the kind of tea that wakes up the morning without asking twice. It became one of the foundations of many breakfast blends because it has enough strength to stand with milk and still keep its voice.'**
+  /// **'Assam tea originates from the tropical lowlands of northeastern India, along the floodplains of the Brahmaputra River. Unlike many traditional Chinese tea varieties, Assam tea comes from a distinct variety of the tea plant, commonly known as *Camellia sinensis var. assamica*. The wild tea growing in the region was documented by Scottish adventurer Robert Bruce in 1823, although local communities had known and used the plant long before.\n\nRecognizing its commercial potential, the British East India Company established extensive plantations across Assam in the 1830s. The region\'s rich alluvial soil, high humidity, and heavy rainfall helped produce a bold, full-bodied black tea with distinctive malty notes. Its robust flavor later made Assam an important component of many breakfast tea blends.'**
   String get assamTeaStory;
 
   /// No description provided for @assamTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare Assam tea, use water heated to around 90-95°C. Pour over the tea leaves and let them steep for 3-5 minutes to bring out its full strength without excessive astringency.'**
   String get assamTeaPreparation;
 
   /// No description provided for @assamTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Assam tea is traditionally served hot and is strong enough to take a splash of milk and sugar, which balances its natural maltiness. It is a staple choice for breakfast and morning tea pairings.'**
   String get assamTeaHowToDrink;
 
   /// No description provided for @assamTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Assam tea is known for its robust caffeine content and naturally occurring flavonoids and polyphenols, including theaflavins. Its combination of caffeine and rich, malty character makes it a particularly invigorating black tea.'**
   String get assamTeaProperties;
 
   /// No description provided for @nilgiriTeaStoryTitle.
