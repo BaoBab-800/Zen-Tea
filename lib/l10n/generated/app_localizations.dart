@@ -1385,31 +1385,31 @@ abstract class AppLocalizations {
   /// No description provided for @mateTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Mate - \"The energy of the earth shared in a circle\"'**
+  /// **'Mate - «The Energy of the Earth Shared in a Circle»'**
   String get mateTeaStoryTitle;
 
   /// No description provided for @mateTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Mate is not just a drink; it is a ritual of connection.\n\nBorn in the heart of South American rainforests, it was discovered by the Guaraní people, who called it a gift from the gods. It requires no complex processing, yet it demands patience, a special gourd, and a metal straw.\n\nTo drink mate is to slow down, pass the cup, and share the vital energy of nature with friends.'**
+  /// **'Yerba mate originates from the subtropical rainforests of South America, where the indigenous Guaraní and Tupi peoples first harvested and consumed the leaves of the Ilex paraguariensis tree. They viewed the plant as a natural source of vitality, using dried leaves to prepare infusions served in dried calabash gourds.\n\nIn the 17th century, Jesuit missionaries standardized the cultivation and trade of yerba mate across the region. Over centuries, the beverage became a defining cultural tradition in countries like Argentina, Uruguay, Paraguay, and southern Brazil, where sharing mate from a shared gourd (mate) using a metal straw (bombilla) remains an essential social ritual.'**
   String get mateTeaStory;
 
   /// No description provided for @mateTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare mate traditionally, fill a calabash gourd or cup two-thirds full with dried yerba mate leaves. Tilt the gourd to one side, pour in a little cool water to soak the leaves, insert the metal straw (bombilla), and then pour in warm water heated to 70-80°C (never boiling). Re-infuse the same leaves multiple times.'**
   String get mateTeaPreparation;
 
   /// No description provided for @mateTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Mate is traditionally served hot and shared among a group, where one person (the cebador) pours the water and passes the gourd around. It is drunk plain through the bombilla straw, though some prefer adding sugar, honey, or fresh herbs.'**
   String get mateTeaHowToDrink;
 
   /// No description provided for @mateTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Yerba mate naturally contains caffeine along with related xanthines like theobromine. It also contains polyphenols, vitamins, and minerals, providing a steady sense of energy and mental alertness.'**
   String get mateTeaProperties;
 
   /// No description provided for @carpathianTeaStoryTitle.
