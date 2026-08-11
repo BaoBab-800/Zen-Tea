@@ -1301,31 +1301,31 @@ abstract class AppLocalizations {
   /// No description provided for @genmaichaTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Genmaicha - \"The Tea with Toasted Rice\"'**
+  /// **'Genmaicha Tea - «The Tea with Toasted Rice»'**
   String get genmaichaTeaStoryTitle;
 
   /// No description provided for @genmaichaTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Genmaicha began as a humble Japanese tea where green tea met toasted rice.\n\nThe rice adds a warm, nutty aroma and softens the grassy brightness of the leaves. It feels friendly and grounded, like a simple meal turned into a cup of comfort.'**
+  /// **'Genmaicha is a traditional Japanese tea made by blending green tea – typically bancha or sencha – with roasted and sometimes popped brown rice. The combination was valued for its distinctive flavor and made the tea more affordable by extending the amount of rice-free tea leaves in each serving.\n\nOver time, what was once a simple and practical combination became a distinct beverage valued for its unique character. The green tea leaves and toasted brown rice create a golden-hued brew with a distinctive balance of fresh, grassy notes and a warm, nutty roasted aroma.'**
   String get genmaichaTeaStory;
 
   /// No description provided for @genmaichaTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare Genmaicha, heat water to around 80-85°C. Pour over the tea mixture and let it steep for 1-2 minutes. Using cooler water prevents the green tea base from turning bitter while preserving the toasted flavor of the rice.'**
   String get genmaichaTeaPreparation;
 
   /// No description provided for @genmaichaTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Genmaicha is traditionally served hot without sweetening or milk. Its savory, nutty profile makes it a popular pairing alongside meals or as a comforting drink on quiet afternoons.'**
   String get genmaichaTeaHowToDrink;
 
   /// No description provided for @genmaichaTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Because Genmaicha is partially composed of toasted rice, it generally contains less caffeine per cup than standard green teas. It also retains the natural polyphenols and catechins found in green tea leaves.'**
   String get genmaichaTeaProperties;
 
   /// No description provided for @hojichaTeaStoryTitle.

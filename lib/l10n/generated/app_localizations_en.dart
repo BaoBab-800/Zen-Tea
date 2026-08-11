@@ -680,20 +680,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get genmaichaTeaStoryTitle =>
-      'Genmaicha - \"The Tea with Toasted Rice\"';
+      'Genmaicha Tea - «The Tea with Toasted Rice»';
 
   @override
   String get genmaichaTeaStory =>
-      'Genmaicha began as a humble Japanese tea where green tea met toasted rice.\n\nThe rice adds a warm, nutty aroma and softens the grassy brightness of the leaves. It feels friendly and grounded, like a simple meal turned into a cup of comfort.';
+      'Genmaicha is a traditional Japanese tea made by blending green tea – typically bancha or sencha – with roasted and sometimes popped brown rice. The combination was valued for its distinctive flavor and made the tea more affordable by extending the amount of rice-free tea leaves in each serving.\n\nOver time, what was once a simple and practical combination became a distinct beverage valued for its unique character. The green tea leaves and toasted brown rice create a golden-hued brew with a distinctive balance of fresh, grassy notes and a warm, nutty roasted aroma.';
 
   @override
-  String get genmaichaTeaPreparation => '';
+  String get genmaichaTeaPreparation =>
+      'To prepare Genmaicha, heat water to around 80-85°C. Pour over the tea mixture and let it steep for 1-2 minutes. Using cooler water prevents the green tea base from turning bitter while preserving the toasted flavor of the rice.';
 
   @override
-  String get genmaichaTeaHowToDrink => '';
+  String get genmaichaTeaHowToDrink =>
+      'Genmaicha is traditionally served hot without sweetening or milk. Its savory, nutty profile makes it a popular pairing alongside meals or as a comforting drink on quiet afternoons.';
 
   @override
-  String get genmaichaTeaProperties => '';
+  String get genmaichaTeaProperties =>
+      'Because Genmaicha is partially composed of toasted rice, it generally contains less caffeine per cup than standard green teas. It also retains the natural polyphenols and catechins found in green tea leaves.';
 
   @override
   String get hojichaTeaStoryTitle => 'Hojicha - \"The Roasted Green Tea\"';
