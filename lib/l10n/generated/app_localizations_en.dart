@@ -680,7 +680,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get genmaichaTeaStoryTitle =>
-      'Genmaicha Tea - «The Tea with Toasted Rice»';
+      'Genmaicha Tea – «The Tea with Toasted Rice»';
 
   @override
   String get genmaichaTeaStory =>
@@ -699,20 +699,23 @@ class AppLocalizationsEn extends AppLocalizations {
       'Because Genmaicha is partially composed of toasted rice, it generally contains less caffeine per cup than standard green teas. It also retains the natural polyphenols and catechins found in green tea leaves.';
 
   @override
-  String get hojichaTeaStoryTitle => 'Hojicha - \"The Roasted Green Tea\"';
+  String get hojichaTeaStoryTitle => 'Hojicha Tea – «The Roasted Green Tea»';
 
   @override
   String get hojichaTeaStory =>
-      'Hojicha is green tea transformed by roasting. The leaves lose much of their sharp greenness and gain warm notes of wood, caramel, and toasted grain.\n\nBecause of its mellow character, hojicha feels like evening tea: gentle, low-key, and comforting without needing to prove anything.';
+      'Hojicha was developed in Kyoto, Japan, in the 1920s as a creative way to reduce food waste. Local tea merchants began roasting remaining green tea leaves, stems, and stalks over high heat in porcelain pots, giving the tea a warm, reddish-brown color.\n\nThe intense roasting process removes the grassy astringency typical of Japanese green teas, replacing it with a smooth flavor profile featuring notes of toasted grain, caramel, and wood. This distinct transformation made hojicha a widely popular daily tea across Japan.';
 
   @override
-  String get hojichaTeaPreparation => '';
+  String get hojichaTeaPreparation =>
+      'To prepare hojicha, pour boiling water (90-95°C) over the roasted leaves and stems. Steep for 30-60 seconds. Unlike unroasted green teas, hojicha handles higher water temperatures well without developing bitterness.';
 
   @override
-  String get hojichaTeaHowToDrink => '';
+  String get hojichaTeaHowToDrink =>
+      'Hojicha is traditionally served hot, plain, and without milk. Its naturally low astringency also makes it a great candidate for iced tea or modern steamed hojicha lattes.';
 
   @override
-  String get hojichaTeaProperties => '';
+  String get hojichaTeaProperties =>
+      'The high-heat roasting process breaks down a significant portion of the tea\'s natural caffeine, making hojicha much lower in caffeine than standard green teas. It naturally contains remaining polyphenols and L-theanine from the green tea leaves.';
 
   @override
   String get helbaTeaStoryTitle => 'Helba - \"The Golden Fenugreek Cup\"';
