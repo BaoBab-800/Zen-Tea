@@ -44,33 +44,17 @@ class HistoryBuilder extends StatelessWidget {
 
                   child: Column(
                     children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: AspectRatio(
-                          aspectRatio: 1 / 1,
-                          child: Image.asset(
-                            currentTea.imagePath,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-
+                      _teaImage(context),
                       const SizedBox(height: 12),
 
                       const Divider(),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 2),
-                        child: Text(
-                          currentTea.type.titleStory(context),
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
+                      _teaTitle(context),
                       const Divider(),
 
-                      const SizedBox(height: 6),
+                      const SizedBox(height: 2),
+                      _teaCountry(context),
+
+                      const SizedBox(height: 2),
                       _textContent(context),
                     ],
                   ),
@@ -79,6 +63,43 @@ class HistoryBuilder extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _teaImage(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: AspectRatio(
+        aspectRatio: 1 / 1,
+        child: Image.asset(
+          currentTea.imagePath,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
+  Widget _teaTitle(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 2),
+      child: Text(
+        currentTea.type.titleStory(context),
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+
+  Widget _teaCountry(BuildContext context) {
+    return Text(
+      currentTea.country.title(context),
+      style: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        fontStyle: FontStyle.italic,
       ),
     );
   }
