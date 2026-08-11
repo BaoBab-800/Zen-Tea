@@ -775,20 +775,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get labradorTeaStoryTitle =>
-      'Labrador Tea - \"the ancient warmth of the tundra\"';
+      'Labrador Tea - «The Ancient Warmth of the Tundra»';
 
   @override
   String get labradorTeaStory =>
-      'Labrador tea is a survival code written by nature itself.\n\nFor centuries, its resilient evergreen leaves have braved the freezing subarctic mists of the Canadian boreal forests. Discovered by Indigenous peoples, it became a sacred brew of vitality, medicine, and deep connection to the frozen earth.\n\nTo sip it is to experience the wild north: a crisp, pine-scented steam that warms the soul with notes of fresh moss and hidden citrus.';
+      'Labrador tea refers to herbal infusions made from evergreen shrubs of the genus Rhododendron (formerly Ledum), native to the boreal forests and tundra regions of North America. Indigenous peoples, including the Athabaskan, Inuit, and Cree, traditionally harvested these low-growing wild shrubs to prepare hot infusions long before European arrival.\n\nDuring the 18th century, European fur traders and settlers adopted the practice as a substitute for imported black tea, particularly in remote northern outposts. The leaves-harvested from peat bogs and cold wetlands-were dried and steeped into a distinct, resinous brew with subtle aromatic notes of pine and citrus.';
 
   @override
-  String get labradorTeaPreparation => '';
+  String get labradorTeaPreparation =>
+      'To prepare Labrador tea, steep 1 teaspoon of dried leaves in hot water (85-90°C) for 5-8 minutes. Boiling for extended periods or using excessive leaves should be avoided to prevent extracting high concentrations of natural plant compounds.';
 
   @override
-  String get labradorTeaHowToDrink => '';
+  String get labradorTeaHowToDrink =>
+      'Labrador tea is served hot and plain to appreciate its unique herbal, pine-like aroma. It can also be sweetened with a bit of honey or maple syrup to complement its earthy flavor.';
 
   @override
-  String get labradorTeaProperties => '';
+  String get labradorTeaProperties =>
+      'Naturally caffeine-free, Labrador tea contains essential oils, polyphenols, and Vitamin C. Due to naturally occurring compounds like grayanotoxins inherent to the *Rhododendron* family, it is traditionally consumed in mild, moderate quantities.';
 
   @override
   String get ivanTeaStoryTitle =>
