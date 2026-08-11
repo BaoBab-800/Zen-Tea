@@ -893,20 +893,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get senchaTeaStoryTitle =>
-      'Sencha - \"The Everyday Tea of Calm Precision\"';
+      'Sencha Tea - «The Everyday Tea of Calm Precision»';
 
   @override
   String get senchaTeaStory =>
-      'Sencha comes from Japan, where tea is not just a drink but part of daily life and balance.\n\nIt is made by steaming fresh tea leaves right after harvest, which helps preserve their bright green color and clean, grassy taste. Unlike ceremonial matcha, sencha is the tea of everyday moments - simple, honest, and deeply rooted in routine.\n\nFor many people in Japan, sencha is the first cup in the morning and a quiet pause during the day, bringing clarity without overwhelming energy.';
+      'Sencha is the most widely consumed green tea in Japan, representing roughly 80% of the country\'s total tea production. Prior to the mid-18th century, most Japanese green tea was processed using Chinese pan-firing methods. In 1738, tea merchant Nagatani Soen invented the sencha-do process, introducing quick steam-heating to stop oxidation, followed by rolling the leaves into fine, needle-like shapes.\n\nThis steaming technique preserves the fresh chlorophyll, giving the tea its vibrant emerald green color and crisp, vegetal character. Unprocessed by heavy roasting or shading, Sencha became the quintessential everyday tea for households across Japan-a staple of daily hospitality and quiet reflection.';
 
   @override
-  String get senchaTeaPreparation => '';
+  String get senchaTeaPreparation =>
+      'To prepare Sencha, heat water to 70-80°C (boiling water will make it bitter). Steep 1-2 teaspoons of leaves for 60-90 seconds to extract a balanced, bright infusion.';
 
   @override
-  String get senchaTeaHowToDrink => '';
+  String get senchaTeaHowToDrink =>
+      'Sencha is best enjoyed plain and hot, served in small, light-colored cups to highlight its vibrant green hue and refreshing, slightly sweet flavor with notes of fresh grass and sea breeze.';
 
   @override
-  String get senchaTeaProperties => '';
+  String get senchaTeaProperties =>
+      'Sencha naturally contains caffeine along with high levels of green tea catechins (such as EGCG) and L-theanine, making it a refreshing option for mental clarity during the day.';
 
   @override
   String get honeybushTeaStoryTitle =>
