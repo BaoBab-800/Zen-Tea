@@ -1121,31 +1121,31 @@ abstract class AppLocalizations {
   /// No description provided for @hibiscusTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Hibiscus tea - \"tea that doesn\'t pretend to be mild\"'**
+  /// **'Hibiscus Tea – «Tea That Refuses to Be Mild»'**
   String get hibiscusTeaStoryTitle;
 
   /// No description provided for @hibiscusTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Hibiscus is not a leaf or a tea bush. These are dried flower petals.\n\nEgo was brewed in different parts of the world: in Africa, in the Middle East, in Latin America. And everywhere it was about the same - bright, sour and refreshing.\n\nHe is not trying to be \'cozy\'. He immediately declares himself.'**
+  /// **'Hibiscus tea, known botanically as \"Hibiscus sabdariffa\", is made from the dried calyces (the protective structures surrounding the flower bud) rather than tea leaves. Originating in West Africa, it spread along trade routes across the Middle East, the Caribbean, and Latin America, becoming known under regional names like karkadeh, flor de jamaica, and zobo.\n\nHistorically, the vibrant red brew was valued both for daily hydration in warm climates and for traditional medicine. In Egypt, karkadeh became deeply rooted in local culture and remains a popular drink today.'**
   String get hibiscusTeaStory;
 
   /// No description provided for @hibiscusTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare hibiscus tea, steep 1-2 tablespoons of dried calyces in boiling water (95-100°C) for 5-10 minutes. Because it contains no tea leaves, it does not become bitter with longer steeping, only developing a deeper ruby color and stronger tart flavor.'**
   String get hibiscusTeaPreparation;
 
   /// No description provided for @hibiscusTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Hibiscus tea can be enjoyed piping hot or chilled over ice. Due to its natural cranberry-like tartness, it is frequently sweetened with honey, sugar, or agave, and often garnished with fresh mint or citrus slices.'**
   String get hibiscusTeaHowToDrink;
 
   /// No description provided for @hibiscusTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Naturally caffeine-free, hibiscus tea contains anthocyanins and other polyphenolic compounds that give the infusion its deep ruby color. Its refreshing tartness comes from naturally occurring organic acids.'**
   String get hibiscusTeaProperties;
 
   /// No description provided for @whiteTeaStoryTitle.
