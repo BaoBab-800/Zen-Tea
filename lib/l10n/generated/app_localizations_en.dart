@@ -755,20 +755,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get carpathianTeaStoryTitle =>
-      'Carpathian Blend - \"the healing breath of the mountains\"';
+      'Carpathian tea - «The Breath of the Wild Mountains»';
 
   @override
   String get carpathianTeaStory =>
-      'Carpathian tea is a liquid ecosystem of the Ukrainian highlands.\n\nIt is not planted by humans, but gathered by hand on wild mountain meadows, where thyme, oregano, and mint drink the morning mists. It has no strict recipe, for every herbalist listens to nature.\n\nTo brew it is to open a portal to the ancient forests, bringing the calm and resilience of the mountains into a warm porcelain cup.';
+      'Herbal infusions have a long history in the Carpathian Mountains of western Ukraine, where local highland communities (such as the Hutsuls) traditionally gathered wild mountain herbs, berries, and flora for daily hot drinks. Known locally as polonynskyi chai, these blends were harvested directly from high-altitude meadows (polonynas).\n\nRather than relying on the imported tea plant (Camellia sinensis), local gathering traditions relied on wild species like thyme, mint, Saint John\'s wort, willowherb, and dried mountain berries. Hand-harvested and sun-dried during the peak summer months, these wild herbal mixtures became an integral part of Ukrainian mountain hospitality and cold-climate living.';
 
   @override
-  String get carpathianTeaPreparation => '';
+  String get carpathianTeaPreparation =>
+      'To prepare a Carpathian herbal blend, place 1-2 teaspoons of dried herbs into a teapot and pour boiling water (95-100°C) over them. Cover and allow to steep for 7-10 minutes so the wild herbs and roots can fully release their aromas.';
 
   @override
-  String get carpathianTeaHowToDrink => '';
+  String get carpathianTeaHowToDrink =>
+      'Carpathian herbal tea is best enjoyed hot, served plain or sweetened with natural mountain honey. It makes a naturally comforting, aromatic drink for cold evenings or after outdoor activities.';
 
   @override
-  String get carpathianTeaProperties => '';
+  String get carpathianTeaProperties =>
+      'Naturally caffeine-free, wild herbal mountain blends contain essential oils, organic acids, and plant flavonoids from herbs such as thyme, mint, and oregano, offering a gentle, soothing experience.';
 
   @override
   String get labradorTeaStoryTitle =>
