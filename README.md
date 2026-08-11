@@ -29,3 +29,7 @@ flutter pub get
 
 ### 3. Run app
 flutter run
+
+### *The application is a gift for Kaban Maxim Yuryevich Sipyagin.*
+
+---
