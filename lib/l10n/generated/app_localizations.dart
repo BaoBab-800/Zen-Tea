@@ -1805,31 +1805,31 @@ abstract class AppLocalizations {
   /// No description provided for @manoominTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Manoomin – \"where the sacred lake meets the roasting fire\"'**
+  /// **'Manoomin Tea - «Tea, where the sacred lake meets fire»'**
   String get manoominTeaStoryTitle;
 
   /// No description provided for @manoominTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Manoomin tea is a sacred dialogue between two distant shores.\n\nIt brings together the roasting art of traditional tea and the ancient wild rice hand-harvested from Canadian lakes by Indigenous peoples. It is not just a blend, but a harmony of earth and water, born from canoes guiding through lake mists.\n\nEvery cup offers a comforting, deeply grounding warmth, rich with toasted nuttiness, popcorn aromas, and the spirit of the northern wilderness.'**
+  /// **'Manoomin, or wild rice, is a sacred aquatic grain deeply woven into the heritage and spiritual life of Indigenous nations across the Great Lakes region of North America. Traditionally harvested by canoe from clean, shallow lakes, the grain is wood-roasted over open fires to hull and preserve it, developing a distinctive dark color and a rich, toasted aroma.\n\nInspired by this tradition, Manoomin tea combines roasted wild rice with roasted tea leaves or grains in a style akin to Asian genmaicha. The process infuses the brew with warm, nutty notes of popcorn and toasted grain, bridging Indigenous harvesting traditions with the time-honored art of fire-roasted infusions.'**
   String get manoominTeaStory;
 
   /// No description provided for @manoominTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare Manoomin tea, pour hot water (85-90°C) over 1-2 teaspoons of the roasted blend. Steep for 2-3 minutes to allow the toasted grains and leaves to yield their warm, nutty bouquet without releasing harshness.'**
   String get manoominTeaPreparation;
 
   /// No description provided for @manoominTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Manoomin tea is served hot and plain in ceramic cups, allowing the savory, toasted rice aroma and subtle roasted notes to stand out as a comforting, hearty beverage.'**
   String get manoominTeaHowToDrink;
 
   /// No description provided for @manoominTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Contains low-to-moderate caffeine (depending on the base tea used). The roasted wild rice contributes natural B vitamins, minerals, and plant compounds, creating a smooth and grounding infusion.'**
   String get manoominTeaProperties;
 }
 
