@@ -1745,31 +1745,31 @@ abstract class AppLocalizations {
   /// No description provided for @gyokuroTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Gyokuro - \"The Jade Dew\"'**
+  /// **'Gyokuro Tea – «The Jade Dew»'**
   String get gyokuroTeaStoryTitle;
 
   /// No description provided for @gyokuroTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Gyokuro is one of Japan\'s most treasured green teas. Before harvest, the bushes are shaded, encouraging deep sweetness, umami, and a silky texture.\n\nIt is not a tea for rushing. Gyokuro asks for cooler water, patience, and attention, rewarding the drinker with a concentrated, almost glowing calm.'**
+  /// **'Gyokuro is widely regarded as one of Japan\'s finest and most prestigious shaded green teas. First developed in 1835 by tea merchant Yamamoto Kahei VI in Uji, Kyoto, its unique flavor relies on an intensive shading technique called \"kabuse\". For about three weeks prior to harvesting, tea bushes are covered under straw mats or black mesh screen shade structures to block up to 90% of direct sunlight.\n\nDeprived of sunlight, the tea leaves produce high amounts of chlorophyll and the amino acid L-theanine while slowing the synthesis of bitter catechins. This meticulously controlled shade-cultivation yields a dark emerald leaf and an infusion renowned for its vibrant green hue, rich savory umami notes, and silky, naturally sweet texture.'**
   String get gyokuroTeaStory;
 
   /// No description provided for @gyokuroTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare Gyokuro, use a generous ratio of tea leaves with low-temperature water heated to around 50-60°C. Steep for 2 minutes to extract its rich umami and L-theanine without releasing bitterness.'**
   String get gyokuroTeaPreparation;
 
   /// No description provided for @gyokuroTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Gyokuro is traditionally served hot in small porcelain cups without sweetener or milk. It should be savored slowly in small sips to fully appreciate its concentrated, broth-like richness.'**
   String get gyokuroTeaHowToDrink;
 
   /// No description provided for @gyokuroTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Gyokuro contains high levels of L-theanine along with caffeine, a combination that promotes focused mental clarity. It is also rich in green tea polyphenols, chlorophyll, and vitamins.'**
   String get gyokuroTeaProperties;
 
   /// No description provided for @tieguanyinTeaStoryTitle.
