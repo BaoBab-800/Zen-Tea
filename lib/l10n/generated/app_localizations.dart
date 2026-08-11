@@ -1775,37 +1775,37 @@ abstract class AppLocalizations {
   /// No description provided for @tieguanyinTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Tieguanyin - \"The Iron Goddess of Mercy\"'**
+  /// **'Tieguanyin Tea – «The Iron Goddess of Mercy»'**
   String get tieguanyinTeaStoryTitle;
 
   /// No description provided for @tieguanyinTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Tieguanyin is a celebrated Chinese oolong whose name carries the legend of the Iron Goddess of Mercy.\n\nDepending on how it is made, it can be floral and bright or deeper and roasted. What stays constant is its elegance: a tea that opens slowly, steep after steep, revealing more than it says at first.'**
+  /// **'Tieguanyin is one of China\'s most famous oolong teas, originating in the mountainous Anxi County of Fujian province during the early 18th century. Named after Guanyin, the Bodhisattva of Compassion, the tea is steeped in folklore involving a poor farmer who restored a neglected iron statue of the goddess and was rewarded with a single, remarkable tea shoot.\n\nCharacterized by its tightly rolled, heavy leaves that clink like iron when dropped into a teapot, Tieguanyin undergoes a complex multi-step process of partial oxidation, rolling, and optional roasting. It ranges from light, vibrant, orchid-scented green profiles (Anxi style) to traditional, deeply roasted, honeyed amber styles, both famous for their lingering, sweet aftertaste.'**
   String get tieguanyinTeaStory;
 
   /// No description provided for @tieguanyinTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare Tieguanyin, heat fresh water to 90-95°C. Steep 1-2 teaspoons of rolled leaves for 2-3 minutes, or use traditional gongfu brewing with multiple short infusions (15-30 seconds) to watch the rolled pearls unfurl.'**
   String get tieguanyinTeaPreparation;
 
   /// No description provided for @tieguanyinTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Tieguanyin is best enjoyed plain in small porcelain or Yixing clay cups. Drinking it through multiple steepings allows the palate to experience how its floral notes shift into deeper, sweeter undertones.'**
   String get tieguanyinTeaHowToDrink;
 
   /// No description provided for @tieguanyinTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Tieguanyin naturally contains a moderate amount of caffeine alongside L-theanine and polymerized tea polyphenols formed during partial oxidation, providing a smooth and uplifting drinking experience.'**
   String get tieguanyinTeaProperties;
 
   /// No description provided for @manoominTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Manoomin - \"where the sacred lake meets the roasting fire\"'**
+  /// **'Manoomin – \"where the sacred lake meets the roasting fire\"'**
   String get manoominTeaStoryTitle;
 
   /// No description provided for @manoominTeaStory.
