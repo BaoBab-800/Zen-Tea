@@ -933,7 +933,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get branchTeaStoryTitle =>
-      'Branch Tea - «The Hidden Pulse of the Winter Garden»';
+      'Branch Tea – «The Hidden Pulse of the Winter Garden»';
 
   @override
   String get branchTeaStory =>
@@ -952,20 +952,24 @@ class AppLocalizationsEn extends AppLocalizations {
       'Naturally caffeine-free, branch decoctions contain essential oils, organic acids, tannins, and naturally occurring plant compounds extracted from the bark and wood of fruit trees.';
 
   @override
-  String get darjeelingTeaStoryTitle => 'Darjeeling - \"The Champagne of Tea\"';
+  String get darjeelingTeaStoryTitle =>
+      'Darjeeling Tea – «The Champagne of Tea»';
 
   @override
   String get darjeelingTeaStory =>
-      'Darjeeling grows high in the foothills of the Himalayas, where mist, cool air, and mountain soil shape its delicate character.\n\nIt is prized for a light body and a floral, muscatel aroma that can change from harvest to harvest. A cup of Darjeeling feels less like a heavy black tea and more like a quiet mountain view captured in leaves.';
+      'Darjeeling tea is grown in the high-altitude tea gardens of the Lesser Himalayas in West Bengal, India. Cultivation began in the 1840s when Dr. Archibald Campbell, a civil surgeon of the British East India Company, brought Chinese tea seeds (Camellia sinensis var. sinensis) to the district, where cool mountain air, steep slopes, and abundant rainfall created an ideal terroir.\n\nHarvested seasonally in distinct periods known as \"flushes,\" Darjeeling teas produce a wide variety of flavors: light and floral First Flushes, rich and muscatel-tinged Second Flushes, and smooth Autumnal Flushes. Its distinct processing, light oxidation, and unique Himalayan climate earned Darjeeling the global title of \"The Champagne of Teas.\"';
 
   @override
-  String get darjeelingTeaPreparation => '';
+  String get darjeelingTeaPreparation =>
+      'To prepare Darjeeling tea, heat fresh water to around 85-90°C. Pour over the leaves and steep for 3-4 minutes to preserve its subtle floral and fruity top notes without introducing astringency.';
 
   @override
-  String get darjeelingTeaHowToDrink => '';
+  String get darjeelingTeaHowToDrink =>
+      'Darjeeling tea is best served hot and plain in fine porcelain cups to appreciate its light body and intricate muscatel flavor. Adding milk or strong sweeteners is generally avoided for high-grade flushes.';
 
   @override
-  String get darjeelingTeaProperties => '';
+  String get darjeelingTeaProperties =>
+      'Darjeeling tea naturally contains moderate levels of caffeine along with a unique blend of polyphenols and catechins preserved by its light-to-medium oxidation process.';
 
   @override
   String get gyokuroTeaStoryTitle => 'Gyokuro - \"The Jade Dew\"';
