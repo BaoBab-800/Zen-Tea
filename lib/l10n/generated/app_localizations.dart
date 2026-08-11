@@ -1475,31 +1475,31 @@ abstract class AppLocalizations {
   /// No description provided for @ivanTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Ivan-Tea - \"the flame that heals the scorched earth\"'**
+  /// **'Ivan-Tea - «The Flame That Restores the Scorched Earth»'**
   String get ivanTeaStoryTitle;
 
   /// No description provided for @ivanTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Ivan-tea is a story of rebirth and silent power.\n\nIts beautiful purple flowers are always the first to bloom on burnt lands and clearing sites, bringing life back to wounded soil. Through the art of deep leaf fermentation, it transforms from a simple wild herb into a rich, full-bodied brew that rivals classic black tea.\n\nFree of caffeine yet full of vital energy, it is a testament to the soothing, resilient embrace of northern nature.'**
+  /// **'Ivan-tea, traditionally made from fireweed (Chamaenerion angustifolium), has a long history across Northern and Eastern Europe. Known as Koporye tea, it gained widespread recognition in 19th-century trade as a popular herbal alternative to imported Chinese black tea, with the town of Koporje becoming a major center for its production.\n\nFireweed is a pioneer plant that naturally thrives on disturbed forest soils and burned lands, helping prevent soil erosion. To make Ivan-tea, the hand-harvested leaves undergo a traditional process of rolling and oxidation (fermentation) before drying, which gives the final brew a deep amber color and a smooth, full-bodied flavor with subtle floral and fruity notes.'**
   String get ivanTeaStory;
 
   /// No description provided for @ivanTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare Ivan-tea, pour boiling water (90-95°C) over 1-2 teaspoons of fermented leaves. Let it steep for 5-10 minutes. Unlike traditional tea leaves, fermented fireweed can be re-infused multiple times without becoming bitter.'**
   String get ivanTeaPreparation;
 
   /// No description provided for @ivanTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Ivan-tea is best enjoyed hot and plain, or sweetened with a spoonful of honey. Its naturally smooth, non-astringent profile also makes it a pleasant beverage served chilled on warmer days.'**
   String get ivanTeaHowToDrink;
 
   /// No description provided for @ivanTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Naturally caffeine-free, fermented Ivan-tea contains organic acids, flavonoids, and Vitamin C. Because it contains no caffeine or tannins, it provides a gentle, soothing drink suitable for any time of day.'**
   String get ivanTeaProperties;
 
   /// No description provided for @oolongTeaStoryTitle.
