@@ -755,7 +755,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get carpathianTeaStoryTitle =>
-      'Carpathian tea - «The Breath of the Wild Mountains»';
+      'Carpathian tea – «The Breath of the Wild Mountains»';
 
   @override
   String get carpathianTeaStory =>
@@ -775,7 +775,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get labradorTeaStoryTitle =>
-      'Labrador Tea - «The Ancient Warmth of the Tundra»';
+      'Labrador Tea – «The Ancient Warmth of the Tundra»';
 
   @override
   String get labradorTeaStory =>
@@ -795,7 +795,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get ivanTeaStoryTitle =>
-      'Ivan-Tea - «The Flame That Restores the Scorched Earth»';
+      'Ivan-Tea – «The Flame That Restores the Scorched Earth»';
 
   @override
   String get ivanTeaStory =>
@@ -815,7 +815,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get oolongTeaStoryTitle =>
-      'Oolong Tea - «The Tea That Didn\'t Choose a Side»';
+      'Oolong Tea – «The Tea That Didn\'t Choose a Side»';
 
   @override
   String get oolongTeaStory =>
@@ -834,7 +834,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Oolong tea naturally contains a moderate amount of caffeine alongside L-theanine. It is rich in complex tea polyphenols, particularly polymerized polyphenols (theasinensins) formed during partial oxidation.';
 
   @override
-  String get rooibosTeaStoryTitle => 'Rooibos - «The Tea That Was Never Tea»';
+  String get rooibosTeaStoryTitle => 'Rooibos – «The Tea That Was Never Tea»';
 
   @override
   String get rooibosTeaStory =>
@@ -853,7 +853,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Naturally caffeine-free and low in tannins, rooibos naturally contains unique plant polyphenols such as aspalathin and nothofagin, making it a mild, comforting drink for any time of day.';
 
   @override
-  String get puerhTeaStoryTitle => 'Pu-erh Tea - «Tea That Can Wait»';
+  String get puerhTeaStoryTitle => 'Pu-erh Tea – «Tea That Can Wait»';
 
   @override
   String get puerhTeaStory =>
@@ -873,7 +873,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get chamomileTeaStoryTitle =>
-      'Chamomile Tea - «The Flower That Turned Into Calm»';
+      'Chamomile Tea – «The Flower That Turned Into Calm»';
 
   @override
   String get chamomileTeaStory =>
@@ -893,7 +893,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get senchaTeaStoryTitle =>
-      'Sencha Tea - «The Everyday Tea of Calm Precision»';
+      'Sencha Tea – «The Everyday Tea of Calm Precision»';
 
   @override
   String get senchaTeaStory =>
@@ -913,20 +913,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get honeybushTeaStoryTitle =>
-      'Honeybush - \"The Sweet Bush of the Cape\"';
+      'Honeybush – «The Sweet Bush of the Cape»';
 
   @override
   String get honeybushTeaStory =>
-      'Honeybush comes from South Africa, from a plant related in spirit to rooibos but naturally sweeter in aroma.\n\nIt is caffeine-free, gentle, and rounded, with a honeyed scent that explains its name before the first sip. Honeybush feels like sunlight held in a herbal cup.';
+      'Honeybush is a wild shrub native to the fynbos biome of South Africa\'s Western and Eastern Cape regions. Closely related to rooibos, the plant received its name from early European settlers due to the rich, honey-like fragrance of its bright yellow blossoms.\n\nFor generations, indigenous inhabitants and mountain communities harvested wild honeybush branches, chopping and fermenting them in heaps before sun-drying. Unlike imported black tea, honeybush produced a naturally sweet, aromatic infusion with low tannin levels, evolving from a local mountain tradition into a cherished South African herbal beverage.';
 
   @override
-  String get honeybushTeaPreparation => '';
+  String get honeybushTeaPreparation =>
+      'To prepare honeybush, pour boiling water (95-100°C) over 1-2 teaspoons of dried leaves and stems. Let it steep for 5-7 minutes. Extended steeping enhances its natural sweetness without imparting bitterness.';
 
   @override
-  String get honeybushTeaHowToDrink => '';
+  String get honeybushTeaHowToDrink =>
+      'Honeybush is served hot or iced and is naturally sweet enough to enjoy plain. It also complements a drizzle of natural honey, a slice of lemon, or a splash of milk.';
 
   @override
-  String get honeybushTeaProperties => '';
+  String get honeybushTeaProperties =>
+      'Naturally caffeine-free and low in tannins, honeybush naturally contains plant polyphenols, including xanthones like mangiferin and isoflavones, making it a soothing, easy-to-drink beverage.';
 
   @override
   String get branchTeaStoryTitle =>

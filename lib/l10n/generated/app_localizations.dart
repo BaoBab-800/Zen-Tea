@@ -1415,7 +1415,7 @@ abstract class AppLocalizations {
   /// No description provided for @carpathianTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Carpathian tea - «The Breath of the Wild Mountains»'**
+  /// **'Carpathian tea – «The Breath of the Wild Mountains»'**
   String get carpathianTeaStoryTitle;
 
   /// No description provided for @carpathianTeaStory.
@@ -1445,7 +1445,7 @@ abstract class AppLocalizations {
   /// No description provided for @labradorTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Labrador Tea - «The Ancient Warmth of the Tundra»'**
+  /// **'Labrador Tea – «The Ancient Warmth of the Tundra»'**
   String get labradorTeaStoryTitle;
 
   /// No description provided for @labradorTeaStory.
@@ -1475,7 +1475,7 @@ abstract class AppLocalizations {
   /// No description provided for @ivanTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Ivan-Tea - «The Flame That Restores the Scorched Earth»'**
+  /// **'Ivan-Tea – «The Flame That Restores the Scorched Earth»'**
   String get ivanTeaStoryTitle;
 
   /// No description provided for @ivanTeaStory.
@@ -1505,7 +1505,7 @@ abstract class AppLocalizations {
   /// No description provided for @oolongTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Oolong Tea - «The Tea That Didn\'t Choose a Side»'**
+  /// **'Oolong Tea – «The Tea That Didn\'t Choose a Side»'**
   String get oolongTeaStoryTitle;
 
   /// No description provided for @oolongTeaStory.
@@ -1535,7 +1535,7 @@ abstract class AppLocalizations {
   /// No description provided for @rooibosTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Rooibos - «The Tea That Was Never Tea»'**
+  /// **'Rooibos – «The Tea That Was Never Tea»'**
   String get rooibosTeaStoryTitle;
 
   /// No description provided for @rooibosTeaStory.
@@ -1565,7 +1565,7 @@ abstract class AppLocalizations {
   /// No description provided for @puerhTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Pu-erh Tea - «Tea That Can Wait»'**
+  /// **'Pu-erh Tea – «Tea That Can Wait»'**
   String get puerhTeaStoryTitle;
 
   /// No description provided for @puerhTeaStory.
@@ -1595,7 +1595,7 @@ abstract class AppLocalizations {
   /// No description provided for @chamomileTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Chamomile Tea - «The Flower That Turned Into Calm»'**
+  /// **'Chamomile Tea – «The Flower That Turned Into Calm»'**
   String get chamomileTeaStoryTitle;
 
   /// No description provided for @chamomileTeaStory.
@@ -1625,7 +1625,7 @@ abstract class AppLocalizations {
   /// No description provided for @senchaTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Sencha Tea - «The Everyday Tea of Calm Precision»'**
+  /// **'Sencha Tea – «The Everyday Tea of Calm Precision»'**
   String get senchaTeaStoryTitle;
 
   /// No description provided for @senchaTeaStory.
@@ -1655,31 +1655,31 @@ abstract class AppLocalizations {
   /// No description provided for @honeybushTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Honeybush - \"The Sweet Bush of the Cape\"'**
+  /// **'Honeybush – «The Sweet Bush of the Cape»'**
   String get honeybushTeaStoryTitle;
 
   /// No description provided for @honeybushTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Honeybush comes from South Africa, from a plant related in spirit to rooibos but naturally sweeter in aroma.\n\nIt is caffeine-free, gentle, and rounded, with a honeyed scent that explains its name before the first sip. Honeybush feels like sunlight held in a herbal cup.'**
+  /// **'Honeybush is a wild shrub native to the fynbos biome of South Africa\'s Western and Eastern Cape regions. Closely related to rooibos, the plant received its name from early European settlers due to the rich, honey-like fragrance of its bright yellow blossoms.\n\nFor generations, indigenous inhabitants and mountain communities harvested wild honeybush branches, chopping and fermenting them in heaps before sun-drying. Unlike imported black tea, honeybush produced a naturally sweet, aromatic infusion with low tannin levels, evolving from a local mountain tradition into a cherished South African herbal beverage.'**
   String get honeybushTeaStory;
 
   /// No description provided for @honeybushTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare honeybush, pour boiling water (95-100°C) over 1-2 teaspoons of dried leaves and stems. Let it steep for 5-7 minutes. Extended steeping enhances its natural sweetness without imparting bitterness.'**
   String get honeybushTeaPreparation;
 
   /// No description provided for @honeybushTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Honeybush is served hot or iced and is naturally sweet enough to enjoy plain. It also complements a drizzle of natural honey, a slice of lemon, or a splash of milk.'**
   String get honeybushTeaHowToDrink;
 
   /// No description provided for @honeybushTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Naturally caffeine-free and low in tannins, honeybush naturally contains plant polyphenols, including xanthones like mangiferin and isoflavones, making it a soothing, easy-to-drink beverage.'**
   String get honeybushTeaProperties;
 
   /// No description provided for @branchTeaStoryTitle.
