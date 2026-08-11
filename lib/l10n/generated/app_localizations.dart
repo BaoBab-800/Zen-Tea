@@ -1595,31 +1595,31 @@ abstract class AppLocalizations {
   /// No description provided for @chamomileTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Chamomile Tea - \"The Flower That Turned Into Calm\"'**
+  /// **'Chamomile Tea - «The Flower That Turned Into Calm»'**
   String get chamomileTeaStoryTitle;
 
   /// No description provided for @chamomileTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Chamomile tea comes from Ancient Egypt, where the small white flowers were valued as a sacred and healing plant.\n\nIt was often associated with the sun and used in traditional remedies to calm the body and restore balance. People did not treat it as a luxury drink, but as something natural that helps when life feels heavy.\n\nOver time, chamomile spread across the world and became known as the tea of rest, the one you drink when everything slows down and the day finally lets you breathe.'**
+  /// **'Chamomile (Matricaria chamomilla) is one of the world\'s oldest documented medicinal plants. Native to the Mediterranean and Western Asia, its small, daisy-like flowers were revered in Ancient Egypt, where they were dedicated to the sun god, Ra, for their restorative properties. The Ebers Papyrus (c. 1550 BCE) also notes its use in early remedies.\n\nThe Greeks and Romans similarly valued the plant for its fragrance and versatility. By the Middle Ages, chamomile became a fundamental herb in monastic gardens across Europe, a traditional remedy for digestive comfort and restlessness passed through generations of traditional healers.'**
   String get chamomileTeaStory;
 
   /// No description provided for @chamomileTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare chamomile tea, steep 1-2 teaspoons of dried whole flowers in near-boiling water (90-95°C). Cover the cup for 5-10 minutes to trap the precious essential oils before straining.'**
   String get chamomileTeaPreparation;
 
   /// No description provided for @chamomileTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Chamomile tea is traditionally served hot, plain, or sweetened with a spoonful of honey, making it an ideal beverage for evening relaxation or after meals.'**
   String get chamomileTeaHowToDrink;
 
   /// No description provided for @chamomileTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Naturally caffeine-free, chamomile flowers contain essential oils (like alpha-bisabolol), flavonoids (such as apigenin), and plant mucilage, contributing to its gentle and comforting aroma.'**
   String get chamomileTeaProperties;
 
   /// No description provided for @senchaTeaStoryTitle.
