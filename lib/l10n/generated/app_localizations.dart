@@ -1091,31 +1091,31 @@ abstract class AppLocalizations {
   /// No description provided for @jasmineTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Jasmine tea is \"a tea that is remembered not for its taste, but for its aroma\"'**
+  /// **'Jasmine Tea – «Tea Remembered Not for Its Taste, but for Its Aroma»'**
   String get jasmineTeaStoryTitle;
 
   /// No description provided for @jasmineTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Jasmine tea is not just about tea, but also about flowers.\n\nIts base is almost always green tea, but the real action happens not in the leaves, but around them. Fresh jasmine flowers open at night and release their aroma. The tea leaves absorb this scent, as if \'inhaling\' it.\n\nThen the flowers are harvested, but the aroma remains.'**
+  /// **'Jasmine tea originated in China during the Song Dynasty and reached widespread popularity during the Ming Dynasty, when scented teas became highly valued. Traditionally produced in Fujian province, it uses a green tea base harvested in spring that is held until mid-summer when jasmine blossoms bloom.\n\nFreshly picked jasmine blossoms open at night, releasing their volatile aromatic oils. The tea leaves are layered with the fresh flowers overnight to naturally absorb the fragrance. This scenting process is often repeated multiple times using new batches of flowers, after which the blossoms are meticulously removed to preserve the delicate flavor of the tea.'**
   String get jasmineTeaStory;
 
   /// No description provided for @jasmineTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare jasmine tea, heat water to around 75-80°C to keep the green tea base from becoming bitter. Pour over the leaves and steep for 2-3 minutes to allow the floral notes to unfold gently.'**
   String get jasmineTeaPreparation;
 
   /// No description provided for @jasmineTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Jasmine tea is best enjoyed hot and plain, served in a porcelain gaiwan or a glass cup to highlight its pale, golden color and aromatic profile. It pairs exceptionally well with mild, savory dishes.'**
   String get jasmineTeaHowToDrink;
 
   /// No description provided for @jasmineTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Jasmine tea retains many of the naturally occurring compounds found in its green tea base, including tea polyphenols such as EGCG. Jasmine flowers contribute aromatic compounds such as linalool, giving the tea its characteristic floral fragrance.'**
   String get jasmineTeaProperties;
 
   /// No description provided for @hibiscusTeaStoryTitle.
