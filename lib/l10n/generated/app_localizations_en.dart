@@ -581,27 +581,30 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get whiteTeaStoryTitle =>
-      'White tea - \"tea that has hardly been touched\"';
+      'White Tea – «Tea That Has Hardly Been Touched»';
 
   @override
   String get whiteTeaStory =>
-      'White tea is the most \'pristine\' of all teas.\n\nEgo is made from young buds and leaves that are hardly processed: they are simply collected and carefully dried. Without strong heating, without twisting, without trying to change something.\n\nAs if the main idea is not to interfere.';
+      'White tea has deep roots in Fujian province, China, where varieties such as Da Bai (Big White) became closely associated with its production. Historical records describe delicate tea buds being presented as imperial tributes during the Song Dynasty, while the white tea styles known today developed much later.\n\nUnlike green or black tea, white tea undergoes minimal processing. Fresh spring buds and young leaves – often covered in fine white hairs called trichomes – are harvested, withered under controlled conditions, and slowly dried. Because the leaves are neither rolled nor subjected to high heat to stop oxidation, they undergo gentle natural oxidation before drying, preserving their delicate character.';
 
   @override
-  String get whiteTeaPreparation => '';
+  String get whiteTeaPreparation =>
+      'To prepare white tea, use water heated to around 75-80°C. Steep for 4-5 minutes, allowing the delicate leaves and buds to release their subtle, naturally sweet flavors.';
 
   @override
-  String get whiteTeaHowToDrink => '';
+  String get whiteTeaHowToDrink =>
+      'White tea is best served plain in a light porcelain or clear glass cup. Its gentle profile features subtle floral, melon, and hay-like notes, making it ideal for quiet, contemplative drinking.';
 
   @override
-  String get whiteTeaProperties => '';
+  String get whiteTeaProperties =>
+      'Because white tea undergoes minimal processing, it retains naturally occurring polyphenols, including catechins. It also contains caffeine and L-theanine, contributing to its characteristic gentle and refreshing character.';
 
   @override
   String get mintTeaStoryTitle => 'Mint tea - \"The Tea That Can Stop Noise\"';
 
   @override
   String get mintTeaStory =>
-      'Mint tea doesn\'t try to invigorate like coffee, nor does it attempt to impress with a complex flavor.\n\nIt does something different – ​​it seems to purify the space around you.\n\nMint was brewed in ancient cultures: in Egypt, Greece, and the Middle East. It was prized not only for its flavor but also for the feeling of freshness it provided, even in the heat.\n\nOver time, mint tea became a drink for a break – something you drink not on the run, but to take a breather.';
+      'Mint tea doesn\'t try to invigorate like coffee, nor does it attempt to impress with a complex flavor.\n\nIt does something different – it seems to purify the space around you.\n\nMint was brewed in ancient cultures: in Egypt, Greece, and the Middle East. It was prized not only for its flavor but also for the feeling of freshness it provided, even in the heat.\n\nOver time, mint tea became a drink for a break – something you drink not on the run, but to take a breather.';
 
   @override
   String get mintTeaPreparation => '';
