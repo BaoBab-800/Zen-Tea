@@ -1565,31 +1565,31 @@ abstract class AppLocalizations {
   /// No description provided for @puerhTeaStoryTitle.
   ///
   /// In en, this message translates to:
-  /// **'Pu-erh – \"Tea that can wait\"'**
+  /// **'Pu-erh Tea - «Tea That Can Wait»'**
   String get puerhTeaStoryTitle;
 
   /// No description provided for @puerhTeaStory.
   ///
   /// In en, this message translates to:
-  /// **'Pu-erh is a tea that stands the test of time.\n\nWhile other teas strive to preserve their freshness, pu-erh is the opposite: it\'s allowed to evolve. After processing, the tea continues to \'live,\' gradually changing its flavor, aroma, and character.\n\nSome pu-erhs are aged for years. Sometimes, for decades.'**
+  /// **'Pu-erh tea comes from Yunnan province, China, one of the world\'s oldest and most important tea-growing regions. Named after the historic trading town of Pu\'er, the tea was traditionally compressed into dense cakes or bricks, making it easier to transport along the Ancient Tea Horse Road to Tibet and beyond. Over time, these traditional forms became closely associated with the art of aging tea.\n\nUnlike most teas, Pu-erh can undergo significant microbial transformation during processing and aging. It is produced in two main styles: Sheng (raw) Pu-erh, which is naturally aged over years or decades, gradually developing from bright and astringent into a smoother, deeper character, and Shou (ripe) Pu-erh, created through an accelerated fermentation process developed in the 1970s to reproduce some qualities of aged tea.'**
   String get puerhTeaStory;
 
   /// No description provided for @puerhTeaPreparation.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'To prepare Pu-erh, rinse the leaves briefly with boiling water (95-100°C) to open them up. Steep for 2-4 minutes, or perform multiple short 15-30 second infusions if using traditional gongfu brewing.'**
   String get puerhTeaPreparation;
 
   /// No description provided for @puerhTeaHowToDrink.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Pu-erh is best served hot and plain in small porcelain or Yixing clay cups. Its deep, earthy, woodsy, and complex flavor profile makes it a traditional digestif after rich meals.'**
   String get puerhTeaHowToDrink;
 
   /// No description provided for @puerhTeaProperties.
   ///
   /// In en, this message translates to:
-  /// **''**
+  /// **'Pu-erh naturally contains caffeine along with polyphenols and other compounds that change during microbial fermentation and aging. These transformations contribute to the tea\'s distinctive aroma, flavor, and character.'**
   String get puerhTeaProperties;
 
   /// No description provided for @chamomileTeaStoryTitle.

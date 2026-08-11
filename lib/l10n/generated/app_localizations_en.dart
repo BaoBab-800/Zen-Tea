@@ -853,20 +853,23 @@ class AppLocalizationsEn extends AppLocalizations {
       'Naturally caffeine-free and low in tannins, rooibos naturally contains unique plant polyphenols such as aspalathin and nothofagin, making it a mild, comforting drink for any time of day.';
 
   @override
-  String get puerhTeaStoryTitle => 'Pu-erh – \"Tea that can wait\"';
+  String get puerhTeaStoryTitle => 'Pu-erh Tea - «Tea That Can Wait»';
 
   @override
   String get puerhTeaStory =>
-      'Pu-erh is a tea that stands the test of time.\n\nWhile other teas strive to preserve their freshness, pu-erh is the opposite: it\'s allowed to evolve. After processing, the tea continues to \'live,\' gradually changing its flavor, aroma, and character.\n\nSome pu-erhs are aged for years. Sometimes, for decades.';
+      'Pu-erh tea comes from Yunnan province, China, one of the world\'s oldest and most important tea-growing regions. Named after the historic trading town of Pu\'er, the tea was traditionally compressed into dense cakes or bricks, making it easier to transport along the Ancient Tea Horse Road to Tibet and beyond. Over time, these traditional forms became closely associated with the art of aging tea.\n\nUnlike most teas, Pu-erh can undergo significant microbial transformation during processing and aging. It is produced in two main styles: Sheng (raw) Pu-erh, which is naturally aged over years or decades, gradually developing from bright and astringent into a smoother, deeper character, and Shou (ripe) Pu-erh, created through an accelerated fermentation process developed in the 1970s to reproduce some qualities of aged tea.';
 
   @override
-  String get puerhTeaPreparation => '';
+  String get puerhTeaPreparation =>
+      'To prepare Pu-erh, rinse the leaves briefly with boiling water (95-100°C) to open them up. Steep for 2-4 minutes, or perform multiple short 15-30 second infusions if using traditional gongfu brewing.';
 
   @override
-  String get puerhTeaHowToDrink => '';
+  String get puerhTeaHowToDrink =>
+      'Pu-erh is best served hot and plain in small porcelain or Yixing clay cups. Its deep, earthy, woodsy, and complex flavor profile makes it a traditional digestif after rich meals.';
 
   @override
-  String get puerhTeaProperties => '';
+  String get puerhTeaProperties =>
+      'Pu-erh naturally contains caffeine along with polyphenols and other compounds that change during microbial fermentation and aging. These transformations contribute to the tea\'s distinctive aroma, flavor, and character.';
 
   @override
   String get chamomileTeaStoryTitle =>
