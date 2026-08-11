@@ -933,20 +933,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get branchTeaStoryTitle =>
-      'Branch Tea - \"the hidden pulse of the winter garden\"';
+      'Branch Tea - «The Hidden Pulse of the Winter Garden»';
 
   @override
   String get branchTeaStory =>
-      'Branch tea is the art of finding life where everything seems asleep.\n\nWhile traditional tea relies on fragile leaves, this ancient Ukrainian drink is born from the young twigs of cherry, currant, and raspberry trees. It is a slow, patient brew that coaxes deep, wooden, and berry aromas from the very bones of the plant.\n\nIt is proof that even in the coldest winter, the essence of spring is already hiding within the wood.';
+      'Branch tea is a traditional Eastern European herbal practice, historically popular in rural Ukraine during the winter and early spring when fresh tea leaves, wild herbs, and garden fruits were unavailable. Villagers pruned young, tender winter twigs from fruit-bearing trees and berry bushes-most notably sour cherry, blackcurrant, raspberry, and apple – to prepare fragrant hot decoctions.\n\nBecause wood and bark require a different approach than delicate leaves, these branch infusions were boiled slowly on stove-tops or left to simmer in clay pots inside traditional ovens. This long extraction process released deep, woody aromas, subtle berry notes, and vibrant amber hues from the dormant wood, serving as a staple cold-weather beverage for farmstead families.';
 
   @override
-  String get branchTeaPreparation => '';
+  String get branchTeaPreparation =>
+      'To prepare branch tea, cut young twigs into small pieces and place them in a pot of water. Bring to a boil and simmer on low heat for 10-15 minutes, then cover and allow it to steep for another 15-20 minutes to draw out its full flavor and rich aroma.';
 
   @override
-  String get branchTeaHowToDrink => '';
+  String get branchTeaHowToDrink =>
+      'Branch tea is traditionally served piping hot, plain or sweetened with a spoon of berry jam or wild forest honey. Its comforting, woodsy profile makes it a traditional winter warming drink.';
 
   @override
-  String get branchTeaProperties => '';
+  String get branchTeaProperties =>
+      'Naturally caffeine-free, branch decoctions contain essential oils, organic acids, tannins, and naturally occurring plant compounds extracted from the bark and wood of fruit trees.';
 
   @override
   String get darjeelingTeaStoryTitle => 'Darjeeling - \"The Champagne of Tea\"';
