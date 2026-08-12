@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:zentea/core/theme/app_color_scheme.dart';
 import 'package:zentea/core/theme/app_palette.dart';
+import 'package:zentea/core/theme/app_color_scheme.dart';
 
 import 'package:zentea/services/storage/i_key_value_storage.dart';
 
@@ -13,8 +13,17 @@ class SettingsService extends ChangeNotifier {
   final IKeyValueStorage storage;
 
   ThemeMode themeMode = ThemeMode.system;
-  AppColorScheme accentColor = AppPalette.orange;
+
   Locale locale = const Locale('en');
+
+  AppPaletteType paletteType = AppPaletteType.orange;
+
+  AppColorScheme get palette {
+    return switch (paletteType) {
+      AppPaletteType.orange => AppPalette.orange,
+      AppPaletteType.green => AppPalette.green,
+    };
+  }
 
   SettingsService(this.storage) {
     _loadSettings();
@@ -27,9 +36,9 @@ class SettingsService extends ChangeNotifier {
     final localeCode = await storage.get<String>(_localeKey) ?? 'en';
     locale = Locale(localeCode);
 
-    final paletteName = await storage.get<String>(_accentColorKey) ?? 'orange';
-    final paletteType = AppPaletteType.values.byName(paletteName);
-    accentColor = AppPalette.get(paletteType);
+    final accentColorName = await storage.get<String>(_accentColorKey) ?? 'orange';
+
+    paletteType = AppPaletteType.values.byName(accentColorName);
 
     notifyListeners();
   }
@@ -42,10 +51,10 @@ class SettingsService extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> changeAccentColor(AppPaletteType palette) async {
-    accentColor = AppPalette.get(palette);
+  Future<void> changeAccentColor(AppPaletteType color) async {
+    paletteType = color;
 
-    await storage.put(_accentColorKey, palette.name);
+    await storage.put(_accentColorKey, color.name);
 
     notifyListeners();
   }

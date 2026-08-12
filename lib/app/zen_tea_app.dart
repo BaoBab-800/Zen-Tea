@@ -52,8 +52,8 @@ class AppView extends StatelessWidget {
     return MaterialApp.router(
       title: 'Zen Tea',
 
-      theme: AppTheme.light(settings.accentColor),
-      darkTheme: AppTheme.dark(settings.accentColor),
+      theme: AppTheme.light(settings.palette),
+      darkTheme: AppTheme.dark(settings.palette),
       themeMode: settings.themeMode,
 
       locale: settings.locale,
