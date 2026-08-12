@@ -27,8 +27,9 @@ class SettingsService extends ChangeNotifier {
     final localeCode = await storage.get<String>(_localeKey) ?? 'en';
     locale = Locale(localeCode);
 
-    final paletteIndex = await storage.get<int>(_accentColorKey) ?? 0;
-    accentColor = AppPalette.get(AppPaletteType.values[paletteIndex]);
+    final paletteName = await storage.get<String>(_accentColorKey) ?? 'orange';
+    final paletteType = AppPaletteType.values.byName(paletteName);
+    accentColor = AppPalette.get(paletteType);
 
     notifyListeners();
   }
@@ -41,7 +42,7 @@ class SettingsService extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> changePalette(AppPaletteType palette) async {
+  Future<void> changeAccentColor(AppPaletteType palette) async {
     accentColor = AppPalette.get(palette);
 
     await storage.put(_accentColorKey, palette.name);
