@@ -28,6 +28,10 @@
   "themeLight": "Light",
   "themeDark": "Dark",
 
+  "accentColor": "Accent color",
+  "orange": "Orange",
+  "green": "Green",
+
   "history": "History",
   "howToPrepare": "How to prepare",
   "howToDrink": "How to drink",

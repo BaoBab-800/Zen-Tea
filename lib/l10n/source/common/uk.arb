@@ -28,6 +28,10 @@
   "themeLight": "Світла",
   "themeDark": "Темна",
 
+  "accentColor": "Акцентний колір",
+  "orange": "Помаранчевий",
+  "green": "Зелений",
+
   "history": "Історія",
   "howToPrepare": "Як приготувати",
   "howToDrink": "Як пити",

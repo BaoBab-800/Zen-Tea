@@ -260,6 +260,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get themeDark => 'Dark';
 
   @override
+  String get accentColor => 'Accent color';
+
+  @override
+  String get orange => 'Orange';
+
+  @override
+  String get green => 'Green';
+
+  @override
   String get history => 'History';
 
   @override

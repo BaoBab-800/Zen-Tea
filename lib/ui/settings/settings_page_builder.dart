@@ -5,6 +5,7 @@ import 'package:zentea/core/l10n/l10n.dart';
 import 'settings_theme_section.dart';
 import 'settings_language_section.dart';
 import 'settings_dev_button.dart';
+import 'settings_accent_color_section.dart';
 
 class SettingsPageBuilder extends StatelessWidget {
   const SettingsPageBuilder({super.key});
@@ -25,7 +26,11 @@ class SettingsPageBuilder extends StatelessWidget {
       body: Column(
         children: [
           const SettingsThemeSection(),
+
+          const SettingsAccentColorSection(),
+
           const SettingsLanguageSection(),
+
           const SizedBox(height: 6),
           const Expanded(child: SizedBox()),
           const SettingsDevButton(),
