@@ -6,7 +6,6 @@ import 'app_router.dart';
 import '/core/l10n/l10n.dart';
 import '/core/providers/providers.dart';
 import '/core/theme/app_theme.dart';
-import '/core/theme/app_palette.dart';
 
 import '/data/stats/stats.dart';
 import '/data/profile/profile_stats.dart';
@@ -53,8 +52,8 @@ class AppView extends StatelessWidget {
     return MaterialApp.router(
       title: 'Zen Tea',
 
-      theme: AppTheme.light(AppPalette.green),
-      darkTheme: AppTheme.dark(AppPalette.green),
+      theme: AppTheme.light(settings.accentColor),
+      darkTheme: AppTheme.dark(settings.accentColor),
       themeMode: settings.themeMode,
 
       locale: settings.locale,

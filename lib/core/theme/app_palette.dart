@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'app_color_scheme.dart';
 
+enum AppPaletteType {
+  orange,
+  green,
+}
+
 class AppPalette {
   static const orange = AppColorScheme(
     primary: Color(0xFFDB7E33),
@@ -23,4 +28,11 @@ class AppPalette {
     surfaceLight: Colors.white,
     surfaceDark: Color(0xFF2C2C2C),
   );
+
+  static AppColorScheme get(AppPaletteType type) {
+    return switch (type) {
+      AppPaletteType.orange => orange,
+      AppPaletteType.green => green,
+    };
+  }
 }
