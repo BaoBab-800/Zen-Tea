@@ -1,54 +1,58 @@
 import 'package:flutter/material.dart';
 
+import 'app_color_scheme.dart';
 import '../extensions/map_colors_x.dart';
-import 'app_colors.dart';
 
 class AppTheme {
-  static ThemeData get light => ThemeData(
-    brightness: Brightness.light,
-    primaryColor: AppColors.primary,
-    scaffoldBackgroundColor: AppColors.backgroundLight,
+  static ThemeData light(AppColorScheme colors) {
+    return ThemeData(
+      brightness: Brightness.light,
+      primaryColor: colors.primary,
+      scaffoldBackgroundColor: colors.backgroundLight,
 
-    colorScheme: const ColorScheme.light(
-      primary: AppColors.primary,
-      surface: AppColors.surfaceLight,
-    ),
-
-    appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.primary,
-      foregroundColor: Colors.white,
-    ),
-
-    extensions: [
-      MapColorsX(
-        countryBase: Color(0xFF000000),
-        countryActive: Colors.green[700]!,
+      colorScheme: ColorScheme.light(
+        primary: colors.primary,
+        surface: colors.surfaceLight,
       ),
-    ],
-  );
 
-  static ThemeData get dark => ThemeData(
-    brightness: Brightness.dark,
-    primaryColor: AppColors.primary,
-    scaffoldBackgroundColor: AppColors.backgroundDark,
-
-    colorScheme: const ColorScheme.dark(
-      primary: AppColors.primary,
-      surface: AppColors.surfaceDark,
-    ),
-
-    appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.surfaceDark,
-      foregroundColor: Colors.white,
-    ),
-
-    extensions: [
-      MapColorsX(
-        countryBase: Color(0xFF000000),
-        countryActive: Colors.green[900]!,
+      appBarTheme: AppBarTheme(
+        backgroundColor: colors.primary,
+        foregroundColor: Colors.white,
       ),
-    ],
-  );
+
+      extensions: [
+        MapColorsX(
+          countryBase: const Color(0xFF000000),
+          countryActive: Colors.green[700]!,
+        ),
+      ],
+    );
+  }
+
+  static ThemeData dark(AppColorScheme colors) {
+    return ThemeData(
+      brightness: Brightness.dark,
+      primaryColor: colors.primary,
+      scaffoldBackgroundColor: colors.backgroundDark,
+
+      colorScheme: ColorScheme.dark(
+        primary: colors.primary,
+        surface: colors.surfaceDark,
+      ),
+
+      appBarTheme: AppBarTheme(
+        backgroundColor: colors.surfaceDark,
+        foregroundColor: Colors.white,
+      ),
+
+      extensions: [
+        MapColorsX(
+          countryBase: const Color(0xFF000000),
+          countryActive: Colors.green[900]!,
+        ),
+      ],
+    );
+  }
 }
 
 extension ThemeContext on BuildContext {
