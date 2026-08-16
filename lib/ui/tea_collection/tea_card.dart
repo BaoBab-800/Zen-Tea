@@ -10,93 +10,93 @@ import 'package:zentea/services/url/url_service.dart';
 
 import 'package:zentea/ui/history_of_teas/history_builder.dart';
 
+void showTeaDialog(BuildContext context, TeaModel tea, UrlService urlService) {
+  showDialog(
+    context: context,
+    barrierColor: Colors.black.withValues(alpha: 0.6),
+    builder: (context) {
+      return Dialog(
+        insetPadding: const EdgeInsets.all(16),
+        backgroundColor: context.colors.onPrimary.withValues(alpha: 0.9),
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 24, left: 24, right: 2, bottom: 12),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      tea.imagePath,
+                      fit: BoxFit.cover,
+                      height: 200,
+                      width: 200,
+                    ),
+                  ),
+
+                  const SizedBox(height: 6),
+                  Text(
+                    context.l10n.teaServedTimes(tea.timesServed),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  const SizedBox(height: 12),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => HistoryBuilder(currentTea: tea),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      context.l10n.readTheStory,
+                      style: TextStyle(fontWeight: FontWeight.w600),
+                    ),
+                  ),
+
+                  const SizedBox(height: 12),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                      urlService.open(tea.url);
+                    },
+                    child: Text(
+                      context.l10n.goToWiki,
+                      style: TextStyle(fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            Positioned(
+              top: 4,
+              right: 4,
+              child: IconButton(
+                icon: const Icon(Icons.close),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}
+
 class TeaCard extends StatelessWidget {
   final TeaModel tea;
   final UrlService urlService = UrlService();
 
   TeaCard({super.key, required this.tea});
-
-  void showTeaDialog(BuildContext context, TeaModel tea, UrlService urlService) {
-    showDialog(
-      context: context,
-      barrierColor: Colors.black.withValues(alpha: 0.6),
-      builder: (context) {
-        return Dialog(
-          insetPadding: const EdgeInsets.all(16),
-          backgroundColor: context.colors.onPrimary.withValues(alpha: 0.9),
-          child: Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 24, left: 24, right: 2, bottom: 12),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Image.asset(
-                        tea.imagePath,
-                        fit: BoxFit.cover,
-                        height: 200,
-                        width: 200,
-                      ),
-                    ),
-
-                    const SizedBox(height: 6),
-                    Text(
-                      context.l10n.teaServedTimes(tea.timesServed),
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-
-                    const SizedBox(height: 12),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => HistoryBuilder(currentTea: tea),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        context.l10n.readTheStory,
-                        style: TextStyle(fontWeight: FontWeight.w600),
-                      ),
-                    ),
-
-                    const SizedBox(height: 12),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        urlService.open(tea.url);
-                      },
-                      child: Text(
-                        context.l10n.goToWiki,
-                        style: TextStyle(fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              Positioned(
-                top: 4,
-                right: 4,
-                child: IconButton(
-                  icon: const Icon(Icons.close),
-                  onPressed: () => Navigator.pop(context),
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {

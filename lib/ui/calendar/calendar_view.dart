@@ -11,10 +11,14 @@ import 'package:zentea/data/calendar/calendar_day.dart';
 import 'package:zentea/data/calendar/calendar_keys.dart';
 import 'package:zentea/data/calendar/calendar_grid_state.dart';
 import 'package:zentea/data/calendar/day_state.dart';
+import 'package:zentea/data/teas/list_of_teas.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 
 import 'package:zentea/services/calendar/build_month_days.dart';
 import 'package:zentea/services/calendar/calendar_activity_service.dart';
+import 'package:zentea/services/url/url_service.dart';
+
+import 'package:zentea/ui/tea_collection/tea_card.dart';
 
 class CalendarView extends StatefulWidget {
   const CalendarView({super.key});
@@ -177,35 +181,54 @@ class _SelectedDayDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     final (state, icon) = _buildContent(day?.teaOfTheDay, day);
     final title = _getTitle(context, state, day?.teaOfTheDay);
+    final urlService = context.read<UrlService>();
 
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.all(16),
+      child: GestureDetector(
+        onTap: () {
+          final teaType = day?.teaOfTheDay;
 
-        decoration: BoxDecoration(
-          color: Theme.of(context).cardColor,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: Theme.of(context).dividerColor.withValues(alpha: 0.3),
+          if (teaType == null) return;
+
+          final tea = listOfTeas.firstWhere(
+                (tea) => tea.type == teaType,
+          );
+
+          showTeaDialog(
+            context,
+            tea,
+            urlService,
+          );
+        },
+
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(16),
+
+          decoration: BoxDecoration(
+            color: Theme.of(context).cardColor,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: Theme.of(context).dividerColor.withValues(alpha: 0.3),
+            ),
           ),
-        ),
 
-        child: Row(
-          children: [
-            Icon(icon),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Text(
-                title,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
+          child: Row(
+            children: [
+              Icon(icon),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
