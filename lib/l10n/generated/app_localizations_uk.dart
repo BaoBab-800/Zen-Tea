@@ -310,6 +310,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get resetStreak => 'Скинути серію';
 
   @override
+  String get resetCalendar => 'Скинути календар';
+
+  @override
   String get changeDeveloperRoomFlag => 'Змінити прапорець кімнати розробника';
 
   @override

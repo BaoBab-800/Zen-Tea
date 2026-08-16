@@ -33,6 +33,14 @@ class CalendarActivityService extends ChangeNotifier
   }
 
   @override
+  Future<void> resetCalendar() async {
+    await _ensureLoaded();
+    _days.clear();
+    await _storage.put(_calendarDaysKey, _days);
+    notifyListeners();
+  }
+
+  @override
   CalendarDay? dayByDate(DateTime date) {
     final normalized = _normalize(date);
     for (final day in _days) {

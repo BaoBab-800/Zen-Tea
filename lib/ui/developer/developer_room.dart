@@ -12,6 +12,7 @@ import 'package:zentea/data/teas/list_of_teas.dart';
 import 'package:zentea/data/teas/tea_types.dart';
 
 import 'package:zentea/services/achievements/i_achievements_service.dart';
+import 'package:zentea/services/calendar/calendar_activity_service.dart';
 import 'package:zentea/services/profile/profile_provider.dart';
 import 'package:zentea/services/quest_progress/quest_progress_service.dart';
 import 'package:zentea/services/stats/i_stats_repository.dart';
@@ -152,6 +153,11 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
                 ),
 
                 TextButton(
+                  onPressed: _busy ? null : () => _run(_resetCalendar),
+                  child: Text(context.l10n.resetCalendar),
+                ),
+
+                TextButton(
                   onPressed: _busy ? null : () => _run(_changeDeveloperRoomFlag),
                   child: Text(context.l10n.changeDeveloperRoomFlag),
                 ),
@@ -270,6 +276,14 @@ class _DeveloperRoomState extends State<DeveloperRoom> {
     );
 
     developer.log('Streak has been reset', name: 'DeveloperRoom');
+  }
+
+  Future<void> _resetCalendar() async {
+    final calendarActivityService = context.read<CalendarActivityService>();
+
+    await calendarActivityService.resetCalendar();
+
+    developer.log('Calendar has been reset', name: 'DeveloperRoom');
   }
 
   Future<void> _resetAllStats() async {

@@ -107,6 +107,7 @@
   "lockAllAchievements": "Lock all achievements",
   "setRandomStreak": "Set random streak (0-99)",
   "resetStreak": "Reset streak",
+  "resetCalendar": "Reset calendar",
   "changeDeveloperRoomFlag": "Change developer room flag",
   "warning": "Warning!",
   "warningContent": "You can do anything with your stats in the developer's room.\nUse at your own risk.",

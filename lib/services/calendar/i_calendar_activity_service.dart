@@ -8,5 +8,7 @@ abstract class ICalendarActivityService {
 
   Future<void> recordTeaForToday(TeaType teaType);
 
+  Future<void> resetCalendar();
+
   CalendarDay? dayByDate(DateTime date);
 }

@@ -311,6 +311,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get resetStreak => 'Reset streak';
 
   @override
+  String get resetCalendar => 'Reset calendar';
+
+  @override
   String get changeDeveloperRoomFlag => 'Change developer room flag';
 
   @override

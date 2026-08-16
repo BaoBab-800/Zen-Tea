@@ -692,6 +692,12 @@ abstract class AppLocalizations {
   /// **'Reset streak'**
   String get resetStreak;
 
+  /// No description provided for @resetCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset calendar'**
+  String get resetCalendar;
+
   /// No description provided for @changeDeveloperRoomFlag.
   ///
   /// In en, this message translates to:
