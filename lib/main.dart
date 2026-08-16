@@ -7,6 +7,7 @@ import 'data/stats/stats.dart';
 import 'data/profile/profile_stats.dart';
 
 import 'services/stats/hive_stats_repository.dart';
+import 'services/stats/streak_validator.dart';
 import 'services/profile/profile_repository.dart';
 
 void main() async {
@@ -26,7 +27,10 @@ void main() async {
   final statsRepository = HiveStatsRepository(statsBox);
   final profileStatsRepository = ProfileRepository(profileBox, statsRepository);
 
-  final initialStats = await statsRepository.getStats();
+  final initialStats = await const StreakValidator().resetExpiredStreak(
+    repository: statsRepository,
+    stats: await statsRepository.getStats(),
+  );
   final initialProfile = await profileStatsRepository.getProfileStats();
 
   runApp(
