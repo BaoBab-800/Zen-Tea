@@ -19,8 +19,8 @@ class AppPalette {
   );
 
   static const green = AppColorScheme(
-    primary: Color(0xFF6C8E33),
-    belowPrimary: Color(0xFF4A6C10),
+    primary: Color(0xFF6C9E4A),
+    belowPrimary: Color(0xFF4E7C12),
 
     backgroundLight: Color(0xFFF5F5DC),
     backgroundDark: Color(0xFF1E1E1E),
